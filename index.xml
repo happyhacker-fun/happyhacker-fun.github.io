@@ -21,6 +21,15 @@
     </item>
     
     <item>
+      <title>配置Hugo的图片路径</title>
+      <link>http://blog.happyhacker.fun/post/config-hugo-image-path/</link>
+      <pubDate>Sat, 28 Mar 2020 23:44:36 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/config-hugo-image-path/</guid>
+      <description>&lt;p&gt;不得不说Hugo的图片路径支持有些不友好，网上也有很多吐槽。简单说就是即便神级的Markdown编辑器Typora都无法适应Hugo的图片路径。由于Typora需要做日常的工作记录，所以就配置了一下VSCode来支持Hugo。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Springboot使用内置和独立tomcat以及其他思考</title>
       <link>http://blog.happyhacker.fun/post/spring-tomcat-tutorial/</link>
       <pubDate>Sat, 28 Mar 2020 12:56:22 +0800</pubDate>
