@@ -6,9 +6,46 @@
     <description>Recent content in Tags on happyhakcer makes fun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
+    <lastBuildDate>Sat, 28 Mar 2020 12:56:22 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.happyhacker.fun/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>in-action</title>
+      <link>http://blog.happyhacker.fun/tags/in-action/</link>
+      <pubDate>Sat, 28 Mar 2020 12:56:22 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/tags/in-action/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>java</title>
+      <link>http://blog.happyhacker.fun/tags/java/</link>
+      <pubDate>Sat, 28 Mar 2020 12:56:22 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/tags/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>springboot</title>
+      <link>http://blog.happyhacker.fun/tags/springboot/</link>
+      <pubDate>Sat, 28 Mar 2020 12:56:22 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/tags/springboot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tomcat</title>
+      <link>http://blog.happyhacker.fun/tags/tomcat/</link>
+      <pubDate>Sat, 28 Mar 2020 12:56:22 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/tags/tomcat/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

@@ -20,5 +20,14 @@
       <description>It makes use of a variety of open source projects including: Cobra Viper J Walter Weatherman Cast Learn more and contribute on GitHub.</description>
     </item>
     
+    <item>
+      <title>Springboot使用内置和独立tomcat以及其他思考</title>
+      <link>http://blog.happyhacker.fun/post/spring-tomcat-tutorial/</link>
+      <pubDate>Sat, 28 Mar 2020 12:56:22 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/spring-tomcat-tutorial/</guid>
+      <description>&lt;p&gt;本文探讨了Springboot应用使用jar包和war包的区别，以及使用中的一些思考。我刚开始研究Java，一些想法可能不准确，欢迎提出宝贵意见。&lt;/p&gt;</description>
+    </item>
+    
   </channel>
 </rss>
