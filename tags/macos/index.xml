@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>macOS on happyhakcer makes fun</title>
+    <link>http://blog.happyhacker.fun/tags/macos/</link>
+    <description>Recent content in macOS on happyhakcer makes fun</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 29 Mar 2020 10:57:10 +0800</lastBuildDate>
+    
+	<atom:link href="http://blog.happyhacker.fun/tags/macos/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>macOS上管理SSH服务</title>
+      <link>http://blog.happyhacker.fun/post/sshd-in-macos/</link>
+      <pubDate>Sun, 29 Mar 2020 10:57:10 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/sshd-in-macos/</guid>
+      <description>&lt;p&gt;mac本身安装了ssh服务，默认情况下不会开机自启。本文记录了开启和停止sshd服务的方法。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>使用Homebrew管理macOS上的服务</title>
+      <link>http://blog.happyhacker.fun/post/macos-service-management/</link>
+      <pubDate>Sun, 29 Mar 2020 10:53:04 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/macos-service-management/</guid>
+      <description>&lt;p&gt;用了5年macOS也一直没有用过苹果原生的服务管理、AppleSript等等，总感觉不够直观，好在还有Homebrew这个神器，帮我解决了很多问题。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>AMD黑苹果的装机经验</title>
+      <link>http://blog.happyhacker.fun/post/ryzentosh/</link>
+      <pubDate>Sun, 29 Mar 2020 10:49:38 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/ryzentosh/</guid>
+      <description>&lt;p&gt;实在是受不了MBP13孱弱的性能和糟糕的发热，终于下定决心组装一台台式机。最终还是真香。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

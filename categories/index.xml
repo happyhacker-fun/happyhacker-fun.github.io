@@ -6,7 +6,7 @@
     <description>Recent content in Categories on happyhakcer makes fun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 29 Mar 2020 00:21:43 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 29 Mar 2020 10:57:10 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.happyhacker.fun/categories/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,9 +14,27 @@
     <item>
       <title>in-action</title>
       <link>http://blog.happyhacker.fun/categories/in-action/</link>
-      <pubDate>Sun, 29 Mar 2020 00:21:43 +0800</pubDate>
+      <pubDate>Sun, 29 Mar 2020 10:57:10 +0800</pubDate>
       
       <guid>http://blog.happyhacker.fun/categories/in-action/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>macOS</title>
+      <link>http://blog.happyhacker.fun/categories/macos/</link>
+      <pubDate>Sun, 29 Mar 2020 10:53:04 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/categories/macos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ryzentosh</title>
+      <link>http://blog.happyhacker.fun/categories/ryzentosh/</link>
+      <pubDate>Sun, 29 Mar 2020 10:49:38 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/categories/ryzentosh/</guid>
       <description></description>
     </item>
     

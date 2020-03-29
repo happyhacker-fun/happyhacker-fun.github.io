@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>AMD黑苹果的装机经验 - happyhakcer makes fun</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="happyhacker" /><meta name="description" content="AMD YES!!!" /><meta name="keywords" content="Java, PHP, Architect" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.68.3 with theme even" />
+
+
+<link rel="canonical" href="http://blog.happyhacker.fun/post/ryzentosh/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="AMD黑苹果的装机经验" />
+<meta property="og:description" content="AMD YES!!!" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://blog.happyhacker.fun/post/ryzentosh/" />
+<meta property="article:published_time" content="2020-03-29T10:49:38+08:00" />
+<meta property="article:modified_time" content="2020-03-29T10:49:38+08:00" />
+<meta itemprop="name" content="AMD黑苹果的装机经验">
+<meta itemprop="description" content="AMD YES!!!">
+<meta itemprop="datePublished" content="2020-03-29T10:49:38&#43;08:00" />
+<meta itemprop="dateModified" content="2020-03-29T10:49:38&#43;08:00" />
+<meta itemprop="wordCount" content="2533">
+
+
+
+<meta itemprop="keywords" content="amd,hackintosh,macOS," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="AMD黑苹果的装机经验"/>
+<meta name="twitter:description" content="AMD YES!!!"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Happyhacker</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于我</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Happyhacker</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于我</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">AMD黑苹果的装机经验</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-03-29 10:49 </span>
+        <div class="post-category">
+            <a href="/categories/ryzentosh/"> ryzentosh </a>
+            </div>
+          <span class="more-meta"> 约 2533 字 </span>
+          <span class="more-meta"> 预计阅读 6 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#准备阶段">准备阶段</a>
+      <ul>
+        <li><a href="#1-cpu">1. CPU</a></li>
+        <li><a href="#2-主板">2. 主板</a></li>
+        <li><a href="#3-显卡">3. 显卡</a></li>
+        <li><a href="#4-内存">4. 内存</a></li>
+        <li><a href="#5-其他">5. 其他</a></li>
+        <li><a href="#6-机箱风扇">6. 机箱风扇</a></li>
+      </ul>
+    </li>
+    <li><a href="#配置单">配置单</a></li>
+    <li><a href="#安装过程">安装过程</a>
+      <ul>
+        <li><a href="#1-制作安装盘">1. 制作安装盘</a></li>
+        <li><a href="#2-下载必备软件包">2. 下载必备软件包</a></li>
+        <li><a href="#3-配置configplist">3. 配置<code>config.plist</code></a></li>
+      </ul>
+    </li>
+    <li><a href="#使用优盘启动">使用优盘启动</a></li>
+    <li><a href="#免优盘启动">免优盘启动</a></li>
+    <li><a href="#总结">总结</a></li>
+    <li><a href="#补充">补充</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>实在是受不了MBP13孱弱的性能和糟糕的发热，终于下定决心组装一台台式机。最终还是真香。</p>
+<p><strong>本文操作过程基于白苹果，Windows环境的小伙伴可参考其他教程</strong></p>
+<blockquote>
+<p>本次操作的大部分流程都基于<a href="https://khronokernel-2.gitbook.io/opencore-vanilla-desktop-guide/">opencore-vanilla-desktop-guide</a>，感谢国内外友人对黑苹果作出的卓越贡献。</p>
+</blockquote>
+<p>用过两个MacBookPro，最大的感觉就是用起来很方便（我是一个软件开发者），但性能实在是太弱鸡了，严重影响了效率。以至于黑苹果安装完成之后我发现原来的过渡动画竟然不见了。。。对，就是这么明显。</p>
+<h2 id="准备阶段">准备阶段</h2>
+<p>为了这个黑苹果，我全新配置了一台台式机，配置也是改了又改，最终性能需求战胜了便携性，选择了一台MATX机箱。</p>
+<p>选择配置考虑的问题如下：</p>
+<h3 id="1-cpu">1. CPU</h3>
+<p>我就是需要一个性能强劲的CPU和足够的内存。本来想着上i7 9700KF，但如果上了这个CPU，就还需要配一块Z390主板，成本太高了就失去了黑苹果的意义了。</p>
+<p>当然AMD YES!!!</p>
+<p>我知道AMD的黑苹果可能遇到更多的问题，本着遇到问题解决问题的态度，还是硬着头皮上了。</p>
+<h3 id="2-主板">2. 主板</h3>
+<p>主板也是在华硕的Tuf B450 Pro Gaming和微星的迫击炮MAX之间纠结了很久，最终还是随大流选择了迫击炮。这里提个醒，3600原装的CPU散热器和内存插槽会有冲突，如果不让它和内存插槽有冲突，它就会和朝后的IO接口散热片有冲突。我只在A2和B2两个位置插了内存，所以还好。如果你用塔式散热器可能也不存在这个问题，但我不确定会不会出现其他的问题。</p>
+<h3 id="3-显卡">3. 显卡</h3>
+<p>推荐的最多的就是RX 580 2304SP，但现在几乎已经买不到全新的满血版本了，一天在京东看到了盈通的RX 580 游戏高手，惊喜的发现竟然是满血版本，而且还是三风扇设计。由于我对显卡的性能要求不高，所以一般也不会满载，功耗什么的应该也没有太大的区别。虽然1119不是什么好价格（毕竟听说之前有蓝宝石999的RX 590 OC），但对比价格高了300块但性能差不多的RX  5500XT还是更合适一点。</p>
+<h3 id="4-内存">4. 内存</h3>
+<p>16G应该足够了，尤其是现在内存涨价那么厉害的时候，芝奇Snipper X 3200 8Gx2，迷彩马甲，看起来还可以。</p>
+<h3 id="5-其他">5. 其他</h3>
+<p>机箱和硬盘就没啥说的了，硬盘只要不选择三星PM981就行了。而且我这次也没有买硬盘。</p>
+<h3 id="6-机箱风扇">6. 机箱风扇</h3>
+<p>本来以为机箱风扇并不是必须用品，而且我也不玩游戏，想必机器的负载不会很高，但实际使用中发现玻璃侧板还是有点温热的。想来也是，因为CPU的风扇把热风吹到玻璃侧板上，GPU的风扇往下吹，不管怎么样都没有让热空气往外走的路径。于是在机箱背部和上部各安装了一把12厘米的风扇，效果立竿见影，玻璃侧板一直冷冰冰了。</p>
+<h2 id="配置单">配置单</h2>
+<table>
+<thead>
+<tr>
+<th>配件</th>
+<th>型号</th>
+<th>价格</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CPU+主板</td>
+<td>AMD 3600 + MSI Motar MAX</td>
+<td>1919</td>
+</tr>
+<tr>
+<td>显卡</td>
+<td>盈通RX580游戏高手</td>
+<td>1119</td>
+</tr>
+<tr>
+<td>内存</td>
+<td>芝奇 Snipper X 3200 8GB x 2</td>
+<td>598</td>
+</tr>
+<tr>
+<td>机箱</td>
+<td>先马平头哥M1</td>
+<td>159</td>
+</tr>
+<tr>
+<td>硬盘</td>
+<td>浦科特M6M（2014年的存货）+一块HGST的500G机械盘</td>
+<td>0</td>
+</tr>
+<tr>
+<td>优盘</td>
+<td>闪迪Cruzer Glide 3.0 32GB</td>
+<td>29.9</td>
+</tr>
+<tr>
+<td>机箱风扇</td>
+<td>追风者工包RGB 2把，型号未知</td>
+<td>39.8</td>
+</tr>
+</tbody>
+</table>
+<h2 id="安装过程">安装过程</h2>
+<h3 id="1-制作安装盘">1. 制作安装盘</h3>
+<ol>
+<li>
+<p>格式化优盘</p>
+<p>虽然这个看起来是最简单的，但我偏偏是在这里出了问题。</p>
+<p><img src="/images/image-20200321185555867.png" alt="image-20200321185555867"></p>
+<p>注意这两个选项，如果你默认选中的是第一个，则在抹掉优盘的时候就找不到分区表的方式，如下图所示</p>
+<p><img src="/images/image-20200321185714075.png" alt="image-20200321185714075"></p>
+<p>如果选择了Show All Devices，就如下图所示</p>
+<p><img src="/images/image-20200321185814231.png" alt="image-20200321185814231"></p>
+</li>
+</ol>
+<h3 id="2-下载必备软件包">2. 下载必备软件包</h3>
+<h4 id="1-下载操作系统">1. 下载操作系统</h4>
+<p>从Mac AppStore下载最新的macOS Catalina 10.15.3，然后执行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">sudo /Applications/Install\ macOS\ Catalina.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="2-下载mountefi">2. 下载<code>MountEFI</code></h4>
+<p>执行<code>./MountEFI.command</code>，会弹出</p>
+<p><img src="image-20200321191930513.png" alt="image-20200321191930513"></p>
+<p>正常制作完USB启动盘之后会有一个上图标红的挂载点，选它就行了。然后输入密码，这时在Finder里会看到有一个EFI挂载点，正常是空的。后面配置完OpenCore之后把EFI目录放在里面就行了。</p>
+<h3 id="3-配置configplist">3. 配置<code>config.plist</code></h3>
+<p>这是整个过程最复杂的一步了，但只要按照我在文章开头附上的链接一步步操作，肯定不会有问题。不得不说，那个教程真是严谨。甚至还有一个配置检查器，如果有问题可以提前发现，避免直接上机执行反复重启浪费时间。</p>
+<p>不过这里我就不详细描述了，只把最终我配置好的EFI目录放在这里，供大家直接使用。</p>
+<h2 id="使用优盘启动">使用优盘启动</h2>
+<p>优盘插到台式机的USB上，启动时按F11选择启动项，选择那个很明显是优盘的选项。然后就开始跑代码了，之后就一步一步的进行安装过程。</p>
+<p>进入系统之后先不要做任何配置，因为你可能还没有安装成功。这时候系统还只能从优盘启动，如果拔了优盘，就看不到黑苹果的启动项了。</p>
+<h2 id="免优盘启动">免优盘启动</h2>
+<p>其实仔细想下就知道是因为你安装了黑苹果的磁盘没有优盘里面的那个EFI目录（当然不只是目录）。所以问题也就迎刃而解了。</p>
+<p>在新安装的黑苹果执行<code>MountEFI</code>，选择优盘，把优盘里的EFI目录整个复制到桌面上。然后把优盘卸载掉，再挂载你安装了黑苹果的系统盘。这时就看到了系统盘里面的EFI挂载点，然后把刚才放在桌面上的EFI目录放在系统盘的EFI挂载点里。</p>
+<p>这时你的系统就可以不用优盘启动了。</p>
+<p>你可能会问，为什么不能同时挂载两个，直接拖过去呢？放在桌面上这一步看起来很多余。其实上述的文档里专门提到了这一点，因为如果系统同时有两个EFI被挂载了，它可能就懵逼了，为了避免不必要的麻烦，还是事先麻烦一点好。</p>
+<p>不过这时候启动还是会跑代码，我觉得无所谓，就还没有花时间研究。</p>
+<h2 id="总结">总结</h2>
+<p>现在基本上能正常使用了，几个不太重要的问题还没有解决。</p>
+<ol>
+<li>iService不能用，因为没有找到合适的Serial Number，也就是序列号。教程中的序列号生成器生成的序列号，去苹果官网上总是验证不通过，验证不通过也不影响使用AppleID，只是无法使用iMessage等我不用的服务，所以无所谓了。</li>
+<li>启动时跑代码，这个应该就是一个<del>Debug</del>Verbose模式，我还没有仔细研究，无关紧要了。实际上只要在<code>config.plist</code>中找到<code>boot-args</code>，把后面的值里面的<code>-v</code>删掉就可以了。</li>
+<li>我用的是有线网络，所以蓝牙、无线还未配置，也没有计划研究了。</li>
+</ol>
+<h2 id="补充">补充</h2>
+<p>后来发现一些比较头疼的问题</p>
+<ol>
+<li>无法睡眠、休眠：点击睡眠后总是黑屏1秒后重新唤醒，不知道是不是什么驱动没有装好的问题，而且我也不知道台式机睡眠会是什么样子。。。</li>
+<li>机箱前面板的USB2.0接口无法使用：根本不通电，检查了线缆应该是插错，由于没有Windows系统，也就无法验证。不过好在我也用不到这两个插口，所以无所谓了。</li>
+</ol>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">happyhacker</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-03-29 10:49
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/amd/">amd</a>
+          <a href="/tags/hackintosh/">hackintosh</a>
+          <a href="/tags/macos/">macOS</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/macos-service-management/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">使用Homebrew管理macOS上的服务</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/accelerating-maven-downloading-with-aliyun-mirror/">
+            <span class="next-text nav-default">使用阿里云加速依赖管理</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:frostwong@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/2969224/unixagain" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/lovelock" class="iconfont icon-github" title="github"></a>
+      <a href="https://weibo.com/u/2122681617/" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="https://space.bilibili.com/32881881" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://blog.happyhacker.fun/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">happyhacker</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
+  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
+    var languageCode = "zh-CN".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
+    timeago().render(document.querySelectorAll('.timeago'), languageCode);
+    timeago.cancel();  
+  </script><script></script><script src="https://cdn.jsdelivr.net/npm/raphael@2.2.7/raphael.min.js" integrity="sha256-67By+NpOtm9ka1R6xpUefeGOY8kWWHHRAKlvaTJ7ONI=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/flowchart.js@1.8.0/release/flowchart.min.js" integrity="sha256-zNGWjubXoY6rb5MnmpBNefO0RgoVYfle9p0tvOQM+6k=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/snapsvg@0.5.1/dist/snap.svg-min.js" integrity="sha256-oI+elz+sIm+jpn8F/qEspKoKveTc5uKeFHNNVexe6d8=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/underscore@1.8.3/underscore-min.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.js" integrity="sha384-8748Vn52gHJYJI0XEuPB2QlPVNUkJlJn9tHqKec6J3q2r9l8fvRxrgn/E5ZHV0sP" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.css" integrity="sha384-6QbLKJMz5dS3adWSeINZe74uSydBGFbnzaAYmp+tKyq60S7H2p6V7g1TysM5lAaF" crossorigin="anonymous">
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
