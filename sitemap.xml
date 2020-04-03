@@ -10,14 +10,49 @@
   
   <url>
     <loc>http://blog.happyhacker.fun/categories/</loc>
-    <lastmod>2020-03-29T11:32:37+08:00</lastmod>
+    <lastmod>2020-04-03T22:14:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.happyhacker.fun/tags/centos8/</loc>
+    <lastmod>2020-04-03T22:14:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.happyhacker.fun/post/centos8-garbled-chars/</loc>
+    <lastmod>2020-04-03T22:14:19+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://blog.happyhacker.fun/categories/in-action/</loc>
-    <lastmod>2020-03-29T11:32:37+08:00</lastmod>
+    <lastmod>2020-04-03T22:14:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.happyhacker.fun/tags/linux/</loc>
+    <lastmod>2020-04-03T22:14:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.happyhacker.fun/post/</loc>
+    <lastmod>2020-04-03T22:14:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.happyhacker.fun/tags/</loc>
+    <lastmod>2020-04-03T22:14:19+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -37,21 +72,7 @@
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/post/</loc>
-    <lastmod>2020-03-29T11:32:37+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>http://blog.happyhacker.fun/tags/ssh/</loc>
-    <lastmod>2020-03-29T11:32:37+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://blog.happyhacker.fun/tags/</loc>
     <lastmod>2020-03-29T11:32:37+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
