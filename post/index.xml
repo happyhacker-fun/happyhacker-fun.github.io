@@ -6,10 +6,19 @@
     <description>Recent content in Posts on happyhakcer makes fun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 08 Apr 2020 00:30:39 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 14 Apr 2020 22:40:01 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.happyhacker.fun/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>crontab配置的一个常见错误</title>
+      <link>http://blog.happyhacker.fun/post/cron-issues/</link>
+      <pubDate>Tue, 14 Apr 2020 22:40:01 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/cron-issues/</guid>
+      <description>&lt;p&gt;如果你遇到了crontab不能按预期执行的问题，可以参考本文的内容。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>执行单元测试时报错分析及解决</title>

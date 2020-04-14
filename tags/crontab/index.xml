@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>linux on happyhakcer makes fun</title>
-    <link>http://blog.happyhacker.fun/tags/linux/</link>
-    <description>Recent content in linux on happyhakcer makes fun</description>
+    <title>crontab on happyhakcer makes fun</title>
+    <link>http://blog.happyhacker.fun/tags/crontab/</link>
+    <description>Recent content in crontab on happyhakcer makes fun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <lastBuildDate>Tue, 14 Apr 2020 22:40:01 +0800</lastBuildDate>
     
-	<atom:link href="http://blog.happyhacker.fun/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://blog.happyhacker.fun/tags/crontab/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -18,15 +18,6 @@
       
       <guid>http://blog.happyhacker.fun/post/cron-issues/</guid>
       <description>&lt;p&gt;如果你遇到了crontab不能按预期执行的问题，可以参考本文的内容。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Centos8乱码及解决</title>
-      <link>http://blog.happyhacker.fun/post/centos8-garbled-chars/</link>
-      <pubDate>Fri, 03 Apr 2020 22:14:19 +0800</pubDate>
-      
-      <guid>http://blog.happyhacker.fun/post/centos8-garbled-chars/</guid>
-      <description>&lt;p&gt;以下操作基于CentOS8, 理论上应该适用于其他版本的操作系统.&lt;/p&gt;</description>
     </item>
     
   </channel>
