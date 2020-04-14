@@ -21,6 +21,15 @@
     </item>
     
     <item>
+      <title>Java时区问题的排查和分析</title>
+      <link>http://blog.happyhacker.fun/post/java-localdatetime-timezone/</link>
+      <pubDate>Wed, 01 Apr 2020 12:48:50 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/java-localdatetime-timezone/</guid>
+      <description>&lt;p&gt;用Java开发新项目，遇到了很多之前没见过的问题，时区算是第二头疼的一个。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>使用阿里云加速依赖管理</title>
       <link>http://blog.happyhacker.fun/post/accelerating-maven-downloading-with-aliyun-mirror/</link>
       <pubDate>Sun, 29 Mar 2020 00:21:43 +0800</pubDate>
