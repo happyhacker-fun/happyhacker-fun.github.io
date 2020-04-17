@@ -21,6 +21,15 @@
     </item>
     
     <item>
+      <title>CentOS8配置静态地址</title>
+      <link>http://blog.happyhacker.fun/post/centos8-set-static-network/</link>
+      <pubDate>Fri, 17 Apr 2020 23:02:34 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/centos8-set-static-network/</guid>
+      <description>&lt;p&gt;CentOS 8又搞出这么幺蛾子，不过这个接口还挺好用，我喜欢。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>crontab配置的一个常见错误</title>
       <link>http://blog.happyhacker.fun/post/cron-issues/</link>
       <pubDate>Tue, 14 Apr 2020 22:40:01 +0800</pubDate>
