@@ -6,10 +6,28 @@
     <description>Recent content in Posts on happyhakcer makes fun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 17 Apr 2020 23:02:34 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 17 Apr 2020 23:34:00 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.happyhacker.fun/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>关于SpringBoot项目的日志配置最佳实践的思考</title>
+      <link>http://blog.happyhacker.fun/post/springboot-log-config/</link>
+      <pubDate>Fri, 17 Apr 2020 23:34:00 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/springboot-log-config/</guid>
+      <description>&lt;p&gt;日志应该怎么记真的是一个值得认真思考的问题。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>基于ansible的渐进上线流程探究</title>
+      <link>http://blog.happyhacker.fun/post/ansible-step-release/</link>
+      <pubDate>Fri, 17 Apr 2020 23:28:21 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/ansible-step-release/</guid>
+      <description>&lt;p&gt;继上一篇文章&lt;a href=&#34;http://blog.happyhacker.fun/post/spring-tomcat-tutorial/&#34;&gt;Springboot使用内置和独立tomcat以及其他思考&lt;/a&gt;中描述的，继续优化整个发布流程。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>CentOS8配置静态地址</title>

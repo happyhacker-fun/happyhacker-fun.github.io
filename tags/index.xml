@@ -6,10 +6,64 @@
     <description>Recent content in Tags on happyhakcer makes fun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 17 Apr 2020 23:02:34 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 17 Apr 2020 23:34:00 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.happyhacker.fun/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>java</title>
+      <link>http://blog.happyhacker.fun/tags/java/</link>
+      <pubDate>Fri, 17 Apr 2020 23:34:00 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/tags/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>log</title>
+      <link>http://blog.happyhacker.fun/tags/log/</link>
+      <pubDate>Fri, 17 Apr 2020 23:34:00 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/tags/log/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>springboot</title>
+      <link>http://blog.happyhacker.fun/tags/springboot/</link>
+      <pubDate>Fri, 17 Apr 2020 23:34:00 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/tags/springboot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ansible</title>
+      <link>http://blog.happyhacker.fun/tags/ansible/</link>
+      <pubDate>Fri, 17 Apr 2020 23:28:21 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/tags/ansible/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cd</title>
+      <link>http://blog.happyhacker.fun/tags/cd/</link>
+      <pubDate>Fri, 17 Apr 2020 23:28:21 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/tags/cd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ci</title>
+      <link>http://blog.happyhacker.fun/tags/ci/</link>
+      <pubDate>Fri, 17 Apr 2020 23:28:21 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/tags/ci/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>centos</title>
@@ -44,15 +98,6 @@
       <pubDate>Tue, 14 Apr 2020 22:40:01 +0800</pubDate>
       
       <guid>http://blog.happyhacker.fun/tags/crontab/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>java</title>
-      <link>http://blog.happyhacker.fun/tags/java/</link>
-      <pubDate>Wed, 08 Apr 2020 00:30:39 +0800</pubDate>
-      
-      <guid>http://blog.happyhacker.fun/tags/java/</guid>
       <description></description>
     </item>
     
@@ -206,15 +251,6 @@
       <pubDate>Sat, 28 Mar 2020 12:56:22 +0800</pubDate>
       
       <guid>http://blog.happyhacker.fun/tags/in-action/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>springboot</title>
-      <link>http://blog.happyhacker.fun/tags/springboot/</link>
-      <pubDate>Sat, 28 Mar 2020 12:56:22 +0800</pubDate>
-      
-      <guid>http://blog.happyhacker.fun/tags/springboot/</guid>
       <description></description>
     </item>
     
