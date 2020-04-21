@@ -6,10 +6,19 @@
     <description>Recent content in Posts on happyhakcer makes fun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 17 Apr 2020 23:34:00 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 21 Apr 2020 23:28:34 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.happyhacker.fun/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Java基础</title>
+      <link>http://blog.happyhacker.fun/post/java-basics/</link>
+      <pubDate>Tue, 21 Apr 2020 23:28:34 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/java-basics/</guid>
+      <description>&lt;p&gt;前段时间写Java一直忙于做工程上的工作，还是得停下来看看理论的东西。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>关于SpringBoot项目的日志配置最佳实践的思考</title>
@@ -18,15 +27,6 @@
       
       <guid>http://blog.happyhacker.fun/post/springboot-log-config/</guid>
       <description>&lt;p&gt;日志应该怎么记真的是一个值得认真思考的问题。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>基于ansible的渐进上线流程探究</title>
-      <link>http://blog.happyhacker.fun/post/ansible-step-release/</link>
-      <pubDate>Fri, 17 Apr 2020 23:28:21 +0800</pubDate>
-      
-      <guid>http://blog.happyhacker.fun/post/ansible-step-release/</guid>
-      <description>&lt;p&gt;继上一篇文章&lt;a href=&#34;http://blog.happyhacker.fun/post/spring-tomcat-tutorial/&#34;&gt;Springboot使用内置和独立tomcat以及其他思考&lt;/a&gt;中描述的，继续优化整个发布流程。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -54,6 +54,15 @@
       
       <guid>http://blog.happyhacker.fun/post/error-running-junit/</guid>
       <description>&lt;p&gt;Java报错真是多，一不小心单元测试也报错。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Install Centos8</title>
+      <link>http://blog.happyhacker.fun/post/install-centos8/</link>
+      <pubDate>Mon, 06 Apr 2020 00:10:43 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/install-centos8/</guid>
+      <description>&lt;p&gt;多年不安装虚拟机，竟然卡在了第一步。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -90,6 +99,15 @@
       
       <guid>http://blog.happyhacker.fun/post/java-localdatetime-timezone/</guid>
       <description>&lt;p&gt;用Java开发新项目，遇到了很多之前没见过的问题，时区算是第二头疼的一个。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>简单说说Firefox和Chrome</title>
+      <link>http://blog.happyhacker.fun/post/about-chrome-and-firefox/</link>
+      <pubDate>Tue, 31 Mar 2020 10:02:07 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/about-chrome-and-firefox/</guid>
+      <description>&lt;p&gt;自认为从易用性、自由度、速度和资源占用方面，Firefox（Quantom）已经超越了Chrome，但现在居然出现了兼容性问题。&lt;/p&gt;</description>
     </item>
     
     <item>

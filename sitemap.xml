@@ -10,84 +10,70 @@
   
   <url>
     <loc>http://blog.happyhacker.fun/categories/</loc>
-    <lastmod>2020-04-17T23:34:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://blog.happyhacker.fun/categories/in-action/</loc>
-    <lastmod>2020-04-17T23:34:00+08:00</lastmod>
+    <lastmod>2020-04-21T23:28:34+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://blog.happyhacker.fun/tags/java/</loc>
-    <lastmod>2020-04-17T23:34:00+08:00</lastmod>
+    <lastmod>2020-04-21T23:28:34+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/log/</loc>
-    <lastmod>2020-04-17T23:34:00+08:00</lastmod>
+    <loc>http://blog.happyhacker.fun/post/java-basics/</loc>
+    <lastmod>2020-04-21T23:28:34+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://blog.happyhacker.fun/post/</loc>
-    <lastmod>2020-04-17T23:34:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://blog.happyhacker.fun/tags/springboot/</loc>
-    <lastmod>2020-04-17T23:34:00+08:00</lastmod>
+    <lastmod>2020-04-21T23:28:34+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://blog.happyhacker.fun/tags/</loc>
-    <lastmod>2020-04-17T23:34:00+08:00</lastmod>
+    <lastmod>2020-04-21T23:28:34+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.happyhacker.fun/categories/theory/</loc>
+    <lastmod>2020-04-21T23:28:34+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.happyhacker.fun/categories/in-action/</loc>
+    <lastmod>2020-04-19T21:43:16+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.happyhacker.fun/tags/log/</loc>
+    <lastmod>2020-04-19T21:43:16+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.happyhacker.fun/tags/springboot/</loc>
+    <lastmod>2020-04-19T21:43:16+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://blog.happyhacker.fun/post/springboot-log-config/</loc>
-    <lastmod>2020-04-17T23:34:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://blog.happyhacker.fun/tags/ansible/</loc>
-    <lastmod>2020-04-17T23:28:21+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://blog.happyhacker.fun/tags/cd/</loc>
-    <lastmod>2020-04-17T23:28:21+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://blog.happyhacker.fun/tags/ci/</loc>
-    <lastmod>2020-04-17T23:28:21+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://blog.happyhacker.fun/post/ansible-step-release/</loc>
-    <lastmod>2020-04-17T23:28:21+08:00</lastmod>
+    <lastmod>2020-04-19T21:43:16+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -149,6 +135,20 @@
   </url>
   
   <url>
+    <loc>http://blog.happyhacker.fun/tags/centos8/</loc>
+    <lastmod>2020-04-08T00:45:25+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.happyhacker.fun/post/install-centos8/</loc>
+    <lastmod>2020-04-08T00:45:25+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>http://blog.happyhacker.fun/post/java-memory-leak-record/</loc>
     <lastmod>2020-04-15T00:12:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -191,13 +191,6 @@
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/centos8/</loc>
-    <lastmod>2020-04-03T22:15:39+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>http://blog.happyhacker.fun/post/centos8-garbled-chars/</loc>
     <lastmod>2020-04-03T22:15:39+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -214,6 +207,41 @@
   <url>
     <loc>http://blog.happyhacker.fun/tags/timezone/</loc>
     <lastmod>2020-04-14T23:42:40+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.happyhacker.fun/tags/chrome/</loc>
+    <lastmod>2020-04-03T22:15:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.happyhacker.fun/tags/firefox/</loc>
+    <lastmod>2020-04-03T22:15:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.happyhacker.fun/tags/freedom/</loc>
+    <lastmod>2020-04-03T22:15:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.happyhacker.fun/categories/jabber/</loc>
+    <lastmod>2020-04-03T22:15:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.happyhacker.fun/post/about-chrome-and-firefox/</loc>
+    <lastmod>2020-04-03T22:15:39+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

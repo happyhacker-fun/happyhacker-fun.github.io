@@ -30,6 +30,15 @@
     </item>
     
     <item>
+      <title>Install Centos8</title>
+      <link>http://blog.happyhacker.fun/post/install-centos8/</link>
+      <pubDate>Mon, 06 Apr 2020 00:10:43 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/install-centos8/</guid>
+      <description>&lt;p&gt;多年不安装虚拟机，竟然卡在了第一步。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Centos8乱码及解决</title>
       <link>http://blog.happyhacker.fun/post/centos8-garbled-chars/</link>
       <pubDate>Fri, 03 Apr 2020 22:14:19 +0800</pubDate>

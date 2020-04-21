@@ -6,7 +6,7 @@
     <description>Recent content in Tags on happyhakcer makes fun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 17 Apr 2020 23:34:00 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 21 Apr 2020 23:28:34 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.happyhacker.fun/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>java</title>
       <link>http://blog.happyhacker.fun/tags/java/</link>
-      <pubDate>Fri, 17 Apr 2020 23:34:00 +0800</pubDate>
+      <pubDate>Tue, 21 Apr 2020 23:28:34 +0800</pubDate>
       
       <guid>http://blog.happyhacker.fun/tags/java/</guid>
       <description></description>
@@ -35,33 +35,6 @@
       <pubDate>Fri, 17 Apr 2020 23:34:00 +0800</pubDate>
       
       <guid>http://blog.happyhacker.fun/tags/springboot/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ansible</title>
-      <link>http://blog.happyhacker.fun/tags/ansible/</link>
-      <pubDate>Fri, 17 Apr 2020 23:28:21 +0800</pubDate>
-      
-      <guid>http://blog.happyhacker.fun/tags/ansible/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>cd</title>
-      <link>http://blog.happyhacker.fun/tags/cd/</link>
-      <pubDate>Fri, 17 Apr 2020 23:28:21 +0800</pubDate>
-      
-      <guid>http://blog.happyhacker.fun/tags/cd/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ci</title>
-      <link>http://blog.happyhacker.fun/tags/ci/</link>
-      <pubDate>Fri, 17 Apr 2020 23:28:21 +0800</pubDate>
-      
-      <guid>http://blog.happyhacker.fun/tags/ci/</guid>
       <description></description>
     </item>
     
@@ -111,6 +84,15 @@
     </item>
     
     <item>
+      <title>centos8</title>
+      <link>http://blog.happyhacker.fun/tags/centos8/</link>
+      <pubDate>Mon, 06 Apr 2020 00:10:43 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/tags/centos8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>memory-leak</title>
       <link>http://blog.happyhacker.fun/tags/memory-leak/</link>
       <pubDate>Sun, 05 Apr 2020 23:11:28 +0800</pubDate>
@@ -147,20 +129,38 @@
     </item>
     
     <item>
-      <title>centos8</title>
-      <link>http://blog.happyhacker.fun/tags/centos8/</link>
-      <pubDate>Fri, 03 Apr 2020 22:14:19 +0800</pubDate>
-      
-      <guid>http://blog.happyhacker.fun/tags/centos8/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>timezone</title>
       <link>http://blog.happyhacker.fun/tags/timezone/</link>
       <pubDate>Wed, 01 Apr 2020 12:48:50 +0800</pubDate>
       
       <guid>http://blog.happyhacker.fun/tags/timezone/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>chrome</title>
+      <link>http://blog.happyhacker.fun/tags/chrome/</link>
+      <pubDate>Tue, 31 Mar 2020 10:02:07 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/tags/chrome/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>firefox</title>
+      <link>http://blog.happyhacker.fun/tags/firefox/</link>
+      <pubDate>Tue, 31 Mar 2020 10:02:07 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/tags/firefox/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>freedom</title>
+      <link>http://blog.happyhacker.fun/tags/freedom/</link>
+      <pubDate>Tue, 31 Mar 2020 10:02:07 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/tags/freedom/</guid>
       <description></description>
     </item>
     
