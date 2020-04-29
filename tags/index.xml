@@ -6,15 +6,24 @@
     <description>Recent content in Tags on happyhakcer makes fun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 21 Apr 2020 23:28:34 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 29 Apr 2020 23:23:57 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.happyhacker.fun/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>basics</title>
+      <link>http://blog.happyhacker.fun/tags/basics/</link>
+      <pubDate>Wed, 29 Apr 2020 23:23:57 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/tags/basics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>java</title>
       <link>http://blog.happyhacker.fun/tags/java/</link>
-      <pubDate>Tue, 21 Apr 2020 23:28:34 +0800</pubDate>
+      <pubDate>Wed, 29 Apr 2020 23:23:57 +0800</pubDate>
       
       <guid>http://blog.happyhacker.fun/tags/java/</guid>
       <description></description>

@@ -21,6 +21,15 @@
     </item>
     
     <item>
+      <title>Java Stream Api</title>
+      <link>http://blog.happyhacker.fun/post/java-stream-api/</link>
+      <pubDate>Wed, 29 Apr 2020 23:23:57 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/java-stream-api/</guid>
+      <description>&lt;p&gt;Java的stream api真是功能强大，但写的时候总是忘，这里简单记录以下。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Java基础</title>
       <link>http://blog.happyhacker.fun/post/java-basics/</link>
       <pubDate>Tue, 21 Apr 2020 23:28:34 +0800</pubDate>
