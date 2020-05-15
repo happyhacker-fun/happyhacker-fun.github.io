@@ -9,15 +9,57 @@
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/basics/</loc>
-    <lastmod>2020-04-30T00:09:40+08:00</lastmod>
+    <loc>http://blog.happyhacker.fun/categories/</loc>
+    <lastmod>2020-05-16T00:20:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/categories/</loc>
-    <lastmod>2020-05-10T22:22:53+08:00</lastmod>
+    <loc>http://blog.happyhacker.fun/tags/homebrew/</loc>
+    <lastmod>2020-05-16T00:20:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.happyhacker.fun/categories/in-action/</loc>
+    <lastmod>2020-05-16T00:20:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.happyhacker.fun/tags/macos/</loc>
+    <lastmod>2020-05-16T00:20:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.happyhacker.fun/post/</loc>
+    <lastmod>2020-05-16T00:20:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.happyhacker.fun/tags/</loc>
+    <lastmod>2020-05-16T00:20:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.happyhacker.fun/post/install-homebrew-in-china/</loc>
+    <lastmod>2020-05-16T00:20:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.happyhacker.fun/tags/basics/</loc>
+    <lastmod>2020-04-30T00:09:40+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -37,20 +79,6 @@
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/post/</loc>
-    <lastmod>2020-05-10T22:22:53+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://blog.happyhacker.fun/tags/</loc>
-    <lastmod>2020-05-10T22:22:53+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>http://blog.happyhacker.fun/categories/theory/</loc>
     <lastmod>2020-04-30T00:09:40+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -60,13 +88,6 @@
   <url>
     <loc>http://blog.happyhacker.fun/post/java-basics/</loc>
     <lastmod>2020-04-23T00:34:24+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://blog.happyhacker.fun/categories/in-action/</loc>
-    <lastmod>2020-05-10T22:22:53+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -198,13 +219,6 @@
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/macos/</loc>
-    <lastmod>2020-04-15T00:14:56+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>http://blog.happyhacker.fun/post/centos8-garbled-chars/</loc>
     <lastmod>2020-04-03T22:15:39+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -270,13 +284,6 @@
   <url>
     <loc>http://blog.happyhacker.fun/tags/ssh/</loc>
     <lastmod>2020-03-29T11:32:37+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://blog.happyhacker.fun/tags/homebrew/</loc>
-    <lastmod>2020-04-15T00:14:56+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
