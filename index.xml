@@ -21,6 +21,15 @@
     </item>
     
     <item>
+      <title>什么是Jar包</title>
+      <link>http://blog.happyhacker.fun/post/what-is-jar/</link>
+      <pubDate>Mon, 18 May 2020 22:18:51 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/what-is-jar/</guid>
+      <description>&lt;p&gt;jar包应该是java应用使用最多的分发形式了，jar包中包含什么东西，怎么创建和执行它呢？&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>关闭Firefox浏览器中使用鼠标缩放网页的功能</title>
       <link>http://blog.happyhacker.fun/post/disable-zoom-in-and-out-in-firefox-with-mouse/</link>
       <pubDate>Sat, 16 May 2020 00:49:00 +0800</pubDate>

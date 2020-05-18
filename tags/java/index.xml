@@ -6,10 +6,19 @@
     <description>Recent content in java on happyhakcer makes fun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 29 Apr 2020 23:23:57 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 18 May 2020 22:18:51 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.happyhacker.fun/tags/java/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>什么是Jar包</title>
+      <link>http://blog.happyhacker.fun/post/what-is-jar/</link>
+      <pubDate>Mon, 18 May 2020 22:18:51 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/what-is-jar/</guid>
+      <description>&lt;p&gt;jar包应该是java应用使用最多的分发形式了，jar包中包含什么东西，怎么创建和执行它呢？&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Java Stream Api</title>
