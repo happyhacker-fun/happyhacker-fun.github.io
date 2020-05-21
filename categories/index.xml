@@ -6,10 +6,19 @@
     <description>Recent content in Categories on happyhakcer makes fun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 18 May 2020 22:18:51 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 21 May 2020 10:41:26 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.happyhacker.fun/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>springboot</title>
+      <link>http://blog.happyhacker.fun/categories/springboot/</link>
+      <pubDate>Thu, 21 May 2020 10:41:26 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/categories/springboot/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>research</title>

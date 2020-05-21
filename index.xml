@@ -21,6 +21,15 @@
     </item>
     
     <item>
+      <title>避免Springboot应用启动前5秒的等待</title>
+      <link>http://blog.happyhacker.fun/post/avoid-5s-hangs-before-springboot-starts/</link>
+      <pubDate>Thu, 21 May 2020 10:41:26 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/avoid-5s-hangs-before-springboot-starts/</guid>
+      <description>&lt;p&gt;在macOS上开发Springboot应用时发现应用启动前总是等待5秒钟，体现在应用启动的很慢。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>聊聊jar包</title>
       <link>http://blog.happyhacker.fun/post/what-is-jar/</link>
       <pubDate>Mon, 18 May 2020 22:18:51 +0800</pubDate>
@@ -63,15 +72,6 @@
       
       <guid>http://blog.happyhacker.fun/post/java-basics/</guid>
       <description>&lt;p&gt;前段时间写Java一直忙于做工程上的工作，还是得停下来看看理论的东西。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>关于SpringBoot项目的日志配置最佳实践的思考</title>
-      <link>http://blog.happyhacker.fun/post/springboot-log-config/</link>
-      <pubDate>Fri, 17 Apr 2020 23:34:00 +0800</pubDate>
-      
-      <guid>http://blog.happyhacker.fun/post/springboot-log-config/</guid>
-      <description>&lt;p&gt;日志应该怎么记真的是一个值得认真思考的问题。&lt;/p&gt;</description>
     </item>
     
     <item>
