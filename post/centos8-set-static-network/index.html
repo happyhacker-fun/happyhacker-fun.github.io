@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>CentOS8配置静态地址 - happyhakcer makes fun</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="happyhacker" /><meta name="description" content="CentOS 8又搞出这么幺蛾子，不过这个接口还挺好用，我喜欢。
+" /><meta name="keywords" content="Java, PHP, Architect" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.70.0 with theme even" />
+
+
+<link rel="canonical" href="http://blog.happyhacker.fun/post/centos8-set-static-network/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="CentOS8配置静态地址" />
+<meta property="og:description" content="CentOS 8又搞出这么幺蛾子，不过这个接口还挺好用，我喜欢。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://blog.happyhacker.fun/post/centos8-set-static-network/" />
+<meta property="article:published_time" content="2020-04-17T23:02:34+08:00" />
+<meta property="article:modified_time" content="2020-05-10T22:22:53+08:00" />
+<meta itemprop="name" content="CentOS8配置静态地址">
+<meta itemprop="description" content="CentOS 8又搞出这么幺蛾子，不过这个接口还挺好用，我喜欢。">
+<meta itemprop="datePublished" content="2020-04-17T23:02:34&#43;08:00" />
+<meta itemprop="dateModified" content="2020-05-10T22:22:53&#43;08:00" />
+<meta itemprop="wordCount" content="1044">
+
+
+
+<meta itemprop="keywords" content="centos,linux,运维," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="CentOS8配置静态地址"/>
+<meta name="twitter:description" content="CentOS 8又搞出这么幺蛾子，不过这个接口还挺好用，我喜欢。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Happyhacker</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于我</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Happyhacker</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于我</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">CentOS8配置静态地址</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-04-17 23:02 </span>
+        <div class="post-category">
+            <a href="/categories/in-action/"> in-action </a>
+            </div>
+          <span class="more-meta"> 约 1044 字 </span>
+          <span class="more-meta"> 预计阅读 3 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#预期配置">预期配置</a></li>
+    <li><a href="#命令">命令</a></li>
+    <li><a href="#配置key登录">配置key登录</a></li>
+    <li><a href="#配置快捷登录方式">配置快捷登录方式</a></li>
+    <li><a href="#补充">补充</a></li>
+    <li><a href="#总结">总结</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>CentOS 8又搞出这么幺蛾子，不过这个接口还挺好用，我喜欢。</p>
+<p>AMD的黑苹果没办法安装Docker，只好虚拟机搞起了，还要硬件性能够强，这点性能损耗不算什么。装的服务器版本的当然要ssh登录，所以需要用桥接的网络接口
+<img src="/images/2020-04-17-23-25-34.png" alt="">
+默认是dhcp的配置，所以每次开机IP都会变，这样很不方便，于是要给它一个固定的地址。然后就发现CentOS 8又搞了一个<code>nmcli</code>，虽然又是一个轮子，但不得不说，这个接口设计的还挺好。</p>
+<h2 id="预期配置">预期配置</h2>
+<p>下面是要给虚拟机的配置
+IP: 192.168.0.108
+Mask: 255.255.255.0
+网关: 192.168.0.1
+DNS: 114.114.114.114</p>
+<h2 id="命令">命令</h2>
+<p>不出意外的话，第一个网络接口应该是<code>enp0s3</code>，所以下面的命令一气呵成就可以配置成功了</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">[root@localhost network-scripts]# nmcli con
+NAME    UUID                                  TYPE      DEVICE
+enp0s3  f131fbc3-12a2-4d96-bb3a-623aad5c4fda  ethernet  enp0s3
+[root@localhost network-scripts]# nmcli con mod enp0s3 ipv4.addresses 192.168.0.108/24 # 配置IP和Mask
+[root@localhost network-scripts]# nmcli con mod enp0s3 ipv4.gateway 192.168.0.1        # 配置网关
+[root@localhost network-scripts]# nmcli conn mod enp0s3 ipv4.dns &#34;114.114.114.114&#34;     # 配置DNS
+[root@localhost network-scripts]# nmcli con mod enp0s3 ipv4.method manual              # 取消dhcp，使用静态地址
+[root@localhost network-scripts]# nmcli con up enp0s3                                  # 重启网络接口
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="配置key登录">配置key登录</h2>
+<p>然后就可以愉快的在macOS上通过以下命令生成配置使用key登录虚拟机了</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ ssh-copy-id frost@192.168.0.108
+/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: &#34;/Users/frost/.ssh/id_rsa.pub&#34;
+/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+/usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
+frost@192.168.0.108&#39;s password:
+
+Number of key(s) added:        1
+
+Now try logging into the machine, with:   &#34;ssh &#39;frost@192.168.0.108&#39;&#34;
+and check to make sure that only the key(s) you wanted were added.
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="配置快捷登录方式">配置快捷登录方式</h2>
+<p>接着在macOS的<code>$HOME/.ssh/config</code>中添加以下内容</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Host *
+ControlMaster auto
+ControlPath  /tmp/ssh-%r@%h
+
+Host dev
+HostName 192.168.0.108
+User frost
+</code></pre></td></tr></table>
+</div>
+</div><p>这样就可以通过<code>ssh dev</code>这条简短的命令登录了。虽然用key做认证倒也无所谓，不过通常还是配置上上述内容中的前三行，让登录到同一个主机的ssh共享session，也就是说在使用密码登录时，只有第一次需要输入密码，在保留第一个连接时，后续的连接都可以免密。</p>
+<h2 id="补充">补充</h2>
+<p>后来因为买了块新的硬盘重新安装了macOS，把之前安装的CentOS8虚拟机拷贝过来之后无法运行，调整了网络配置（从BridgeNetwork调整到NAT）之后可以开机了但是无法联网，不知道是什么原因。由于之前是配置了静态地址，在NAT模式下想着还是配置成DHCP吧，但发现nmcli并没有提供类似<code>nmcli connection reset</code>这种操作，所以只能删了重新配置。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">nmcli connection delete enp0s3
+nmcli connection add type ethernet con-name home ifname enp3s0
+nmcli connection up home
+</code></pre></td></tr></table>
+</div>
+</div><p>即可联网了。关于<code>nmcli</code>还有很多细节的用法，可以参考<a href="https://access.redhat.com/documentation/zh-cn/red_hat_enterprise_linux/7/html/networking_guide/sec-using_the_networkmanager_command_line_tool_nmcli">RedHat官方文档</a>。</p>
+<h2 id="总结">总结</h2>
+<p>每次配置ssh都想起来几年前写的这个小工具<a href="https://github.com/lovelock/ic">ic</a>，当时是为了更简单的配置本地端口转发，实现sftp上传文件，后来公司不让用这种方式了也就作罢了。不过当时还研究了下go语言和ssh的配置，还有homebrew的打包方式，虽然现在都不记得了。。。。</p>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">happyhacker</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-05-10 22:22
+        <a href="/commit/ed897ad281e1bee3d410883bf792a4a8d1349c00" title="update">(ed897ad)</a>
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/centos/">centos</a>
+          <a href="/tags/linux/">linux</a>
+          <a href="/tags/%E8%BF%90%E7%BB%B4/">运维</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/java-basics/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Java基础</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/cron-issues/">
+            <span class="next-text nav-default">crontab配置的一个常见错误</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:frostwong@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/2969224/unixagain" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/lovelock" class="iconfont icon-github" title="github"></a>
+      <a href="https://weibo.com/u/2122681617/" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="https://space.bilibili.com/32881881" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://blog.happyhacker.fun/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">happyhacker</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
+  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
+    var languageCode = "zh-CN".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
+    timeago().render(document.querySelectorAll('.timeago'), languageCode);
+    timeago.cancel();  
+  </script><script></script><script src="https://cdn.jsdelivr.net/npm/raphael@2.2.7/raphael.min.js" integrity="sha256-67By+NpOtm9ka1R6xpUefeGOY8kWWHHRAKlvaTJ7ONI=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/flowchart.js@1.8.0/release/flowchart.min.js" integrity="sha256-zNGWjubXoY6rb5MnmpBNefO0RgoVYfle9p0tvOQM+6k=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/snapsvg@0.5.1/dist/snap.svg-min.js" integrity="sha256-oI+elz+sIm+jpn8F/qEspKoKveTc5uKeFHNNVexe6d8=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/underscore@1.8.3/underscore-min.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.js" integrity="sha384-8748Vn52gHJYJI0XEuPB2QlPVNUkJlJn9tHqKec6J3q2r9l8fvRxrgn/E5ZHV0sP" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.css" integrity="sha384-6QbLKJMz5dS3adWSeINZe74uSydBGFbnzaAYmp+tKyq60S7H2p6V7g1TysM5lAaF" crossorigin="anonymous">
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

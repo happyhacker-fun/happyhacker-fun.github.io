@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>macOS on happyhakcer makes fun</title>
+    <link>http://blog.happyhacker.fun/tags/macos/</link>
+    <description>Recent content in macOS on happyhakcer makes fun</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 16 May 2020 00:20:48 +0800</lastBuildDate>
+    
+	<atom:link href="http://blog.happyhacker.fun/tags/macos/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>中国大陆安装homebrew的最优方法</title>
+      <link>http://blog.happyhacker.fun/post/install-homebrew-in-china/</link>
+      <pubDate>Sat, 16 May 2020 00:20:48 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/install-homebrew-in-china/</guid>
+      <description>&lt;p&gt;不知道为什么好像家里的网络对github很不友好，网页能打开，但通过curl访问就有问题，所以安装homebrew时如果使用官方提供的花里胡哨的curl或者wget的方式就安装不上。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>lftp记录密码</title>
+      <link>http://blog.happyhacker.fun/post/lftp-usage/</link>
+      <pubDate>Sun, 05 Apr 2020 11:32:45 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/lftp-usage/</guid>
+      <description>&lt;p&gt;简单的工具最好用。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>macOS上管理SSH服务</title>
+      <link>http://blog.happyhacker.fun/post/sshd-in-macos/</link>
+      <pubDate>Sun, 29 Mar 2020 10:57:10 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/sshd-in-macos/</guid>
+      <description>&lt;p&gt;mac本身安装了ssh服务，默认情况下不会开机自启。本文记录了开启和停止sshd服务的方法。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>使用Homebrew管理macOS上的服务</title>
+      <link>http://blog.happyhacker.fun/post/macos-service-management/</link>
+      <pubDate>Sun, 29 Mar 2020 10:53:04 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/macos-service-management/</guid>
+      <description>&lt;p&gt;用了5年macOS也一直没有用过苹果原生的服务管理、AppleSript等等，总感觉不够直观，好在还有Homebrew这个神器，帮我解决了很多问题。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>AMD黑苹果的装机经验</title>
+      <link>http://blog.happyhacker.fun/post/ryzentosh/</link>
+      <pubDate>Sun, 29 Mar 2020 10:49:38 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/ryzentosh/</guid>
+      <description>&lt;p&gt;实在是受不了MBP13孱弱的性能和糟糕的发热，终于下定决心组装一台台式机。最终还是真香。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

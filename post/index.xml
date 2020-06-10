@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on happyhakcer makes fun</title>
+    <link>http://blog.happyhacker.fun/post/</link>
+    <description>Recent content in Posts on happyhakcer makes fun</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 21 May 2020 10:41:26 +0800</lastBuildDate>
+    
+	<atom:link href="http://blog.happyhacker.fun/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>避免Springboot应用启动前5秒的等待</title>
+      <link>http://blog.happyhacker.fun/post/avoid-5s-hangs-before-springboot-starts/</link>
+      <pubDate>Thu, 21 May 2020 10:41:26 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/avoid-5s-hangs-before-springboot-starts/</guid>
+      <description>&lt;p&gt;在macOS上开发Springboot应用时发现应用启动前总是等待5秒钟，体现在应用启动的很慢。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>聊聊jar包</title>
+      <link>http://blog.happyhacker.fun/post/what-is-jar/</link>
+      <pubDate>Mon, 18 May 2020 22:18:51 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/what-is-jar/</guid>
+      <description>&lt;p&gt;jar包应该是java应用使用最多的分发形式了，jar包中包含什么东西，怎么创建和执行它呢？&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>关闭Firefox浏览器中使用鼠标缩放网页的功能</title>
+      <link>http://blog.happyhacker.fun/post/disable-zoom-in-and-out-in-firefox-with-mouse/</link>
+      <pubDate>Sat, 16 May 2020 00:49:00 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/disable-zoom-in-and-out-in-firefox-with-mouse/</guid>
+      <description>&lt;p&gt;火狐浏览器有个很奇怪的设定，在Windows下按住Ctrl（macOS下按住Cmd）加上鼠标滚轮会缩放网页。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>中国大陆安装homebrew的最优方法</title>
+      <link>http://blog.happyhacker.fun/post/install-homebrew-in-china/</link>
+      <pubDate>Sat, 16 May 2020 00:20:48 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/install-homebrew-in-china/</guid>
+      <description>&lt;p&gt;不知道为什么好像家里的网络对github很不友好，网页能打开，但通过curl访问就有问题，所以安装homebrew时如果使用官方提供的花里胡哨的curl或者wget的方式就安装不上。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Java Stream Api</title>
+      <link>http://blog.happyhacker.fun/post/java-stream-api/</link>
+      <pubDate>Wed, 29 Apr 2020 23:23:57 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/java-stream-api/</guid>
+      <description>&lt;p&gt;Java的stream api真是功能强大，但写的时候总是忘，这里简单记录以下。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Java基础</title>
+      <link>http://blog.happyhacker.fun/post/java-basics/</link>
+      <pubDate>Tue, 21 Apr 2020 23:28:34 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/java-basics/</guid>
+      <description>&lt;p&gt;前段时间写Java一直忙于做工程上的工作，还是得停下来看看理论的东西。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>CentOS8配置静态地址</title>
+      <link>http://blog.happyhacker.fun/post/centos8-set-static-network/</link>
+      <pubDate>Fri, 17 Apr 2020 23:02:34 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/centos8-set-static-network/</guid>
+      <description>&lt;p&gt;CentOS 8又搞出这么幺蛾子，不过这个接口还挺好用，我喜欢。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>crontab配置的一个常见错误</title>
+      <link>http://blog.happyhacker.fun/post/cron-issues/</link>
+      <pubDate>Tue, 14 Apr 2020 22:40:01 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/cron-issues/</guid>
+      <description>&lt;p&gt;如果你遇到了crontab不能按预期执行的问题，可以参考本文的内容。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>执行单元测试时报错分析及解决</title>
+      <link>http://blog.happyhacker.fun/post/error-running-junit/</link>
+      <pubDate>Wed, 08 Apr 2020 00:30:39 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/error-running-junit/</guid>
+      <description>&lt;p&gt;Java报错真是多，一不小心单元测试也报错。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Install Centos8</title>
+      <link>http://blog.happyhacker.fun/post/install-centos8/</link>
+      <pubDate>Mon, 06 Apr 2020 00:10:43 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/install-centos8/</guid>
+      <description>&lt;p&gt;多年不安装虚拟机，竟然卡在了第一步。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Java内存泄漏排查记录</title>
+      <link>http://blog.happyhacker.fun/post/java-memory-leak-record/</link>
+      <pubDate>Sun, 05 Apr 2020 23:11:28 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/java-memory-leak-record/</guid>
+      <description>&lt;p&gt;我们用Java是为了让它自动管理内存，然后我的第一个Java项目上线就面临排查线程数过多导致无法创建新线程、内存泄漏导致机器重启各种个样的问题。这和我原本想象的可不一样。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>lftp记录密码</title>
+      <link>http://blog.happyhacker.fun/post/lftp-usage/</link>
+      <pubDate>Sun, 05 Apr 2020 11:32:45 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/lftp-usage/</guid>
+      <description>&lt;p&gt;简单的工具最好用。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Centos8乱码及解决</title>
+      <link>http://blog.happyhacker.fun/post/centos8-garbled-chars/</link>
+      <pubDate>Fri, 03 Apr 2020 22:14:19 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/centos8-garbled-chars/</guid>
+      <description>&lt;p&gt;以下操作基于CentOS8, 理论上应该适用于其他版本的操作系统.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Java时区问题的排查和分析</title>
+      <link>http://blog.happyhacker.fun/post/java-localdatetime-timezone/</link>
+      <pubDate>Wed, 01 Apr 2020 12:48:50 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/java-localdatetime-timezone/</guid>
+      <description>&lt;p&gt;用Java开发新项目，遇到了很多之前没见过的问题，时区算是第二头疼的一个。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>简单说说Firefox和Chrome</title>
+      <link>http://blog.happyhacker.fun/post/about-chrome-and-firefox/</link>
+      <pubDate>Tue, 31 Mar 2020 10:02:07 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/about-chrome-and-firefox/</guid>
+      <description>&lt;p&gt;自认为从易用性、自由度、速度和资源占用方面，Firefox（Quantom）已经超越了Chrome，但现在居然出现了兼容性问题。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>macOS上管理SSH服务</title>
+      <link>http://blog.happyhacker.fun/post/sshd-in-macos/</link>
+      <pubDate>Sun, 29 Mar 2020 10:57:10 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/sshd-in-macos/</guid>
+      <description>&lt;p&gt;mac本身安装了ssh服务，默认情况下不会开机自启。本文记录了开启和停止sshd服务的方法。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>使用Homebrew管理macOS上的服务</title>
+      <link>http://blog.happyhacker.fun/post/macos-service-management/</link>
+      <pubDate>Sun, 29 Mar 2020 10:53:04 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/macos-service-management/</guid>
+      <description>&lt;p&gt;用了5年macOS也一直没有用过苹果原生的服务管理、AppleSript等等，总感觉不够直观，好在还有Homebrew这个神器，帮我解决了很多问题。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>AMD黑苹果的装机经验</title>
+      <link>http://blog.happyhacker.fun/post/ryzentosh/</link>
+      <pubDate>Sun, 29 Mar 2020 10:49:38 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/ryzentosh/</guid>
+      <description>&lt;p&gt;实在是受不了MBP13孱弱的性能和糟糕的发热，终于下定决心组装一台台式机。最终还是真香。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>使用阿里云加速依赖管理</title>
+      <link>http://blog.happyhacker.fun/post/accelerating-maven-downloading-with-aliyun-mirror/</link>
+      <pubDate>Sun, 29 Mar 2020 00:21:43 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/accelerating-maven-downloading-with-aliyun-mirror/</guid>
+      <description>&lt;p&gt;开发Java应用的过程中通常需要依赖大量的第三方包，而由于众所周知的原因，我们访问这些资源的速度非常慢，感谢阿里云给我们提供了一个选项可以快速访问这些资源。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>配置Hugo的图片路径</title>
+      <link>http://blog.happyhacker.fun/post/config-hugo-image-path/</link>
+      <pubDate>Sat, 28 Mar 2020 23:44:36 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/config-hugo-image-path/</guid>
+      <description>&lt;p&gt;不得不说Hugo的图片路径支持有些不友好，网上也有很多吐槽。简单说就是即便神级的Markdown编辑器Typora都无法适应Hugo的图片路径。由于Typora需要做日常的工作记录，所以就配置了一下VSCode来支持Hugo。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Springboot使用内置和独立tomcat以及其他思考</title>
+      <link>http://blog.happyhacker.fun/post/spring-tomcat-tutorial/</link>
+      <pubDate>Sat, 28 Mar 2020 12:56:22 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/spring-tomcat-tutorial/</guid>
+      <description>&lt;p&gt;本文探讨了Springboot应用使用jar包和war包的区别，以及使用中的一些思考。我刚开始研究Java，一些想法可能不准确，欢迎提出宝贵意见。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ci on happyhakcer makes fun</title>
+    <link>http://blog.happyhacker.fun/tags/ci/</link>
+    <description>Recent content in ci on happyhakcer makes fun</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 17 Apr 2020 23:28:21 +0800</lastBuildDate>
+    
+	<atom:link href="http://blog.happyhacker.fun/tags/ci/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>基于ansible的渐进上线流程探究</title>
+      <link>http://blog.happyhacker.fun/post/ansible-step-release/</link>
+      <pubDate>Fri, 17 Apr 2020 23:28:21 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/ansible-step-release/</guid>
+      <description>&lt;p&gt;继上一篇文章&lt;a href=&#34;http://blog.happyhacker.fun/post/spring-tomcat-tutorial/&#34;&gt;Springboot使用内置和独立tomcat以及其他思考&lt;/a&gt;中描述的，继续优化整个发布流程。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

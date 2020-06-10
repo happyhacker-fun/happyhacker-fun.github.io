@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gradle on happyhakcer makes fun</title>
+    <link>http://blog.happyhacker.fun/tags/gradle/</link>
+    <description>Recent content in gradle on happyhakcer makes fun</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 29 Mar 2020 00:21:43 +0800</lastBuildDate>
+    
+	<atom:link href="http://blog.happyhacker.fun/tags/gradle/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>使用阿里云加速依赖管理</title>
+      <link>http://blog.happyhacker.fun/post/accelerating-maven-downloading-with-aliyun-mirror/</link>
+      <pubDate>Sun, 29 Mar 2020 00:21:43 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/accelerating-maven-downloading-with-aliyun-mirror/</guid>
+      <description>&lt;p&gt;开发Java应用的过程中通常需要依赖大量的第三方包，而由于众所周知的原因，我们访问这些资源的速度非常慢，感谢阿里云给我们提供了一个选项可以快速访问这些资源。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
