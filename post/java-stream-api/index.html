@@ -49,7 +49,7 @@
 <meta itemprop="description" content="Java的stream api真是功能强大，但写的时候总是忘，这里简单记录以下。">
 <meta itemprop="datePublished" content="2020-04-29T23:23:57&#43;08:00" />
 <meta itemprop="dateModified" content="2020-05-28T23:48:30&#43;08:00" />
-<meta itemprop="wordCount" content="2413">
+<meta itemprop="wordCount" content="2409">
 
 
 
@@ -129,7 +129,7 @@
         <div class="post-category">
             <a href="/categories/theory/"> theory </a>
             </div>
-          <span class="more-meta"> 约 2413 字 </span>
+          <span class="more-meta"> 约 2409 字 </span>
           <span class="more-meta"> 预计阅读 5 分钟 </span>
         
       </div>
@@ -141,7 +141,7 @@
     <nav id="TableOfContents">
   <ul>
     <li><a href="#概念">概念</a></li>
-    <li><a href="#创建stream的几种方式sup2suprefer-anchor-2">创建Stream的几种方式<a href="#refer-anchor-2"><!-- raw HTML omitted -->2<!-- raw HTML omitted --></a></a>
+    <li><a href="#创建stream的几种方式">创建Stream的几种方式</a>
       <ul>
         <li><a href="#1-streamofval1-val2-val3">1. <code>Stream.Of(val1, val2, val3)</code></a></li>
         <li><a href="#2-streamofarrayofelements">2. <code>Stream.of(arrayOfElements)</code></a></li>
@@ -165,7 +165,6 @@
         <li><a href="#collectcollectorstomap"><code>collect(Collectors.toMap())</code></a></li>
       </ul>
     </li>
-    <li><a href="#参考">参考</a></li>
   </ul>
 </nav>
   </div>
@@ -174,13 +173,13 @@
       <p>Java的stream api真是功能强大，但写的时候总是忘，这里简单记录以下。</p>
 <h2 id="概念">概念</h2>
 <p>经常会搞混淆的应该就是Stream和Collection的区别。从定义上讲，Collection是一个内存数据结构，它包含了这个数据结构拥有的所有元素，每个元素都必须是确定的。也就是说，一个元素在加入到一个集合（Collection）中之前一定是计算好了的、确定的。而Stream从概念上固定的数据结构，它里面的元素可以按需计算。</p>
-<p>差异如下<a href="#refer-anchor-1"><!-- raw HTML omitted -->1<!-- raw HTML omitted --></a>：</p>
+<p>差异如下：</p>
 <ol>
 <li>流并不存储其元素。这些元素可能存储在底层的集合中，或者是按需生成的。</li>
 <li>流的操作不会修改其数据源。<code>filter</code>方法不会从流中移除元素，而是会生成一个新的流。</li>
 <li>流的操作是尽可能惰性的，这意味着直至需要结果时，操作才会执行。</li>
 </ol>
-<h2 id="创建stream的几种方式sup2suprefer-anchor-2">创建Stream的几种方式<a href="#refer-anchor-2"><!-- raw HTML omitted -->2<!-- raw HTML omitted --></a></h2>
+<h2 id="创建stream的几种方式">创建Stream的几种方式</h2>
 <h3 id="1-streamofval1-val2-val3">1. <code>Stream.Of(val1, val2, val3)</code></h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -608,9 +607,7 @@ foreach ($a as $key =&gt; $value) {
 <pre class="chroma"><code class="language-fallback" data-lang="fallback">{a=A, b=B, c=C, d=D}
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="参考">参考</h2>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+</div>
     </div>
 
     <div class="post-copyright">
