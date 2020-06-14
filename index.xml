@@ -6,7 +6,7 @@
     <description>Recent content on happyhakcer makes fun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 10 Jun 2020 10:52:37 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 14 Jun 2020 10:12:22 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.happyhacker.fun/index.xml" rel="self" type="application/rss+xml" />
     
@@ -18,6 +18,15 @@
       
       <guid>http://blog.happyhacker.fun/about/</guid>
       <description>坐标北京，一个普普通通的软件开发人员。 想了很多，好像也没什么好写的。做过很多项目，虽然实现了目标，但总不甚满意。 在这里留一些碎碎念吧。</description>
+    </item>
+    
+    <item>
+      <title>黑苹果更新升级</title>
+      <link>http://blog.happyhacker.fun/post/update-ryzentosh/</link>
+      <pubDate>Sun, 14 Jun 2020 10:12:22 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/update-ryzentosh/</guid>
+      <description>&lt;p&gt;装黑苹果的时候是10.15.3，后来经历了两次官方的更新，但我又不太清楚需要的更新过程，现在更新成功之后记录一下。&lt;/p&gt;</description>
     </item>
     
     <item>
