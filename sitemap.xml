@@ -10,21 +10,63 @@
   
   <url>
     <loc>http://blog.happyhacker.fun/categories/</loc>
-    <lastmod>2020-05-21T10:54:26+08:00</lastmod>
+    <lastmod>2020-06-10T11:08:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/java/</loc>
-    <lastmod>2020-05-21T10:54:26+08:00</lastmod>
+    <loc>http://blog.happyhacker.fun/</loc>
+    <lastmod>2020-06-10T11:08:17+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.happyhacker.fun/categories/in-action/</loc>
+    <lastmod>2020-06-10T11:08:17+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.happyhacker.fun/tags/macos/</loc>
+    <lastmod>2020-06-10T11:08:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://blog.happyhacker.fun/post/</loc>
-    <lastmod>2020-05-21T10:54:26+08:00</lastmod>
+    <lastmod>2020-06-10T11:08:17+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.happyhacker.fun/tags/</loc>
+    <lastmod>2020-06-10T11:08:17+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.happyhacker.fun/tags/tips/</loc>
+    <lastmod>2020-06-10T11:08:17+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.happyhacker.fun/post/turn-off-macos-update-notification/</loc>
+    <lastmod>2020-06-10T11:08:17+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.happyhacker.fun/tags/java/</loc>
+    <lastmod>2020-05-28T23:48:30+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -38,20 +80,6 @@
   
   <url>
     <loc>http://blog.happyhacker.fun/categories/springboot/</loc>
-    <lastmod>2020-05-21T10:54:26+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://blog.happyhacker.fun/tags/</loc>
-    <lastmod>2020-05-21T10:54:26+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://blog.happyhacker.fun/tags/tips/</loc>
     <lastmod>2020-05-21T10:54:26+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -93,13 +121,6 @@
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/categories/in-action/</loc>
-    <lastmod>2020-05-16T00:55:18+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>http://blog.happyhacker.fun/post/disable-zoom-in-and-out-in-firefox-with-mouse/</loc>
     <lastmod>2020-05-16T00:55:18+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -114,13 +135,6 @@
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/macos/</loc>
-    <lastmod>2020-05-16T00:36:28+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>http://blog.happyhacker.fun/post/install-homebrew-in-china/</loc>
     <lastmod>2020-05-16T00:36:28+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -129,21 +143,21 @@
   
   <url>
     <loc>http://blog.happyhacker.fun/tags/basics/</loc>
-    <lastmod>2020-04-30T00:09:40+08:00</lastmod>
+    <lastmod>2020-05-28T23:48:30+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://blog.happyhacker.fun/post/java-stream-api/</loc>
-    <lastmod>2020-04-30T00:09:40+08:00</lastmod>
+    <lastmod>2020-05-28T23:48:30+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://blog.happyhacker.fun/categories/theory/</loc>
-    <lastmod>2020-04-30T00:09:40+08:00</lastmod>
+    <lastmod>2020-05-28T23:48:30+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -445,13 +459,6 @@
   <url>
     <loc>http://blog.happyhacker.fun/tags/tomcat/</loc>
     <lastmod>2020-03-28T15:03:11+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://blog.happyhacker.fun/</loc>
-    <lastmod>2020-03-29T23:54:44+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
