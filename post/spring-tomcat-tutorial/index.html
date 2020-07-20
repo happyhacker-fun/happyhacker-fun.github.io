@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Springboot使用内置和独立tomcat以及其他思考 - happyhakcer makes fun</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="happyhacker" /><meta name="description" content="springboot with or without tomcat in action" /><meta name="keywords" content="Java, PHP, Architect" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.73.0 with theme even" />
+
+
+<link rel="canonical" href="http://blog.happyhacker.fun/post/spring-tomcat-tutorial/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Springboot使用内置和独立tomcat以及其他思考" />
+<meta property="og:description" content="springboot with or without tomcat in action" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://blog.happyhacker.fun/post/spring-tomcat-tutorial/" />
+<meta property="article:published_time" content="2020-03-28T12:56:22+08:00" />
+<meta property="article:modified_time" content="2020-03-28T15:03:11+08:00" />
+<meta itemprop="name" content="Springboot使用内置和独立tomcat以及其他思考">
+<meta itemprop="description" content="springboot with or without tomcat in action">
+<meta itemprop="datePublished" content="2020-03-28T12:56:22&#43;08:00" />
+<meta itemprop="dateModified" content="2020-03-28T15:03:11&#43;08:00" />
+<meta itemprop="wordCount" content="1623">
+
+
+
+<meta itemprop="keywords" content="springboot,tomcat,java,in-action," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Springboot使用内置和独立tomcat以及其他思考"/>
+<meta name="twitter:description" content="springboot with or without tomcat in action"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Happyhacker</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于我</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Happyhacker</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于我</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Springboot使用内置和独立tomcat以及其他思考</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-03-28 12:56 </span>
+        <div class="post-category">
+            <a href="/categories/tech/"> tech </a>
+            </div>
+          <span class="more-meta"> 约 1623 字 </span>
+          <span class="more-meta"> 预计阅读 4 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#创建一个简单的springboot-web应用">创建一个简单的Springboot Web应用</a></li>
+    <li><a href="#在嵌入式tomcat容器中运行web应用">在嵌入式tomcat容器中运行Web应用</a></li>
+    <li><a href="#打包编写完成的war包">打包编写完成的war包</a></li>
+    <li><a href="#将war包部署到独立的tomcat服务中">将war包部署到独立的tomcat服务中</a></li>
+    <li><a href="#访问独立tomcat服务中的应用">访问独立tomcat服务中的应用</a></li>
+    <li><a href="#访问应用的不同版本">访问应用的不同版本</a></li>
+    <li><a href="#是否真的是无感">是否真的是无感？</a></li>
+    <li><a href="#在tomcat前部署nginx反向代理">在tomcat前部署nginx反向代理</a></li>
+    <li><a href="#总结">总结</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>本文探讨了Springboot应用使用jar包和war包的区别，以及使用中的一些思考。我刚开始研究Java，一些想法可能不准确，欢迎提出宝贵意见。</p>
+<p>在开发中我们会使用嵌入式的tomcat容器，但实际项目部署中一般不会这么做。下面在macOS环境下操作以下步骤：</p>
+<p>由于实验用的黑苹果不支持docker，以下所有操作需要的应用均使用macOS下的homebrew安装。</p>
+<h2 id="创建一个简单的springboot-web应用">创建一个简单的Springboot Web应用</h2>
+<p>使用Spring Initializr创建一个基础的Springboot应用，只选择Web组件。</p>
+<p><img src="/images/image-20200321233213671.png" alt="image-20200321233213671"></p>
+<p><img src="/images/image-20200321233443126.png" alt="image-20200321233443126"></p>
+<p><img src="/images/image-20200321233515184.png" alt="image-20200321233515184"></p>
+<p><img src="/images/image-20200321233707966.png" alt="image-20200321233707966"></p>
+<p>以上就是一个最简单的Springboot应用了。</p>
+<h2 id="在嵌入式tomcat容器中运行web应用">在嵌入式tomcat容器中运行Web应用</h2>
+<p><img src="/images/image-20200321233903263.png" alt="image-20200321233903263"></p>
+<p>可以看到，这个应用已经可以在嵌入式tomcat容器中运行了。注意，这里访问的路径是<code>http://localhost:8080/v1/hello/world</code>。</p>
+<h2 id="打包编写完成的war包">打包编写完成的war包</h2>
+<p><img src="/images/image-20200321234037615.png" alt="image-20200321234037615"></p>
+<p>在Idea中执行<code>mvn pacakge</code>，然后在<code>target</code>目录中检查生成的war包。</p>
+<p><img src="/images/image-20200321234123292.png" alt="image-20200321234123292"></p>
+<h2 id="将war包部署到独立的tomcat服务中">将war包部署到独立的tomcat服务中</h2>
+<p>这时候就可以关闭Idea中运行的嵌入式tomcat容器了，因为启动独立tomcat服务时默认端口也是8080，会有冲突导致无法启动。</p>
+<p><img src="/images/image-20200321234307345.png" alt="image-20200321234307345"></p>
+<p>可以执行<code>brew services start tomcat</code>来启动web容器。这里为了观察服务的输出，使用前台运行的方式<code>catalina run</code>。</p>
+<p><img src="/images/image-20200321234526625.png" alt="image-20200321234526625"></p>
+<p>可以看到tomcat服务已经成功启动，并监听了8080端口。</p>
+<h2 id="访问独立tomcat服务中的应用">访问独立tomcat服务中的应用</h2>
+<p>将前面<code>target</code>目录中的war包部署到tomcat的webapps目录中。</p>
+<p><img src="/images/image-20200321234837614.png" alt="image-20200321234837614"></p>
+<p><img src="/images/image-20200321234811148.png" alt="image-20200321234811148"></p>
+<p>可以看到，服务启动后，直接将war包复制到tomcat的工作目录中，服务就会检测到新war包的加入，并自动运行相应的服务。</p>
+<p>这时如果我们还像刚才那样访问<code>http://localhost:8080/v1/hello/world</code>会怎样呢？</p>
+<p><img src="/images/image-20200321235028410.png" alt="image-20200321235028410"></p>
+<p>可以看到，是不存在这个路径的。</p>
+<p>问题出在哪儿呢？我们看一下webapps目录下都有哪些东西。</p>
+<p><img src="/images/image-20200321235109562.png" alt="image-20200321235109562"></p>
+<p>可以看到，我们是把应用部署在了web容器中，但web容器中却是有多个应用的，所以，访问应用时需要带上应用的名字。那名字是什么呢？当然就是<code>spring-in-tomcat-0.0.1-SNAPSHOT</code>，试一下</p>
+<p><img src="/images/image-20200321235306362.png" alt="image-20200321235306362"></p>
+<p>果然可以了。</p>
+<h2 id="访问应用的不同版本">访问应用的不同版本</h2>
+<p>刚才是应用从不存在到存在，tomcat可以自动检测。我们再测试一下是否可以检测文件的变更。</p>
+<p><img src="/images/image-20200321235604989.png" alt="image-20200321235604989"></p>
+<p>这里做了一个微小的变化。</p>
+<p><img src="/images/image-20200321235643172.png" alt="image-20200321235643172"></p>
+<p>复制完成之后tomcat马上就检测到了文件的更新。</p>
+<p><img src="/images/image-20200321235735659.png" alt="image-20200321235735659"></p>
+<p>可以看到，应用更新也<strong>无感</strong>的完成了。</p>
+<h2 id="是否真的是无感">是否真的是无感？</h2>
+<p>在war包替换期间发生了什么？服务有没有中断呢？再做一个测试</p>
+<p><img src="/images/image-20200322001133216.png" alt="image-20200322001133216"></p>
+<p>首先启动30秒的并发请求，然后将重新编辑并打包的war包重新部署，结果发现有大量的非200的返回值。这就证明了并不是“软重启”，而是存在服务中断。那怎么证明不是wrk发起的请求太多，从而导致的服务繁忙呢？在正常情况下再跑一次测试就行了。</p>
+<p><img src="/images/image-20200322001417574.png" alt="image-20200322001417574"></p>
+<p>所以，重新部署服务导致服务中断的结论无误。</p>
+<p>从这个结论萌生了另外一个想法，这个访问的路径是带版本号的，这里是<code>0.0.1-SNAPSHOT</code>，那如果我直接加一个<code>0.0.2-SNAPSHOT</code>的版本进来，不就两个都能访问了？然后配合Nginx的反向代理和负载均衡，步进式的切流量，也就同时实现了灰度发布。</p>
+<p><img src="/images/image-20200322002053556.png" alt="image-20200322002053556"></p>
+<h2 id="在tomcat前部署nginx反向代理">在tomcat前部署nginx反向代理</h2>
+<p><img src="/images/image-20200322003925168.png" alt="image-20200322003925168"></p>
+<p>添加一个如图的配置文件，这时就可以通过nginx访问spring的服务了。不出意外的话，改变nginx的配置并重新reload nginx的过程，服务是不会中断的。</p>
+<p><img src="/images/image-20200322010427797.png" alt="image-20200322010427797"></p>
+<p>多次实验结果表明，在并发请求期间reload nginx的server配置，对服务可用性的影响非常小。</p>
+<p>关于Nginx的负载均衡相关内容这里不再过多涉及。</p>
+<h2 id="总结">总结</h2>
+<ol>
+<li>tomcat会自动加载新加入的war包</li>
+<li>tomcat更新同名的新war包时服务会中断</li>
+<li>可以利用tomcat可同时运行多个war包的特性提供不同版本的服务</li>
+<li>可以利用Nginx反向代理实现服务不中断</li>
+<li>可以利用Nginx的负载均衡实现灰度发布</li>
+</ol>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">happyhacker</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-03-28 15:03
+        <a href="/commit/7b91fbcb83a2305fd951676a40093ee4088c4a88" title="update config">(7b91fbc)</a>
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/springboot/">springboot</a>
+          <a href="/tags/tomcat/">tomcat</a>
+          <a href="/tags/java/">java</a>
+          <a href="/tags/in-action/">in-action</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/config-hugo-image-path/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">配置Hugo的图片路径</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:frostwong@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/2969224/unixagain" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/lovelock" class="iconfont icon-github" title="github"></a>
+      <a href="https://weibo.com/u/2122681617/" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="https://space.bilibili.com/32881881" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://blog.happyhacker.fun/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">happyhacker</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
+  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
+    var languageCode = "zh-CN".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
+    timeago().render(document.querySelectorAll('.timeago'), languageCode);
+    timeago.cancel();  
+  </script><script></script><script src="https://cdn.jsdelivr.net/npm/raphael@2.2.7/raphael.min.js" integrity="sha256-67By+NpOtm9ka1R6xpUefeGOY8kWWHHRAKlvaTJ7ONI=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/flowchart.js@1.8.0/release/flowchart.min.js" integrity="sha256-zNGWjubXoY6rb5MnmpBNefO0RgoVYfle9p0tvOQM+6k=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/snapsvg@0.5.1/dist/snap.svg-min.js" integrity="sha256-oI+elz+sIm+jpn8F/qEspKoKveTc5uKeFHNNVexe6d8=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/underscore@1.8.3/underscore-min.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.js" integrity="sha384-8748Vn52gHJYJI0XEuPB2QlPVNUkJlJn9tHqKec6J3q2r9l8fvRxrgn/E5ZHV0sP" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.css" integrity="sha384-6QbLKJMz5dS3adWSeINZe74uSydBGFbnzaAYmp+tKyq60S7H2p6V7g1TysM5lAaF" crossorigin="anonymous">
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

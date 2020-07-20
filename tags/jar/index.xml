@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>jar on happyhakcer makes fun</title>
+    <link>http://blog.happyhacker.fun/tags/jar/</link>
+    <description>Recent content in jar on happyhakcer makes fun</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 18 May 2020 22:18:51 +0800</lastBuildDate>
+    
+	<atom:link href="http://blog.happyhacker.fun/tags/jar/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>聊聊jar包</title>
+      <link>http://blog.happyhacker.fun/post/what-is-jar/</link>
+      <pubDate>Mon, 18 May 2020 22:18:51 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/what-is-jar/</guid>
+      <description>&lt;p&gt;jar包应该是java应用使用最多的分发形式了，jar包中包含什么东西，怎么创建和执行它呢？&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

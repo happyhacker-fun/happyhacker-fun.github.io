@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Java内存泄漏排查记录 - happyhakcer makes fun</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="happyhacker" /><meta name="description" content="我们用Java是为了让它自动管理内存，然后我的第一个Java项目上线就面临排查线程数过多导致无法创建新线程、内存泄漏导致机器重启各种个样的问题。这和我原本想象的可不一样。
+" /><meta name="keywords" content="Java, PHP, Architect" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.73.0 with theme even" />
+
+
+<link rel="canonical" href="http://blog.happyhacker.fun/post/java-memory-leak-record/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Java内存泄漏排查记录" />
+<meta property="og:description" content="我们用Java是为了让它自动管理内存，然后我的第一个Java项目上线就面临排查线程数过多导致无法创建新线程、内存泄漏导致机器重启各种个样的问题。这和我原本想象的可不一样。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://blog.happyhacker.fun/post/java-memory-leak-record/" />
+<meta property="article:published_time" content="2020-04-05T23:11:28+08:00" />
+<meta property="article:modified_time" content="2020-04-15T00:12:23+08:00" />
+<meta itemprop="name" content="Java内存泄漏排查记录">
+<meta itemprop="description" content="我们用Java是为了让它自动管理内存，然后我的第一个Java项目上线就面临排查线程数过多导致无法创建新线程、内存泄漏导致机器重启各种个样的问题。这和我原本想象的可不一样。">
+<meta itemprop="datePublished" content="2020-04-05T23:11:28&#43;08:00" />
+<meta itemprop="dateModified" content="2020-04-15T00:12:23&#43;08:00" />
+<meta itemprop="wordCount" content="1276">
+
+
+
+<meta itemprop="keywords" content="java,memory-leak," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Java内存泄漏排查记录"/>
+<meta name="twitter:description" content="我们用Java是为了让它自动管理内存，然后我的第一个Java项目上线就面临排查线程数过多导致无法创建新线程、内存泄漏导致机器重启各种个样的问题。这和我原本想象的可不一样。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Happyhacker</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于我</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Happyhacker</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于我</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Java内存泄漏排查记录</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-04-05 23:11 </span>
+        <div class="post-category">
+            <a href="/categories/in-action/"> in-action </a>
+            </div>
+          <span class="more-meta"> 约 1276 字 </span>
+          <span class="more-meta"> 预计阅读 3 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#现象描述">现象描述</a></li>
+    <li><a href="#排查用到的工具">排查用到的工具</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>我们用Java是为了让它自动管理内存，然后我的第一个Java项目上线就面临排查线程数过多导致无法创建新线程、内存泄漏导致机器重启各种个样的问题。这和我原本想象的可不一样。</p>
+<p>最近几天比较忙，排查的过程没有有效的记录下来，但其实也不影响最终的结果，因为并不是代码的问题导致的内存泄漏，而是docker的版本问题。</p>
+<h2 id="现象描述">现象描述</h2>
+<p>我理解的内存泄漏应该是内存的缓慢增长，但实际上从监控曲线看，它总是每隔几分钟就突增一次，每次增加的量大概是物理机内存总量的15%，所以能在30分钟左右就耗尽物理机的内存，最终docker进程挂掉，内存释放。</p>
+<p>注意，这里的现象是docker服务挂掉，而不是运行tomcat的容器挂掉。这是一个很重要的信号，也是在最早期被忽略的线索。</p>
+<p>同时还发现，当内存占用量不停升高时，重启运行tomcat的容器并不能释放内存。这一点很反常规，因为按我们的理解，tomcat是一个jvm进程，当jvm进程重启时，它对应的内存泄漏应该也被释放才对。这时候我们又被绕进了另外一个误区，去排查native memory了，这里按下不表。</p>
+<p>其实从上面的描述看，最可能的问题是在docker上。使用的docker版本是非常老的1.6.2，java版本是adoptopenjdk 1.8.242，按照官方的说法，在jdk 1.8.131之后，jvm已经可以识别cgroup，即可以感知到自己是在容器中运行，因而不会将物理机的总内存认为是jvm可用的总内存。但还是无法解释我们遇到但问题。一筹莫展之际，我尝试了在宿主机上执行运行tomcat，持续运行了几个小时，内存占用率一直在15%左右，非常稳定，内存泄漏的问题不见了。</p>
+<p>那么基本上就锁定是docker的问题了。升级docker版本到1.13.1，问题解决。</p>
+<h2 id="排查用到的工具">排查用到的工具</h2>
+<p>虽然排查的过程走了不少弯路，但基本上能用到的排查工具也都用到了。这里只记录一下大概，用到的时候还是要查对应的文档。</p>
+<ol>
+<li>
+<p><code>jps</code>
+首先是最基础的<code>jps -lvVm</code>，可以看到整个jvm进程的启动参数，也可以用于验证指定的各种命令行参数是否生效了。</p>
+</li>
+<li>
+<p><code>visualvm</code>
+这个就是比较高端的分析工具了，最重要的是它能连接远程jvm进程，实时查看堆内存和gc的情况，甚至还有很多插件用于查看更多信息。但对于我们的这个情况来说，只能看到堆内存的占用一直维持在一个正常水平，ygc也很正常，整个内存的使用情况呈锯齿状，能说明堆内存没有泄漏。</p>
+</li>
+<li>
+<p><code>perf</code>
+这是linux内核支持的工具，可以监听指定进程在一段时间内的所有系统调用。</p>
+</li>
+<li>
+<p><code>mat</code>
+全称Memory Analyzer Tool, 可以用于分析生成的hprof文件，这个hprof文件可以是系统崩溃时自动生成的堆内存快照，也可以是由<code>jmap</code>生成。</p>
+</li>
+<li>
+<p><code>jmap</code>
+生成可供<code>mat</code>分析的内存快照。</p>
+</li>
+</ol>
+<blockquote>
+<p>需要注意的是<code>.hprof</code>文件可能会非常大，最好监控起来，一方面是因为除去人为通过jmap生成的情况之外，都是系统崩溃了才会生成，另一方面是文件太大，很可能会快速占满磁盘空间。</p>
+</blockquote>
+<p>基本上常用的内存检查工具就这些了，关于这些工具的详细使用方法，最好还是参照官方文档，后面如果再遇到需要查内存泄漏的例子，将会在这里补充一些具体的案例。</p>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">happyhacker</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-04-15 00:12
+        <a href="/commit/f980b611a15ade8cf056a3cacf84818e2cbe2c18" title="updating content Wed Apr 15 00:12:23 CST 2020">(f980b61)</a>
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/java/">java</a>
+          <a href="/tags/memory-leak/">memory-leak</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/install-centos8/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Install Centos8</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/lftp-usage/">
+            <span class="next-text nav-default">lftp记录密码</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:frostwong@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/2969224/unixagain" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/lovelock" class="iconfont icon-github" title="github"></a>
+      <a href="https://weibo.com/u/2122681617/" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="https://space.bilibili.com/32881881" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://blog.happyhacker.fun/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">happyhacker</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
+  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
+    var languageCode = "zh-CN".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
+    timeago().render(document.querySelectorAll('.timeago'), languageCode);
+    timeago.cancel();  
+  </script><script></script><script src="https://cdn.jsdelivr.net/npm/raphael@2.2.7/raphael.min.js" integrity="sha256-67By+NpOtm9ka1R6xpUefeGOY8kWWHHRAKlvaTJ7ONI=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/flowchart.js@1.8.0/release/flowchart.min.js" integrity="sha256-zNGWjubXoY6rb5MnmpBNefO0RgoVYfle9p0tvOQM+6k=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/snapsvg@0.5.1/dist/snap.svg-min.js" integrity="sha256-oI+elz+sIm+jpn8F/qEspKoKveTc5uKeFHNNVexe6d8=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/underscore@1.8.3/underscore-min.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.js" integrity="sha384-8748Vn52gHJYJI0XEuPB2QlPVNUkJlJn9tHqKec6J3q2r9l8fvRxrgn/E5ZHV0sP" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.css" integrity="sha384-6QbLKJMz5dS3adWSeINZe74uSydBGFbnzaAYmp+tKyq60S7H2p6V7g1TysM5lAaF" crossorigin="anonymous">
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

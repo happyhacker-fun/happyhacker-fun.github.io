@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>in-action on happyhakcer makes fun</title>
+    <link>http://blog.happyhacker.fun/tags/in-action/</link>
+    <description>Recent content in in-action on happyhakcer makes fun</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 28 Mar 2020 12:56:22 +0800</lastBuildDate>
+    
+	<atom:link href="http://blog.happyhacker.fun/tags/in-action/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Springboot使用内置和独立tomcat以及其他思考</title>
+      <link>http://blog.happyhacker.fun/post/spring-tomcat-tutorial/</link>
+      <pubDate>Sat, 28 Mar 2020 12:56:22 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/spring-tomcat-tutorial/</guid>
+      <description>&lt;p&gt;本文探讨了Springboot应用使用jar包和war包的区别，以及使用中的一些思考。我刚开始研究Java，一些想法可能不准确，欢迎提出宝贵意见。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
