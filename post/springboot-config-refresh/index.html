@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Springboot配置热加载 - happyhakcer makes fun</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="happyhacker" /><meta name="description" content="我们当然不想每次更新配置都要重启服务，毕竟Springboot应用重启一次要很久，而且服务会中断，本文讨论如何更好的实践Springboot配置部署。
+" /><meta name="keywords" content="Java, PHP, Architect" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.70.0 with theme even" />
+
+
+<link rel="canonical" href="http://blog.happyhacker.fun/post/springboot-config-refresh/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Springboot配置热加载" />
+<meta property="og:description" content="我们当然不想每次更新配置都要重启服务，毕竟Springboot应用重启一次要很久，而且服务会中断，本文讨论如何更好的实践Springboot配置部署。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://blog.happyhacker.fun/post/springboot-config-refresh/" />
+<meta property="article:published_time" content="2020-04-27T22:42:19+08:00" />
+<meta property="article:modified_time" content="2020-04-28T00:42:03+08:00" />
+<meta itemprop="name" content="Springboot配置热加载">
+<meta itemprop="description" content="我们当然不想每次更新配置都要重启服务，毕竟Springboot应用重启一次要很久，而且服务会中断，本文讨论如何更好的实践Springboot配置部署。">
+<meta itemprop="datePublished" content="2020-04-27T22:42:19&#43;08:00" />
+<meta itemprop="dateModified" content="2020-04-28T00:42:03&#43;08:00" />
+<meta itemprop="wordCount" content="1797">
+
+
+
+<meta itemprop="keywords" content="java,springboot,config,spring-cloud," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Springboot配置热加载"/>
+<meta name="twitter:description" content="我们当然不想每次更新配置都要重启服务，毕竟Springboot应用重启一次要很久，而且服务会中断，本文讨论如何更好的实践Springboot配置部署。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Happyhacker</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于我</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Happyhacker</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于我</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Springboot配置热加载</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-04-27 22:42 </span>
+        <div class="post-category">
+            <a href="/categories/in-action/"> in-action </a>
+            </div>
+          <span class="more-meta"> 约 1797 字 </span>
+          <span class="more-meta"> 预计阅读 4 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#最基本的配置">最基本的配置</a>
+      <ul>
+        <li><a href="#value注解">@Value注解</a></li>
+        <li><a href="#propertysource"><code>PropertySource</code></a></li>
+      </ul>
+    </li>
+    <li><a href="#为什么要实现配置热更新">为什么要实现配置热更新</a>
+      <ul>
+        <li><a href="#了解actuator">了解actuator</a></li>
+        <li><a href="#原因分析">原因分析</a></li>
+        <li><a href="#外置配置">外置配置</a></li>
+        <li><a href="#引入依赖">引入依赖</a></li>
+        <li><a href="#验证">验证</a></li>
+      </ul>
+    </li>
+    <li><a href="#实际应用">实际应用</a>
+      <ul>
+        <li><a href="#配置数据库">配置数据库</a></li>
+        <li><a href="#源码分析">源码分析</a></li>
+      </ul>
+    </li>
+    <li><a href="#扩展">扩展</a>
+      <ul>
+        <li><a href="#搭建配置服务">搭建配置服务</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>我们当然不想每次更新配置都要重启服务，毕竟Springboot应用重启一次要很久，而且服务会中断，本文讨论如何更好的实践Springboot配置部署。</p>
+<h2 id="最基本的配置">最基本的配置</h2>
+<p>一般来说，我们有至少两种使用配置的方式，使用<code>@Value</code>注解和使用<code>PropertySource</code>。</p>
+<h3 id="value注解">@Value注解</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">fun.happyhacker.configrefresh.config</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">lombok.Data</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Value</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.context.annotation.Configuration</span><span class="o">;</span>
+
+<span class="nd">@Configuration</span>
+<span class="nd">@Data</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ValueConfig</span> <span class="o">{</span>
+    <span class="nd">@Value</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">&#34;${foo.bar}&#34;</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">bar</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="propertysource"><code>PropertySource</code></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">fun.happyhacker.configrefresh.config</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">lombok.Data</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.boot.context.properties.ConfigurationProperties</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.context.annotation.Configuration</span><span class="o">;</span>
+
+<span class="nd">@Configuration</span>
+<span class="nd">@ConfigurationProperties</span><span class="o">(</span><span class="n">prefix</span> <span class="o">=</span> <span class="s">&#34;hello&#34;</span><span class="o">)</span>
+<span class="nd">@Data</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloProperties</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">bob</span><span class="o">;</span>
+
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">star</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>这样配置之后就可以在Bean里引用相应的配置了。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">fun.happyhacker.configrefresh.controller</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">fun.happyhacker.configrefresh.config.HelloProperties</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">fun.happyhacker.configrefresh.config.ValueConfig</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.json.JSONObject</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.GetMapping</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.RestController</span><span class="o">;</span>
+
+<span class="nd">@RestController</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ConfigController</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">ValueConfig</span> <span class="n">valueConfig</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">HelloProperties</span> <span class="n">properties</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">ConfigController</span><span class="o">(</span><span class="n">ValueConfig</span> <span class="n">valueConfig</span><span class="o">,</span> <span class="n">HelloProperties</span> <span class="n">properties</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">valueConfig</span> <span class="o">=</span> <span class="n">valueConfig</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">properties</span> <span class="o">=</span> <span class="n">properties</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@GetMapping</span><span class="o">(</span><span class="n">path</span> <span class="o">=</span> <span class="s">&#34;/demo&#34;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">demo</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">JSONObject</span> <span class="n">jsonObject</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JSONObject</span><span class="o">();</span>
+        <span class="n">jsonObject</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;bob&#34;</span><span class="o">,</span> <span class="n">properties</span><span class="o">.</span><span class="na">getBob</span><span class="o">());</span>
+        <span class="n">jsonObject</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;star&#34;</span><span class="o">,</span> <span class="n">properties</span><span class="o">.</span><span class="na">getStar</span><span class="o">());</span>
+        <span class="n">jsonObject</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;bar&#34;</span><span class="o">,</span> <span class="n">valueConfig</span><span class="o">.</span><span class="na">getBar</span><span class="o">());</span>
+
+        <span class="k">return</span> <span class="n">jsonObject</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><a href="https://github.com/lovelock/JavaPlayground/commit/6fd9bcc616a1b3f35aa960a1e2f873c6682fdb48">6fd9bcc6</a></p>
+<h2 id="为什么要实现配置热更新">为什么要实现配置热更新</h2>
+<p>那我们的配置如果需要更新时该怎么办呢？通常我们认为application.properties是在服务启动时加载的，最直接的做法肯定是在配置更新之后重启服务了，这对于对可用性要求不高的服务无关紧要，但还是要对自己的服务提出更高的要求。</p>
+<h3 id="了解actuator">了解actuator</h3>
+<p>actuator为Spring服务提供了一系列管理的endpoints，可用于监控服务的一系列状态，同时也提供了管理接口，比如<code>/actuator/refresh</code>，用于刷新配置；<code>/actuator/env</code>用于查看服务的所有配置。</p>
+<p>本文主要用到这两个，还有一个更厉害的后面再说。</p>
+<p>该功能的依赖</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-actuator<span class="nt">&lt;/artifactId&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>默认开启了以下端点(endpoints)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="err">GET</span> <span class="err">http://localhost:</span><span class="mi">8080</span><span class="err">/actuator</span>
+
+<span class="err">HTTP/</span><span class="mf">1.1</span> <span class="mi">200</span> 
+<span class="err">Content-Type:</span> <span class="err">application/vnd.spring-boot.actuator.v</span><span class="mi">3</span><span class="err">+json</span>
+<span class="err">Transfer-Encoding:</span> <span class="err">chunked</span>
+<span class="err">Date:</span> <span class="err">Mon,</span> <span class="mi">27</span> <span class="err">Apr</span> <span class="mi">2020</span> <span class="mi">15</span><span class="err">:</span><span class="mi">33</span><span class="err">:</span><span class="mi">31</span> <span class="err">GMT</span>
+<span class="err">Keep-Alive:</span> <span class="err">timeout=</span><span class="mi">60</span>
+<span class="err">Connection:</span> <span class="err">keep-alive</span>
+
+<span class="p">{</span>
+  <span class="nt">&#34;_links&#34;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&#34;self&#34;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&#34;href&#34;</span><span class="p">:</span> <span class="s2">&#34;http://localhost:8080/actuator&#34;</span><span class="p">,</span>
+      <span class="nt">&#34;templated&#34;</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="nt">&#34;health&#34;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&#34;href&#34;</span><span class="p">:</span> <span class="s2">&#34;http://localhost:8080/actuator/health&#34;</span><span class="p">,</span>
+      <span class="nt">&#34;templated&#34;</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="nt">&#34;health-path&#34;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&#34;href&#34;</span><span class="p">:</span> <span class="s2">&#34;http://localhost:8080/actuator/health/{*path}&#34;</span><span class="p">,</span>
+      <span class="nt">&#34;templated&#34;</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">},</span>
+    <span class="nt">&#34;info&#34;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&#34;href&#34;</span><span class="p">:</span> <span class="s2">&#34;http://localhost:8080/actuator/info&#34;</span><span class="p">,</span>
+      <span class="nt">&#34;templated&#34;</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>不包含我们我们需要的，所以要在<code>application.properties</code>中添加如下配置</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ini" data-lang="ini"><span class="na">management.endpoints.web.exposure.include</span><span class="o">=</span><span class="s">env,refresh</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>重启服务，就能看到我们要的两个端点了</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="err">GET</span> <span class="err">http://localhost:</span><span class="mi">8080</span><span class="err">/actuator</span>
+
+<span class="err">HTTP/</span><span class="mf">1.1</span> <span class="mi">200</span> 
+<span class="err">Content-Type:</span> <span class="err">application/vnd.spring-boot.actuator.v</span><span class="mi">3</span><span class="err">+json</span>
+<span class="err">Transfer-Encoding:</span> <span class="err">chunked</span>
+<span class="err">Date:</span> <span class="err">Mon,</span> <span class="mi">27</span> <span class="err">Apr</span> <span class="mi">2020</span> <span class="mi">15</span><span class="err">:</span><span class="mi">35</span><span class="err">:</span><span class="mi">58</span> <span class="err">GMT</span>
+<span class="err">Keep-Alive:</span> <span class="err">timeout=</span><span class="mi">60</span>
+<span class="err">Connection:</span> <span class="err">keep-alive</span>
+
+<span class="p">{</span>
+  <span class="nt">&#34;_links&#34;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&#34;self&#34;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&#34;href&#34;</span><span class="p">:</span> <span class="s2">&#34;http://localhost:8080/actuator&#34;</span><span class="p">,</span>
+      <span class="nt">&#34;templated&#34;</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="nt">&#34;env&#34;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&#34;href&#34;</span><span class="p">:</span> <span class="s2">&#34;http://localhost:8080/actuator/env&#34;</span><span class="p">,</span>
+      <span class="nt">&#34;templated&#34;</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="nt">&#34;env-toMatch&#34;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&#34;href&#34;</span><span class="p">:</span> <span class="s2">&#34;http://localhost:8080/actuator/env/{toMatch}&#34;</span><span class="p">,</span>
+      <span class="nt">&#34;templated&#34;</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">},</span>
+    <span class="nt">&#34;refresh&#34;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&#34;href&#34;</span><span class="p">:</span> <span class="s2">&#34;http://localhost:8080/actuator/refresh&#34;</span><span class="p">,</span>
+      <span class="nt">&#34;templated&#34;</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="err">Response</span> <span class="err">code:</span> <span class="mi">200</span><span class="err">;</span> <span class="err">Time:</span> <span class="mi">98</span><span class="err">ms;</span> <span class="err">Content</span> <span class="err">length:</span> <span class="mi">314</span> <span class="err">bytes</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>这时通过<code>/actuator/env</code>可以看到上面我们添加的三个配置</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+    <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;applicationConfig: [classpath:/application.properties]&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;properties&#34;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&#34;management.endpoints.web.exposure.include&#34;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&#34;value&#34;</span><span class="p">:</span> <span class="s2">&#34;env,refresh&#34;</span><span class="p">,</span>
+        <span class="nt">&#34;origin&#34;</span><span class="p">:</span> <span class="s2">&#34;class path resource [application.properties]:1:43&#34;</span>
+    <span class="p">},</span>
+    <span class="nt">&#34;foo.bar&#34;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&#34;value&#34;</span><span class="p">:</span> <span class="s2">&#34;hello world&#34;</span><span class="p">,</span>
+        <span class="nt">&#34;origin&#34;</span><span class="p">:</span> <span class="s2">&#34;class path resource [application.properties]:4:9&#34;</span>
+    <span class="p">},</span>
+    <span class="nt">&#34;hello.bob&#34;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&#34;value&#34;</span><span class="p">:</span> <span class="s2">&#34;SpongeBob SquarePants&#34;</span><span class="p">,</span>
+        <span class="nt">&#34;origin&#34;</span><span class="p">:</span> <span class="s2">&#34;class path resource [application.properties]:6:11&#34;</span>
+    <span class="p">},</span>
+    <span class="nt">&#34;hello.star&#34;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&#34;value&#34;</span><span class="p">:</span> <span class="s2">&#34;Patrick Start&#34;</span><span class="p">,</span>
+        <span class="nt">&#34;origin&#34;</span><span class="p">:</span> <span class="s2">&#34;class path resource [application.properties]:7:12&#34;</span>
+    <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>修改<code>application.properties</code>中的3个自定义配置，再调用<code>/actuator/refresh</code>是没有效果的（注意要用POST请求）。</p>
+<h3 id="原因分析">原因分析</h3>
+<p>那为什么没有效果呢？</p>
+<p>服务是通过<code>java -jar xxx.jar</code>的方式启动的，也就是说，修改之前的<code>application.properties</code>已经打包进了jar包，我们修改的是没有打包进jar包的文件，当然不会对它产生影响。</p>
+<h3 id="外置配置">外置配置</h3>
+<p>为了解决上面的问题，我们要把application.properties外置，这通过<code>--spring.config.location</code>选项实现，为了实现这个配置，可以参考<a href="/post/springboot-external-config">Springboot使用外部配置文件</a>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">cd</span> <span class="nx">config</span><span class="o">-</span><span class="nx">refresh</span>
+<span class="nx">mvn</span> <span class="nx">clean</span> <span class="kn">package</span> <span class="o">-</span><span class="nx">Dmaven</span><span class="p">.</span><span class="nx">test</span><span class="p">.</span><span class="nx">skip</span><span class="p">=</span><span class="kc">true</span>
+<span class="nx">java</span> <span class="o">-</span><span class="nx">cp</span> <span class="p">.</span> <span class="o">-</span><span class="nx">jar</span> <span class="nx">target</span><span class="o">/</span><span class="nx">config</span><span class="o">-</span><span class="nx">refresh</span><span class="o">-</span><span class="mf">0.0.1</span><span class="o">-</span><span class="nx">SNAPSHOT</span><span class="p">.</span><span class="nx">jar</span> <span class="o">--</span><span class="nx">spring</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">location</span><span class="p">=</span><span class="nx">file</span><span class="p">:</span><span class="o">/</span><span class="nx">tmp</span><span class="o">/</span><span class="nx">external</span><span class="o">-</span><span class="nx">config</span><span class="o">/</span><span class="nx">bootstrap</span><span class="p">.</span><span class="nx">properties</span><span class="p">,</span><span class="o">/</span><span class="nx">tmp</span><span class="o">/</span><span class="nx">external</span><span class="o">-</span><span class="nx">config</span><span class="o">/</span><span class="nx">application</span><span class="p">.</span><span class="nx">properties</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>bootstrap.properties是spring-cloud默认的配置文件，这里的配置是让springboot服务不去访问默认的<code>localhost:8888</code>端口去找配置服务器，不配置也可以，会报WARNING，但不影响服务。</p>
+</blockquote>
+<h3 id="引入依赖">引入依赖</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.springframework.cloud<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>spring-cloud-starter-config<span class="nt">&lt;/artifactId&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p><code>/actuator/refresh</code>端口要同时引入<code>spring-boot-starter-actuator</code>和<code>spring-cloud-starter-config</code>。</p>
+</blockquote>
+<h3 id="验证">验证</h3>
+<p>把<code>/tmp/external-config/application.properties</code>中的<code>hello.star</code>改成<code>Patrick Star</code>，再请求<code>/actuator/refresh</code>，再执行<code>/actuator/env</code>，就能看到配置已经更新了。同样的道理，修改<code>foo.bar</code>也可以正常更新。</p>
+<p>**网上很多人说需要在乱七八糟的地方加上<code>@RefreshScope</code>，但我这里完全没有加这个配置，也能正常更新。后面会详细分析该机制的原理。</p>
+<h2 id="实际应用">实际应用</h2>
+<p>当然我们实现动态更新肯定不会只是为了在actuator中查看，一个典型的使用场景是数据库切库，只需要改变数据库配置，而不需要改变代码。</p>
+<h3 id="配置数据库">配置数据库</h3>
+<h3 id="源码分析">源码分析</h3>
+<h2 id="扩展">扩展</h2>
+<h3 id="搭建配置服务">搭建配置服务</h3>
+<h4 id="使用git作为配置后端">使用git作为配置后端</h4>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">happyhacker</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-04-28 00:42
+        <a href="/commit/61ececc66cd4ad1652a8748788c5884f52b991a3" title="updating content Tue Apr 28 00:42:03 CST 2020">(61ececc)</a>
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/java/">java</a>
+          <a href="/tags/springboot/">springboot</a>
+          <a href="/tags/config/">config</a>
+          <a href="/tags/spring-cloud/">spring-cloud</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/springboot-external-config/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Springboot使用外部配置文件</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/java-basics/">
+            <span class="next-text nav-default">Java基础</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="happyhacker-fun/blog-comments"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:frostwong@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/2969224/unixagain" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/lovelock" class="iconfont icon-github" title="github"></a>
+      <a href="https://weibo.com/u/2122681617/" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="https://space.bilibili.com/32881881" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://blog.happyhacker.fun/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">happyhacker</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
+  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
+    var languageCode = "zh-CN".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
+    timeago().render(document.querySelectorAll('.timeago'), languageCode);
+    timeago.cancel();  
+  </script><script></script><script src="https://cdn.jsdelivr.net/npm/raphael@2.2.7/raphael.min.js" integrity="sha256-67By+NpOtm9ka1R6xpUefeGOY8kWWHHRAKlvaTJ7ONI=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/flowchart.js@1.8.0/release/flowchart.min.js" integrity="sha256-zNGWjubXoY6rb5MnmpBNefO0RgoVYfle9p0tvOQM+6k=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/snapsvg@0.5.1/dist/snap.svg-min.js" integrity="sha256-oI+elz+sIm+jpn8F/qEspKoKveTc5uKeFHNNVexe6d8=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/underscore@1.8.3/underscore-min.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.js" integrity="sha384-8748Vn52gHJYJI0XEuPB2QlPVNUkJlJn9tHqKec6J3q2r9l8fvRxrgn/E5ZHV0sP" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.css" integrity="sha384-6QbLKJMz5dS3adWSeINZe74uSydBGFbnzaAYmp+tKyq60S7H2p6V7g1TysM5lAaF" crossorigin="anonymous">
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
