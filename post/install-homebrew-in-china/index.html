@@ -145,7 +145,7 @@
       <p>不知道为什么好像家里的网络对github很不友好，网页能打开，但通过curl访问就有问题，所以安装homebrew时如果使用官方提供的花里胡哨的curl或者wget的方式就安装不上。</p>
 <p>姑且说安装成功了吧，后面安装其他软件的时候又会各种慢。国内<a href="http://mirrors.ustc.edu.cn">中科大</a>(个人认为国内做的最好的开源镜像站点)和清华大学都提供了homebrew的镜像，但比较吊诡的是他们提供的都是<strong>post-installation</strong>，也就是前提是你已经安装好了brew。殊不知很多人（网络环境）这一步都过不了关了。</p>
 <p>所以我看了一下官方的安装脚本，参考了中科大的文档，把安装脚本中的github地址给改成中科大的，然后加上了brew-cask和brew-core，并把其中的<code>brew update --force</code>命令后面加了个<code>-v</code>，方便在安装的时候可以看到具体的进度。</p>
-<p>脚本正文直接贴出来，有想看github的<a href="https://github.com/lovelock/install/edit/master/install.sh">在这里</a>。</p>
+<p>脚本正文直接贴出来，有想看github的<a href="https://github.com/lovelock/install">在这里</a>。</p>
 <p><strong>脚本默认你使用的是zsh，有偏好使用bash的同学可以自行修改</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
