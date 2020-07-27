@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>happyhakcer makes fun</title>
+  <title>AMD黑苹果上的docker - happyhakcer makes fun</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="happyhacker" /><meta name="description" content="happyhacker makes fun" /><meta name="keywords" content="Java, PHP, Architect" />
+<meta name="author" content="happyhacker" /><meta name="description" content="本来选择AMD的黑苹果之前就已经做好了无法使用docker的准备了，没想到那天偶然发现说docker-toolbox是可以用的。
+" /><meta name="keywords" content="Java, PHP, Architect" />
 
 
 
@@ -26,9 +27,7 @@
 <meta name="generator" content="Hugo 0.73.0 with theme even" />
 
 
-<link rel="canonical" href="http://blog.happyhacker.fun/" />
-  <link href="http://blog.happyhacker.fun/index.xml" rel="alternate" type="application/rss+xml" title="happyhakcer makes fun" />
-  <link href="http://blog.happyhacker.fun/index.xml" rel="feed" type="application/rss+xml" title="happyhakcer makes fun" />
+<link rel="canonical" href="http://blog.happyhacker.fun/post/docker-in-ryzentosh/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -40,15 +39,23 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="happyhakcer makes fun" />
-<meta property="og:description" content="happyhacker makes fun" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://blog.happyhacker.fun/" />
-<meta property="og:updated_time" content="2020-07-26T21:41:57+08:00" />
-<meta itemprop="name" content="happyhakcer makes fun">
-<meta itemprop="description" content="happyhacker makes fun"><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="happyhakcer makes fun"/>
-<meta name="twitter:description" content="happyhacker makes fun"/>
+<meta property="og:title" content="AMD黑苹果上的docker" />
+<meta property="og:description" content="本来选择AMD的黑苹果之前就已经做好了无法使用docker的准备了，没想到那天偶然发现说docker-toolbox是可以用的。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://blog.happyhacker.fun/post/docker-in-ryzentosh/" />
+<meta property="article:published_time" content="2020-07-25T23:35:01+08:00" />
+<meta property="article:modified_time" content="2020-07-26T21:41:57+08:00" />
+<meta itemprop="name" content="AMD黑苹果上的docker">
+<meta itemprop="description" content="本来选择AMD的黑苹果之前就已经做好了无法使用docker的准备了，没想到那天偶然发现说docker-toolbox是可以用的。">
+<meta itemprop="datePublished" content="2020-07-25T23:35:01&#43;08:00" />
+<meta itemprop="dateModified" content="2020-07-26T21:41:57&#43;08:00" />
+<meta itemprop="wordCount" content="661">
+
+
+
+<meta itemprop="keywords" content="docker," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="AMD黑苹果上的docker"/>
+<meta name="twitter:description" content="本来选择AMD的黑苹果之前就已经做好了无法使用docker的准备了，没想到那天偶然发现说docker-toolbox是可以用的。"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -112,136 +119,98 @@
     <main id="main" class="main">
       <div class="content-wrapper">
         <div id="content" class="content">
-          <section id="posts" class="posts">
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/lftp-usage/">lftp记录密码</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-04-05 11:32 </span>
-      <div class="post-category">
-          <a href="/categories/in-action/"> in-action </a>
-          </div>
-        <span class="more-meta"> 约 124 字 </span>
-        <span class="more-meta"> 预计阅读 1 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>简单的工具最好用。</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/lftp-usage/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">AMD黑苹果上的docker</h1>
 
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/centos8-garbled-chars/">Centos8乱码及解决</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-04-03 22:14 </span>
-      <div class="post-category">
-          <a href="/categories/in-action/"> in-action </a>
-          </div>
-        <span class="more-meta"> 约 122 字 </span>
-        <span class="more-meta"> 预计阅读 1 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>以下操作基于CentOS8, 理论上应该适用于其他版本的操作系统.</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/centos8-garbled-chars/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
+      <div class="post-meta">
+        <span class="post-time"> 2020-07-25 23:35 </span>
+        <div class="post-category">
+            <a href="/categories/in-action/"> in-action </a>
+            </div>
+          <span class="more-meta"> 约 661 字 </span>
+          <span class="more-meta"> 预计阅读 2 分钟 </span>
+        
+      </div>
+    </header>
 
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/java-localdatetime-timezone/">Java时区问题的排查和分析</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-04-01 12:48 </span>
-      <div class="post-category">
-          <a href="/categories/in-action/"> in-action </a>
-          </div>
-        <span class="more-meta"> 约 886 字 </span>
-        <span class="more-meta"> 预计阅读 2 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>用Java开发新项目，遇到了很多之前没见过的问题，时区算是第二头疼的一个。</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/java-localdatetime-timezone/" class="read-more-link">阅读更多</a>
-    </div>
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#下载docker-toolbox">下载Docker Toolbox</a></li>
+    <li><a href="#安装">安装</a></li>
+    <li><a href="#配置">配置</a></li>
+    <li><a href="#打开kitematic开始体验docker">打开Kitematic开始体验docker</a></li>
+  </ul>
+</nav>
   </div>
-</article>
+</div>
+    <div class="post-content">
+      <p>本来选择AMD的黑苹果之前就已经做好了无法使用docker的准备了，没想到那天偶然发现说docker-toolbox是可以用的。</p>
+<p>国内下载docker官方的东西实在是太慢了，还是从阿里云下载的。这里多说一句，阿里云在开源软件镜像架设这方面的贡献远远超过国内其他公司了（BT？不存在的）</p>
+<h2 id="下载docker-toolbox">下载Docker Toolbox</h2>
+<p>访问<a href="http://mirrors.aliyun.com/docker-toolbox/mac/docker-toolbox/">阿里云的Docker Toolbox下载地址</a>，下载最新的安装包。</p>
+<p>这里同步是有点问题的，官方已经有19.xx版本了，但阿里云的镜像这里还是18.03，不过无所谓了，快才是王道。</p>
+<h2 id="安装">安装</h2>
+<p>安装过程就不说了，既然你找到这里了说明你肯定会安装软件了。</p>
+<h2 id="配置">配置</h2>
+<p><img src="/images/2020-07-25-23-40-15.png" alt=""></p>
+<p>注意红色部分的提示，乍一看是需要在BIOS里打开AMD-v技术（对标Intel的VT-x），一般是叫SVM，默认通常是不开启的。但我这里已经开启过了，还报这个错只能说是检测脚本并没有适配【AMD黑苹果】这个可能性。</p>
+<p>所以直接忽略这个提示。</p>
+<p>然后需要创建一个默认的虚拟机，用virtualbox的驱动即可。这里要注意，由于众所周知的原因，我们下载docker的官方镜像非常慢，所以要配置一下国内的代理，建议使用阿里云。注册登陆之后访问这个<a href="https://cr.console.aliyun.com/undefined/instances/mirrors">镜像加速器</a>，按文档说明执行你的命令即可</p>
+<blockquote>
+<p>注意：执行<code>docker-machine create</code>命令的时候还是会检查上面提到的有问题的虚拟化技术检查，所以需要加上一个<code>--virtualbox-no-vtx-check</code>选项</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">docker-machine create default --engine-registry-mirror=https://yourcode.mirror.aliyuncs.com -d virtualbox --virtualbox-no-vtx-check
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="打开kitematic开始体验docker">打开Kitematic开始体验docker</h2>
+<p>哇！原来docker还能这么用？！当你走到这一步了，你一定知道我为什么会感叹。</p>
+    </div>
 
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/about-chrome-and-firefox/">简单说说Firefox和Chrome</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-03-31 10:02 </span>
-      <div class="post-category">
-          <a href="/categories/jabber/"> jabber </a>
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">happyhacker</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-07-26 21:41
+        <a href="/commit/b505b060aad96282d6af13eef62b469692e925c1" title="updating content 2020年 7月26日 星期日 21时41分57秒 CST">(b505b06)</a>
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/docker/">docker</a>
           </div>
-        <span class="more-meta"> 约 648 字 </span>
-        <span class="more-meta"> 预计阅读 2 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>自认为从易用性、自由度、速度和资源占用方面，Firefox（Quantom）已经超越了Chrome，但现在居然出现了兼容性问题。</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/about-chrome-and-firefox/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/sshd-in-macos/">macOS上管理SSH服务</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-03-29 10:57 </span>
-      <div class="post-category">
-          <a href="/categories/in-action/"> in-action </a>
-          </div>
-        <span class="more-meta"> 约 217 字 </span>
-        <span class="more-meta"> 预计阅读 1 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>mac本身安装了ssh服务，默认情况下不会开机自启。本文记录了开启和停止sshd服务的方法。</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/sshd-in-macos/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    </section>
-  
-  <nav class="pagination">
-    <a class="prev" href="/page/3/">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text">上一页</span>
-      </a>
-    <a class="next" href="/page/5/">
-        <span class="next-text">下一页</span>
-        <i class="iconfont icon-right"></i>
-      </a>
-  </nav>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/setting-mailx-on-linux/">
+            <span class="next-text nav-default">最简单的发邮件方式</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
         </div>
         
+
+  
+
+  
 
       </div>
     </main>
