@@ -6,10 +6,19 @@
     <description>Recent content in Posts on happyhakcer makes fun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 25 Jul 2020 23:35:01 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 06 Aug 2020 15:07:48 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.happyhacker.fun/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Flink环境初始化</title>
+      <link>http://blog.happyhacker.fun/post/flink/flink-0x03/</link>
+      <pubDate>Thu, 06 Aug 2020 15:07:48 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/flink/flink-0x03/</guid>
+      <description>&lt;p&gt;通常Flink会运行在yarn上，需要在Flink中配置一下Hadoop的安装路径。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>AMD黑苹果上的docker</title>
@@ -21,7 +30,7 @@
     </item>
     
     <item>
-      <title>最简单的发邮件方式</title>
+      <title>最简单的命令行发邮件方式</title>
       <link>http://blog.happyhacker.fun/post/setting-mailx-on-linux/</link>
       <pubDate>Mon, 20 Jul 2020 17:10:43 +0800</pubDate>
       

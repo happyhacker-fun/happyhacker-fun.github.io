@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.73.0 with theme even" />
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
 <link rel="canonical" href="http://blog.happyhacker.fun/post/spring-tomcat-tutorial/" />
@@ -46,13 +46,14 @@
 <meta property="article:modified_time" content="2020-03-28T15:03:11+08:00" />
 <meta itemprop="name" content="Springboot使用内置和独立tomcat以及其他思考">
 <meta itemprop="description" content="springboot with or without tomcat in action">
-<meta itemprop="datePublished" content="2020-03-28T12:56:22&#43;08:00" />
-<meta itemprop="dateModified" content="2020-03-28T15:03:11&#43;08:00" />
-<meta itemprop="wordCount" content="1623">
+<meta itemprop="datePublished" content="2020-03-28T12:56:22+08:00" />
+<meta itemprop="dateModified" content="2020-03-28T15:03:11+08:00" />
+<meta itemprop="wordCount" content="1655">
 
 
 
-<meta itemprop="keywords" content="springboot,tomcat,java,in-action," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="springboot,tomcat,java,in-action," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Springboot使用内置和独立tomcat以及其他思考"/>
 <meta name="twitter:description" content="springboot with or without tomcat in action"/>
 
@@ -128,7 +129,7 @@
         <div class="post-category">
             <a href="/categories/tech/"> tech </a>
             </div>
-          <span class="more-meta"> 约 1623 字 </span>
+          <span class="more-meta"> 约 1655 字 </span>
           <span class="more-meta"> 预计阅读 4 分钟 </span>
         
       </div>
@@ -154,7 +155,7 @@
 </div>
     <div class="post-content">
       <p>本文探讨了Springboot应用使用jar包和war包的区别，以及使用中的一些思考。我刚开始研究Java，一些想法可能不准确，欢迎提出宝贵意见。</p>
-<p>在开发中我们会使用嵌入式的tomcat容器，但实际项目部署中一般不会这么做。下面在macOS环境下操作以下步骤：</p>
+<p>在开发中我们会使用嵌入式的tomcat容器，<del>但实际项目部署中一般不会这么做</del>，事实证明大部分都是这么用的，独立的tomcat部署已经被淘汰了。下面在macOS环境下操作以下步骤：</p>
 <p>由于实验用的黑苹果不支持docker，以下所有操作需要的应用均使用macOS下的homebrew安装。</p>
 <h2 id="创建一个简单的springboot-web应用">创建一个简单的Springboot Web应用</h2>
 <p>使用Spring Initializr创建一个基础的Springboot应用，只选择Web组件。</p>
