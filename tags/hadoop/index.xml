@@ -20,5 +20,14 @@
       <description>&lt;p&gt;通常Flink会运行在yarn上，需要在Flink中配置一下Hadoop的安装路径。&lt;/p&gt;</description>
     </item>
     
+    <item>
+      <title>Flink配置文件详解</title>
+      <link>http://blog.happyhacker.fun/post/flink/flink-0x02/</link>
+      <pubDate>Mon, 27 Jul 2020 11:25:19 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/flink/flink-0x02/</guid>
+      <description>&lt;p&gt;本章重点解析一下flink的配置文件&lt;code&gt;conf/flink-conf.yaml&lt;/code&gt;。&lt;/p&gt;</description>
+    </item>
+    
   </channel>
 </rss>
