@@ -6,10 +6,37 @@
     <description>Recent content in java on happyhakcer makes fun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 21 May 2020 10:41:26 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 22 Aug 2020 17:25:53 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.happyhacker.fun/tags/java/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>使用VisualVM监控远程JVM进程</title>
+      <link>http://blog.happyhacker.fun/post/devops/remote-monitor-jvm-with-visualvm/</link>
+      <pubDate>Sat, 22 Aug 2020 17:25:53 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/devops/remote-monitor-jvm-with-visualvm/</guid>
+      <description>&lt;p&gt;服务器端没有可视化界面，监控这种事情看CLI界面还是差点意思。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Debian Linux快速搭建Java运行环境</title>
+      <link>http://blog.happyhacker.fun/post/devops/install-jdk-maven-in-debian/</link>
+      <pubDate>Sat, 22 Aug 2020 11:57:03 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/devops/install-jdk-maven-in-debian/</guid>
+      <description>&lt;p&gt;本文使用docker环境。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Nginx和Tomcat配合实现Java Web服务热部署</title>
+      <link>http://blog.happyhacker.fun/post/devops/nginx-tomcat-hot-deployment/</link>
+      <pubDate>Sat, 22 Aug 2020 10:56:59 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/devops/nginx-tomcat-hot-deployment/</guid>
+      <description>&lt;p&gt;最终还是得解决Springboot应用热部署的问题。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>避免Springboot应用启动前5秒的等待</title>

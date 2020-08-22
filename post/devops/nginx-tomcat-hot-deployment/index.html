@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Nginx和Tomcat配合实现Java Web服务热部署 - happyhakcer makes fun</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="happyhacker" /><meta name="description" content="最终还是得解决Springboot应用热部署的问题。
+" /><meta name="keywords" content="Java, PHP, Architect" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="http://blog.happyhacker.fun/post/devops/nginx-tomcat-hot-deployment/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Nginx和Tomcat配合实现Java Web服务热部署" />
+<meta property="og:description" content="最终还是得解决Springboot应用热部署的问题。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://blog.happyhacker.fun/post/devops/nginx-tomcat-hot-deployment/" />
+<meta property="article:published_time" content="2020-08-22T10:56:59+08:00" />
+<meta property="article:modified_time" content="2020-08-22T10:56:59+08:00" />
+<meta itemprop="name" content="Nginx和Tomcat配合实现Java Web服务热部署">
+<meta itemprop="description" content="最终还是得解决Springboot应用热部署的问题。">
+<meta itemprop="datePublished" content="2020-08-22T10:56:59+08:00" />
+<meta itemprop="dateModified" content="2020-08-22T10:56:59+08:00" />
+<meta itemprop="wordCount" content="3151">
+
+
+
+<meta itemprop="keywords" content="devops,gitlab,jenkins,java," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Nginx和Tomcat配合实现Java Web服务热部署"/>
+<meta name="twitter:description" content="最终还是得解决Springboot应用热部署的问题。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Happyhacker</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于我</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Happyhacker</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于我</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Nginx和Tomcat配合实现Java Web服务热部署</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-08-22 10:56 </span>
+        <div class="post-category">
+            <a href="/categories/in-action/"> in-action </a>
+            <a href="/categories/devops/"> devops </a>
+            </div>
+          <span class="more-meta"> 约 3151 字 </span>
+          <span class="more-meta"> 预计阅读 7 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#背景">背景</a></li>
+    <li><a href="#实验素材">实验素材</a></li>
+    <li><a href="#基本原理">基本原理</a></li>
+    <li><a href="#实际操作">实际操作</a>
+      <ul>
+        <li><a href="#创建springboot项目">创建springboot项目</a></li>
+        <li><a href="#编写同一个接口的不同版本">编写同一个接口的不同版本</a></li>
+        <li><a href="#打包">打包</a></li>
+        <li><a href="#创建两个tomcat容器">创建两个tomcat容器</a></li>
+        <li><a href="#将war包拷贝到容器中">将war包拷贝到容器中</a></li>
+        <li><a href="#访问两个容器中的服务">访问两个容器中的服务</a></li>
+        <li><a href="#配置nginx">配置Nginx</a></li>
+      </ul>
+    </li>
+    <li><a href="#通过nginx压测">通过Nginx压测</a>
+      <ul>
+        <li><a href="#基本测试">基本测试</a></li>
+        <li><a href="#进一步测试">进一步测试</a></li>
+      </ul>
+    </li>
+    <li><a href="#效果测试">效果测试</a></li>
+    <li><a href="#思考">思考</a></li>
+    <li><a href="#总结">总结</a>
+      <ul>
+        <li><a href="#优势">优势</a></li>
+        <li><a href="#劣势">劣势</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>最终还是得解决Springboot应用热部署的问题。</p>
+<h2 id="背景">背景</h2>
+<p>基于Springboot应用以war包的形式运行在tomcat容器中，当更新war包时会有一段时间服务返回404，这对于线上服务是不可接受的。4层的负载均衡可以自动将80端口关闭的节点下线，但由于内网服务器位于堡垒机后方，根据公司规定不能自行配置SSH服务，所以无法执行远程脚本。所以只能通过别的方式实现。</p>
+<h2 id="实验素材">实验素材</h2>
+<p><img src="/images/2020-08-22-14-46-19.png" alt=""></p>
+<ol>
+<li>nginx  作为web server和7层负载均衡</li>
+<li>tomcat * 2 作为应用后端</li>
+<li>gitlab-ce 代码版本控制</li>
+<li>jenkins  发布平台</li>
+</ol>
+<h2 id="基本原理">基本原理</h2>
+<p>基本的原理就是让Nginx后方有3个Tomcat容器，其中1个是active，1个是standby，正常情况下不会访问到standby的容器，但可以通过额外的手段保证standby的容器是可以提供服务的，在发布前先更新所有的standby节点，验证没问题之后更新active的容器，来保证服务不会中断。</p>
+<h2 id="实际操作">实际操作</h2>
+<h3 id="创建springboot项目">创建springboot项目</h3>
+<p>参考<a href="../spring-tomcat-tutorial.md">Springboot使用内置和独立tomcat以及其他思考</a>。</p>
+<h3 id="编写同一个接口的不同版本">编写同一个接口的不同版本</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">// tag v1
+</span><span class="c1"></span><span class="nd">@RestController</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloController</span> <span class="o">{</span>
+    <span class="nd">@GetMapping</span><span class="o">(</span><span class="s">&#34;/hello&#34;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">hello</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="s">&#34;V1&#34;</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">// tag v2
+</span><span class="c1"></span><span class="nd">@RestController</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloController</span> <span class="o">{</span>
+    <span class="nd">@GetMapping</span><span class="o">(</span><span class="s">&#34;/hello&#34;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">hello</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="s">&#34;V2&#34;</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="打包">打包</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">mvn</span> <span class="nx">clean</span> <span class="kn">package</span> <span class="o">-</span><span class="nx">Dmaven</span><span class="p">.</span><span class="nx">test</span><span class="p">.</span><span class="nx">skip</span><span class="p">=</span><span class="kc">true</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="创建两个tomcat容器">创建两个tomcat容器</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">docker run -itd --name tomcat-active -v /tmp/tomcat/active:/usr/local/tomcat/webapps -p 32771:8080 tomcat
+docker run -itd --name tomcat-standby -v /tmp/tomcat/standby:/usr/local/tomcat/webapps -p 32772:8080 tomcat
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="将war包拷贝到容器中">将war包拷贝到容器中</h3>
+<p>可能是docker toolbox的问题，无法挂载目录，所以只好把war包手动拷贝进去。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">docker cp ~/workspace/spring-demo/target/spring-demo-0.0.1-SNAPSHOT.war tomcat-active:/usr/local/tomcat/webapps/
+docker cp ~/workspace/spring-demo/target/spring-demo-0.0.1-SNAPSHOT.war tomcat-standby:/usr/local/tomcat/webapps/
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="访问两个容器中的服务">访问两个容器中的服务</h3>
+<p>稍等片刻两个容器中的服务会自动部署，就可以分别通过相应的端口访问了，简单压测一下QPS可以达到2000+且没有报错。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ wrk -c 20 -d 10 -t 4 http://192.168.99.100:32771/spring-demo-0.0.1-SNAPSHOT/hello
+Running 10s test @ http://192.168.99.100:32771/spring-demo-0.0.1-SNAPSHOT/hello
+  4 threads and 20 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    10.20ms    8.70ms 122.66ms   81.20%
+    Req/Sec   554.18    167.66     1.04k    63.25%
+  22088 requests in 10.02s, 2.43MB read
+Requests/sec:   2203.76
+Transfer/sec:    247.89KB
+
+$ wrk -c 20 -d 10 -t 4 http://192.168.99.100:32772/spring-demo-0.0.1-SNAPSHOT/hello
+Running 10s test @ http://192.168.99.100:32772/spring-demo-0.0.1-SNAPSHOT/hello
+  4 threads and 20 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    11.30ms   14.24ms 186.52ms   92.95%
+    Req/Sec   557.54    207.91     1.24k    67.17%
+  22025 requests in 10.03s, 2.42MB read
+Requests/sec:   2196.36
+Transfer/sec:    247.05KB
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="配置nginx">配置Nginx</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-nginx" data-lang="nginx"><span class="k">upstream</span> <span class="s">ha</span> <span class="p">{</span>
+	<span class="kn">server</span> <span class="n">192.168.99.100</span><span class="p">:</span><span class="mi">32771</span><span class="p">;</span>
+	<span class="kn">server</span> <span class="n">192.168.99.100</span><span class="p">:</span><span class="mi">32772</span> <span class="s">backup</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">server</span> <span class="p">{</span>
+	<span class="kn">listen</span>       <span class="mi">80</span><span class="p">;</span>
+	<span class="kn">server_name</span>  <span class="s">_</span><span class="p">;</span>
+
+	<span class="kn">location</span> <span class="s">/</span> <span class="p">{</span>
+		<span class="kn">proxy_next_upstream</span> <span class="s">http_502</span> <span class="s">http_504</span> <span class="s">http_404</span> <span class="s">error</span> <span class="s">timeout</span> <span class="s">invalid_header</span><span class="p">;</span>
+		<span class="kn">proxy_pass</span>   <span class="s">http://ha/spring-demo-0.0.1-SNAPSHOT/</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>注意<code>proxy_next_upstream http_502 http_504 http_404 error timeout invalid_header;</code>这行，这里就是表示把访问当前的upstream返回了这些状态码的请求转发到upstream中的下一台机器，在我们现在的应用场景下，当war包发布时，正在更新war包的tomcat会返回404，也就是对应<code>http_404</code>，如果不配置这行，是不会做转发的。
+但这样简单的配置还会有一个问题，那就是Nginx不会把出问题的后端从upstream中摘除，也就是说请求还会访问到这个正在更新中的realserver，只是Nginx会再把请求转发到下一台好的realserver上，这样会增加一些耗时。目前有三种方式可以实现对Nginx负载均衡的后端节点服务器进行健康检查，具体参考<a href="./loadbalance-with-nginx.md">Nginx负载均衡</a></p>
+<h2 id="通过nginx压测">通过Nginx压测</h2>
+<h3 id="基本测试">基本测试</h3>
+<ol>
+<li>两个tomcat节点均正常的情况下压测</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ wrk -c 20 -d 10 -t 4 http://192.168.99.100:32778/hello
+Running 10s test @ http://192.168.99.100:32778/hello
+  4 threads and 20 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    57.36ms   32.06ms 335.36ms   71.29%
+    Req/Sec    89.29     48.20   390.00     85.25%
+  3577 requests in 10.05s, 562.30KB read
+Requests/sec:    355.77
+Transfer/sec:     55.93KB
+</code></pre></td></tr></table>
+</div>
+</div><p>和上面没有经过Nginx的压测相比，最明显的变化就是QPS下降了84%，平均响应时间增加了5倍，猜测可能是因为Nginx使用的默认配置中<code>worker_processes 1;</code>的问题。</p>
+<ol start="2">
+<li>在开始压测后立即删除<code>tomcat-active</code>容器中的war包和目录，结果如下</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ wrk -c 20 -d 10 -t 4 http://192.168.99.100:32778/hello
+Running 10s test @ http://192.168.99.100:32778/hello
+  4 threads and 20 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    57.29ms   28.69ms 181.88ms   67.38%
+    Req/Sec    87.93     39.51   240.00     75.25%
+  3521 requests in 10.05s, 553.50KB read
+Requests/sec:    350.22
+Transfer/sec:     55.05KB
+</code></pre></td></tr></table>
+</div>
+</div><p>同样没有非200的响应，而且整体和正常情况相当。</p>
+<ol start="3">
+<li>只有standby节点工作的情况下压测</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ wrk -c 20 -d 10 -t 4 http://192.168.99.100:32778/hello
+Running 10s test @ http://192.168.99.100:32778/hello
+  4 threads and 20 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    72.12ms   35.99ms 240.89ms   68.34%
+    Req/Sec    70.04     31.84   180.00     76.50%
+  2810 requests in 10.05s, 441.71KB read
+Requests/sec:    279.48
+Transfer/sec:     43.93KB
+</code></pre></td></tr></table>
+</div>
+</div><p>可以看到，响应时间有明显的增加，QPS也有明显的下降，也验证了上面说的响应是404的请求会被转发到正常工作的节点，但有问题的节点不会被摘除导致的响应时间变长的问题。</p>
+<h3 id="进一步测试">进一步测试</h3>
+<p>为了消除上面测试中可能存在war包删除后对服务的影响还没有生效，压测就已经结束的可能，将压测时间调长，增加至60s。</p>
+<ol>
+<li>两个节点都正常的情况</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ wrk -c 20 -d 60 -t 4 http://192.168.99.100:32778/hello
+Running 1m test @ http://192.168.99.100:32778/hello
+  4 threads and 20 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    55.53ms   28.10ms 306.58ms   70.07%
+    Req/Sec    91.52     39.35   300.00     69.23%
+  21906 requests in 1.00m, 3.36MB read
+Requests/sec:    364.66
+Transfer/sec:     57.32KB
+</code></pre></td></tr></table>
+</div>
+</div><p>整体情况和上面10s的测试相同。查看日志发现backup节点没有接收到任何请求。为了验证是否是<code>worker_processes</code>配置导致的，把这个值改成4之后重新测试，结果如下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ wrk -c 20 -d 60 -t 4 http://192.168.99.100:32778/hello
+Running 1m test @ http://192.168.99.100:32778/hello
+  4 threads and 20 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    41.55ms   24.92ms 227.15ms   72.21%
+    Req/Sec   125.06     46.88   373.00     71.76%
+  29922 requests in 1.00m, 4.59MB read
+Requests/sec:    498.11
+Transfer/sec:     78.29KB
+</code></pre></td></tr></table>
+</div>
+</div><p>可以看到，有了将近20%的提升，但还是不太符合预期。</p>
+<ol start="2">
+<li>开始测试后立即更新active节点的war包</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ wrk -c 20 -d 60 -t 4 http://192.168.99.100:32778/hello
+Running 1m test @ http://192.168.99.100:32778/hello
+  4 threads and 20 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    54.40ms   33.76ms 329.73ms   70.53%
+    Req/Sec    95.85     56.28   420.00     81.60%
+  22914 requests in 1.00m, 3.52MB read
+Requests/sec:    381.42
+Transfer/sec:     59.95KB
+</code></pre></td></tr></table>
+</div>
+</div><p>没有明显变化，测试开始后有一段时间standby节点收到请求，后面请求又全部指向了active节点。可能是因为服务太简单，重新加载的太快，只有很少量（5750）的请求转发到了standby节点，所以对整体结果影响不大。
+3. 开始测试后立即删除active节点的war包</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ wrk -c 20 -d 60 -t 4 http://192.168.99.100:32778/hello
+Running 1m test @ http://192.168.99.100:32778/hello
+  4 threads and 20 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    72.11ms   34.33ms 346.24ms   69.54%
+    Req/Sec    70.16     29.78   191.00     67.23%
+  16813 requests in 1.00m, 2.58MB read
+Requests/sec:    279.84
+Transfer/sec:     43.99KB
+</code></pre></td></tr></table>
+</div>
+</div><p>删除节点后，所有的请求都会先请求active，然后被Nginx转发至standby，所以吞吐量有明显下降，延迟也有明显的提升。</p>
+<h2 id="效果测试">效果测试</h2>
+<ol>
+<li>直接访问active</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ wrk -c 20 -d 60 -t 4 http://10.75.1.42:28080/web-0.0.1-SNAPSHOT/hello
+Running 1m test @ http://10.75.1.42:28080/web-0.0.1-SNAPSHOT/hello
+  4 threads and 20 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     5.56ms   25.16ms 203.83ms   95.82%
+    Req/Sec     7.54k     0.91k    8.31k    84.44%
+  1803421 requests in 1.00m, 217.03MB read
+Requests/sec:  30006.18
+Transfer/sec:      3.61MB
+</code></pre></td></tr></table>
+</div>
+</div><p>服务器的性能果然还是比本地强太多。</p>
+<ol start="2">
+<li>在进行性能压测期间发布新版本</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ wrk -c 20 -d 60 -t 4 http://10.75.1.42:28080/web-0.0.1-SNAPSHOT/hello
+Running 1m test @ http://10.75.1.42:28080/web-0.0.1-SNAPSHOT/hello
+  4 threads and 20 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     4.47ms   22.31ms 401.95ms   96.67%
+    Req/Sec     7.58k     0.88k    8.26k    87.12%
+  1811240 requests in 1.00m, 285.84MB read
+  Non-2xx or 3xx responses: 72742
+Requests/sec:  30181.93
+Transfer/sec:      4.76MB
+</code></pre></td></tr></table>
+</div>
+</div><p>发布新版本导致4%的请求失败。</p>
+<ol start="3">
+<li>通过Nginx访问服务</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ wrk -c 20 -d 60 -t 4 http://10.75.1.42:28010/web/hello
+Running 1m test @ http://10.75.1.42:28010/web/hello
+  4 threads and 20 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     2.94ms   16.21ms 248.18ms   98.01%
+    Req/Sec     6.02k   551.52     6.92k    83.38%
+  1437098 requests in 1.00m, 260.33MB read
+Requests/sec:  23948.20
+Transfer/sec:      4.34MB
+</code></pre></td></tr></table>
+</div>
+</div><p>虽然服务器配置的<code>worker_processes auto</code>，实际上开了40个进程，但仍然达不到直接访问Java服务的吞吐量。</p>
+<ol start="4">
+<li>通过Nginx压测期间发布新版本</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ wrk -c 20 -d 60 -t 4 http://10.75.1.42:28010/web/hello
+Running 1m test @ http://10.75.1.42:28010/web/hello
+  4 threads and 20 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     4.09ms   20.50ms 402.11ms   97.12%
+    Req/Sec     5.89k   733.62     6.86k    84.85%
+  1404463 requests in 1.00m, 253.67MB read
+Requests/sec:  23401.54
+Transfer/sec:      4.23MB
+</code></pre></td></tr></table>
+</div>
+</div><p>可以看到，延迟明显变大了，但总体的QPS没有明显下降，还是因为存在一些转发。</p>
+<h2 id="思考">思考</h2>
+<p>原来是一台机器上运行一个tomcat容器，现在要运行两个，那么会对机器的负载造成多大的影响呢？可以通过visualvm连接上远程tomcat来观察对内存和CPU的占用</p>
+<p><img src="/images/2020-08-22-17-06-47.png" alt="压测期间的active节点">
+<img src="/images/2020-08-22-17-07-02.png" alt="压测期间的backup节点"></p>
+<p>可以看到正常情况下，backup容器对服务器的负载基本可以忽略不计。即便是在发布期间，backup容器也只是在active容器重新载入期间承担职责，之后马上就恢复了。
+<img src="/images/2020-08-22-17-10-53.png" alt="压测期间active节点更新版本">
+<img src="/images/2020-08-22-17-11-05.png" alt="压测期间backup节点承载一定流量"></p>
+<p>新版本在线上正式运行之后为保证下一次发布新版本时backup版本是最新的，需要再发布一下backup版本，当然这时流量都在active节点上，对backup节点的发布更新操作不会对负载有什么影响。</p>
+<p><img src="/images/2020-08-22-17-14-52.png" alt=""></p>
+<h2 id="总结">总结</h2>
+<p>可以通过Nginx的backup机制可以保证服务不中断的情况下发布新版本。总体的发布流程如下：</p>
+<ol>
+<li>发布新版本到active容器</li>
+<li>确认发布的新版本稳定后发布新版本到backup容器</li>
+</ol>
+<h3 id="优势">优势</h3>
+<ol>
+<li>任意一台机器上在任意时刻都保证有一个tomcat容器是可用的，保证服务不中断</li>
+<li>从直观上的分机器上线改为直接全量上线，并且保证如果上线的新版本有问题时也不会影响线上服务</li>
+</ol>
+<h3 id="劣势">劣势</h3>
+<ol>
+<li>需要上线两次</li>
+<li>需要在tomcat容器所在的机器上安装Nginx和作为backup的tomcat的容器</li>
+<li>backup容器在“待机”时的消耗</li>
+</ol>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">happyhacker</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-08-22 10:56
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/devops/">devops</a>
+          <a href="/tags/gitlab/">gitlab</a>
+          <a href="/tags/jenkins/">jenkins</a>
+          <a href="/tags/java/">java</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/devops/install-jdk-maven-in-debian/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Debian Linux快速搭建Java运行环境</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/flink/flink-0x03/">
+            <span class="next-text nav-default">Flink环境初始化</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:frostwong@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/2969224/unixagain" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/lovelock" class="iconfont icon-github" title="github"></a>
+      <a href="https://weibo.com/u/2122681617/" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="https://space.bilibili.com/32881881" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://blog.happyhacker.fun/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">happyhacker</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
+  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
+    var languageCode = "zh-CN".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
+    timeago().render(document.querySelectorAll('.timeago'), languageCode);
+    timeago.cancel();  
+  </script><script></script><script src="https://cdn.jsdelivr.net/npm/raphael@2.2.7/raphael.min.js" integrity="sha256-67By+NpOtm9ka1R6xpUefeGOY8kWWHHRAKlvaTJ7ONI=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/flowchart.js@1.8.0/release/flowchart.min.js" integrity="sha256-zNGWjubXoY6rb5MnmpBNefO0RgoVYfle9p0tvOQM+6k=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/snapsvg@0.5.1/dist/snap.svg-min.js" integrity="sha256-oI+elz+sIm+jpn8F/qEspKoKveTc5uKeFHNNVexe6d8=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/underscore@1.8.3/underscore-min.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.js" integrity="sha384-8748Vn52gHJYJI0XEuPB2QlPVNUkJlJn9tHqKec6J3q2r9l8fvRxrgn/E5ZHV0sP" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.css" integrity="sha384-6QbLKJMz5dS3adWSeINZe74uSydBGFbnzaAYmp+tKyq60S7H2p6V7g1TysM5lAaF" crossorigin="anonymous">
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

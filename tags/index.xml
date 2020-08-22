@@ -6,10 +6,73 @@
     <description>Recent content in Tags on happyhakcer makes fun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 06 Aug 2020 15:07:48 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 22 Aug 2020 17:25:53 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.happyhacker.fun/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>java</title>
+      <link>http://blog.happyhacker.fun/tags/java/</link>
+      <pubDate>Sat, 22 Aug 2020 17:25:53 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/tags/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jvm</title>
+      <link>http://blog.happyhacker.fun/tags/jvm/</link>
+      <pubDate>Sat, 22 Aug 2020 17:25:53 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/tags/jvm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>visualvm</title>
+      <link>http://blog.happyhacker.fun/tags/visualvm/</link>
+      <pubDate>Sat, 22 Aug 2020 17:25:53 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/tags/visualvm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mvn</title>
+      <link>http://blog.happyhacker.fun/tags/mvn/</link>
+      <pubDate>Sat, 22 Aug 2020 11:57:03 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/tags/mvn/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>devops</title>
+      <link>http://blog.happyhacker.fun/tags/devops/</link>
+      <pubDate>Sat, 22 Aug 2020 10:56:59 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/tags/devops/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gitlab</title>
+      <link>http://blog.happyhacker.fun/tags/gitlab/</link>
+      <pubDate>Sat, 22 Aug 2020 10:56:59 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/tags/gitlab/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jenkins</title>
+      <link>http://blog.happyhacker.fun/tags/jenkins/</link>
+      <pubDate>Sat, 22 Aug 2020 10:56:59 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/tags/jenkins/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>flink</title>
@@ -89,15 +152,6 @@
       <pubDate>Wed, 10 Jun 2020 10:52:37 +0800</pubDate>
       
       <guid>http://blog.happyhacker.fun/tags/tips/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>java</title>
-      <link>http://blog.happyhacker.fun/tags/java/</link>
-      <pubDate>Thu, 21 May 2020 10:41:26 +0800</pubDate>
-      
-      <guid>http://blog.happyhacker.fun/tags/java/</guid>
       <description></description>
     </item>
     
