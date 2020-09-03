@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>sed on happyhakcer makes fun</title>
+    <link>http://blog.happyhacker.fun/tags/sed/</link>
+    <description>Recent content in sed on happyhakcer makes fun</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 01 Aug 2020 16:38:23 +0800</lastBuildDate>
+    
+	<atom:link href="http://blog.happyhacker.fun/tags/sed/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Sed简单用法</title>
+      <link>http://blog.happyhacker.fun/post/sed-in-a-nutshell/</link>
+      <pubDate>Sat, 01 Aug 2020 16:38:23 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/sed-in-a-nutshell/</guid>
+      <description>&lt;p&gt;有时候需要批量处理一些文件，又不方便打开文件，所以&lt;code&gt;sed&lt;/code&gt;还是很有用的。简单记录一下常用的使用方法。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

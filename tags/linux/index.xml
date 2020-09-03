@@ -6,10 +6,19 @@
     <description>Recent content in linux on happyhakcer makes fun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 20 Jul 2020 17:10:43 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 01 Aug 2020 16:38:23 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.happyhacker.fun/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Sed简单用法</title>
+      <link>http://blog.happyhacker.fun/post/sed-in-a-nutshell/</link>
+      <pubDate>Sat, 01 Aug 2020 16:38:23 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/sed-in-a-nutshell/</guid>
+      <description>&lt;p&gt;有时候需要批量处理一些文件，又不方便打开文件，所以&lt;code&gt;sed&lt;/code&gt;还是很有用的。简单记录一下常用的使用方法。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>最简单的命令行发邮件方式</title>

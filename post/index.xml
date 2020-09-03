@@ -48,6 +48,15 @@
     </item>
     
     <item>
+      <title>Sed简单用法</title>
+      <link>http://blog.happyhacker.fun/post/sed-in-a-nutshell/</link>
+      <pubDate>Sat, 01 Aug 2020 16:38:23 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/sed-in-a-nutshell/</guid>
+      <description>&lt;p&gt;有时候需要批量处理一些文件，又不方便打开文件，所以&lt;code&gt;sed&lt;/code&gt;还是很有用的。简单记录一下常用的使用方法。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Flink配置文件详解</title>
       <link>http://blog.happyhacker.fun/post/flink/flink-0x02/</link>
       <pubDate>Mon, 27 Jul 2020 11:25:19 +0800</pubDate>
