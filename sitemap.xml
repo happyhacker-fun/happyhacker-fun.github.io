@@ -9,8 +9,57 @@
   </url>
   
   <url>
+    <loc>http://blog.happyhacker.fun/tags/car/</loc>
+    <lastmod>2020-09-23T09:56:14+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>http://blog.happyhacker.fun/categories/</loc>
-    <lastmod>2020-08-29T22:43:44+08:00</lastmod>
+    <lastmod>2020-09-23T09:56:14+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.happyhacker.fun/</loc>
+    <lastmod>2020-09-23T09:56:14+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.happyhacker.fun/categories/life/</loc>
+    <lastmod>2020-09-23T09:56:14+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.happyhacker.fun/post/</loc>
+    <lastmod>2020-09-23T09:56:14+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.happyhacker.fun/tags/</loc>
+    <lastmod>2020-09-23T09:56:14+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.happyhacker.fun/tags/tiggo8/</loc>
+    <lastmod>2020-09-23T09:56:14+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.happyhacker.fun/post/life/tiggo8-first-glance/</loc>
+    <lastmod>2020-09-23T09:56:14+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -23,15 +72,8 @@
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/</loc>
-    <lastmod>2020-08-29T22:43:44+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>http://blog.happyhacker.fun/categories/in-action/</loc>
-    <lastmod>2020-08-29T22:43:44+08:00</lastmod>
+    <lastmod>2020-09-03T22:51:26+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -46,20 +88,6 @@
   <url>
     <loc>http://blog.happyhacker.fun/tags/jvm/</loc>
     <lastmod>2020-08-22T18:10:12+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://blog.happyhacker.fun/post/</loc>
-    <lastmod>2020-08-29T22:43:44+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://blog.happyhacker.fun/tags/</loc>
-    <lastmod>2020-08-29T22:43:44+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -157,21 +185,21 @@
   
   <url>
     <loc>http://blog.happyhacker.fun/tags/linux/</loc>
-    <lastmod>2020-08-29T22:43:44+08:00</lastmod>
+    <lastmod>2020-09-03T22:51:26+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://blog.happyhacker.fun/tags/sed/</loc>
-    <lastmod>2020-08-29T22:43:44+08:00</lastmod>
+    <lastmod>2020-09-03T22:51:26+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://blog.happyhacker.fun/post/sed-in-a-nutshell/</loc>
-    <lastmod>2020-08-29T22:43:44+08:00</lastmod>
+    <lastmod>2020-09-03T22:51:26+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
