@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.74.3 with theme even" />
+<meta name="generator" content="Hugo 0.76.2 with theme even" />
 
 
 <link rel="canonical" href="http://blog.happyhacker.fun/post/java-stream-api/" />
@@ -130,14 +130,14 @@
         <div class="post-category">
             <a href="/categories/theory/"> theory </a>
             </div>
-          <span class="more-meta"> 约 2409 字 </span>
-          <span class="more-meta"> 预计阅读 5 分钟 </span>
+          <span class="more-meta">  </span>
+          <span class="more-meta">  </span>
         
       </div>
     </header>
 
     <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">文章目录</h2>
+  <h2 class="post-toc-title"></h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
@@ -496,14 +496,14 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php">$a = [
-    &#39;a&#39; =&gt; &#39;b&#39;,
-    &#39;c&#39; =&gt; &#39;d&#39;,
-];
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="nv">$a</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;a&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;c&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span>
+<span class="p">];</span>
 
-foreach ($a as $key =&gt; $value) {
-    echo $key . &#39;=&gt;&#39; . $value, &#34;\n&#34;;
-}
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$a</span> <span class="k">as</span> <span class="nv">$key</span> <span class="o">=&gt;</span> <span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="nv">$key</span> <span class="o">.</span> <span class="s1">&#39;=&gt;&#39;</span> <span class="o">.</span> <span class="nv">$value</span><span class="p">,</span> <span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>在这个例子中<code>$key</code>和<code>$value</code>的组合就是Java中<code>Map.Entry</code>的概念了，只不过继续遵循<strong>封闭</strong>的原则，给二者都配备了对应的方法<code>getKey()</code>和<code>getValue()</code>，也就是说，可以从一个<code>Map</code>的<code>Entry</code>中同时获取当前这个元素的key和value。那么问题又来了，怎么拿到它的<code>Entry</code>呢？通过<code>entrySet()</code>方法。</p>
@@ -613,11 +613,11 @@ foreach ($a as $key =&gt; $value) {
 
     <div class="post-copyright">
   <p class="copyright-item">
-    <span class="item-title">文章作者</span>
+    <span class="item-title"></span>
     <span class="item-content">happyhacker</span>
   </p>
   <p class="copyright-item">
-    <span class="item-title">上次更新</span>
+    <span class="item-title"></span>
     <span class="item-content">
         2020-05-28 23:48
         <a href="/commit/5412399f13b83926b1aed14da54e31d41414a421" title="updating content 2020年 5月28日 星期四 23时48分30秒 CST">(5412399)</a>
@@ -635,11 +635,11 @@ foreach ($a as $key =&gt; $value) {
         <a class="prev" href="/post/install-homebrew-in-china/">
             <i class="iconfont icon-left"></i>
             <span class="prev-text nav-default">中国大陆安装homebrew的最优方法</span>
-            <span class="prev-text nav-mobile">上一篇</span>
+            <span class="prev-text nav-mobile"></span>
           </a>
         <a class="next" href="/post/java-basics/">
             <span class="next-text nav-default">Java基础</span>
-            <span class="next-text nav-mobile">下一篇</span>
+            <span class="next-text nav-mobile"></span>
             <i class="iconfont icon-right"></i>
           </a>
       </nav>
@@ -667,11 +667,11 @@ foreach ($a as $key =&gt; $value) {
 
 <div class="copyright">
   <span class="power-by">
-    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+    %!(EXTRA string=<a class="hexo-link" href="https://gohugo.io">Hugo</a>)
   </span>
   <span class="division">|</span>
   <span class="theme-info">
-    主题 - 
+     - 
     <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
   </span>
 
