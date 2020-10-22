@@ -6,7 +6,11 @@
     <description>Recent content in firefox on happyhakcer makes fun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 16 May 2020 00:49:00 +0800</lastBuildDate><atom:link href="http://blog.happyhacker.fun/tags/firefox/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 16 May 2020 00:49:00 +0800</lastBuildDate>
+    
+	<atom:link href="http://blog.happyhacker.fun/tags/firefox/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>关闭Firefox浏览器中使用鼠标缩放网页的功能</title>
       <link>http://blog.happyhacker.fun/post/disable-zoom-in-and-out-in-firefox-with-mouse/</link>

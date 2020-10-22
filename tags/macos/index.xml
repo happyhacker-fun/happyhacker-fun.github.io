@@ -6,7 +6,11 @@
     <description>Recent content in macOS on happyhakcer makes fun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 10 Jun 2020 10:52:37 +0800</lastBuildDate><atom:link href="http://blog.happyhacker.fun/tags/macos/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 10 Jun 2020 10:52:37 +0800</lastBuildDate>
+    
+	<atom:link href="http://blog.happyhacker.fun/tags/macos/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>彻底关闭macOS系统升级提示</title>
       <link>http://blog.happyhacker.fun/post/turn-off-macos-update-notification/</link>
