@@ -6,7 +6,7 @@
     <description>Recent content on happyhakcer makes fun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 22 Oct 2020 11:30:55 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 22 Oct 2020 16:32:44 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.happyhacker.fun/index.xml" rel="self" type="application/rss+xml" />
     
@@ -18,6 +18,15 @@
       
       <guid>http://blog.happyhacker.fun/about/</guid>
       <description>坐标北京，一个普普通通的软件开发人员。 想了很多，好像也没什么好写的。做过很多项目，虽然实现了目标，但总不甚满意。 在这里留一些碎碎念吧。</description>
+    </item>
+    
+    <item>
+      <title>Springboot Profiles Active</title>
+      <link>http://blog.happyhacker.fun/post/springboot-profiles-active/</link>
+      <pubDate>Thu, 22 Oct 2020 16:32:44 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/springboot-profiles-active/</guid>
+      <description>&lt;p&gt;Springboot的这个profiles的问题真是让人头疼。&lt;/p&gt;</description>
     </item>
     
     <item>
