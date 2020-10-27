@@ -6,10 +6,24 @@
     <description>Recent content in Tags on happyhakcer makes fun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 22 Oct 2020 16:32:44 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 27 Oct 2020 22:04:17 +0800</lastBuildDate><atom:link href="http://blog.happyhacker.fun/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>java</title>
+      <link>http://blog.happyhacker.fun/tags/java/</link>
+      <pubDate>Tue, 27 Oct 2020 22:04:17 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/tags/java/</guid>
+      <description></description>
+    </item>
     
-	<atom:link href="http://blog.happyhacker.fun/tags/index.xml" rel="self" type="application/rss+xml" />
-    
+    <item>
+      <title>jvm</title>
+      <link>http://blog.happyhacker.fun/tags/jvm/</link>
+      <pubDate>Tue, 27 Oct 2020 22:04:17 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/tags/jvm/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>springboot</title>
@@ -44,24 +58,6 @@
       <pubDate>Thu, 15 Oct 2020 22:51:47 +0800</pubDate>
       
       <guid>http://blog.happyhacker.fun/tags/tiggo8/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>java</title>
-      <link>http://blog.happyhacker.fun/tags/java/</link>
-      <pubDate>Sat, 22 Aug 2020 17:25:53 +0800</pubDate>
-      
-      <guid>http://blog.happyhacker.fun/tags/java/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>jvm</title>
-      <link>http://blog.happyhacker.fun/tags/jvm/</link>
-      <pubDate>Sat, 22 Aug 2020 17:25:53 +0800</pubDate>
-      
-      <guid>http://blog.happyhacker.fun/tags/jvm/</guid>
       <description></description>
     </item>
     

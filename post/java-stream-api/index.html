@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.74.3 with theme even" />
+<meta name="generator" content="Hugo 0.76.5 with theme even" />
 
 
 <link rel="canonical" href="http://blog.happyhacker.fun/post/java-stream-api/" />
@@ -496,14 +496,14 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php">$a = [
-    &#39;a&#39; =&gt; &#39;b&#39;,
-    &#39;c&#39; =&gt; &#39;d&#39;,
-];
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="nv">$a</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;a&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;c&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span>
+<span class="p">];</span>
 
-foreach ($a as $key =&gt; $value) {
-    echo $key . &#39;=&gt;&#39; . $value, &#34;\n&#34;;
-}
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$a</span> <span class="k">as</span> <span class="nv">$key</span> <span class="o">=&gt;</span> <span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="nv">$key</span> <span class="o">.</span> <span class="s1">&#39;=&gt;&#39;</span> <span class="o">.</span> <span class="nv">$value</span><span class="p">,</span> <span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>在这个例子中<code>$key</code>和<code>$value</code>的组合就是Java中<code>Map.Entry</code>的概念了，只不过继续遵循<strong>封闭</strong>的原则，给二者都配备了对应的方法<code>getKey()</code>和<code>getValue()</code>，也就是说，可以从一个<code>Map</code>的<code>Entry</code>中同时获取当前这个元素的key和value。那么问题又来了，怎么拿到它的<code>Entry</code>呢？通过<code>entrySet()</code>方法。</p>
