@@ -49,7 +49,7 @@
 <meta itemprop="description" content="jar包应该是java应用使用最多的分发形式了，jar包中包含什么东西，怎么创建和执行它呢？">
 <meta itemprop="datePublished" content="2020-05-18T22:18:51+08:00" />
 <meta itemprop="dateModified" content="2020-05-18T23:33:39+08:00" />
-<meta itemprop="wordCount" content="1517">
+<meta itemprop="wordCount" content="2002">
 
 
 
@@ -130,7 +130,7 @@
         <div class="post-category">
             <a href="/categories/research/"> research </a>
             </div>
-          <span class="more-meta"> 约 1517 字 </span>
+          <span class="more-meta"> 约 2002 字 </span>
           <span class="more-meta"> 预计阅读 4 分钟 </span>
         
       </div>
@@ -144,6 +144,7 @@
     <li><a href="#jar包是什么">jar包是什么</a>
       <ul>
         <li><a href="#为什么要用jar包">为什么要用jar包</a></li>
+        <li><a href="#添加和修改清单属性">添加和修改清单属性</a></li>
       </ul>
     </li>
     <li><a href="#jar包的官方标准">jar包的官方标准</a>
@@ -353,6 +354,38 @@ I am Bailey and I am 11 years old
 </code></pre></td></tr></table>
 </div>
 </div><p>这时候把这个压缩包发给别人，别人就可以直接这样执行了。</p>
+<h3 id="添加和修改清单属性">添加和修改清单属性</h3>
+<p>如果第一次打包的时候没有添加MANIFEST文件，jar会自动添加一个<code>META-INF/MANIFEST.MF</code>文件，但其中只包含<code>Manifest-Version</code>和<code>Created-By</code>两个属性，在执行的时候还要在命令行传入入口才可以执行。所以这时如果要给MANIFEST文件添加属性，可以这么做。</p>
+<ol>
+<li>创建一个新的清单文件，比如MANIFEST-ADDITION.MF</li>
+<li>将需要添加的属性假如新的清单文件</li>
+<li>执行<code>jar ufvm App.jar MANIFEST-ADDITION.MF</code></li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Main-Class: App
+Author: happyhakcer
+</code></pre></td></tr></table>
+</div>
+</div><p>然后通过vim打开这个jar包就可以看到其中的清单文件已经更新了。</p>
+<p>另外，如果是打包前就已经手动写好了完整的清单文件，也可以通过<code>jar cfvm</code>的方式直接把清单文件打包进jar包。</p>
+<p>需要注意一点，在执行<code>jar vcfme</code>这种命令时，<code>f</code> <code>m</code> <code>e</code>这三个选项的顺序也决定了后面传入的参数表示的含义，<code>f</code>表示目标文件（jar包的名称），<code>m</code>表示清单文件，<code>e</code>(entry)则表示入口点。
+比如可以是</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">jar vcfme app.jar MANIFEST.MF App App.class entity/*.class
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>这里是为了说明问题，如果MANIFEST.MF中已经指定了<code>Main-Class</code>属性，则在执行上面的命令时会因为又通过<code>e</code>选项指定了入口点而执行失败。</p>
+</blockquote>
 <h2 id="jar包的官方标准">jar包的官方标准</h2>
 <p>现在我们已经有了一个标准的jar包了，下面打开它看看这个清单文件中究竟包含了什么信息</p>
 <div class="highlight"><div class="chroma">
