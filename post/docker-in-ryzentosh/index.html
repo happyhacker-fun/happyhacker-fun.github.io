@@ -49,7 +49,7 @@
 <meta itemprop="description" content="本来选择AMD的黑苹果之前就已经做好了无法使用docker的准备了，没想到那天偶然发现说docker-toolbox是可以用的。">
 <meta itemprop="datePublished" content="2020-07-25T23:35:01+08:00" />
 <meta itemprop="dateModified" content="2020-07-27T12:42:43+08:00" />
-<meta itemprop="wordCount" content="661">
+<meta itemprop="wordCount" content="739">
 
 
 
@@ -130,7 +130,7 @@
         <div class="post-category">
             <a href="/categories/in-action/"> in-action </a>
             </div>
-          <span class="more-meta"> 约 661 字 </span>
+          <span class="more-meta"> 约 739 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         
       </div>
@@ -171,10 +171,13 @@
 <pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">docker-machine create default --engine-registry-mirror=https://yourcode.mirror.aliyuncs.com -d virtualbox --virtualbox-no-vtx-check
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">docker-machine create default --engine-registry-mirror=https://yourcode.mirror.aliyuncs.com -d virtualbox --virtualbox-no-vtx-check --virtualbox-memory &#34;8096&#34; --virtualbox-cpu-count &#34;6&#34;
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="打开kitematic开始体验docker">打开Kitematic开始体验docker</h2>
+</div><blockquote>
+<p>2020年11月添加：后来使用过程中发现内存会不够用，因为默认是1G内存和1个CPU核心，这明显是不能满足正常的使用需求的，所以就需要加一些资源了。</p>
+</blockquote>
+<h2 id="打开kitematic开始体验docker">打开Kitematic开始体验docker</h2>
 <p>哇！原来docker还能这么用？！当你走到这一步了，你一定知道我为什么会感叹。</p>
     </div>
 
