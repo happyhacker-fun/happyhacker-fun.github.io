@@ -44,12 +44,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://blog.happyhacker.fun/post/life/macos-network-proxy-script/" />
 <meta property="article:published_time" content="2020-11-17T22:34:31+08:00" />
-<meta property="article:modified_time" content="2020-11-17T22:34:31+08:00" />
+<meta property="article:modified_time" content="2020-11-17T23:10:12+08:00" />
 <meta itemprop="name" content="macOS 网络代理设置脚本">
 <meta itemprop="description" content="一直以来我都有个疑问，就是为什么所有操作系统的网络代理设置都不能保存。">
 <meta itemprop="datePublished" content="2020-11-17T22:34:31+08:00" />
-<meta itemprop="dateModified" content="2020-11-17T22:34:31+08:00" />
-<meta itemprop="wordCount" content="707">
+<meta itemprop="dateModified" content="2020-11-17T23:10:12+08:00" />
+<meta itemprop="wordCount" content="759">
 
 
 
@@ -130,7 +130,7 @@
         <div class="post-category">
             <a href="/categories/macos/"> macOS </a>
             </div>
-          <span class="more-meta"> 约 707 字 </span>
+          <span class="more-meta"> 约 759 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         
       </div>
@@ -167,7 +167,7 @@
 <pre class="chroma"><code class="language-fallback" data-lang="fallback">networksetup -help
 </code></pre></td></tr></table>
 </div>
-</div><p>输出太多了，这里就不贴了，可以自己尝试一下。我们关注的是代理（Proxy），所以在输出的信息里搜索proxy，就会找到这两个</p>
+</div><p>输出太多了，这里就不贴了，可以自己尝试一下。我们关注的是代理（Proxy），所以在输出的信息里搜索proxy，就会找到以下内容</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -193,6 +193,7 @@ Usage: networksetup -setautoproxystate &lt;networkservice&gt; &lt;on off&gt;
 </code></pre></td></tr></table>
 </div>
 </div><p>很明显也就看出来各自的用途了，知道这个了就很容写出两个脚本了</p>
+<p><strong>由于我的是黑苹果，使用的是有线网络，所以这里的网络名是en0，你的电脑用的是什么网络需要你自己去发现了</strong></p>
 <h3 id="设置代理">设置代理</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -268,8 +269,8 @@ networksetup -getautoproxyurl <span class="s2">&#34;Ethernet Adaptor (en0)&#34;<
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-        2020-11-17 22:34
-        
+        2020-11-17 23:10
+        <a href="/commit/0ca55d91e187d8aef667dc81fe7a5a25b6475c4e" title="updating content 2020年11月17日 星期二 23时10分12秒 CST">(0ca55d9)</a>
     </span>
   </p>
   
