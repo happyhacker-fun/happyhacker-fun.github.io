@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>macOS 网络代理设置脚本 - happyhakcer makes fun</title>
+  <title>创建一个自定义的Archetype - happyhakcer makes fun</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="happyhacker" /><meta name="description" content="一直以来我都有个疑问，就是为什么所有操作系统的网络代理设置都不能保存。
+<meta name="author" content="happyhacker" /><meta name="description" content="用默认的archetype太烦了，每次都要改很多东西，不如自己创建一个。
 " /><meta name="keywords" content="Java, PHP, Architect" />
 
 
@@ -27,7 +27,7 @@
 <meta name="generator" content="Hugo 0.78.2 with theme even" />
 
 
-<link rel="canonical" href="http://blog.happyhacker.fun/post/life/macos-network-proxy-script/" />
+<link rel="canonical" href="http://blog.happyhacker.fun/post/java/create-custom-archetype/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -39,24 +39,24 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="macOS 网络代理设置脚本" />
-<meta property="og:description" content="一直以来我都有个疑问，就是为什么所有操作系统的网络代理设置都不能保存。" />
+<meta property="og:title" content="创建一个自定义的Archetype" />
+<meta property="og:description" content="用默认的archetype太烦了，每次都要改很多东西，不如自己创建一个。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://blog.happyhacker.fun/post/life/macos-network-proxy-script/" />
-<meta property="article:published_time" content="2020-11-17T22:34:31+08:00" />
-<meta property="article:modified_time" content="2020-11-17T23:13:56+08:00" />
-<meta itemprop="name" content="macOS 网络代理设置脚本">
-<meta itemprop="description" content="一直以来我都有个疑问，就是为什么所有操作系统的网络代理设置都不能保存。">
-<meta itemprop="datePublished" content="2020-11-17T22:34:31+08:00" />
-<meta itemprop="dateModified" content="2020-11-17T23:13:56+08:00" />
-<meta itemprop="wordCount" content="759">
+<meta property="og:url" content="http://blog.happyhacker.fun/post/java/create-custom-archetype/" />
+<meta property="article:published_time" content="2020-11-18T23:03:17+08:00" />
+<meta property="article:modified_time" content="2020-11-18T23:03:17+08:00" />
+<meta itemprop="name" content="创建一个自定义的Archetype">
+<meta itemprop="description" content="用默认的archetype太烦了，每次都要改很多东西，不如自己创建一个。">
+<meta itemprop="datePublished" content="2020-11-18T23:03:17+08:00" />
+<meta itemprop="dateModified" content="2020-11-18T23:03:17+08:00" />
+<meta itemprop="wordCount" content="766">
 
 
 
-<meta itemprop="keywords" content="macOS,bash," />
+<meta itemprop="keywords" content="maven,java,archetype," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="macOS 网络代理设置脚本"/>
-<meta name="twitter:description" content="一直以来我都有个疑问，就是为什么所有操作系统的网络代理设置都不能保存。"/>
+<meta name="twitter:title" content="创建一个自定义的Archetype"/>
+<meta name="twitter:description" content="用默认的archetype太烦了，每次都要改很多东西，不如自己创建一个。"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -123,14 +123,14 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">macOS 网络代理设置脚本</h1>
+      <h1 class="post-title">创建一个自定义的Archetype</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2020-11-17 22:34 </span>
+        <span class="post-time"> 2020-11-18 23:03 </span>
         <div class="post-category">
-            <a href="/categories/macos/"> macOS </a>
+            <a href="/categories/in-action/"> in-action </a>
             </div>
-          <span class="more-meta"> 约 759 字 </span>
+          <span class="more-meta"> 约 766 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         
       </div>
@@ -141,11 +141,10 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#为什么要自己定义archetype">为什么要自己定义archetype</a></li>
+    <li><a href="#定义archetype的步骤">定义archetype的步骤</a>
       <ul>
-        <li><a href="#设置代理">设置代理</a></li>
-        <li><a href="#关掉代理">关掉代理</a></li>
-        <li><a href="#设置快捷方式">设置快捷方式</a></li>
+        <li><a href="#生成模板">生成模板</a></li>
       </ul>
     </li>
   </ul>
@@ -153,48 +152,19 @@
   </div>
 </div>
     <div class="post-content">
-      <p>一直以来我都有个疑问，就是为什么所有操作系统的网络代理设置都不能保存。</p>
-<p>以macOS为例，如果我设置了代理地址，而没有勾选左边的勾选项，那么保存之后再打开也同时没有了已经设置好的代理地址。
-<img src="/images/2020-11-17-22-36-46.png" alt="">
-而我想要的是可以设置好一个固定的代理地址，我需要开启的时候在一个很明显的入口点一下，就配置上了。不想用的时候关掉即可，不用清空配置。然而我搜遍了全网也没有找到。</p>
-<p>于是我就想macOS系统既然脱胎于BSD，那会不会有相应的命令行可以做这件事儿呢，果然被我找到了一系列命令<code>networksetup</code>。</p>
-<p>先看一下这个命令都有什么功能吧，</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">networksetup -help
-</code></pre></td></tr></table>
-</div>
-</div><p>输出太多了，这里就不贴了，可以自己尝试一下。我们关注的是代理（Proxy），所以在输出的信息里搜索proxy，就会找到以下内容</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">Usage: networksetup -setautoproxyurl &lt;networkservice&gt; &lt;url&gt;
-	Set proxy auto-config to url for &lt;networkservice&gt; and enable it.
-
-Usage: networksetup -getautoproxyurl &lt;networkservice&gt;
-	Display proxy auto-config (url, enabled) info for &lt;networkservice&gt;.
-
-Usage: networksetup -setautoproxystate &lt;networkservice&gt; &lt;on off&gt;
-	Set proxy auto-config to either &lt;on&gt; or &lt;off&gt;.
-
-</code></pre></td></tr></table>
-</div>
-</div><p>很明显也就看出来各自的用途了，知道这个了就很容写出两个脚本了</p>
-<p><strong>由于我的是黑苹果，使用的是有线网络，所以这里的网络名是en0，你的电脑用的是什么网络需要你自己去发现了</strong></p>
-<h3 id="设置代理">设置代理</h3>
+      <p>用默认的archetype太烦了，每次都要改很多东西，不如自己创建一个。</p>
+<h2 id="为什么要自己定义archetype">为什么要自己定义archetype</h2>
+<p>当然是因为懒。我一般是用maven-archetype-quickstart创建项目，但每次创建完之后还要改一通，比如JDK版本号、maven插件等等，这些东西本身其实不应该花太多时间去记的。所以自己定义一个就好了。</p>
+<h2 id="定义archetype的步骤">定义archetype的步骤</h2>
+<h3 id="生成模板">生成模板</h3>
+<ol>
+<li>从<code>maven-archetype-quickstart</code>创建一个正常的maven项目</li>
+</ol>
+<p>这个maven项目是什么不重要，重要的是它会帮你生成一个标准的<code>pom.xml</code>文件。</p>
+<ol start="2">
+<li>修改<code>pom.xml</code>文件</li>
+</ol>
+<p>比如你几乎所有的项目都需要依赖<code>log4j2</code>这套日志套件，那么你就需要这两个依赖</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -208,57 +178,82 @@ Usage: networksetup -setautoproxystate &lt;networkservice&gt; &lt;on off&gt;
 </span><span class="lnt"> 9
 </span><span class="lnt">10
 </span><span class="lnt">11
+</span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/usr/bin/env bash
-</span><span class="cp"></span>
-<span class="nb">echo</span> <span class="s2">&#34;Enabling auto proxy....&#34;</span>
-
-networksetup -setautoproxyurl <span class="s2">&#34;Ethernet Adaptor (en0)&#34;</span> <span class="s2">&#34;http://your.host/proxy.pac&#34;</span>
-networksetup -setautoproxystate <span class="s2">&#34;Ethernet Adaptor (en0)&#34;</span> on
-networksetup -getautoproxyurl <span class="s2">&#34;Ethernet Adaptor (en0)&#34;</span>
-
-<span class="k">if</span> <span class="o">[</span> <span class="nv">$?</span> -eq <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-    <span class="nb">echo</span> <span class="s2">&#34;Proxy is set&#34;</span>
-<span class="k">fi</span>
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;dependencies&gt;</span>
+  <span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.apache.logging.log4j<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>log4j-api<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>2.14.0<span class="nt">&lt;/version&gt;</span>
+  <span class="nt">&lt;/dependency&gt;</span>
+  <span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.apache.logging.log4j<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>log4j-core<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>2.14.0<span class="nt">&lt;/version&gt;</span>
+  <span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;/dependencies&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="关掉代理">关掉代理</h3>
+</div><p>那么你就可以在这个生成的<code>pom.xml</code>文件中加上这两个依赖。</p>
+<ol start="3">
+<li>执行<code>mvn archetype:create-from-project</code></li>
+</ol>
+<p>这会在<code>target</code>目录中生成一个新的maven项目，进入这个项目，执行<code>mvn clean install</code>，你就把新创建的archetype安装到本地了。</p>
+<ol start="4">
+<li>使用新创建的模板</li>
+</ol>
+<p>执行<code>mvn archetype:generate -DarchetypeCatalog=local</code>，会产生一个交互</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/usr/bin/env bash
-</span><span class="cp"></span>
-<span class="nb">echo</span> <span class="s2">&#34;Disabling auto proxy...&#34;</span>
-networksetup -setautoproxystate <span class="s2">&#34;Ethernet Adaptor (en0)&#34;</span> off
-networksetup -getautoproxyurl <span class="s2">&#34;Ethernet Adaptor (en0)&#34;</span>
-
-<span class="k">if</span> <span class="o">[</span> <span class="nv">$?</span> -eq <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-    <span class="nb">echo</span> <span class="s2">&#34;Proxy is disabled&#34;</span>
-<span class="k">fi</span>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">➜  my-project mvn archetype:generate -DarchetypeCatalog=local
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------------------&lt; fun.happyhacker:my-project &gt;---------------------
+[INFO] Building my-project 1.0-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] &gt;&gt;&gt; maven-archetype-plugin:3.1.2:generate (default-cli) &gt; generate-sources @ my-project &gt;&gt;&gt;
+[INFO]
+[INFO] &lt;&lt;&lt; maven-archetype-plugin:3.1.2:generate (default-cli) &lt; generate-sources @ my-project &lt;&lt;&lt;
+[INFO]
+[INFO]
+[INFO] --- maven-archetype-plugin:3.1.2:generate (default-cli) @ my-project ---
+[INFO] Generating project in Interactive mode
+[INFO] No archetype defined. Using maven-archetype-quickstart (org.apache.maven.archetypes:maven-archetype-quickstart:1.0)
+Choose archetype:
+1: local -&gt; org.apache.flink:flink-quickstart-java (flink-quickstart-java)
+2: local -&gt; org.apache.maven.archetypes:maven-archetype-quickstart (quickstart)
+3: local -&gt; fun.happyhacker:my-quickstart-1.8-archetype (my-quickstart-1.8)
+4: local -&gt; fun.happyhacker:archetype-template-archetype (archetype-template)
+Choose a number or apply filter (format: [groupId:]artifactId, case sensitive contains): 2:
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="设置快捷方式">设置快捷方式</h3>
-<p>把这分别保存为<code>disable_proxy</code>和<code>enable_proxy</code>，放在<code>$HOME/.local/bin/</code>目录下，然后在你的<code>$HOME/.zshrc</code>或<code>$HOME/.bashrc</code>的最后一行追加</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$HOME</span>/.local/bin
-</code></pre></td></tr></table>
-</div>
-</div><p>再执行<code>source ~/.zshrc</code>或<code>source ~/.bashrc</code>，就可以生效了。之后就可以通过执行<code>enable_proxy</code>开启代理，通过<code>disable_proxy</code>来关闭代理了。再也不用找那么深的入口去一遍遍的配置代理了。</p>
+</div><p>这时就可以在其中找到刚刚创建的archetype了，在这里就是第4个，所以在交互界面填4，就可以继续选择域名和项目名称，生成一个新的maven项目，在生成的项目中你就会发现你刚刚在第2步中添加的两个依赖已经包含在里面了。</p>
+<p>同样的道理，也可以在<code>pom.xml</code>中添加相关的maven插件，以使从模板创建的项目更复合平时的需求。</p>
     </div>
 
     <div class="post-copyright">
@@ -269,8 +264,8 @@ networksetup -getautoproxyurl <span class="s2">&#34;Ethernet Adaptor (en0)&#34;<
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-        2020-11-17 23:13
-        <a href="/commit/738262c198a82fcdcd94ceeee4cc3089d8d68063" title="updating content 2020年11月17日 星期二 23时13分56秒 CST">(738262c)</a>
+        2020-11-18 23:03
+        
     </span>
   </p>
   
@@ -278,17 +273,14 @@ networksetup -getautoproxyurl <span class="s2">&#34;Ethernet Adaptor (en0)&#34;<
 </div>
 <footer class="post-footer">
       <div class="post-tags">
-          <a href="/tags/macos/">macOS</a>
-          <a href="/tags/bash/">bash</a>
+          <a href="/tags/maven/">maven</a>
+          <a href="/tags/java/">java</a>
+          <a href="/tags/archetype/">archetype</a>
           </div>
       <nav class="post-nav">
-        <a class="prev" href="/post/java/create-custom-archetype/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">创建一个自定义的Archetype</span>
-            <span class="prev-text nav-mobile">上一篇</span>
-          </a>
-        <a class="next" href="/post/java/jvm-class-loader/">
-            <span class="next-text nav-default">JVM类加载器</span>
+        
+        <a class="next" href="/post/life/macos-network-proxy-script/">
+            <span class="next-text nav-default">macOS 网络代理设置脚本</span>
             <span class="next-text nav-mobile">下一篇</span>
             <i class="iconfont icon-right"></i>
           </a>

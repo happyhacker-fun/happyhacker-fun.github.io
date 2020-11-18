@@ -6,7 +6,7 @@
     <description>Recent content on happyhakcer makes fun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 17 Nov 2020 22:34:31 +0800</lastBuildDate><atom:link href="http://blog.happyhacker.fun/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 18 Nov 2020 23:03:17 +0800</lastBuildDate><atom:link href="http://blog.happyhacker.fun/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>关于我</title>
       <link>http://blog.happyhacker.fun/about/</link>
@@ -14,6 +14,15 @@
       
       <guid>http://blog.happyhacker.fun/about/</guid>
       <description>坐标北京，一个普普通通的软件开发人员。 想了很多，好像也没什么好写的。做过很多项目，虽然实现了目标，但总不甚满意。 在这里留一些碎碎念吧。</description>
+    </item>
+    
+    <item>
+      <title>创建一个自定义的Archetype</title>
+      <link>http://blog.happyhacker.fun/post/java/create-custom-archetype/</link>
+      <pubDate>Wed, 18 Nov 2020 23:03:17 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/java/create-custom-archetype/</guid>
+      <description>&lt;p&gt;用默认的archetype太烦了，每次都要改很多东西，不如自己创建一个。&lt;/p&gt;</description>
     </item>
     
     <item>
