@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>happyhakcer makes fun</title>
+  <title>配置Spymemcached的日志级别 - happyhakcer makes fun</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="happyhacker" /><meta name="description" content="happyhacker makes fun" /><meta name="keywords" content="Java, PHP, Architect" />
+<meta name="author" content="happyhacker" /><meta name="description" content="用这个net.spy.memcached最恶心的事情就是它的日志了，不管三七二十一先打印一组红色的INFO级别日志。
+" /><meta name="keywords" content="Java, PHP, Architect" />
 
 
 
@@ -26,9 +27,7 @@
 <meta name="generator" content="Hugo 0.78.2 with theme even" />
 
 
-<link rel="canonical" href="http://blog.happyhacker.fun/" />
-  <link href="http://blog.happyhacker.fun/index.xml" rel="alternate" type="application/rss+xml" title="happyhakcer makes fun" />
-  <link href="http://blog.happyhacker.fun/index.xml" rel="feed" type="application/rss+xml" title="happyhakcer makes fun" />
+<link rel="canonical" href="http://blog.happyhacker.fun/post/java/set-log-level-of-spymemcached/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -40,16 +39,24 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="happyhakcer makes fun" />
-<meta property="og:description" content="happyhacker makes fun" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://blog.happyhacker.fun/" />
-<meta property="og:updated_time" content="2020-11-21T14:14:29+08:00" />
-<meta itemprop="name" content="happyhakcer makes fun">
-<meta itemprop="description" content="happyhacker makes fun">
+<meta property="og:title" content="配置Spymemcached的日志级别" />
+<meta property="og:description" content="用这个net.spy.memcached最恶心的事情就是它的日志了，不管三七二十一先打印一组红色的INFO级别日志。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://blog.happyhacker.fun/post/java/set-log-level-of-spymemcached/" />
+<meta property="article:published_time" content="2020-11-21T14:14:29+08:00" />
+<meta property="article:modified_time" content="2020-11-21T14:14:29+08:00" />
+<meta itemprop="name" content="配置Spymemcached的日志级别">
+<meta itemprop="description" content="用这个net.spy.memcached最恶心的事情就是它的日志了，不管三七二十一先打印一组红色的INFO级别日志。">
+<meta itemprop="datePublished" content="2020-11-21T14:14:29+08:00" />
+<meta itemprop="dateModified" content="2020-11-21T14:14:29+08:00" />
+<meta itemprop="wordCount" content="786">
+
+
+
+<meta itemprop="keywords" content="log4j,spymemcached," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="happyhakcer makes fun"/>
-<meta name="twitter:description" content="happyhacker makes fun"/>
+<meta name="twitter:title" content="配置Spymemcached的日志级别"/>
+<meta name="twitter:description" content="用这个net.spy.memcached最恶心的事情就是它的日志了，不管三七二十一先打印一组红色的INFO级别日志。"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -113,136 +120,110 @@
     <main id="main" class="main">
       <div class="content-wrapper">
         <div id="content" class="content">
-          <section id="posts" class="posts">
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/centos8-garbled-chars/">Centos8乱码及解决</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-04-03 22:14 </span>
-      <div class="post-category">
-          <a href="/categories/in-action/"> in-action </a>
-          </div>
-        <span class="more-meta"> 约 122 字 </span>
-        <span class="more-meta"> 预计阅读 1 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>以下操作基于CentOS8, 理论上应该适用于其他版本的操作系统.</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/centos8-garbled-chars/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">配置Spymemcached的日志级别</h1>
 
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/java-localdatetime-timezone/">Java时区问题的排查和分析</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-04-01 12:48 </span>
-      <div class="post-category">
-          <a href="/categories/in-action/"> in-action </a>
-          </div>
-        <span class="more-meta"> 约 886 字 </span>
-        <span class="more-meta"> 预计阅读 2 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>用Java开发新项目，遇到了很多之前没见过的问题，时区算是第二头疼的一个。</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/java-localdatetime-timezone/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
+      <div class="post-meta">
+        <span class="post-time"> 2020-11-21 14:14 </span>
+        <div class="post-category">
+            <a href="/categories/in-action/"> in-action </a>
+            </div>
+          <span class="more-meta"> 约 786 字 </span>
+          <span class="more-meta"> 预计阅读 2 分钟 </span>
+        
+      </div>
+    </header>
 
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/about-chrome-and-firefox/">简单说说Firefox和Chrome</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-03-31 10:02 </span>
-      <div class="post-category">
-          <a href="/categories/jabber/"> jabber </a>
-          </div>
-        <span class="more-meta"> 约 648 字 </span>
-        <span class="more-meta"> 预计阅读 2 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>自认为从易用性、自由度、速度和资源占用方面，Firefox（Quantom）已经超越了Chrome，但现在居然出现了兼容性问题。</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/about-chrome-and-firefox/" class="read-more-link">阅读更多</a>
-    </div>
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#观察现象">观察现象</a></li>
+    <li><a href="#分析原因">分析原因</a></li>
+    <li><a href="#改造方案">改造方案</a></li>
+    <li><a href="#总结">总结</a></li>
+  </ul>
+</nav>
   </div>
-</article>
+</div>
+    <div class="post-content">
+      <p>用这个<code>net.spy.memcached</code>最恶心的事情就是它的日志了，不管三七二十一先打印一组红色的INFO级别日志。</p>
+<p><img src="/images/2020-11-21-14-17-17.png" alt="红色的INFO级别日志"></p>
+<p>之前也没有研究这个原因，最近在总结日志相关的坑，就把这里详细看了一下。</p>
+<h2 id="观察现象">观察现象</h2>
+<p>首先是这个日志是红色的，INFO级别，而且在log4j.properties中添加</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">log4j.logger.net.spy.memcached=ERROR, console
+log4j.logger.addivitity.*=false
+</code></pre></td></tr></table>
+</div>
+</div><p>是不起作用的。</p>
+<h2 id="分析原因">分析原因</h2>
+<p>由于之前对log4j的配置文件也不太熟悉，所以一直想着是自己的配置文件没有写对导致的，而忽略了其他原因。昨天弄明白了如果要改变某个指定的包的日志配置就是这样做，所以就确定了配置文件没有问题。那么原因就只可能是这个包记录日志根本就没有用log4j。那它用的是啥呢？不想翻文档就只能debug了。</p>
+<p>首先找到记日志的地方，打个断点，执行程序，一步一步往下跟，找到这里</p>
+<p><img src="/images/2020-11-21-14-23-53.png" alt=""></p>
+<p>很明显具体拿到的Logger类就是在这里决定的了，这段简单来说就是如果系统没有设置<code>net.spy.log.LoggerImpl</code>属性，就用默认的<code>DefaultLogger</code>，实际上跟到这里确实也发现就是没有设置这个属性，从而<code>className</code>拿到的是个空，所以也就没有log4j什么事儿了。</p>
+<h2 id="改造方案">改造方案</h2>
+<p>既然知道了问题的根源，那么我们就设置一下这个属性就行了，它是从<code>System.getProperty()</code>方法获取的，那么我们就从<code>System.setProperty()</code>方法设置它。那么要设置成什么呢？打开这个<code>net.spy.log</code>目录，就会发现它提供了几个默认的实现</p>
+<p><img src="/images/2020-11-21-14-28-20.png" alt=""></p>
+<p>很明显我们要找的就是<code>net.spy.memcached.compat.log.Log4jLogger</code>，所以只需要在程序入口加上这行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">System</span><span class="o">.</span><span class="na">setProperty</span><span class="o">(</span><span class="s">&#34;net.spy.log.LoggerImpl&#34;</span><span class="o">,</span> <span class="s">&#34;net.spy.memcached.compat.log.Log4jLogger&#34;</span><span class="o">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>即可。加上之后再运行程序就会发现颜色已经和其他的日志一样了。</p>
+<h2 id="总结">总结</h2>
+<p>只要把问题回归到我们会的问题上，后面的问题就很容易解决了，前面已经配置了log4j.properties，所以当然也就可以方便的控制它的日志级别了。</p>
+    </div>
 
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/sshd-in-macos/">macOS上管理SSH服务</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-03-29 10:57 </span>
-      <div class="post-category">
-          <a href="/categories/in-action/"> in-action </a>
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">happyhacker</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-11-21 14:14
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/log4j/">log4j</a>
+          <a href="/tags/spymemcached/">spymemcached</a>
           </div>
-        <span class="more-meta"> 约 217 字 </span>
-        <span class="more-meta"> 预计阅读 1 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>mac本身安装了ssh服务，默认情况下不会开机自启。本文记录了开启和停止sshd服务的方法。</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/sshd-in-macos/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/macos-service-management/">使用Homebrew管理macOS上的服务</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-03-29 10:53 </span>
-      <div class="post-category">
-          <a href="/categories/macos/"> macOS </a>
-          </div>
-        <span class="more-meta"> 约 198 字 </span>
-        <span class="more-meta"> 预计阅读 1 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>用了5年macOS也一直没有用过苹果原生的服务管理、AppleSript等等，总感觉不够直观，好在还有Homebrew这个神器，帮我解决了很多问题。</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/macos-service-management/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    </section>
-  
-  <nav class="pagination">
-    <a class="prev" href="/page/6/">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text">上一页</span>
-      </a>
-    <a class="next" href="/page/8/">
-        <span class="next-text">下一页</span>
-        <i class="iconfont icon-right"></i>
-      </a>
-  </nav>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/java/create-custom-archetype/">
+            <span class="next-text nav-default">创建一个自定义的Archetype</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
         </div>
         
+
+  
+
+  
 
       </div>
     </main>

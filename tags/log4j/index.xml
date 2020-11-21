@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>log4j on happyhakcer makes fun</title>
+    <link>http://blog.happyhacker.fun/tags/log4j/</link>
+    <description>Recent content in log4j on happyhakcer makes fun</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 21 Nov 2020 14:14:29 +0800</lastBuildDate><atom:link href="http://blog.happyhacker.fun/tags/log4j/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>配置Spymemcached的日志级别</title>
+      <link>http://blog.happyhacker.fun/post/java/set-log-level-of-spymemcached/</link>
+      <pubDate>Sat, 21 Nov 2020 14:14:29 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/java/set-log-level-of-spymemcached/</guid>
+      <description>&lt;p&gt;用这个&lt;code&gt;net.spy.memcached&lt;/code&gt;最恶心的事情就是它的日志了，不管三七二十一先打印一组红色的INFO级别日志。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
