@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>log on happyhakcer makes fun</title>
-    <link>http://blog.happyhacker.fun/tags/log/</link>
-    <description>Recent content in log on happyhakcer makes fun</description>
+    <title>slf4j on happyhakcer makes fun</title>
+    <link>http://blog.happyhacker.fun/tags/slf4j/</link>
+    <description>Recent content in slf4j on happyhakcer makes fun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 21 Nov 2020 15:21:05 +0800</lastBuildDate><atom:link href="http://blog.happyhacker.fun/tags/log/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 21 Nov 2020 15:21:05 +0800</lastBuildDate><atom:link href="http://blog.happyhacker.fun/tags/slf4j/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Java日志演化梳理</title>
       <link>http://blog.happyhacker.fun/post/java/history-of-log-for-java/</link>
