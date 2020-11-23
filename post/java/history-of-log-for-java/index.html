@@ -49,7 +49,7 @@
 <meta itemprop="description" content="Java日志真是一个过于复杂的问题了，花了大量的时间在这个本不应该花时间的地方。">
 <meta itemprop="datePublished" content="2020-11-21T15:21:05+08:00" />
 <meta itemprop="dateModified" content="2020-11-23T19:10:40+08:00" />
-<meta itemprop="wordCount" content="2048">
+<meta itemprop="wordCount" content="2586">
 
 
 
@@ -130,8 +130,8 @@
         <div class="post-category">
             <a href="/categories/java/"> java </a>
             </div>
-          <span class="more-meta"> 约 2048 字 </span>
-          <span class="more-meta"> 预计阅读 5 分钟 </span>
+          <span class="more-meta"> 约 2586 字 </span>
+          <span class="more-meta"> 预计阅读 6 分钟 </span>
         
       </div>
     </header>
@@ -143,7 +143,11 @@
   <ul>
     <li><a href="#开篇">开篇</a></li>
     <li><a href="#问题初现">问题初现</a></li>
-    <li><a href="#神奇的桥接">神奇的桥接</a></li>
+    <li><a href="#神奇的桥接">神奇的桥接</a>
+      <ul>
+        <li><a href="#延伸">延伸</a></li>
+      </ul>
+    </li>
     <li><a href="#更实际的情况">更实际的情况</a></li>
     <li><a href="#一点提示">一点提示</a></li>
     <li><a href="#总结">总结</a></li>
@@ -356,6 +360,70 @@
 </div><p><img src="/images/2020-11-21-16-11-14.png" alt=""></p>
 <p>官方文档专门强调了一点，jul到slf4j是有很大的性能损失的（本来jul的性能就差，这么一搞就更差了）因为其他的日志框架到slf4j的桥接都是通过重新实现相应的接口来完成的，但因为双亲委派机制的限制，我们是无法重新实现<code>java.util.logging</code>中的接口的，所以实际它是把jul中的<code>LogRecord</code>替换成了slf4j中的等价对象，这层转换在日志这个本不应该消耗太多资源的场景下就消耗了太多的资源。</p>
 <p>好消息是并没有太多的应用使用jul。所以啊，即便你是官方的实现，也不一定那么受欢迎。</p>
+<h3 id="延伸">延伸</h3>
+<p>多数情况可能是要用<code>log4j-over-slf4j</code>来将对log4j的直接调用转调到slf4j-api上，然后再通过其他的日志框架，比如logback来写日志。这里可以简单的追踪以下调用过程。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">fun.happyhacker</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.apache.log4j.Logger</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Log4jTest</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">Logger</span> <span class="n">LOG</span> <span class="o">=</span> <span class="n">Logger</span><span class="o">.</span><span class="na">getLogger</span><span class="o">(</span><span class="n">Log4jTest</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">LOG</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">&#34;hello from log4j&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>配合相应的log4j.properties就能有相应的输出。那么如果我不想改这块代码，而想让它直接通过logback输出，就需要引入另外两个依赖</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml">    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>ch.qos.logback<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>logback-classic<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>1.2.3<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>org.slf4j<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>log4j-over-slf4j<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>1.7.25<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>这时在上述代码的第9行打个断点进入debug模式，走到第一步<code>Category.java</code>，就会发现上面会有一个提示，如图所示
+<img src="/images/2020-11-23-22-20-22.png" alt=""></p>
+<p>但当你真的选了第二个源码文件的时候它又会有另一个提示
+<img src="/images/2020-11-23-22-20-55.png" alt=""></p>
+<p>这说明它在执行的时候还是用的log4j包中的class文件，而不是log4j-over-slf4j。这时候把依赖中的log4j去掉（实际项目中应该是exclude掉）。再次执行就会发现没有这个提示了，取而代之的是代码的调用直接进入了log4j-over-slf4j中的，打开这个包的源码你就会发现它的包结构和log4j是一致的
+<img src="/images/2020-11-23-22-25-14.png" alt=""></p>
+<p>所以其实就是用log4j-over-slf4j中的类“偷偷”的替换了log4j中的类，其实已经变成了基于slf4j中的实现。</p>
 <h2 id="更实际的情况">更实际的情况</h2>
 <p>上面讲述的这种情况很少见，但更常见的是什么呢？其中一个就是<a href="/post/java/set-log-level-of-spymemcached">配置Spymemcached的日志级别</a>。更复杂的场景在下面。</p>
 <p>SpringBoot可能是现在最常见的应用类型了，我们知道它默认的日志框架是logback。 而我这里还有一个基于Flink的应用，二者要复用一部分代码，也就是说需要在Flink应用里创建一个Spring容器。Spring用的是logback，Flink用的是log4j，又需要在二者中选择一个了。</p>
