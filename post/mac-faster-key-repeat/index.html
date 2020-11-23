@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>happyhakcer makes fun</title>
+  <title>macOS设置Key Repeat和Delay Until Repeat - happyhakcer makes fun</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="happyhacker" /><meta name="description" content="happyhacker makes fun" /><meta name="keywords" content="Java, PHP, Architect" />
+<meta name="author" content="happyhacker" /><meta name="description" content="macOS上用Vim觉得很卡顿，不流畅，终于找到原因了。
+" /><meta name="keywords" content="Java, PHP, Architect" />
 
 
 
@@ -26,9 +27,7 @@
 <meta name="generator" content="Hugo 0.78.2 with theme even" />
 
 
-<link rel="canonical" href="http://blog.happyhacker.fun/" />
-  <link href="http://blog.happyhacker.fun/index.xml" rel="alternate" type="application/rss+xml" title="happyhakcer makes fun" />
-  <link href="http://blog.happyhacker.fun/index.xml" rel="feed" type="application/rss+xml" title="happyhakcer makes fun" />
+<link rel="canonical" href="http://blog.happyhacker.fun/post/mac-faster-key-repeat/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -40,16 +39,24 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="happyhakcer makes fun" />
-<meta property="og:description" content="happyhacker makes fun" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://blog.happyhacker.fun/" />
-<meta property="og:updated_time" content="2020-11-23T19:10:40+08:00" />
-<meta itemprop="name" content="happyhakcer makes fun">
-<meta itemprop="description" content="happyhacker makes fun">
+<meta property="og:title" content="macOS设置Key Repeat和Delay Until Repeat" />
+<meta property="og:description" content="macOS上用Vim觉得很卡顿，不流畅，终于找到原因了。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://blog.happyhacker.fun/post/mac-faster-key-repeat/" />
+<meta property="article:published_time" content="2020-11-21T22:48:25+08:00" />
+<meta property="article:modified_time" content="2020-11-21T22:55:02+08:00" />
+<meta itemprop="name" content="macOS设置Key Repeat和Delay Until Repeat">
+<meta itemprop="description" content="macOS上用Vim觉得很卡顿，不流畅，终于找到原因了。">
+<meta itemprop="datePublished" content="2020-11-21T22:48:25+08:00" />
+<meta itemprop="dateModified" content="2020-11-21T22:55:02+08:00" />
+<meta itemprop="wordCount" content="155">
+
+
+
+<meta itemprop="keywords" content="key-repeat," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="happyhakcer makes fun"/>
-<meta name="twitter:description" content="happyhacker makes fun"/>
+<meta name="twitter:title" content="macOS设置Key Repeat和Delay Until Repeat"/>
+<meta name="twitter:description" content="macOS上用Vim觉得很卡顿，不流畅，终于找到原因了。"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -113,136 +120,81 @@
     <main id="main" class="main">
       <div class="content-wrapper">
         <div id="content" class="content">
-          <section id="posts" class="posts">
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/java-memory-leak-record/">Java内存泄漏排查记录</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-04-05 23:11 </span>
-      <div class="post-category">
-          <a href="/categories/in-action/"> in-action </a>
-          </div>
-        <span class="more-meta"> 约 1276 字 </span>
-        <span class="more-meta"> 预计阅读 3 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>我们用Java是为了让它自动管理内存，然后我的第一个Java项目上线就面临排查线程数过多导致无法创建新线程、内存泄漏导致机器重启各种个样的问题。这和我原本想象的可不一样。</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/java-memory-leak-record/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">macOS设置Key Repeat和Delay Until Repeat</h1>
 
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/lftp-usage/">lftp记录密码</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-04-05 11:32 </span>
-      <div class="post-category">
-          <a href="/categories/in-action/"> in-action </a>
-          </div>
-        <span class="more-meta"> 约 124 字 </span>
-        <span class="more-meta"> 预计阅读 1 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>简单的工具最好用。</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/lftp-usage/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
+      <div class="post-meta">
+        <span class="post-time"> 2020-11-21 22:48 </span>
+        <div class="post-category">
+            <a href="/categories/macos/"> macOS </a>
+            </div>
+          <span class="more-meta"> 约 155 字 </span>
+          <span class="more-meta"> 预计阅读 1 分钟 </span>
+        
+      </div>
+    </header>
 
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/centos8-garbled-chars/">Centos8乱码及解决</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-04-03 22:14 </span>
-      <div class="post-category">
-          <a href="/categories/in-action/"> in-action </a>
-          </div>
-        <span class="more-meta"> 约 122 字 </span>
-        <span class="more-meta"> 预计阅读 1 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>以下操作基于CentOS8, 理论上应该适用于其他版本的操作系统.</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/centos8-garbled-chars/" class="read-more-link">阅读更多</a>
-    </div>
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents"></nav>
   </div>
-</article>
+</div>
+    <div class="post-content">
+      <p>macOS上用Vim觉得很卡顿，不流畅，终于找到原因了。</p>
+<p>有两个相关设置
+<img src="/images/2020-11-21-22-50-28.png" alt=""></p>
+<p>这两个把<code>Key Repeat</code>设置到最快，把<code>Delay Until Repeat</code>设置到最短，但实际上这么设置之后还是不够，再小就不能通过配置页面设置了，只能通过命令行设置了。我觉得合适的配置是这样的</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">defaults write -g InitialKeyRepeat -int 10
+defaults write -g KeyRepeat -int 1
+</code></pre></td></tr></table>
+</div>
+</div><p>这样之后再操作就明显流畅多了。</p>
+    </div>
 
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/java-localdatetime-timezone/">Java时区问题的排查和分析</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-04-01 12:48 </span>
-      <div class="post-category">
-          <a href="/categories/in-action/"> in-action </a>
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">happyhacker</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-11-21 22:55
+        <a href="/commit/abd8bd1a8cc460e41512903bce6c83687e9f94dc" title="updating content 2020年11月21日 星期六 22时55分02秒 CST">(abd8bd1)</a>
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/key-repeat/">key-repeat</a>
           </div>
-        <span class="more-meta"> 约 886 字 </span>
-        <span class="more-meta"> 预计阅读 2 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>用Java开发新项目，遇到了很多之前没见过的问题，时区算是第二头疼的一个。</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/java-localdatetime-timezone/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/about-chrome-and-firefox/">简单说说Firefox和Chrome</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-03-31 10:02 </span>
-      <div class="post-category">
-          <a href="/categories/jabber/"> jabber </a>
-          </div>
-        <span class="more-meta"> 约 648 字 </span>
-        <span class="more-meta"> 预计阅读 2 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>自认为从易用性、自由度、速度和资源占用方面，Firefox（Quantom）已经超越了Chrome，但现在居然出现了兼容性问题。</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/about-chrome-and-firefox/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    </section>
-  
-  <nav class="pagination">
-    <a class="prev" href="/page/6/">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text">上一页</span>
-      </a>
-    <a class="next" href="/page/8/">
-        <span class="next-text">下一页</span>
-        <i class="iconfont icon-right"></i>
-      </a>
-  </nav>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/java/history-of-log-for-java/">
+            <span class="next-text nav-default">Java日志演化梳理</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
         </div>
         
+
+  
+
+  
 
       </div>
     </main>
