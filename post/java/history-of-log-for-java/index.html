@@ -44,12 +44,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://blog.happyhacker.fun/post/java/history-of-log-for-java/" />
 <meta property="article:published_time" content="2020-11-21T15:21:05+08:00" />
-<meta property="article:modified_time" content="2020-11-21T16:54:52+08:00" />
+<meta property="article:modified_time" content="2020-11-23T19:10:40+08:00" />
 <meta itemprop="name" content="Java日志演化梳理">
 <meta itemprop="description" content="Java日志真是一个过于复杂的问题了，花了大量的时间在这个本不应该花时间的地方。">
 <meta itemprop="datePublished" content="2020-11-21T15:21:05+08:00" />
-<meta itemprop="dateModified" content="2020-11-21T16:54:52+08:00" />
-<meta itemprop="wordCount" content="2047">
+<meta itemprop="dateModified" content="2020-11-23T19:10:40+08:00" />
+<meta itemprop="wordCount" content="2048">
 
 
 
@@ -130,7 +130,7 @@
         <div class="post-category">
             <a href="/categories/java/"> java </a>
             </div>
-          <span class="more-meta"> 约 2047 字 </span>
+          <span class="more-meta"> 约 2048 字 </span>
           <span class="more-meta"> 预计阅读 5 分钟 </span>
         
       </div>
@@ -354,7 +354,7 @@
 </code></pre></td></tr></table>
 </div>
 </div><p><img src="/images/2020-11-21-16-11-14.png" alt=""></p>
-<p>官方文档专门强调了一点，jul到slf4j是有很大的性能损失的（本来jul的性能就差，这么一搞就更差了）因为其他的日志框架到slf4j的桥接都是通过重新实现相应的接口来完成的，但因为双亲委派机制的限制，我们是无法重新实现<code>java.util.logging</code>中的接口的，所以实际它是把jul中的<code>LogRecord</code>替换成了slf4j中的等价对向，这层转换在日志这个本不应该消耗太多资源的场景下就消耗了太多的资源。</p>
+<p>官方文档专门强调了一点，jul到slf4j是有很大的性能损失的（本来jul的性能就差，这么一搞就更差了）因为其他的日志框架到slf4j的桥接都是通过重新实现相应的接口来完成的，但因为双亲委派机制的限制，我们是无法重新实现<code>java.util.logging</code>中的接口的，所以实际它是把jul中的<code>LogRecord</code>替换成了slf4j中的等价对象，这层转换在日志这个本不应该消耗太多资源的场景下就消耗了太多的资源。</p>
 <p>好消息是并没有太多的应用使用jul。所以啊，即便你是官方的实现，也不一定那么受欢迎。</p>
 <h2 id="更实际的情况">更实际的情况</h2>
 <p>上面讲述的这种情况很少见，但更常见的是什么呢？其中一个就是<a href="/post/java/set-log-level-of-spymemcached">配置Spymemcached的日志级别</a>。更复杂的场景在下面。</p>
@@ -393,7 +393,7 @@
 </div>
 </div><p>相应的，如果要用logback而不是log4j，就把<code>slf4j-log4j12</code>排除即可。</p>
 <h2 id="一点提示">一点提示</h2>
-<p>前面我们说到了，如果想把直接调用log4j的请求转发到slf4j-api上，再根据实际情况决定最终底层用哪个日志框架。而slf4j-log4j12就是那个决定让slf4j使用log4写日志的包，那么如果这两个包同时出现又会怎么样呢？</p>
+<p>前面我们说到了，如果想把直接调用log4j的请求转发到slf4j-api上，再根据实际情况决定最终底层用哪个日志框架。而slf4j-log4j12就是那个决定让slf4j使用log4j写日志的包，那么如果这两个包同时出现又会怎么样呢？</p>
 <p><img src="/images/2020-11-21-16-50-17.png" alt=""></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -440,8 +440,8 @@
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-        2020-11-21 16:54
-        <a href="/commit/5912c5267db7face34e1883df82d8d500cbd798f" title="updating content Sat Nov 21 16:54:52 CST 2020">(5912c52)</a>
+        2020-11-23 19:10
+        <a href="/commit/c0b56f5cadb241b9559edf483afdf30d8abc785c" title="fix typo">(c0b56f5)</a>
     </span>
   </p>
   
