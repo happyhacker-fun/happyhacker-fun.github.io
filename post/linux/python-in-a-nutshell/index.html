@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>macOS设置Key Repeat和Delay Until Repeat - happyhakcer makes fun</title>
+  <title>Python的一些实用技巧 - happyhakcer makes fun</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="happyhacker" /><meta name="description" content="macOS上用Vim觉得很卡顿，不流畅，终于找到原因了。
+<meta name="author" content="happyhacker" /><meta name="description" content="Python虽然简单，但长时间不写还是忘，记录一些常用的片段。
 " /><meta name="keywords" content="Java, PHP, Architect" />
 
 
@@ -27,7 +27,7 @@
 <meta name="generator" content="Hugo 0.78.2 with theme even" />
 
 
-<link rel="canonical" href="http://blog.happyhacker.fun/post/mac-faster-key-repeat/" />
+<link rel="canonical" href="http://blog.happyhacker.fun/post/linux/python-in-a-nutshell/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -39,24 +39,24 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="macOS设置Key Repeat和Delay Until Repeat" />
-<meta property="og:description" content="macOS上用Vim觉得很卡顿，不流畅，终于找到原因了。" />
+<meta property="og:title" content="Python的一些实用技巧" />
+<meta property="og:description" content="Python虽然简单，但长时间不写还是忘，记录一些常用的片段。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://blog.happyhacker.fun/post/mac-faster-key-repeat/" />
-<meta property="article:published_time" content="2020-11-21T22:48:25+08:00" />
-<meta property="article:modified_time" content="2020-11-21T22:55:02+08:00" />
-<meta itemprop="name" content="macOS设置Key Repeat和Delay Until Repeat">
-<meta itemprop="description" content="macOS上用Vim觉得很卡顿，不流畅，终于找到原因了。">
-<meta itemprop="datePublished" content="2020-11-21T22:48:25+08:00" />
-<meta itemprop="dateModified" content="2020-11-21T22:55:02+08:00" />
-<meta itemprop="wordCount" content="155">
+<meta property="og:url" content="http://blog.happyhacker.fun/post/linux/python-in-a-nutshell/" />
+<meta property="article:published_time" content="2020-11-27T16:37:50+08:00" />
+<meta property="article:modified_time" content="2020-11-27T16:37:50+08:00" />
+<meta itemprop="name" content="Python的一些实用技巧">
+<meta itemprop="description" content="Python虽然简单，但长时间不写还是忘，记录一些常用的片段。">
+<meta itemprop="datePublished" content="2020-11-27T16:37:50+08:00" />
+<meta itemprop="dateModified" content="2020-11-27T16:37:50+08:00" />
+<meta itemprop="wordCount" content="386">
 
 
 
-<meta itemprop="keywords" content="key-repeat," />
+<meta itemprop="keywords" content="python,bash," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="macOS设置Key Repeat和Delay Until Repeat"/>
-<meta name="twitter:description" content="macOS上用Vim觉得很卡顿，不流畅，终于找到原因了。"/>
+<meta name="twitter:title" content="Python的一些实用技巧"/>
+<meta name="twitter:description" content="Python虽然简单，但长时间不写还是忘，记录一些常用的片段。"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -123,14 +123,14 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">macOS设置Key Repeat和Delay Until Repeat</h1>
+      <h1 class="post-title">Python的一些实用技巧</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2020-11-21 22:48 </span>
+        <span class="post-time"> 2020-11-27 16:37 </span>
         <div class="post-category">
-            <a href="/categories/macos/"> macOS </a>
+            <a href="/categories/linux/"> linux </a>
             </div>
-          <span class="more-meta"> 约 155 字 </span>
+          <span class="more-meta"> 约 386 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         
       </div>
@@ -139,25 +139,145 @@
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#1-脚本中出现中文时报错">1. 脚本中出现中文时报错</a></li>
+        <li><a href="#2-获取本机ip">2. 获取本机IP</a></li>
+        <li><a href="#3-判断一个包是否已经安装">3. 判断一个包是否已经安装</a></li>
+        <li><a href="#4-下载一个文件">4. 下载一个文件</a></li>
+        <li><a href="#5-检查文件是否存在">5. 检查文件是否存在</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
   </div>
 </div>
     <div class="post-content">
-      <p>macOS上用Vim觉得很卡顿，不流畅，终于找到原因了。</p>
-<p>有两个相关设置
-<img src="/images/2020-11-21-22-50-28.png" alt=""></p>
-<p>这两个把<code>Key Repeat</code>设置到最快，把<code>Delay Until Repeat</code>设置到最短，但实际上这么设置之后还是不够，再小就不能通过配置页面设置了，只能通过命令行设置了。我觉得合适的配置是这样的</p>
+      <p>Python虽然简单，但长时间不写还是忘，记录一些常用的片段。</p>
+<h3 id="1-脚本中出现中文时报错">1. 脚本中出现中文时报错</h3>
+<p>python2默认是不识别中文编码的，头部需要这么写</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">defaults write -g InitialKeyRepeat -int 10
-defaults write -g KeyRepeat -int 1
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>这样之后再操作就明显流畅多了。</p>
+</div><p>python3默认就支持UTF-8了，这个也就不需要了。</p>
+<h3 id="2-获取本机ip">2. 获取本机IP</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">import</span> <span class="nn">netifaces</span> <span class="kn">as</span> <span class="nn">ni</span>
+
+<span class="k">def</span> <span class="nf">get_hostname</span><span class="p">():</span>
+	<span class="n">ip</span> <span class="o">=</span> <span class="n">ni</span><span class="o">.</span><span class="n">ifaddresses</span><span class="p">(</span><span class="s1">&#39;eth0&#39;</span><span class="p">)[</span><span class="n">ni</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;addr&#39;</span><span class="p">]</span>
+
+	<span class="n">ip_split</span><span class="o">=</span> <span class="n">ip</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+	<span class="k">if</span> <span class="n">ip_split</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;73&#39;</span><span class="p">:</span>
+		<span class="n">prefix</span> <span class="o">=</span> <span class="s1">&#39;hadoop-tc-&#39;</span>
+	<span class="k">else</span><span class="p">:</span>
+		<span class="n">prefix</span> <span class="o">=</span> <span class="s1">&#39;hadoop-yf-&#39;</span>
+
+	<span class="k">return</span> <span class="n">prefix</span> <span class="o">+</span> <span class="n">ip_split</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;-&#39;</span> <span class="o">+</span> <span class="n">ip_split</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="3-判断一个包是否已经安装">3. 判断一个包是否已经安装</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">output</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">popen</span><span class="p">(</span><span class="s1">&#39;rpm -q jdk1.8&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">output</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p><code>os.popen('cmd').readlines()</code>和<code>os.system('cmd')</code>的区别在于前者会把命令的输出保存到<code>output</code>中，而后者则不会，所以如果需要关注命令的输出，就用前面这个。</p>
+</blockquote>
+<h3 id="4-下载一个文件">4. 下载一个文件</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">import</span> <span class="nn">urllib</span>
+
+<span class="n">urllib</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="n">URL_JDK_8</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;/data1/jdk-8u231-linux-x64.rpm&#39;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>如果文件已经存在，则会覆盖</p>
+</blockquote>
+<h3 id="5-检查文件是否存在">5. 检查文件是否存在</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="s1">&#39;/path/to/file&#39;</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;文件存在&#39;</span><span class="p">)</span>
+
+</code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
     <div class="post-copyright">
@@ -168,8 +288,8 @@ defaults write -g KeyRepeat -int 1
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-        2020-11-21 22:55
-        <a href="/commit/abd8bd1a8cc460e41512903bce6c83687e9f94dc" title="updating content 2020年11月21日 星期六 22时55分02秒 CST">(abd8bd1)</a>
+        2020-11-27 16:37
+        
     </span>
   </p>
   
@@ -177,16 +297,13 @@ defaults write -g KeyRepeat -int 1
 </div>
 <footer class="post-footer">
       <div class="post-tags">
-          <a href="/tags/key-repeat/">key-repeat</a>
+          <a href="/tags/python/">python</a>
+          <a href="/tags/bash/">bash</a>
           </div>
       <nav class="post-nav">
-        <a class="prev" href="/post/linux/shell-in-a-nutshell/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Shell的一些实用技巧</span>
-            <span class="prev-text nav-mobile">上一篇</span>
-          </a>
-        <a class="next" href="/post/java/history-of-log-for-java/">
-            <span class="next-text nav-default">Java日志演化梳理</span>
+        
+        <a class="next" href="/post/linux/shell-in-a-nutshell/">
+            <span class="next-text nav-default">Shell的一些实用技巧</span>
             <span class="next-text nav-mobile">下一篇</span>
             <i class="iconfont icon-right"></i>
           </a>
