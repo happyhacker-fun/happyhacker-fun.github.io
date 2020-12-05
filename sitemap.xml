@@ -9,6 +9,55 @@
   </url>
   
   <url>
+    <loc>http://blog.happyhacker.fun/categories/</loc>
+    <lastmod>2020-12-05T17:39:33+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.happyhacker.fun/</loc>
+    <lastmod>2020-12-05T17:39:33+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.happyhacker.fun/categories/life/</loc>
+    <lastmod>2020-12-02T23:49:35+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.happyhacker.fun/post/</loc>
+    <lastmod>2020-12-05T17:39:33+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.happyhacker.fun/tags/</loc>
+    <lastmod>2020-12-05T17:39:33+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.happyhacker.fun/tags/tiggo8/</loc>
+    <lastmod>2020-12-02T23:49:35+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.happyhacker.fun/post/life/tiggo8-second-1000-km/</loc>
+    <lastmod>2020-12-02T23:49:35+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>http://blog.happyhacker.fun/tags/bash/</loc>
     <lastmod>2020-11-27T16:58:10+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -16,29 +65,8 @@
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/categories/</loc>
-    <lastmod>2020-12-02T22:32:39+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://blog.happyhacker.fun/</loc>
-    <lastmod>2020-12-02T22:32:39+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>http://blog.happyhacker.fun/categories/linux/</loc>
     <lastmod>2020-11-27T16:58:10+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://blog.happyhacker.fun/post/</loc>
-    <lastmod>2020-12-02T22:32:39+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -53,13 +81,6 @@
   <url>
     <loc>http://blog.happyhacker.fun/post/linux/python-in-a-nutshell/</loc>
     <lastmod>2020-11-27T16:58:10+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://blog.happyhacker.fun/tags/</loc>
-    <lastmod>2020-12-02T22:32:39+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -122,7 +143,7 @@
   
   <url>
     <loc>http://blog.happyhacker.fun/tags/log4j/</loc>
-    <lastmod>2020-11-23T22:28:53+08:00</lastmod>
+    <lastmod>2020-12-05T17:39:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -150,21 +171,21 @@
   
   <url>
     <loc>http://blog.happyhacker.fun/categories/in-action/</loc>
-    <lastmod>2020-11-21T14:54:13+08:00</lastmod>
+    <lastmod>2020-12-05T17:39:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://blog.happyhacker.fun/tags/spymemcached/</loc>
-    <lastmod>2020-11-21T14:54:13+08:00</lastmod>
+    <lastmod>2020-12-05T17:39:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://blog.happyhacker.fun/post/java/set-log-level-of-spymemcached/</loc>
-    <lastmod>2020-11-21T14:54:13+08:00</lastmod>
+    <lastmod>2020-12-05T17:39:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -255,20 +276,6 @@
   
   <url>
     <loc>http://blog.happyhacker.fun/tags/car/</loc>
-    <lastmod>2020-12-02T22:32:39+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://blog.happyhacker.fun/categories/life/</loc>
-    <lastmod>2020-12-02T22:32:39+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://blog.happyhacker.fun/tags/tiggo8/</loc>
     <lastmod>2020-12-02T22:32:39+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
