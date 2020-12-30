@@ -6,7 +6,7 @@
     <description>Recent content on happyhakcer makes fun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 02 Dec 2020 22:28:03 +0800</lastBuildDate><atom:link href="http://blog.happyhacker.fun/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 30 Dec 2020 15:18:16 +0800</lastBuildDate><atom:link href="http://blog.happyhacker.fun/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>关于我</title>
       <link>http://blog.happyhacker.fun/about/</link>
@@ -14,6 +14,15 @@
       
       <guid>http://blog.happyhacker.fun/about/</guid>
       <description>坐标北京，一个普普通通的软件开发人员。 想了很多，好像也没什么好写的。做过很多项目，虽然实现了目标，但总不甚满意。 在这里留一些碎碎念吧。</description>
+    </item>
+    
+    <item>
+      <title>瑞虎8车机App升级</title>
+      <link>http://blog.happyhacker.fun/post/life/tiggo8-upgrade-apps/</link>
+      <pubDate>Wed, 30 Dec 2020 15:18:16 +0800</pubDate>
+      
+      <guid>http://blog.happyhacker.fun/post/life/tiggo8-upgrade-apps/</guid>
+      <description>&lt;p&gt;瑞虎8自豪版车机里的App可以升级。据说是官方正规的方法。&lt;/p&gt;</description>
     </item>
     
     <item>
