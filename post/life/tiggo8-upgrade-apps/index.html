@@ -49,7 +49,7 @@
 <meta itemprop="description" content="瑞虎8自豪版车机里的App可以升级。据说是官方正规的方法。">
 <meta itemprop="datePublished" content="2020-12-30T15:18:16+08:00" />
 <meta itemprop="dateModified" content="2020-12-30T16:13:34+08:00" />
-<meta itemprop="wordCount" content="506">
+<meta itemprop="wordCount" content="667">
 
 
 
@@ -130,7 +130,7 @@
         <div class="post-category">
             <a href="/categories/life/"> life </a>
             </div>
-          <span class="more-meta"> 约 506 字 </span>
+          <span class="more-meta"> 约 667 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         
       </div>
@@ -153,6 +153,7 @@
         <li><a href="#3-车机进入工程模式">3. 车机进入工程模式</a></li>
       </ul>
     </li>
+    <li><a href="#警告">警告</a></li>
     <li><a href="#总结">总结</a></li>
   </ul>
 </nav>
@@ -175,9 +176,21 @@
 <p>在U盘上新建<code>T1AUpdateNavi/App/</code>目录，将上述下载的安装包放在里面。</p>
 <h3 id="3-车机进入工程模式">3. 车机进入工程模式</h3>
 <p>车机上有一个隐藏按键，在<strong>设置/存储容量</strong>界面的右侧1/4处的下边缘附近，点击听到“滴”声即是点击成功了。在这个位置连续点击10下，进入工程模式。</p>
+<p><img src="/images/2021-01-01-17-02-23.png" alt=""></p>
 <p>随后输入密码 <strong>456258</strong>，其实就是一个十字形。</p>
-<p>在左侧找到应用管理，点进去之后右侧出来一堆按钮，其中找到“安装App”，就可以进入U盘中刚才创建的目录了。找到高德地图的安装包，点击勾选，之后点击右上角的“安装”即可进入安装。</p>
+<p>之后会进入这个界面，点击“升级”
+<img src="/images/2021-01-01-17-03-36.png" alt=""></p>
+<p>再点击“App升级”
+<img src="/images/2021-01-01-17-05-18.png" alt=""></p>
+<p>就可以进入U盘中刚才创建的目录了。</p>
+<p><img src="/images/2021-01-01-17-06-27.png" alt=""></p>
+<p>找到高德地图的安装包，点击勾选，之后点击右上角的“安装所选”即可开始安装。</p>
+<blockquote>
+<p>我这里还自动生成了一个以<code>.</code>开头的<code>apk</code>包，不知道是什么原因，忽略它即可，选择不以<code>.</code>开头的文件。</p>
+</blockquote>
 <p>安装完成后选中条目变成绿色，即完成安装。按照提示重启系统就完成了升级。</p>
+<h2 id="警告">警告</h2>
+<p>不建议安装其他“原装车机上不存在的应用”，简单来说就是你安装完也无法找到入口，也就没办法使用。亲测。如果你已经安装了无法使用的其他应用，可以使用Android手机安装一个<code>Remote ADB Shell</code>软件来卸载，当然理论上不管它也不会有什么问题。</p>
 <h2 id="总结">总结</h2>
 <p>升级后的App色彩更鲜艳，功能上实现了和手机的实时互联，手机上“进入导航”后，车机如果在联网状态会自动同步手机上的导航状态，非常方便。推荐升级。</p>
     </div>
@@ -249,7 +262,8 @@
 
   <span class="copyright-year">
     &copy; 
-    2020
+    2020 - 
+    2021
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>
