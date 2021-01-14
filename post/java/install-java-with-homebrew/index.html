@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>happyhakcer makes fun</title>
+  <title>通过 homebrew 安装 JDK - happyhakcer makes fun</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="happyhacker" /><meta name="description" content="happyhacker makes fun" /><meta name="keywords" content="Java, PHP, Architect" />
+<meta name="author" content="happyhacker" /><meta name="description" content="Oracle JDK 现在收费了，macOS 上安装个 JDK 还挺麻烦。
+" /><meta name="keywords" content="Java, PHP, Architect" />
 
 
 
@@ -26,9 +27,7 @@
 <meta name="generator" content="Hugo 0.79.1 with theme even" />
 
 
-<link rel="canonical" href="http://blog.happyhacker.fun/" />
-  <link href="http://blog.happyhacker.fun/index.xml" rel="alternate" type="application/rss+xml" title="happyhakcer makes fun" />
-  <link href="http://blog.happyhacker.fun/index.xml" rel="feed" type="application/rss+xml" title="happyhakcer makes fun" />
+<link rel="canonical" href="http://blog.happyhacker.fun/post/java/install-java-with-homebrew/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -40,16 +39,24 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="happyhakcer makes fun" />
-<meta property="og:description" content="happyhacker makes fun" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://blog.happyhacker.fun/" />
-<meta property="og:updated_time" content="2021-01-14T16:28:04+08:00" />
-<meta itemprop="name" content="happyhakcer makes fun">
-<meta itemprop="description" content="happyhacker makes fun">
+<meta property="og:title" content="通过 homebrew 安装 JDK" />
+<meta property="og:description" content="Oracle JDK 现在收费了，macOS 上安装个 JDK 还挺麻烦。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://blog.happyhacker.fun/post/java/install-java-with-homebrew/" />
+<meta property="article:published_time" content="2021-01-14T16:28:04+08:00" />
+<meta property="article:modified_time" content="2021-01-14T16:28:04+08:00" />
+<meta itemprop="name" content="通过 homebrew 安装 JDK">
+<meta itemprop="description" content="Oracle JDK 现在收费了，macOS 上安装个 JDK 还挺麻烦。">
+<meta itemprop="datePublished" content="2021-01-14T16:28:04+08:00" />
+<meta itemprop="dateModified" content="2021-01-14T16:28:04+08:00" />
+<meta itemprop="wordCount" content="368">
+
+
+
+<meta itemprop="keywords" content="jdk,homebrew,java," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="happyhakcer makes fun"/>
-<meta name="twitter:description" content="happyhacker makes fun"/>
+<meta name="twitter:title" content="通过 homebrew 安装 JDK"/>
+<meta name="twitter:description" content="Oracle JDK 现在收费了，macOS 上安装个 JDK 还挺麻烦。"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -113,87 +120,101 @@
     <main id="main" class="main">
       <div class="content-wrapper">
         <div id="content" class="content">
-          <section id="posts" class="posts">
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/accelerating-maven-downloading-with-aliyun-mirror/">使用阿里云加速依赖管理</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-03-29 00:21 </span>
-      <div class="post-category">
-          <a href="/categories/in-action/"> in-action </a>
-          </div>
-        <span class="more-meta"> 约 523 字 </span>
-        <span class="more-meta"> 预计阅读 2 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>开发Java应用的过程中通常需要依赖大量的第三方包，而由于众所周知的原因，我们访问这些资源的速度非常慢，感谢阿里云给我们提供了一个选项可以快速访问这些资源。</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/accelerating-maven-downloading-with-aliyun-mirror/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/config-hugo-image-path/">配置Hugo的图片路径</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-03-28 23:44 </span>
-      <div class="post-category">
-          <a href="/categories/records/"> records </a>
-          </div>
-        <span class="more-meta"> 约 621 字 </span>
-        <span class="more-meta"> 预计阅读 2 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>不得不说Hugo的图片路径支持有些不友好，网上也有很多吐槽。简单说就是即便神级的Markdown编辑器Typora都无法适应Hugo的图片路径。由于Typora需要做日常的工作记录，所以就配置了一下VSCode来支持Hugo。</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/config-hugo-image-path/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/spring-tomcat-tutorial/">Springboot使用内置和独立tomcat以及其他思考</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-03-28 12:56 </span>
-      <div class="post-category">
-          <a href="/categories/tech/"> tech </a>
-          </div>
-        <span class="more-meta"> 约 1655 字 </span>
-        <span class="more-meta"> 预计阅读 4 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>本文探讨了Springboot应用使用jar包和war包的区别，以及使用中的一些思考。我刚开始研究Java，一些想法可能不准确，欢迎提出宝贵意见。</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/spring-tomcat-tutorial/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    </section>
-  
-  <nav class="pagination">
-    <a class="prev" href="/page/9/">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text">上一页</span>
-      </a>
+          <article class="post">
     
-  </nav>
+    <header class="post-header">
+      <h1 class="post-title">通过 homebrew 安装 JDK</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-01-14 16:28 </span>
+        <div class="post-category">
+            <a href="/categories/java/"> java </a>
+            </div>
+          <span class="more-meta"> 约 368 字 </span>
+          <span class="more-meta"> 预计阅读 1 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#tldr">TL；DR</a></li>
+    <li><a href="#adoptopenjdk">AdoptOpenJDK</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>Oracle JDK 现在收费了，macOS 上安装个 JDK 还挺麻烦。</p>
+<h2 id="tldr">TL；DR</h2>
+<p>简单来讲，可以直接运行<code>brew search openjdk</code></p>
+<p><img src="/images/2021-01-14-17-13-40.png" alt="Oracle OpenJDK"></p>
+<p>这样搜索出来的是 Oracle 发布的 OpenJDK。其中<code>openjdk</code>就是最新版本的，带<code>@</code>的就是指定版本的，其中 8 和 11 是 LTS 版本，所以可以拥有姓名，至于其他的短期版本，这里就干脆也没有了。</p>
+<h2 id="adoptopenjdk">AdoptOpenJDK</h2>
+<p>这个名字有点长，其实是 Eclipse 基金会在维护的发行版，它和 Oracle OpenJDK 的关系有点类似于 MIUI 和 Andriod AOSP 的关系，功能上应该是一样的，不过添加了一些特色的功能，如图所示</p>
+<p><img src="/images/2021-01-14-17-17-47.png" alt="AdoptOpenJDK"></p>
+<p>它提供了不同的垃圾收集器和所有的版本号，社区应该也比较流行吧（好吧，其实更多人还是会去下载 Oracle JDK，只是它的免费的 JDK1.8 永远的停留在了8u231）。</p>
+<p>参考这个<a href="https://github.com/AdoptOpenJDK/homebrew-openjdk">https://github.com/AdoptOpenJDK/homebrew-openjdk</a></p>
+<p>强烈推荐使用这个脚本</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">jdk<span class="o">()</span> <span class="o">{</span>
+        <span class="nv">version</span><span class="o">=</span><span class="nv">$1</span>
+        <span class="nb">export</span> <span class="nv">JAVA_HOME</span><span class="o">=</span><span class="k">$(</span>/usr/libexec/java_home -v<span class="s2">&#34;</span><span class="nv">$version</span><span class="s2">&#34;</span><span class="k">)</span><span class="p">;</span>
+        java -version
+ <span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>可以让你在不同版本的 JDK 中自由切换。</p>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">happyhacker</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2021-01-14 16:28
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/jdk/">jdk</a>
+          <a href="/tags/homebrew/">homebrew</a>
+          <a href="/tags/java/">java</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/life/fix-gzjzz-website-with-extension/">
+            <span class="next-text nav-default">通过Chrome扩展修复北京工作居住证网站</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
         </div>
         
+
+  
+
+  
 
       </div>
     </main>
