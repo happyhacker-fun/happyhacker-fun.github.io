@@ -1,315 +1,521 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
+<!doctype html>
+<html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>happyhakcer makes fun</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+	<meta name="generator" content="Hugo 0.80.0" />
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-<meta name="author" content="happyhacker" /><meta name="description" content="happyhacker makes fun" /><meta name="keywords" content="Java, PHP, Architect" />
-
-
-
-
-
-
-<meta name="generator" content="Hugo 0.79.1 with theme even" />
-
-
-<link rel="canonical" href="http://blog.happyhacker.fun/" />
-  <link href="http://blog.happyhacker.fun/index.xml" rel="alternate" type="application/rss+xml" title="happyhakcer makes fun" />
-  <link href="http://blog.happyhacker.fun/index.xml" rel="feed" type="application/rss+xml" title="happyhakcer makes fun" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
-
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
-
-
-<meta property="og:title" content="happyhakcer makes fun" />
-<meta property="og:description" content="happyhacker makes fun" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://blog.happyhacker.fun/" />
-<meta property="og:updated_time" content="2021-01-14T16:28:04+08:00" />
-<meta itemprop="name" content="happyhakcer makes fun">
-<meta itemprop="description" content="happyhacker makes fun">
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="happyhakcer makes fun"/>
-<meta name="twitter:description" content="happyhacker makes fun"/>
-
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
-
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
-
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">Happyhacker</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/">
-        <li class="mobile-menu-item">首页</li>
-      </a><a href="/post/">
-        <li class="mobile-menu-item">归档</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">标签</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">分类</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">关于我</li>
-      </a>
-  </ul>
-</nav>
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/" class="logo">Happyhacker</a>
-</div>
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/">首页</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">归档</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">标签</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">分类</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">关于我</a>
-      </li>
-  </ul>
-</nav>
-    </header>
-
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <section id="posts" class="posts">
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/java/install-java-with-homebrew/">通过 homebrew 安装 JDK</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2021-01-14 16:28 </span>
-      <div class="post-category">
-          <a href="/categories/java/"> java </a>
-          </div>
-        <span class="more-meta"> 约 368 字 </span>
-        <span class="more-meta"> 预计阅读 1 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>Oracle JDK 现在收费了，macOS 上安装个 JDK 还挺麻烦。</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/java/install-java-with-homebrew/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/life/fix-gzjzz-website-with-extension/">通过Chrome扩展修复北京工作居住证网站</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2021-01-02 12:37 </span>
-      <div class="post-category">
-          <a href="/categories/life/"> life </a>
-          </div>
-        <span class="more-meta"> 约 1296 字 </span>
-        <span class="more-meta"> 预计阅读 3 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>工作居住证这个网站不知道是什么时候开发的了，现在用新款的浏览器打开会有各种样式错乱、功能报错，不过这都难不倒我们伟大的人民！</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/life/fix-gzjzz-website-with-extension/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/life/renting-invoice-applying-in-beijing/">在北京（昌平）开具租房发票流程</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-12-30 22:01 </span>
-      <div class="post-category">
-          <a href="/categories/%E5%B9%BC%E5%8D%87%E5%B0%8F/"> 幼升小 </a>
-          </div>
-        <span class="more-meta"> 约 743 字 </span>
-        <span class="more-meta"> 预计阅读 2 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>好久没有去政府机关办事了，今天记录一下开租房发票的过程。</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/life/renting-invoice-applying-in-beijing/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/life/tiggo8-upgrade-apps/">瑞虎8车机App升级</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-12-30 15:18 </span>
-      <div class="post-category">
-          <a href="/categories/life/"> life </a>
-          </div>
-        <span class="more-meta"> 约 667 字 </span>
-        <span class="more-meta"> 预计阅读 2 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>瑞虎8自豪版车机里的App可以升级。据说是官方正规的方法。</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/life/tiggo8-upgrade-apps/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/life/tiggo8-second-1000-km/">瑞虎8 2000公里感受</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-12-02 22:28 </span>
-      <div class="post-category">
-          <a href="/categories/life/"> life </a>
-          </div>
-        <span class="more-meta"> 约 2894 字 </span>
-        <span class="more-meta"> 预计阅读 6 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>其实已经2500公里了。</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/life/tiggo8-second-1000-km/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    </section>
-  
-  <nav class="pagination">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <a class="next" href="/page/2/">
-        <span class="next-text">下一页</span>
-        <i class="iconfont icon-right"></i>
-      </a>
-  </nav>
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+
+    <title>happyhakcer makes fun | </title>
+    <meta property="og:title" content="happyhakcer makes fun | ">
+    <meta property="og:type" content="website">
+    <meta name="Keywords" content="">
+    <meta name="description" content="happyhacker makes fun">
+    <meta property="og:url" content="http://blog.happyhacker.fun/">
+    <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    
+    
+        <link href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
+    
+    
+    
+    
+        <link rel="stylesheet" href='/css/style.css'>
+    
+</head>
+
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <h1>
+                        <a id="logo" href="http://blog.happyhacker.fun/">
+                            happyhakcer makes fun
+                        </a>
+                    </h1>
+                
+                
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="http://blog.happyhacker.fun/">首页</a>
+                    
+                    <a  href="http://blog.happyhacker.fun/tags/" title="标签">标签</a>
+                    
+                    <a  href="http://blog.happyhacker.fun/categories/" title="分类">分类</a>
+                    
+                    <a  href="http://blog.happyhacker.fun/about/" title="关于我">关于我</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="http://blog.happyhacker.fun/post/java/install-java-with-homebrew/" title="通过 homebrew 安装 JDK">通过 homebrew 安装 JDK</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2021年1月14日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='/categories/java'>java</a></span>
+            
         </div>
         
+        <div class="post-content">
+            <p>Oracle JDK 现在收费了，macOS 上安装个 JDK 还挺麻烦。</p>……
+        </div>
+        <p class="readmore"><a href="http://blog.happyhacker.fun/post/java/install-java-with-homebrew/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="http://blog.happyhacker.fun/post/life/fix-gzjzz-website-with-extension/" title="通过Chrome扩展修复北京工作居住证网站">通过Chrome扩展修复北京工作居住证网站</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2021年1月2日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='/categories/life'>life</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            <p>工作居住证这个网站不知道是什么时候开发的了，现在用新款的浏览器打开会有各种样式错乱、功能报错，不过这都难不倒我们伟大的人民！</p>……
+        </div>
+        <p class="readmore"><a href="http://blog.happyhacker.fun/post/life/fix-gzjzz-website-with-extension/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="http://blog.happyhacker.fun/post/life/renting-invoice-applying-in-beijing/" title="在北京（昌平）开具租房发票流程">在北京（昌平）开具租房发票流程</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年12月30日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='/categories/%E5%B9%BC%E5%8D%87%E5%B0%8F'>幼升小</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            <p>好久没有去政府机关办事了，今天记录一下开租房发票的过程。</p>……
+        </div>
+        <p class="readmore"><a href="http://blog.happyhacker.fun/post/life/renting-invoice-applying-in-beijing/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="http://blog.happyhacker.fun/post/life/tiggo8-upgrade-apps/" title="瑞虎8车机App升级">瑞虎8车机App升级</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年12月30日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='/categories/life'>life</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            <p>瑞虎8自豪版车机里的App可以升级。据说是官方正规的方法。</p>……
+        </div>
+        <p class="readmore"><a href="http://blog.happyhacker.fun/post/life/tiggo8-upgrade-apps/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="http://blog.happyhacker.fun/post/life/tiggo8-second-1000-km/" title="瑞虎8 2000公里感受">瑞虎8 2000公里感受</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年12月2日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='/categories/life'>life</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            <p>其实已经2500公里了。</p>……
+        </div>
+        <p class="readmore"><a href="http://blog.happyhacker.fun/post/life/tiggo8-second-1000-km/">阅读全文</a></p>
+    </article>
+    
+    
 
-      </div>
-    </main>
 
-    <footer id="footer" class="footer">
-      <div class="social-links">
-      <a href="mailto:frostwong@gmail.com" class="iconfont icon-email" title="email"></a>
-      <a href="https://stackoverflow.com/users/2969224/unixagain" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
-      <a href="https://github.com/lovelock" class="iconfont icon-github" title="github"></a>
-      <a href="https://weibo.com/u/2122681617/" class="iconfont icon-weibo" title="weibo"></a>
-      <a href="https://space.bilibili.com/32881881" class="iconfont icon-bilibili" title="bilibili"></a>
-  <a href="http://blog.happyhacker.fun/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+
+<ol class="page-navigator">
+    
+
+    
+    <li  class="current">
+        <a href="http://blog.happyhacker.fun/">1</a>
+    </li>
+    
+    <li >
+        <a href="http://blog.happyhacker.fun/page/2/">2</a>
+    </li>
+    
+    <li >
+        <a href="http://blog.happyhacker.fun/page/3/">3</a>
+    </li>
+    
+    <li >
+        <a href="http://blog.happyhacker.fun/page/4/">4</a>
+    </li>
+    
+    <li >
+        <a href="http://blog.happyhacker.fun/page/5/">5</a>
+    </li>
+    
+    <li >
+        <a href="http://blog.happyhacker.fun/page/6/">6</a>
+    </li>
+    
+    <li >
+        <a href="http://blog.happyhacker.fun/page/7/">7</a>
+    </li>
+    
+    <li >
+        <a href="http://blog.happyhacker.fun/page/8/">8</a>
+    </li>
+    
+    <li >
+        <a href="http://blog.happyhacker.fun/page/9/">9</a>
+    </li>
+    
+    <li >
+        <a href="http://blog.happyhacker.fun/page/10/">10</a>
+    </li>
+    
+
+    
+    <li class="next">
+        <a href="http://blog.happyhacker.fun/page/2/">下一页</a>
+    </li>
+    
+</ol>
+
+
+
 </div>
 
-<div class="copyright">
-  <span class="power-by">
-    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    主题 - 
-    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-  </span>
-
-  
-
-  <span class="copyright-year">
-    &copy; 
-    2020 - 
-    2021
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">happyhacker</span>
-  </span>
-</div>
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
+                    <footer id="footer">
+    <div>
+        &copy; 2021 <a href="http://blog.happyhacker.fun/">happyhakcer makes fun By happyhacker</a>
+        
     </div>
-  </div>
-  
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
-  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
-    var languageCode = "zh-CN".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
-    timeago().render(document.querySelectorAll('.timeago'), languageCode);
-    timeago.cancel();  
-  </script><script></script><script src="https://cdn.jsdelivr.net/npm/raphael@2.2.7/raphael.min.js" integrity="sha256-67By+NpOtm9ka1R6xpUefeGOY8kWWHHRAKlvaTJ7ONI=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/flowchart.js@1.8.0/release/flowchart.min.js" integrity="sha256-zNGWjubXoY6rb5MnmpBNefO0RgoVYfle9p0tvOQM+6k=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/snapsvg@0.5.1/dist/snap.svg-min.js" integrity="sha256-oI+elz+sIm+jpn8F/qEspKoKveTc5uKeFHNNVexe6d8=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/underscore@1.8.3/underscore-min.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.js" integrity="sha384-8748Vn52gHJYJI0XEuPB2QlPVNUkJlJn9tHqKec6J3q2r9l8fvRxrgn/E5ZHV0sP" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.css" integrity="sha384-6QbLKJMz5dS3adWSeINZe74uSydBGFbnzaAYmp+tKyq60S7H2p6V7g1TysM5lAaF" crossorigin="anonymous">
-<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
-  <script type="text/javascript">
-    window.MathJax = {
-      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
-      showProcessingMessages: false,
-      messageStyle: 'none'
-    };
-  </script>
-  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+    <br />
+    <div>
+        <div class="github-badge">
+            <a href="https://gohugo.io/" target="_black" rel="nofollow"><span class="badge-subject">Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://www.flysnow.org/" target="_black"><span class="badge-subject">Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://github.com/flysnow-org/maupassant-hugo" target="_black"><span class="badge-subject">Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
+        </div>
+    </div>
+</footer>
+
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
 
 
 
 
+                </div>
 
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='http://blog.happyhacker.fun/search/' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="http://blog.happyhacker.fun/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://blog.happyhacker.fun/post/java/install-java-with-homebrew/" title="通过 homebrew 安装 JDK">通过 homebrew 安装 JDK</a>
+    </li>
+    
+    <li>
+        <a href="http://blog.happyhacker.fun/post/life/fix-gzjzz-website-with-extension/" title="通过Chrome扩展修复北京工作居住证网站">通过Chrome扩展修复北京工作居住证网站</a>
+    </li>
+    
+    <li>
+        <a href="http://blog.happyhacker.fun/post/life/renting-invoice-applying-in-beijing/" title="在北京（昌平）开具租房发票流程">在北京（昌平）开具租房发票流程</a>
+    </li>
+    
+    <li>
+        <a href="http://blog.happyhacker.fun/post/life/tiggo8-upgrade-apps/" title="瑞虎8车机App升级">瑞虎8车机App升级</a>
+    </li>
+    
+    <li>
+        <a href="http://blog.happyhacker.fun/post/life/tiggo8-second-1000-km/" title="瑞虎8 2000公里感受">瑞虎8 2000公里感受</a>
+    </li>
+    
+    <li>
+        <a href="http://blog.happyhacker.fun/post/linux/python-in-a-nutshell/" title="Python的一些实用技巧">Python的一些实用技巧</a>
+    </li>
+    
+    <li>
+        <a href="http://blog.happyhacker.fun/post/linux/shell-in-a-nutshell/" title="Shell的一些实用技巧">Shell的一些实用技巧</a>
+    </li>
+    
+    <li>
+        <a href="http://blog.happyhacker.fun/post/mac-faster-key-repeat/" title="macOS设置Key Repeat和Delay Until Repeat">macOS设置Key Repeat和Delay Until Repeat</a>
+    </li>
+    
+    <li>
+        <a href="http://blog.happyhacker.fun/post/java/history-of-log-for-java/" title="Java日志演化梳理">Java日志演化梳理</a>
+    </li>
+    
+    <li>
+        <a href="http://blog.happyhacker.fun/post/java/set-log-level-of-spymemcached/" title="配置Spymemcached的日志级别">配置Spymemcached的日志级别</a>
+    </li>
+    
+</ul>
+    </section>
 
+    
 
+    <section class="widget">
+        <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
+<ul class="widget-list">
+    
+    <li><a href="http://blog.happyhacker.fun/categories/bigdata/">bigdata (2)</a></li>
+    
+    <li><a href="http://blog.happyhacker.fun/categories/devops/">devops (2)</a></li>
+    
+    <li><a href="http://blog.happyhacker.fun/categories/in-action/">in-action (24)</a></li>
+    
+    <li><a href="http://blog.happyhacker.fun/categories/jabber/">jabber (1)</a></li>
+    
+    <li><a href="http://blog.happyhacker.fun/categories/java/">java (2)</a></li>
+    
+    <li><a href="http://blog.happyhacker.fun/categories/life/">life (5)</a></li>
+    
+    <li><a href="http://blog.happyhacker.fun/categories/linux/">linux (2)</a></li>
+    
+    <li><a href="http://blog.happyhacker.fun/categories/macos/">macOS (3)</a></li>
+    
+    <li><a href="http://blog.happyhacker.fun/categories/records/">records (1)</a></li>
+    
+    <li><a href="http://blog.happyhacker.fun/categories/research/">research (1)</a></li>
+    
+    <li><a href="http://blog.happyhacker.fun/categories/ryzentosh/">ryzentosh (1)</a></li>
+    
+    <li><a href="http://blog.happyhacker.fun/categories/springboot/">springboot (1)</a></li>
+    
+    <li><a href="http://blog.happyhacker.fun/categories/tech/">tech (1)</a></li>
+    
+    <li><a href="http://blog.happyhacker.fun/categories/theory/">theory (2)</a></li>
+    
+    <li><a href="http://blog.happyhacker.fun/categories/%E5%B9%BC%E5%8D%87%E5%B0%8F/">幼升小 (1)</a></li>
+    
+    <li><a href="http://blog.happyhacker.fun/categories/%E7%94%9F%E6%B4%BB%E8%B6%A3%E4%BA%8B/">生活趣事 (1)</a></li>
+    
+</ul>
+    </section>
 
+    <section class="widget">
+        <h3 class="widget-title"><a href='/tags/'>标签</a></h3>
+<div class="tagcloud">
+    
+    <a href="http://blog.happyhacker.fun/tags/amd/">amd</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/archetype/">archetype</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/bash/">bash</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/basics/">basics</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/car/">car</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/centos/">centos</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/centos8/">centos8</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/chrome/">chrome</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/crontab/">crontab</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/devops/">devops</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/docker/">docker</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/firefox/">firefox</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/flink/">flink</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/freedom/">freedom</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/ftp/">ftp</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/gitlab/">gitlab</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/gradle/">gradle</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/hackintosh/">hackintosh</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/hadoop/">hadoop</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/homebrew/">homebrew</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/hugo/">hugo</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/in-action/">in-action</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/jar/">jar</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/java/">java</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/jdk/">jdk</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/jenkins/">jenkins</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/junit/">junit</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/jvm/">jvm</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/key-repeat/">key-repeat</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/lftp/">lftp</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/linux/">linux</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/log/">log</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/log4j/">log4j</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/log4j2/">log4j2</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/logback/">logback</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/macos/">macOS</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/mailx/">mailx</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/markdown/">markdown</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/maven/">maven</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/memory-leak/">memory-leak</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/mvn/">mvn</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/python/">python</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/ryzentosh/">ryzentosh</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/sed/">sed</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/slf4j/">slf4j</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/springboot/">springboot</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/spymemcached/">spymemcached</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/ssh/">ssh</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/tiggo8/">tiggo8</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/timezone/">timezone</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/tips/">tips</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/tomcat/">tomcat</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/visualvm/">visualvm</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/vscode/">vscode</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/yarn/">yarn</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/%E5%B7%A5%E4%BD%9C%E5%B1%85%E4%BD%8F%E8%AF%81/">工作居住证</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/%E6%94%BF%E5%8A%A1/">政务</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/%E6%BB%A1%E6%BB%A1/">满满</a>
+    
+    <a href="http://blog.happyhacker.fun/tags/%E8%BF%90%E7%BB%B4/">运维</a>
+    
+</div>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="http://blog.happyhacker.fun/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>
