@@ -9,8 +9,8 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
     
 
-    <title>通过Chrome扩展修复北京工作居住证网站 | happyhakcer makes fun</title>
-    <meta property="og:title" content="通过Chrome扩展修复北京工作居住证网站 - happyhakcer makes fun">
+    <title>通过Chrome扩展修复北京工作居住证网站 | happyhacker的公开日志</title>
+    <meta property="og:title" content="通过Chrome扩展修复北京工作居住证网站 - happyhacker的公开日志">
     <meta property="og:type" content="article">
         
     <meta property="article:published_time" content='2021-01-02T12:37:30&#43;08:00'>
@@ -47,7 +47,7 @@
             <div class="site-name ">
                 
                     <a id="logo" href="http://blog.happyhacker.fun/">
-                        happyhakcer makes fun
+                        happyhacker的公开日志
                     </a>
                 
                 
@@ -249,95 +249,48 @@
 <p>解决方案：</p>
 <h3 id="方案一">方案一</h3>
 <p>最简单的办法就是把这行错误代码后面的函数定义直接复制到console里面执行一下就好了。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">changeSub</span><span class="p">(</span><span class="nx">flag</span><span class="p">)</span> <span class="p">{</span>
-	<span class="k">if</span> <span class="p">(</span><span class="nx">flag</span> <span class="o">==</span> <span class="s2">&#34;education&#34;</span><span class="p">)</span> <span class="p">{</span>
-		<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;education&#34;</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span><span class="p">;</span>
-		<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;unit&#34;</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s2">&#34;none&#34;</span><span class="p">;</span>
-		<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;achievement&#34;</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s2">&#34;none&#34;</span><span class="p">;</span>
-		<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;follows&#34;</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s2">&#34;none&#34;</span><span class="p">;</span>
-	<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">flag</span> <span class="o">==</span> <span class="s2">&#34;unit&#34;</span><span class="p">)</span> <span class="p">{</span>
-		<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;education&#34;</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s2">&#34;none&#34;</span><span class="p">;</span>
-		<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;unit&#34;</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span><span class="p">;</span>
-		<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;achievement&#34;</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s2">&#34;none&#34;</span><span class="p">;</span>
-		<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;follows&#34;</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s2">&#34;none&#34;</span><span class="p">;</span>
-	<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">flag</span> <span class="o">==</span> <span class="s2">&#34;achievement&#34;</span><span class="p">)</span> <span class="p">{</span>
-		<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;education&#34;</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s2">&#34;none&#34;</span><span class="p">;</span>
-		<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;unit&#34;</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s2">&#34;none&#34;</span><span class="p">;</span>
-		<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;achievement&#34;</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span><span class="p">;</span>
-		<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;follows&#34;</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s2">&#34;none&#34;</span><span class="p">;</span>
-	<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">flag</span> <span class="o">==</span> <span class="s2">&#34;follows&#34;</span><span class="p">)</span> <span class="p">{</span>
-		<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;education&#34;</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s2">&#34;none&#34;</span><span class="p">;</span>
-		<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;unit&#34;</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s2">&#34;none&#34;</span><span class="p">;</span>
-		<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;achievement&#34;</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s2">&#34;none&#34;</span><span class="p">;</span>
-		<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;follows&#34;</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span><span class="p">;</span>
-	<span class="p">}</span>
-<span class="p">}</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">changeSub</span>(<span style="color:#a6e22e">flag</span>) {
+	<span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">flag</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;education&#34;</span>) {
+		document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;education&#34;</span>).<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">display</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>;
+		document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;unit&#34;</span>).<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">display</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;none&#34;</span>;
+		document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;achievement&#34;</span>).<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">display</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;none&#34;</span>;
+		document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;follows&#34;</span>).<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">display</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;none&#34;</span>;
+	} <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">flag</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;unit&#34;</span>) {
+		document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;education&#34;</span>).<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">display</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;none&#34;</span>;
+		document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;unit&#34;</span>).<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">display</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>;
+		document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;achievement&#34;</span>).<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">display</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;none&#34;</span>;
+		document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;follows&#34;</span>).<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">display</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;none&#34;</span>;
+	} <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">flag</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;achievement&#34;</span>) {
+		document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;education&#34;</span>).<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">display</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;none&#34;</span>;
+		document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;unit&#34;</span>).<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">display</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;none&#34;</span>;
+		document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;achievement&#34;</span>).<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">display</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>;
+		document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;follows&#34;</span>).<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">display</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;none&#34;</span>;
+	} <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">flag</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;follows&#34;</span>) {
+		document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;education&#34;</span>).<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">display</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;none&#34;</span>;
+		document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;unit&#34;</span>).<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">display</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;none&#34;</span>;
+		document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;achievement&#34;</span>).<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">display</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;none&#34;</span>;
+		document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;follows&#34;</span>).<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">display</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>;
+	}
+}
 
-<span class="kd">function</span> <span class="nx">toMod</span><span class="p">()</span> <span class="p">{</span>
-	<span class="nb">window</span><span class="p">.</span><span class="nx">location</span> <span class="o">=</span> <span class="s2">&#34;/yjrc/person/ApplyCardAction.do?formAction=cApply&#34;</span><span class="p">;</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">toMod</span>() {
+	window.<span style="color:#a6e22e">location</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/yjrc/person/ApplyCardAction.do?formAction=cApply&#34;</span>;
+}
 
-<span class="kd">function</span> <span class="nx">back</span><span class="p">()</span> <span class="p">{</span>
-	<span class="nb">window</span><span class="p">.</span><span class="nx">location</span> <span class="o">=</span> <span class="s2">&#34;/yjrc/person/ApplyListAction.do?formAction=in&amp;opType=cApply&#34;</span><span class="p">;</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">back</span>() {
+	window.<span style="color:#a6e22e">location</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/yjrc/person/ApplyListAction.do?formAction=in&amp;opType=cApply&#34;</span>;
+}
 
-<span class="kd">function</span> <span class="nx">queryEdu</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
-	<span class="kd">var</span> <span class="nx">goUrl</span> <span class="o">=</span> <span class="s2">&#34;/yjrc/person/QueryEduResumAction.do?formAction=in&amp;applyId=&#34;</span> <span class="o">+</span> <span class="nx">id</span><span class="p">;</span>
-	<span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="nx">goUrl</span><span class="p">,</span> <span class="s1">&#39;querywindow&#39;</span><span class="p">,</span> <span class="s1">&#39;width=1030,height=420,top=10,left=10,status=yes,menubar=no,resizable=yes,scrollbars=yes&#39;</span><span class="p">);</span>
-<span class="p">}</span>
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">queryEdu</span>(<span style="color:#a6e22e">id</span>) {
+	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">goUrl</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/yjrc/person/QueryEduResumAction.do?formAction=in&amp;applyId=&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">id</span>;
+	window.<span style="color:#a6e22e">open</span>(<span style="color:#a6e22e">goUrl</span>, <span style="color:#e6db74">&#39;querywindow&#39;</span>, <span style="color:#e6db74">&#39;width=1030,height=420,top=10,left=10,status=yes,menubar=no,resizable=yes,scrollbars=yes&#39;</span>);
+}
 
-<span class="kd">function</span> <span class="nx">queryWork</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
-	<span class="kd">var</span> <span class="nx">goUrl</span> <span class="o">=</span> <span class="s2">&#34;/yjrc/person/QueryWorkResumAction.do?formAction=in&amp;applyId=&#34;</span> <span class="o">+</span> <span class="nx">id</span><span class="p">;</span>
-	<span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="nx">goUrl</span><span class="p">,</span> <span class="s1">&#39;querywindow&#39;</span><span class="p">,</span> <span class="s1">&#39;width=1030,height=420,top=10,left=10,status=yes,menubar=no,resizable=yes,scrollbars=yes&#39;</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>但为了刷新页面之后还能用，还是得把代码“注入”到页面上，这也是方案二要做的。</p>
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">queryWork</span>(<span style="color:#a6e22e">id</span>) {
+	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">goUrl</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/yjrc/person/QueryWorkResumAction.do?formAction=in&amp;applyId=&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">id</span>;
+	window.<span style="color:#a6e22e">open</span>(<span style="color:#a6e22e">goUrl</span>, <span style="color:#e6db74">&#39;querywindow&#39;</span>, <span style="color:#e6db74">&#39;width=1030,height=420,top=10,left=10,status=yes,menubar=no,resizable=yes,scrollbars=yes&#39;</span>);
+}
+</code></pre></div><p>但为了刷新页面之后还能用，还是得把代码“注入”到页面上，这也是方案二要做的。</p>
 <h3 id="方案二">方案二</h3>
 <p>之前简单了解了Chrome浏览器的扩展开发原理，其实现在面临的这个问题用扩展就很好解决了，在页面加载完成后往页面上写一个<code>&lt;script&gt;</code>标签，把那些因为语法错误而中断执行的代码粘贴进去。</p>
 <p>只是我上次写的是个非常简单的扩展，只用到了<code>content_scripts</code>，这个限制就是<strong>js可以访问页面DOM元素，但DOM元素无法访问js中定义的函数，也无法在js中定义listener</strong>。而前面那些没有执行的代码恰好就是事件的回调函数。所以，整个扩展的目录结构就是这样的：</p>
@@ -423,7 +376,7 @@
 
                     <footer id="footer">
     <div>
-        &copy; 2021 <a href="http://blog.happyhacker.fun/">happyhakcer makes fun By happyhacker</a>
+        &copy; 2021 <a href="http://blog.happyhacker.fun/">happyhacker的公开日志 By happyhacker</a>
         
     </div>
     <br />

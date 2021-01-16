@@ -9,8 +9,8 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
     
 
-    <title>macOS设置Key Repeat和Delay Until Repeat | happyhakcer makes fun</title>
-    <meta property="og:title" content="macOS设置Key Repeat和Delay Until Repeat - happyhakcer makes fun">
+    <title>macOS设置Key Repeat和Delay Until Repeat | happyhacker的公开日志</title>
+    <meta property="og:title" content="macOS设置Key Repeat和Delay Until Repeat - happyhacker的公开日志">
     <meta property="og:type" content="article">
         
     <meta property="article:published_time" content='2020-11-21T22:48:25&#43;08:00'>
@@ -47,7 +47,7 @@
             <div class="site-name ">
                 
                     <a id="logo" href="http://blog.happyhacker.fun/">
-                        happyhakcer makes fun
+                        happyhacker的公开日志
                     </a>
                 
                 
@@ -200,17 +200,9 @@
         </a>
     </p>
 <p>这两个把<code>Key Repeat</code>设置到最快，把<code>Delay Until Repeat</code>设置到最短，但实际上这么设置之后还是不够，再小就不能通过配置页面设置了，只能通过命令行设置了。我觉得合适的配置是这样的</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">defaults write -g InitialKeyRepeat -int 10
+<pre><code>defaults write -g InitialKeyRepeat -int 10
 defaults write -g KeyRepeat -int 1
-</code></pre></td></tr></table>
-</div>
-</div><p>这样之后再操作就明显流畅多了。</p>
+</code></pre><p>这样之后再操作就明显流畅多了。</p>
         </div>
 
         
@@ -257,7 +249,7 @@ defaults write -g KeyRepeat -int 1
 
                     <footer id="footer">
     <div>
-        &copy; 2021 <a href="http://blog.happyhacker.fun/">happyhakcer makes fun By happyhacker</a>
+        &copy; 2021 <a href="http://blog.happyhacker.fun/">happyhacker的公开日志 By happyhacker</a>
         
     </div>
     <br />

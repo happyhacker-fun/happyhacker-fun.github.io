@@ -9,8 +9,8 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
     
 
-    <title>macOS 网络代理设置脚本 | happyhakcer makes fun</title>
-    <meta property="og:title" content="macOS 网络代理设置脚本 - happyhakcer makes fun">
+    <title>macOS 网络代理设置脚本 | happyhacker的公开日志</title>
+    <meta property="og:title" content="macOS 网络代理设置脚本 - happyhacker的公开日志">
     <meta property="og:type" content="article">
         
     <meta property="article:published_time" content='2020-11-17T22:34:31&#43;08:00'>
@@ -47,7 +47,7 @@
             <div class="site-name ">
                 
                     <a id="logo" href="http://blog.happyhacker.fun/">
-                        happyhakcer makes fun
+                        happyhacker的公开日志
                     </a>
                 
                 
@@ -212,29 +212,9 @@
 而我想要的是可以设置好一个固定的代理地址，我需要开启的时候在一个很明显的入口点一下，就配置上了。不想用的时候关掉即可，不用清空配置。然而我搜遍了全网也没有找到。</p>
 <p>于是我就想macOS系统既然脱胎于BSD，那会不会有相应的命令行可以做这件事儿呢，果然被我找到了一系列命令<code>networksetup</code>。</p>
 <p>先看一下这个命令都有什么功能吧，</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">networksetup -help
-</code></pre></td></tr></table>
-</div>
-</div><p>输出太多了，这里就不贴了，可以自己尝试一下。我们关注的是代理（Proxy），所以在输出的信息里搜索proxy，就会找到以下内容</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">Usage: networksetup -setautoproxyurl &lt;networkservice&gt; &lt;url&gt;
+<pre><code>networksetup -help
+</code></pre><p>输出太多了，这里就不贴了，可以自己尝试一下。我们关注的是代理（Proxy），所以在输出的信息里搜索proxy，就会找到以下内容</p>
+<pre><code>Usage: networksetup -setautoproxyurl &lt;networkservice&gt; &lt;url&gt;
 	Set proxy auto-config to url for &lt;networkservice&gt; and enable it.
 
 Usage: networksetup -getautoproxyurl &lt;networkservice&gt;
@@ -243,75 +223,34 @@ Usage: networksetup -getautoproxyurl &lt;networkservice&gt;
 Usage: networksetup -setautoproxystate &lt;networkservice&gt; &lt;on off&gt;
 	Set proxy auto-config to either &lt;on&gt; or &lt;off&gt;.
 
-</code></pre></td></tr></table>
-</div>
-</div><p>很明显也就看出来各自的用途了，知道这个了就很容写出两个脚本了</p>
+</code></pre><p>很明显也就看出来各自的用途了，知道这个了就很容写出两个脚本了</p>
 <p><strong>由于我的是黑苹果，使用的是有线网络，所以这里的网络名是en0，你的电脑用的是什么网络需要你自己去发现了</strong></p>
 <h3 id="设置代理">设置代理</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/usr/bin/env bash
-</span><span class="cp"></span>
-<span class="nb">echo</span> <span class="s2">&#34;Enabling auto proxy....&#34;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/usr/bin/env bash
+</span><span style="color:#75715e"></span>
+echo <span style="color:#e6db74">&#34;Enabling auto proxy....&#34;</span>
 
-networksetup -setautoproxyurl <span class="s2">&#34;Ethernet Adaptor (en0)&#34;</span> <span class="s2">&#34;http://your.host/proxy.pac&#34;</span>
-networksetup -setautoproxystate <span class="s2">&#34;Ethernet Adaptor (en0)&#34;</span> on
-networksetup -getautoproxyurl <span class="s2">&#34;Ethernet Adaptor (en0)&#34;</span>
+networksetup -setautoproxyurl <span style="color:#e6db74">&#34;Ethernet Adaptor (en0)&#34;</span> <span style="color:#e6db74">&#34;http://your.host/proxy.pac&#34;</span>
+networksetup -setautoproxystate <span style="color:#e6db74">&#34;Ethernet Adaptor (en0)&#34;</span> on
+networksetup -getautoproxyurl <span style="color:#e6db74">&#34;Ethernet Adaptor (en0)&#34;</span>
 
-<span class="k">if</span> <span class="o">[</span> <span class="nv">$?</span> -eq <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-    <span class="nb">echo</span> <span class="s2">&#34;Proxy is set&#34;</span>
-<span class="k">fi</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="关掉代理">关掉代理</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/usr/bin/env bash
-</span><span class="cp"></span>
-<span class="nb">echo</span> <span class="s2">&#34;Disabling auto proxy...&#34;</span>
-networksetup -setautoproxystate <span class="s2">&#34;Ethernet Adaptor (en0)&#34;</span> off
-networksetup -getautoproxyurl <span class="s2">&#34;Ethernet Adaptor (en0)&#34;</span>
+<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $? -eq <span style="color:#ae81ff">0</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+    echo <span style="color:#e6db74">&#34;Proxy is set&#34;</span>
+<span style="color:#66d9ef">fi</span>
+</code></pre></div><h3 id="关掉代理">关掉代理</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/usr/bin/env bash
+</span><span style="color:#75715e"></span>
+echo <span style="color:#e6db74">&#34;Disabling auto proxy...&#34;</span>
+networksetup -setautoproxystate <span style="color:#e6db74">&#34;Ethernet Adaptor (en0)&#34;</span> off
+networksetup -getautoproxyurl <span style="color:#e6db74">&#34;Ethernet Adaptor (en0)&#34;</span>
 
-<span class="k">if</span> <span class="o">[</span> <span class="nv">$?</span> -eq <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-    <span class="nb">echo</span> <span class="s2">&#34;Proxy is disabled&#34;</span>
-<span class="k">fi</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="设置快捷方式">设置快捷方式</h3>
+<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $? -eq <span style="color:#ae81ff">0</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+    echo <span style="color:#e6db74">&#34;Proxy is disabled&#34;</span>
+<span style="color:#66d9ef">fi</span>
+</code></pre></div><h3 id="设置快捷方式">设置快捷方式</h3>
 <p>把这分别保存为<code>disable_proxy</code>和<code>enable_proxy</code>，放在<code>$HOME/.local/bin/</code>目录下，然后在你的<code>$HOME/.zshrc</code>或<code>$HOME/.bashrc</code>的最后一行追加</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$HOME</span>/.local/bin
-</code></pre></td></tr></table>
-</div>
-</div><p>再执行<code>source ~/.zshrc</code>或<code>source ~/.bashrc</code>，就可以生效了。之后就可以通过执行<code>enable_proxy</code>开启代理，通过<code>disable_proxy</code>来关闭代理了。再也不用找那么深的入口去一遍遍的配置代理了。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">export PATH<span style="color:#f92672">=</span>$PATH:$HOME/.local/bin
+</code></pre></div><p>再执行<code>source ~/.zshrc</code>或<code>source ~/.bashrc</code>，就可以生效了。之后就可以通过执行<code>enable_proxy</code>开启代理，通过<code>disable_proxy</code>来关闭代理了。再也不用找那么深的入口去一遍遍的配置代理了。</p>
         </div>
 
         
@@ -377,7 +316,7 @@ networksetup -getautoproxyurl <span class="s2">&#34;Ethernet Adaptor (en0)&#34;<
 
                     <footer id="footer">
     <div>
-        &copy; 2021 <a href="http://blog.happyhacker.fun/">happyhakcer makes fun By happyhacker</a>
+        &copy; 2021 <a href="http://blog.happyhacker.fun/">happyhacker的公开日志 By happyhacker</a>
         
     </div>
     <br />

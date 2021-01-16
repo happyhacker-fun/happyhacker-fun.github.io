@@ -9,8 +9,8 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
     
 
-    <title>macOS上管理SSH服务 | happyhakcer makes fun</title>
-    <meta property="og:title" content="macOS上管理SSH服务 - happyhakcer makes fun">
+    <title>macOS上管理SSH服务 | happyhacker的公开日志</title>
+    <meta property="og:title" content="macOS上管理SSH服务 - happyhacker的公开日志">
     <meta property="og:type" content="article">
         
     <meta property="article:published_time" content='2020-03-29T10:57:10&#43;08:00'>
@@ -47,7 +47,7 @@
             <div class="site-name ">
                 
                     <a id="logo" href="http://blog.happyhacker.fun/">
-                        happyhakcer makes fun
+                        happyhacker的公开日志
                     </a>
                 
                 
@@ -210,17 +210,9 @@
 <h3 id="3-查看是否启动">3. 查看是否启动：</h3>
 <p><code>sudo launchctl list | grep ssh</code></p>
 <p>如果看到下面的输出表示成功启动了：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo launchctl list | grep ssh
+<pre><code>$ sudo launchctl list | grep ssh
 -	0	com.openssh.sshd
-</code></pre></td></tr></table>
-</div>
-</div><p>为什么需要开启macOS上的sshd服务呢？是因为在本地部署flink或者其他某些集群服务时，默认是要通过ssh协议发送文件的。对，传输到本机也是用ssh服务，所以如果没有开通服务就无法正确部署。</p>
+</code></pre><p>为什么需要开启macOS上的sshd服务呢？是因为在本地部署flink或者其他某些集群服务时，默认是要通过ssh协议发送文件的。对，传输到本机也是用ssh服务，所以如果没有开通服务就无法正确部署。</p>
         </div>
 
         
@@ -280,7 +272,7 @@
 
                     <footer id="footer">
     <div>
-        &copy; 2021 <a href="http://blog.happyhacker.fun/">happyhakcer makes fun By happyhacker</a>
+        &copy; 2021 <a href="http://blog.happyhacker.fun/">happyhacker的公开日志 By happyhacker</a>
         
     </div>
     <br />
