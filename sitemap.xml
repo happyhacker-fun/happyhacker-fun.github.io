@@ -10,15 +10,78 @@
   </url>
   
   <url>
+    <loc>https://blog.happyhacker.fun/tags/blog/</loc>
+    <lastmod>2021-01-17T00:11:45+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.happyhacker.fun/categories/</loc>
-    <lastmod>2021-01-14T16:28:04+08:00</lastmod>
+    <lastmod>2021-01-17T00:11:45+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://blog.happyhacker.fun/</loc>
-    <lastmod>2021-01-14T16:28:04+08:00</lastmod>
+    <lastmod>2021-01-17T00:11:45+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.happyhacker.fun/tags/hugo/</loc>
+    <lastmod>2021-01-17T00:11:45+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.happyhacker.fun/post/hugo-localsearch-support/</loc>
+    <lastmod>2021-01-17T00:11:45+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.happyhacker.fun/categories/in-action/</loc>
+    <lastmod>2021-01-17T00:11:45+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.happyhacker.fun/tags/lunr/</loc>
+    <lastmod>2021-01-17T00:11:45+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.happyhacker.fun/post/</loc>
+    <lastmod>2021-01-17T00:11:45+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.happyhacker.fun/tags/</loc>
+    <lastmod>2021-01-17T00:11:45+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.happyhacker.fun/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/</loc>
+    <lastmod>2021-01-17T00:11:45+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.happyhacker.fun/tags/%E7%AB%99%E5%86%85%E6%90%9C%E7%B4%A2/</loc>
+    <lastmod>2021-01-17T00:11:45+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -46,20 +109,6 @@
   
   <url>
     <loc>https://blog.happyhacker.fun/tags/jdk/</loc>
-    <lastmod>2021-01-14T16:28:04+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.happyhacker.fun/post/</loc>
-    <lastmod>2021-01-14T16:28:04+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.happyhacker.fun/tags/</loc>
     <lastmod>2021-01-14T16:28:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -229,13 +278,6 @@
   <url>
     <loc>https://blog.happyhacker.fun/tags/slf4j/</loc>
     <lastmod>2020-11-21T15:21:05+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.happyhacker.fun/categories/in-action/</loc>
-    <lastmod>2020-11-21T14:14:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -831,13 +873,6 @@
   <url>
     <loc>https://blog.happyhacker.fun/post/accelerating-maven-downloading-with-aliyun-mirror/</loc>
     <lastmod>2020-03-29T00:21:43+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.happyhacker.fun/tags/hugo/</loc>
-    <lastmod>2020-03-28T23:44:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
