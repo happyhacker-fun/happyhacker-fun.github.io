@@ -195,12 +195,33 @@
             <p>Springboot的这个profiles的问题真是让人头疼。</p>
 <p>这个问题在小版本之间来瞎改，又没有明确的说明，不知道浪费了多少人的时间。</p>
 <p>首先明确一点，通过</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">export SPRING_PROFILES_ACTIVE<span style="color:#f92672">=</span>prod,web
-</code></pre></div><p>这种方式从始至终都是可行的。而改变的是</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mvn spring-boot:run -Dspring.profiles.active<span style="color:#f92672">=</span>prod,web
-</code></pre></div><p>这种方式。亲测在springboot 2.3.1已经完全不起作用了。所以保险的方法就是前面提到的第一种。可以这么做</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">export SPRING_PROFILES_ACTIVE<span style="color:#f92672">=</span>prod,web <span style="color:#f92672">&amp;&amp;</span> mvn spring-boot:run
-</code></pre></div>
+<div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#a2f">export</span> <span style="color:#b8860b">SPRING_PROFILES_ACTIVE</span><span style="color:#666">=</span>prod,web
+</code></pre></td></tr></table>
+</div>
+</div><p>这种方式从始至终都是可行的。而改变的是</p>
+<div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mvn spring-boot:run -Dspring.profiles.active<span style="color:#666">=</span>prod,web
+</code></pre></td></tr></table>
+</div>
+</div><p>这种方式。亲测在springboot 2.3.1已经完全不起作用了。所以保险的方法就是前面提到的第一种。可以这么做</p>
+<div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#a2f">export</span> <span style="color:#b8860b">SPRING_PROFILES_ACTIVE</span><span style="color:#666">=</span>prod,web <span style="color:#666">&amp;&amp;</span> mvn spring-boot:run
+</code></pre></td></tr></table>
+</div>
+</div>
         </div>
 
         

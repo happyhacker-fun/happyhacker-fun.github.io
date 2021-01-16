@@ -194,11 +194,21 @@
         <div class="post-content">
             <p>通常Flink会运行在yarn上，需要在Flink中配置一下Hadoop的安装路径。</p>
 <p>修改<code>flink/bin/config.sh</code>，在第一行非注释的内容前添加以下内容</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">export HADOOP_HOME<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>HADOOP_HOME<span style="color:#66d9ef">:-</span>/usr/hdp/3.1.0.0-78/hadoop<span style="color:#e6db74">}</span>
-export HADOOP_CONF_DIR<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>HADOOP_CONF_DIR<span style="color:#66d9ef">:-</span>/usr/hdp/3.1.0.0-78/hadoop/conf<span style="color:#e6db74">}</span>
-export HADOOP_CLASSPATH<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>/usr/hdp/current/hadoop-client/bin/hadoop classpath<span style="color:#e6db74">`</span>
-export JAVA_HOME<span style="color:#f92672">=</span>/usr/java/jdk1.8.0_231-amd64
-</code></pre></div><p>这里使用的是cloudera提供的yarn安装工具，后面有时间写一个教程介绍这个过程。</p>
+<div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#a2f">export</span> <span style="color:#b8860b">HADOOP_HOME</span><span style="color:#666">=</span><span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">HADOOP_HOME</span><span style="color:#a2f;font-weight:bold">:-</span>/usr/hdp/3.1.0.0-78/hadoop<span style="color:#b68;font-weight:bold">}</span>
+<span style="color:#a2f">export</span> <span style="color:#b8860b">HADOOP_CONF_DIR</span><span style="color:#666">=</span><span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">HADOOP_CONF_DIR</span><span style="color:#a2f;font-weight:bold">:-</span>/usr/hdp/3.1.0.0-78/hadoop/conf<span style="color:#b68;font-weight:bold">}</span>
+<span style="color:#a2f">export</span> <span style="color:#b8860b">HADOOP_CLASSPATH</span><span style="color:#666">=</span><span style="color:#b44">`</span>/usr/hdp/current/hadoop-client/bin/hadoop classpath<span style="color:#b44">`</span>
+<span style="color:#a2f">export</span> <span style="color:#b8860b">JAVA_HOME</span><span style="color:#666">=</span>/usr/java/jdk1.8.0_231-amd64
+</code></pre></td></tr></table>
+</div>
+</div><p>这里使用的是cloudera提供的yarn安装工具，后面有时间写一个教程介绍这个过程。</p>
         </div>
 
         

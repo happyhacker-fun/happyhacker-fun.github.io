@@ -246,23 +246,51 @@
 <h3 id="创建springboot项目">创建springboot项目</h3>
 <p>参考<a href="../spring-tomcat-tutorial.md">Springboot使用内置和独立tomcat以及其他思考</a>。</p>
 <h3 id="编写同一个接口的不同版本">编写同一个接口的不同版本</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">// tag v1
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">@RestController</span>
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HelloController</span> <span style="color:#f92672">{</span>
-    <span style="color:#a6e22e">@GetMapping</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/hello&#34;</span><span style="color:#f92672">)</span>
-    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">hello</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;V1&#34;</span><span style="color:#f92672">;</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">// tag v2
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">@RestController</span>
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HelloController</span> <span style="color:#f92672">{</span>
-    <span style="color:#a6e22e">@GetMapping</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/hello&#34;</span><span style="color:#f92672">)</span>
-    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">hello</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;V2&#34;</span><span style="color:#f92672">;</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><h3 id="打包">打包</h3>
+<div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-style:italic">// tag v1
+</span><span style="color:#080;font-style:italic"></span><span style="color:#a2f">@RestController</span>
+<span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">HelloController</span> <span style="color:#666">{</span>
+    <span style="color:#a2f">@GetMapping</span><span style="color:#666">(</span><span style="color:#b44">&#34;/hello&#34;</span><span style="color:#666">)</span>
+    <span style="color:#a2f;font-weight:bold">public</span> String <span style="color:#00a000">hello</span><span style="color:#666">()</span> <span style="color:#666">{</span>
+        <span style="color:#a2f;font-weight:bold">return</span> <span style="color:#b44">&#34;V1&#34;</span><span style="color:#666">;</span>
+    <span style="color:#666">}</span>
+<span style="color:#666">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-style:italic">// tag v2
+</span><span style="color:#080;font-style:italic"></span><span style="color:#a2f">@RestController</span>
+<span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">HelloController</span> <span style="color:#666">{</span>
+    <span style="color:#a2f">@GetMapping</span><span style="color:#666">(</span><span style="color:#b44">&#34;/hello&#34;</span><span style="color:#666">)</span>
+    <span style="color:#a2f;font-weight:bold">public</span> String <span style="color:#00a000">hello</span><span style="color:#666">()</span> <span style="color:#666">{</span>
+        <span style="color:#a2f;font-weight:bold">return</span> <span style="color:#b44">&#34;V2&#34;</span><span style="color:#666">;</span>
+    <span style="color:#666">}</span>
+<span style="color:#666">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="打包">打包</h3>
 <pre><code>mvn clean package -Dmaven.test.skip=true
 </code></pre><h3 id="创建两个tomcat容器">创建两个tomcat容器</h3>
 <pre><code>docker run -itd --name tomcat-active -v /tmp/tomcat/active:/usr/local/tomcat/webapps -p 32771:8080 tomcat
@@ -293,34 +321,72 @@ Running 10s test @ http://192.168.99.100:32772/spring-demo-0.0.1-SNAPSHOT/hello
 Requests/sec:   2196.36
 Transfer/sec:    247.05KB
 </code></pre><h3 id="配置nginx">配置Nginx</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nginx" data-lang="nginx"><span style="color:#66d9ef">upstream</span> <span style="color:#e6db74">ha</span> {
-	<span style="color:#f92672">server</span> 192.168.99.100:<span style="color:#ae81ff">32771</span>;
-	<span style="color:#f92672">server</span> 192.168.99.100:<span style="color:#ae81ff">32772</span> <span style="color:#e6db74">backup</span>;
+<div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nginx" data-lang="nginx"><span style="color:#a2f;font-weight:bold">upstream</span> <span style="color:#b44">ha</span> {
+	<span style="color:#a2f;font-weight:bold">server</span> 192.168.99.100:<span style="color:#666">32771</span>;
+	<span style="color:#a2f;font-weight:bold">server</span> 192.168.99.100:<span style="color:#666">32772</span> <span style="color:#b44">backup</span>;
 }
-<span style="color:#66d9ef">server</span> {
-	<span style="color:#f92672">listen</span>       <span style="color:#ae81ff">80</span>;
-	<span style="color:#f92672">server_name</span>  <span style="color:#e6db74">_</span>;
+<span style="color:#a2f;font-weight:bold">server</span> {
+	<span style="color:#a2f;font-weight:bold">listen</span>       <span style="color:#666">80</span>;
+	<span style="color:#a2f;font-weight:bold">server_name</span>  <span style="color:#b44">_</span>;
 
-	<span style="color:#f92672">location</span> <span style="color:#e6db74">/</span> {
-		<span style="color:#f92672">proxy_next_upstream</span> <span style="color:#e6db74">http_502</span> <span style="color:#e6db74">http_504</span> <span style="color:#e6db74">http_404</span> <span style="color:#e6db74">error</span> <span style="color:#e6db74">timeout</span> <span style="color:#e6db74">invalid_header</span>;
-		<span style="color:#f92672">proxy_pass</span>   <span style="color:#e6db74">http://ha/spring-demo-0.0.1-SNAPSHOT/</span>;
+	<span style="color:#a2f;font-weight:bold">location</span> <span style="color:#b44">/</span> {
+		<span style="color:#a2f;font-weight:bold">proxy_next_upstream</span> <span style="color:#b44">http_502</span> <span style="color:#b44">http_504</span> <span style="color:#b44">http_404</span> <span style="color:#b44">error</span> <span style="color:#b44">timeout</span> <span style="color:#b44">invalid_header</span>;
+		<span style="color:#a2f;font-weight:bold">proxy_pass</span>   <span style="color:#b44">http://ha/spring-demo-0.0.1-SNAPSHOT/</span>;
 	}
 }
-</code></pre></div><p>注意：默认情况下只会转发<code>GET</code>/<code>HEAD</code>/<code>PUT</code>/<code>DELETE</code>/<code>OPTIONS</code>这种幂等的请求，而不会转发<code>POST</code>请求，如果需要对<code>POST</code>请求也做转发，就需要加上<code>non_idempotent</code>配置，整体配置如下</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nginx" data-lang="nginx"><span style="color:#66d9ef">upstream</span> <span style="color:#e6db74">ha</span> {
-	<span style="color:#f92672">server</span> 192.168.99.100:<span style="color:#ae81ff">32771</span>;
-	<span style="color:#f92672">server</span> 192.168.99.100:<span style="color:#ae81ff">32772</span> <span style="color:#e6db74">backup</span>;
+</code></pre></td></tr></table>
+</div>
+</div><p>注意：默认情况下只会转发<code>GET</code>/<code>HEAD</code>/<code>PUT</code>/<code>DELETE</code>/<code>OPTIONS</code>这种幂等的请求，而不会转发<code>POST</code>请求，如果需要对<code>POST</code>请求也做转发，就需要加上<code>non_idempotent</code>配置，整体配置如下</p>
+<div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nginx" data-lang="nginx"><span style="color:#a2f;font-weight:bold">upstream</span> <span style="color:#b44">ha</span> {
+	<span style="color:#a2f;font-weight:bold">server</span> 192.168.99.100:<span style="color:#666">32771</span>;
+	<span style="color:#a2f;font-weight:bold">server</span> 192.168.99.100:<span style="color:#666">32772</span> <span style="color:#b44">backup</span>;
 }
-<span style="color:#66d9ef">server</span> {
-	<span style="color:#f92672">listen</span>       <span style="color:#ae81ff">80</span>;
-	<span style="color:#f92672">server_name</span>  <span style="color:#e6db74">_</span>;
+<span style="color:#a2f;font-weight:bold">server</span> {
+	<span style="color:#a2f;font-weight:bold">listen</span>       <span style="color:#666">80</span>;
+	<span style="color:#a2f;font-weight:bold">server_name</span>  <span style="color:#b44">_</span>;
 
-	<span style="color:#f92672">location</span> <span style="color:#e6db74">/</span> {
-		<span style="color:#f92672">proxy_next_upstream</span> <span style="color:#e6db74">http_502</span> <span style="color:#e6db74">http_504</span> <span style="color:#e6db74">http_404</span> <span style="color:#e6db74">error</span> <span style="color:#e6db74">timeout</span> <span style="color:#e6db74">invalid_header</span> <span style="color:#e6db74">non_idempotent</span>;
-		<span style="color:#f92672">proxy_pass</span>   <span style="color:#e6db74">http://ha/spring-demo-0.0.1-SNAPSHOT/</span>;
+	<span style="color:#a2f;font-weight:bold">location</span> <span style="color:#b44">/</span> {
+		<span style="color:#a2f;font-weight:bold">proxy_next_upstream</span> <span style="color:#b44">http_502</span> <span style="color:#b44">http_504</span> <span style="color:#b44">http_404</span> <span style="color:#b44">error</span> <span style="color:#b44">timeout</span> <span style="color:#b44">invalid_header</span> <span style="color:#b44">non_idempotent</span>;
+		<span style="color:#a2f;font-weight:bold">proxy_pass</span>   <span style="color:#b44">http://ha/spring-demo-0.0.1-SNAPSHOT/</span>;
 	}
 }
-</code></pre></div><p>注意<code>proxy_next_upstream http_502 http_504 http_404 error timeout invalid_header;</code>这行，这里就是表示把访问当前的upstream返回了这些状态码的请求转发到upstream中的下一台机器，在我们现在的应用场景下，当war包发布时，正在更新war包的tomcat会返回404，也就是对应<code>http_404</code>，如果不配置这行，是不会做转发的。
+</code></pre></td></tr></table>
+</div>
+</div><p>注意<code>proxy_next_upstream http_502 http_504 http_404 error timeout invalid_header;</code>这行，这里就是表示把访问当前的upstream返回了这些状态码的请求转发到upstream中的下一台机器，在我们现在的应用场景下，当war包发布时，正在更新war包的tomcat会返回404，也就是对应<code>http_404</code>，如果不配置这行，是不会做转发的。
 但这样简单的配置还会有一个问题，那就是Nginx不会把出问题的后端从upstream中摘除，也就是说请求还会访问到这个正在更新中的realserver，只是Nginx会再把请求转发到下一台好的realserver上，这样会增加一些耗时。目前有三种方式可以实现对Nginx负载均衡的后端节点服务器进行健康检查，具体参考<a href="./loadbalance-with-nginx.md">Nginx负载均衡</a></p>
 <h2 id="通过nginx压测">通过Nginx压测</h2>
 <h3 id="基本测试">基本测试</h3>

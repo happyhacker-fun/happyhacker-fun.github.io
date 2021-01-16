@@ -219,152 +219,315 @@
 <li>看是否可以通过反射拿到新类的方法列表</li>
 </ol>
 <h2 id="源码">源码</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> fun.happyhacker<span style="color:#f92672">;</span>
+<div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">62
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">63
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f;font-weight:bold">package</span> <span style="color:#00f;font-weight:bold">fun.happyhacker</span><span style="color:#666">;</span>
 
-<span style="color:#f92672">import</span> java.io.ByteArrayOutputStream<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> java.io.IOException<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> java.nio.file.Files<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> java.nio.file.Path<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> java.nio.file.Paths<span style="color:#f92672">;</span>
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">java.io.ByteArrayOutputStream</span><span style="color:#666">;</span>
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">java.io.IOException</span><span style="color:#666">;</span>
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">java.nio.file.Files</span><span style="color:#666">;</span>
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">java.nio.file.Path</span><span style="color:#666">;</span>
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">java.nio.file.Paths</span><span style="color:#666">;</span>
 
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyClassLoader</span> <span style="color:#66d9ef">extends</span> ClassLoader <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> Path CLASS_DIR <span style="color:#f92672">=</span> Paths<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/tmp/classloader/&#34;</span><span style="color:#f92672">);</span>
+<span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">MyClassLoader</span> <span style="color:#a2f;font-weight:bold">extends</span> ClassLoader <span style="color:#666">{</span>
+    <span style="color:#a2f;font-weight:bold">private</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#a2f;font-weight:bold">final</span> Path CLASS_DIR <span style="color:#666">=</span> Paths<span style="color:#666">.</span><span style="color:#b44">get</span><span style="color:#666">(</span><span style="color:#b44">&#34;/tmp/classloader/&#34;</span><span style="color:#666">);</span>
 
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> Path classDir<span style="color:#f92672">;</span>
+    <span style="color:#a2f;font-weight:bold">private</span> <span style="color:#a2f;font-weight:bold">final</span> Path classDir<span style="color:#666">;</span>
 
-    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">MyClassLoader</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-        <span style="color:#66d9ef">super</span><span style="color:#f92672">();</span>
-        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">classDir</span> <span style="color:#f92672">=</span> CLASS_DIR<span style="color:#f92672">;</span>
-    <span style="color:#f92672">}</span>
+    <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#00a000">MyClassLoader</span><span style="color:#666">()</span> <span style="color:#666">{</span>
+        <span style="color:#a2f;font-weight:bold">super</span><span style="color:#666">();</span>
+        <span style="color:#a2f;font-weight:bold">this</span><span style="color:#666">.</span><span style="color:#b44">classDir</span> <span style="color:#666">=</span> CLASS_DIR<span style="color:#666">;</span>
+    <span style="color:#666">}</span>
 
-    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">MyClassLoader</span><span style="color:#f92672">(</span>String classDir<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">classDir</span> <span style="color:#f92672">=</span> Paths<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>classDir<span style="color:#f92672">);</span>
-    <span style="color:#f92672">}</span>
+    <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#00a000">MyClassLoader</span><span style="color:#666">(</span>String classDir<span style="color:#666">)</span> <span style="color:#666">{</span>
+        <span style="color:#a2f;font-weight:bold">this</span><span style="color:#666">.</span><span style="color:#b44">classDir</span> <span style="color:#666">=</span> Paths<span style="color:#666">.</span><span style="color:#b44">get</span><span style="color:#666">(</span>classDir<span style="color:#666">);</span>
+    <span style="color:#666">}</span>
 
-    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">MyClassLoader</span><span style="color:#f92672">(</span>ClassLoader parent<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        <span style="color:#66d9ef">super</span><span style="color:#f92672">(</span>parent<span style="color:#f92672">);</span>
-        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">classDir</span> <span style="color:#f92672">=</span> CLASS_DIR<span style="color:#f92672">;</span>
-    <span style="color:#f92672">}</span>
+    <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#00a000">MyClassLoader</span><span style="color:#666">(</span>ClassLoader parent<span style="color:#666">)</span> <span style="color:#666">{</span>
+        <span style="color:#a2f;font-weight:bold">super</span><span style="color:#666">(</span>parent<span style="color:#666">);</span>
+        <span style="color:#a2f;font-weight:bold">this</span><span style="color:#666">.</span><span style="color:#b44">classDir</span> <span style="color:#666">=</span> CLASS_DIR<span style="color:#666">;</span>
+    <span style="color:#666">}</span>
 
-    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">MyClassLoader</span><span style="color:#f92672">(</span>ClassLoader parent<span style="color:#f92672">,</span> String classDir<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        <span style="color:#66d9ef">super</span><span style="color:#f92672">(</span>parent<span style="color:#f92672">);</span>
-        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">classDir</span> <span style="color:#f92672">=</span> Paths<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>classDir<span style="color:#f92672">);</span>
-    <span style="color:#f92672">}</span>
+    <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#00a000">MyClassLoader</span><span style="color:#666">(</span>ClassLoader parent<span style="color:#666">,</span> String classDir<span style="color:#666">)</span> <span style="color:#666">{</span>
+        <span style="color:#a2f;font-weight:bold">super</span><span style="color:#666">(</span>parent<span style="color:#666">);</span>
+        <span style="color:#a2f;font-weight:bold">this</span><span style="color:#666">.</span><span style="color:#b44">classDir</span> <span style="color:#666">=</span> Paths<span style="color:#666">.</span><span style="color:#b44">get</span><span style="color:#666">(</span>classDir<span style="color:#666">);</span>
+    <span style="color:#666">}</span>
 
-    <span style="color:#a6e22e">@Override</span>
-    <span style="color:#66d9ef">protected</span> Class<span style="color:#f92672">&lt;?&gt;</span> findClass<span style="color:#f92672">(</span>String name<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> ClassNotFoundException <span style="color:#f92672">{</span>
-        <span style="color:#66d9ef">byte</span><span style="color:#f92672">[]</span> classBytes <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">readClassBytes</span><span style="color:#f92672">(</span>name<span style="color:#f92672">);</span>
-        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>classBytes<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">==</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-            <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> ClassNotFoundException<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Can not load the class &#34;</span> <span style="color:#f92672">+</span> name<span style="color:#f92672">);</span>
-        <span style="color:#f92672">}</span>
+    <span style="color:#a2f">@Override</span>
+    <span style="color:#a2f;font-weight:bold">protected</span> Class<span style="color:#666">&lt;?&gt;</span> findClass<span style="color:#666">(</span>String name<span style="color:#666">)</span> <span style="color:#a2f;font-weight:bold">throws</span> ClassNotFoundException <span style="color:#666">{</span>
+        <span style="color:#0b0;font-weight:bold">byte</span><span style="color:#666">[]</span> classBytes <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">this</span><span style="color:#666">.</span><span style="color:#b44">readClassBytes</span><span style="color:#666">(</span>name<span style="color:#666">);</span>
+        <span style="color:#a2f;font-weight:bold">if</span> <span style="color:#666">(</span>classBytes<span style="color:#666">.</span><span style="color:#b44">length</span> <span style="color:#666">==</span> 0<span style="color:#666">)</span> <span style="color:#666">{</span>
+            <span style="color:#a2f;font-weight:bold">throw</span> <span style="color:#a2f;font-weight:bold">new</span> ClassNotFoundException<span style="color:#666">(</span><span style="color:#b44">&#34;Can not load the class &#34;</span> <span style="color:#666">+</span> name<span style="color:#666">);</span>
+        <span style="color:#666">}</span>
 
-        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">defineClass</span><span style="color:#f92672">(</span>name<span style="color:#f92672">,</span> classBytes<span style="color:#f92672">,</span> 0<span style="color:#f92672">,</span> classBytes<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">);</span>
-    <span style="color:#f92672">}</span>
+        <span style="color:#a2f;font-weight:bold">return</span> <span style="color:#a2f;font-weight:bold">this</span><span style="color:#666">.</span><span style="color:#b44">defineClass</span><span style="color:#666">(</span>name<span style="color:#666">,</span> classBytes<span style="color:#666">,</span> 0<span style="color:#666">,</span> classBytes<span style="color:#666">.</span><span style="color:#b44">length</span><span style="color:#666">);</span>
+    <span style="color:#666">}</span>
 
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">byte</span><span style="color:#f92672">[]</span> <span style="color:#a6e22e">readClassBytes</span><span style="color:#f92672">(</span>String name<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> ClassNotFoundException <span style="color:#f92672">{</span>
-        String classPath <span style="color:#f92672">=</span> name<span style="color:#f92672">.</span><span style="color:#a6e22e">replace</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;.&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;/&#34;</span><span style="color:#f92672">);</span>
-        Path classFullPath <span style="color:#f92672">=</span> classDir<span style="color:#f92672">.</span><span style="color:#a6e22e">resolve</span><span style="color:#f92672">(</span>Paths<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>classPath <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;.class&#34;</span><span style="color:#f92672">));</span>
-        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(!</span>classFullPath<span style="color:#f92672">.</span><span style="color:#a6e22e">toFile</span><span style="color:#f92672">().</span><span style="color:#a6e22e">exists</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
-            <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> ClassNotFoundException<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;The class &#34;</span> <span style="color:#f92672">+</span> name <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; not found&#34;</span><span style="color:#f92672">);</span>
-        <span style="color:#f92672">}</span>
+    <span style="color:#a2f;font-weight:bold">private</span> <span style="color:#0b0;font-weight:bold">byte</span><span style="color:#666">[]</span> <span style="color:#00a000">readClassBytes</span><span style="color:#666">(</span>String name<span style="color:#666">)</span> <span style="color:#a2f;font-weight:bold">throws</span> ClassNotFoundException <span style="color:#666">{</span>
+        String classPath <span style="color:#666">=</span> name<span style="color:#666">.</span><span style="color:#b44">replace</span><span style="color:#666">(</span><span style="color:#b44">&#34;.&#34;</span><span style="color:#666">,</span> <span style="color:#b44">&#34;/&#34;</span><span style="color:#666">);</span>
+        Path classFullPath <span style="color:#666">=</span> classDir<span style="color:#666">.</span><span style="color:#b44">resolve</span><span style="color:#666">(</span>Paths<span style="color:#666">.</span><span style="color:#b44">get</span><span style="color:#666">(</span>classPath <span style="color:#666">+</span> <span style="color:#b44">&#34;.class&#34;</span><span style="color:#666">));</span>
+        <span style="color:#a2f;font-weight:bold">if</span> <span style="color:#666">(!</span>classFullPath<span style="color:#666">.</span><span style="color:#b44">toFile</span><span style="color:#666">().</span><span style="color:#b44">exists</span><span style="color:#666">())</span> <span style="color:#666">{</span>
+            <span style="color:#a2f;font-weight:bold">throw</span> <span style="color:#a2f;font-weight:bold">new</span> ClassNotFoundException<span style="color:#666">(</span><span style="color:#b44">&#34;The class &#34;</span> <span style="color:#666">+</span> name <span style="color:#666">+</span> <span style="color:#b44">&#34; not found&#34;</span><span style="color:#666">);</span>
+        <span style="color:#666">}</span>
 
-        <span style="color:#66d9ef">try</span> <span style="color:#f92672">(</span>ByteArrayOutputStream baos <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ByteArrayOutputStream<span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
-            Files<span style="color:#f92672">.</span><span style="color:#a6e22e">copy</span><span style="color:#f92672">(</span>classFullPath<span style="color:#f92672">,</span> baos<span style="color:#f92672">);</span>
-            <span style="color:#66d9ef">return</span> baos<span style="color:#f92672">.</span><span style="color:#a6e22e">toByteArray</span><span style="color:#f92672">();</span>
-        <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>IOException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-            <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> ClassNotFoundException<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;load the class &#34;</span> <span style="color:#f92672">+</span> name <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; occur error.&#34;</span><span style="color:#f92672">,</span> e<span style="color:#f92672">);</span>
-        <span style="color:#f92672">}</span>
-    <span style="color:#f92672">}</span>
+        <span style="color:#a2f;font-weight:bold">try</span> <span style="color:#666">(</span>ByteArrayOutputStream baos <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> ByteArrayOutputStream<span style="color:#666">())</span> <span style="color:#666">{</span>
+            Files<span style="color:#666">.</span><span style="color:#b44">copy</span><span style="color:#666">(</span>classFullPath<span style="color:#666">,</span> baos<span style="color:#666">);</span>
+            <span style="color:#a2f;font-weight:bold">return</span> baos<span style="color:#666">.</span><span style="color:#b44">toByteArray</span><span style="color:#666">();</span>
+        <span style="color:#666">}</span> <span style="color:#a2f;font-weight:bold">catch</span> <span style="color:#666">(</span>IOException e<span style="color:#666">)</span> <span style="color:#666">{</span>
+            <span style="color:#a2f;font-weight:bold">throw</span> <span style="color:#a2f;font-weight:bold">new</span> ClassNotFoundException<span style="color:#666">(</span><span style="color:#b44">&#34;load the class &#34;</span> <span style="color:#666">+</span> name <span style="color:#666">+</span> <span style="color:#b44">&#34; occur error.&#34;</span><span style="color:#666">,</span> e<span style="color:#666">);</span>
+        <span style="color:#666">}</span>
+    <span style="color:#666">}</span>
 
-    <span style="color:#a6e22e">@Override</span>
-    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">toString</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;MyClassLoader&#34;</span><span style="color:#f92672">;</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
+    <span style="color:#a2f">@Override</span>
+    <span style="color:#a2f;font-weight:bold">public</span> String <span style="color:#00a000">toString</span><span style="color:#666">()</span> <span style="color:#666">{</span>
+        <span style="color:#a2f;font-weight:bold">return</span> <span style="color:#b44">&#34;MyClassLoader&#34;</span><span style="color:#666">;</span>
+    <span style="color:#666">}</span>
+<span style="color:#666">}</span>
 
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> fun.happyhacker<span style="color:#f92672">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">62
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">63
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">64
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">65
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">66
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">67
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f;font-weight:bold">package</span> <span style="color:#00f;font-weight:bold">fun.happyhacker</span><span style="color:#666">;</span>
 
-<span style="color:#f92672">import</span> java.lang.reflect.InvocationTargetException<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> java.lang.reflect.Method<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> java.nio.file.Path<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> java.nio.file.Paths<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> java.util.concurrent.TimeUnit<span style="color:#f92672">;</span>
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">java.lang.reflect.InvocationTargetException</span><span style="color:#666">;</span>
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">java.lang.reflect.Method</span><span style="color:#666">;</span>
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">java.nio.file.Path</span><span style="color:#666">;</span>
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">java.nio.file.Paths</span><span style="color:#666">;</span>
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">java.util.concurrent.TimeUnit</span><span style="color:#666">;</span>
 
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Daemon</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> String CLASS_PATH <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/tmp/classloader/&#34;</span><span style="color:#f92672">;</span>
+<span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">Daemon</span> <span style="color:#666">{</span>
+    <span style="color:#a2f;font-weight:bold">private</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#a2f;font-weight:bold">final</span> String CLASS_PATH <span style="color:#666">=</span> <span style="color:#b44">&#34;/tmp/classloader/&#34;</span><span style="color:#666">;</span>
 
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> String CLASS_NAME <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;a.b.c.Child&#34;</span><span style="color:#f92672">;</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> CHECK_INTERVAL <span style="color:#f92672">=</span> 5<span style="color:#f92672">;</span>
+    <span style="color:#a2f;font-weight:bold">private</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#a2f;font-weight:bold">final</span> String CLASS_NAME <span style="color:#666">=</span> <span style="color:#b44">&#34;a.b.c.Child&#34;</span><span style="color:#666">;</span>
+    <span style="color:#a2f;font-weight:bold">private</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#a2f;font-weight:bold">final</span> <span style="color:#0b0;font-weight:bold">int</span> CHECK_INTERVAL <span style="color:#666">=</span> 5<span style="color:#666">;</span>
 
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">long</span> lastModified<span style="color:#f92672">;</span>
+    <span style="color:#a2f;font-weight:bold">private</span> <span style="color:#0b0;font-weight:bold">long</span> lastModified<span style="color:#666">;</span>
 
-    <span style="color:#66d9ef">private</span> ClassLoader classLoader<span style="color:#f92672">;</span>
-    <span style="color:#66d9ef">private</span> Class<span style="color:#f92672">&lt;?&gt;</span> klass<span style="color:#f92672">;</span>
+    <span style="color:#a2f;font-weight:bold">private</span> ClassLoader classLoader<span style="color:#666">;</span>
+    <span style="color:#a2f;font-weight:bold">private</span> Class<span style="color:#666">&lt;?&gt;</span> klass<span style="color:#666">;</span>
 
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> InterruptedException<span style="color:#f92672">,</span> ClassNotFoundException<span style="color:#f92672">,</span> NoSuchMethodException<span style="color:#f92672">,</span> InvocationTargetException<span style="color:#f92672">,</span> InstantiationException<span style="color:#f92672">,</span> IllegalAccessException <span style="color:#f92672">{</span>
-        Daemon daemon <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Daemon<span style="color:#f92672">();</span>
-        daemon<span style="color:#f92672">.</span><span style="color:#a6e22e">listen</span><span style="color:#f92672">();</span>
-    <span style="color:#f92672">}</span>
+    <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">main</span><span style="color:#666">(</span>String<span style="color:#666">[]</span> args<span style="color:#666">)</span> <span style="color:#a2f;font-weight:bold">throws</span> InterruptedException<span style="color:#666">,</span> ClassNotFoundException<span style="color:#666">,</span> NoSuchMethodException<span style="color:#666">,</span> InvocationTargetException<span style="color:#666">,</span> InstantiationException<span style="color:#666">,</span> IllegalAccessException <span style="color:#666">{</span>
+        Daemon daemon <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> Daemon<span style="color:#666">();</span>
+        daemon<span style="color:#666">.</span><span style="color:#b44">listen</span><span style="color:#666">();</span>
+    <span style="color:#666">}</span>
 
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">run</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> ClassNotFoundException<span style="color:#f92672">,</span> IllegalAccessException<span style="color:#f92672">,</span> InstantiationException<span style="color:#f92672">,</span> NoSuchMethodException<span style="color:#f92672">,</span> InvocationTargetException <span style="color:#f92672">{</span>
-        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>classLoader <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-            classLoader <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> MyClassLoader<span style="color:#f92672">();</span>
-        <span style="color:#f92672">}</span>
-        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>klass <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-             klass <span style="color:#f92672">=</span> classLoader<span style="color:#f92672">.</span><span style="color:#a6e22e">loadClass</span><span style="color:#f92672">(</span>CLASS_NAME<span style="color:#f92672">);</span>
-        <span style="color:#f92672">}</span>
-        Class<span style="color:#f92672">&lt;?&gt;</span> child <span style="color:#f92672">=</span> klass<span style="color:#f92672">;</span>
+    <span style="color:#a2f;font-weight:bold">private</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">run</span><span style="color:#666">()</span> <span style="color:#a2f;font-weight:bold">throws</span> ClassNotFoundException<span style="color:#666">,</span> IllegalAccessException<span style="color:#666">,</span> InstantiationException<span style="color:#666">,</span> NoSuchMethodException<span style="color:#666">,</span> InvocationTargetException <span style="color:#666">{</span>
+        <span style="color:#a2f;font-weight:bold">if</span> <span style="color:#666">(</span>classLoader <span style="color:#666">==</span> <span style="color:#a2f;font-weight:bold">null</span><span style="color:#666">)</span> <span style="color:#666">{</span>
+            classLoader <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> MyClassLoader<span style="color:#666">();</span>
+        <span style="color:#666">}</span>
+        <span style="color:#a2f;font-weight:bold">if</span> <span style="color:#666">(</span>klass <span style="color:#666">==</span> <span style="color:#a2f;font-weight:bold">null</span><span style="color:#666">)</span> <span style="color:#666">{</span>
+             klass <span style="color:#666">=</span> classLoader<span style="color:#666">.</span><span style="color:#b44">loadClass</span><span style="color:#666">(</span>CLASS_NAME<span style="color:#666">);</span>
+        <span style="color:#666">}</span>
+        Class<span style="color:#666">&lt;?&gt;</span> child <span style="color:#666">=</span> klass<span style="color:#666">;</span>
 
-        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>child<span style="color:#f92672">.</span><span style="color:#a6e22e">getClassLoader</span><span style="color:#f92672">());</span>
+        System<span style="color:#666">.</span><span style="color:#b44">out</span><span style="color:#666">.</span><span style="color:#b44">println</span><span style="color:#666">(</span>child<span style="color:#666">.</span><span style="color:#b44">getClassLoader</span><span style="color:#666">());</span>
 
-        Object instance <span style="color:#f92672">=</span> child<span style="color:#f92672">.</span><span style="color:#a6e22e">newInstance</span><span style="color:#f92672">();</span>
-        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>instance<span style="color:#f92672">);</span>
+        Object instance <span style="color:#666">=</span> child<span style="color:#666">.</span><span style="color:#b44">newInstance</span><span style="color:#666">();</span>
+        System<span style="color:#666">.</span><span style="color:#b44">out</span><span style="color:#666">.</span><span style="color:#b44">println</span><span style="color:#666">(</span>instance<span style="color:#666">);</span>
 
-        Method<span style="color:#f92672">[]</span> methods <span style="color:#f92672">=</span> child<span style="color:#f92672">.</span><span style="color:#a6e22e">getDeclaredMethods</span><span style="color:#f92672">();</span>
-        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>Method method <span style="color:#f92672">:</span> methods<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-            Method m <span style="color:#f92672">=</span> child<span style="color:#f92672">.</span><span style="color:#a6e22e">getMethod</span><span style="color:#f92672">(</span>method<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">());</span>
-            m<span style="color:#f92672">.</span><span style="color:#a6e22e">invoke</span><span style="color:#f92672">(</span>instance<span style="color:#f92672">);</span>
-        <span style="color:#f92672">}</span>
-    <span style="color:#f92672">}</span>
+        Method<span style="color:#666">[]</span> methods <span style="color:#666">=</span> child<span style="color:#666">.</span><span style="color:#b44">getDeclaredMethods</span><span style="color:#666">();</span>
+        <span style="color:#a2f;font-weight:bold">for</span> <span style="color:#666">(</span>Method method <span style="color:#666">:</span> methods<span style="color:#666">)</span> <span style="color:#666">{</span>
+            Method m <span style="color:#666">=</span> child<span style="color:#666">.</span><span style="color:#b44">getMethod</span><span style="color:#666">(</span>method<span style="color:#666">.</span><span style="color:#b44">getName</span><span style="color:#666">());</span>
+            m<span style="color:#666">.</span><span style="color:#b44">invoke</span><span style="color:#666">(</span>instance<span style="color:#666">);</span>
+        <span style="color:#666">}</span>
+    <span style="color:#666">}</span>
 
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">listen</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> InterruptedException<span style="color:#f92672">,</span> ClassNotFoundException<span style="color:#f92672">,</span> NoSuchMethodException<span style="color:#f92672">,</span> InvocationTargetException<span style="color:#f92672">,</span> InstantiationException<span style="color:#f92672">,</span> IllegalAccessException <span style="color:#f92672">{</span>
-        <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-            Path classPath <span style="color:#f92672">=</span> Paths<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>CLASS_PATH<span style="color:#f92672">);</span>
-            Path classFullPath <span style="color:#f92672">=</span> classPath<span style="color:#f92672">.</span><span style="color:#a6e22e">resolve</span><span style="color:#f92672">(</span>Paths<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>CLASS_NAME<span style="color:#f92672">.</span><span style="color:#a6e22e">replace</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;.&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;/&#34;</span><span style="color:#f92672">)</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;.class&#34;</span><span style="color:#f92672">));</span>
-            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;class path &#34;</span> <span style="color:#f92672">+</span> classFullPath<span style="color:#f92672">.</span><span style="color:#a6e22e">toFile</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getAbsolutePath</span><span style="color:#f92672">());</span>
-            <span style="color:#66d9ef">long</span> newLastModified <span style="color:#f92672">=</span> classFullPath<span style="color:#f92672">.</span><span style="color:#a6e22e">toFile</span><span style="color:#f92672">().</span><span style="color:#a6e22e">lastModified</span><span style="color:#f92672">();</span>
-            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;exists &#34;</span> <span style="color:#f92672">+</span> classFullPath<span style="color:#f92672">.</span><span style="color:#a6e22e">toFile</span><span style="color:#f92672">().</span><span style="color:#a6e22e">exists</span><span style="color:#f92672">());</span>
-            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;new last modified: &#34;</span> <span style="color:#f92672">+</span> newLastModified<span style="color:#f92672">);</span>
-            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>newLastModified <span style="color:#f92672">&gt;</span> lastModified<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-                reload<span style="color:#f92672">();</span>
-                run<span style="color:#f92672">();</span>
-            <span style="color:#f92672">}</span>
-            lastModified <span style="color:#f92672">=</span> newLastModified<span style="color:#f92672">;</span>
-            TimeUnit<span style="color:#f92672">.</span><span style="color:#a6e22e">SECONDS</span><span style="color:#f92672">.</span><span style="color:#a6e22e">sleep</span><span style="color:#f92672">(</span>CHECK_INTERVAL<span style="color:#f92672">);</span>
-        <span style="color:#f92672">}</span>
-    <span style="color:#f92672">}</span>
+    <span style="color:#a2f;font-weight:bold">private</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">listen</span><span style="color:#666">()</span> <span style="color:#a2f;font-weight:bold">throws</span> InterruptedException<span style="color:#666">,</span> ClassNotFoundException<span style="color:#666">,</span> NoSuchMethodException<span style="color:#666">,</span> InvocationTargetException<span style="color:#666">,</span> InstantiationException<span style="color:#666">,</span> IllegalAccessException <span style="color:#666">{</span>
+        <span style="color:#a2f;font-weight:bold">while</span> <span style="color:#666">(</span><span style="color:#a2f;font-weight:bold">true</span><span style="color:#666">)</span> <span style="color:#666">{</span>
+            Path classPath <span style="color:#666">=</span> Paths<span style="color:#666">.</span><span style="color:#b44">get</span><span style="color:#666">(</span>CLASS_PATH<span style="color:#666">);</span>
+            Path classFullPath <span style="color:#666">=</span> classPath<span style="color:#666">.</span><span style="color:#b44">resolve</span><span style="color:#666">(</span>Paths<span style="color:#666">.</span><span style="color:#b44">get</span><span style="color:#666">(</span>CLASS_NAME<span style="color:#666">.</span><span style="color:#b44">replace</span><span style="color:#666">(</span><span style="color:#b44">&#34;.&#34;</span><span style="color:#666">,</span> <span style="color:#b44">&#34;/&#34;</span><span style="color:#666">)</span> <span style="color:#666">+</span> <span style="color:#b44">&#34;.class&#34;</span><span style="color:#666">));</span>
+            System<span style="color:#666">.</span><span style="color:#b44">out</span><span style="color:#666">.</span><span style="color:#b44">println</span><span style="color:#666">(</span><span style="color:#b44">&#34;class path &#34;</span> <span style="color:#666">+</span> classFullPath<span style="color:#666">.</span><span style="color:#b44">toFile</span><span style="color:#666">().</span><span style="color:#b44">getAbsolutePath</span><span style="color:#666">());</span>
+            <span style="color:#0b0;font-weight:bold">long</span> newLastModified <span style="color:#666">=</span> classFullPath<span style="color:#666">.</span><span style="color:#b44">toFile</span><span style="color:#666">().</span><span style="color:#b44">lastModified</span><span style="color:#666">();</span>
+            System<span style="color:#666">.</span><span style="color:#b44">out</span><span style="color:#666">.</span><span style="color:#b44">println</span><span style="color:#666">(</span><span style="color:#b44">&#34;exists &#34;</span> <span style="color:#666">+</span> classFullPath<span style="color:#666">.</span><span style="color:#b44">toFile</span><span style="color:#666">().</span><span style="color:#b44">exists</span><span style="color:#666">());</span>
+            System<span style="color:#666">.</span><span style="color:#b44">out</span><span style="color:#666">.</span><span style="color:#b44">println</span><span style="color:#666">(</span><span style="color:#b44">&#34;new last modified: &#34;</span> <span style="color:#666">+</span> newLastModified<span style="color:#666">);</span>
+            <span style="color:#a2f;font-weight:bold">if</span> <span style="color:#666">(</span>newLastModified <span style="color:#666">&gt;</span> lastModified<span style="color:#666">)</span> <span style="color:#666">{</span>
+                reload<span style="color:#666">();</span>
+                run<span style="color:#666">();</span>
+            <span style="color:#666">}</span>
+            lastModified <span style="color:#666">=</span> newLastModified<span style="color:#666">;</span>
+            TimeUnit<span style="color:#666">.</span><span style="color:#b44">SECONDS</span><span style="color:#666">.</span><span style="color:#b44">sleep</span><span style="color:#666">(</span>CHECK_INTERVAL<span style="color:#666">);</span>
+        <span style="color:#666">}</span>
+    <span style="color:#666">}</span>
 
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">reload</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-        classLoader <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
-        klass <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> a.b.c<span style="color:#f92672">;</span>
+    <span style="color:#a2f;font-weight:bold">private</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">reload</span><span style="color:#666">()</span> <span style="color:#666">{</span>
+        classLoader <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">null</span><span style="color:#666">;</span>
+        klass <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">null</span><span style="color:#666">;</span>
+    <span style="color:#666">}</span>
+<span style="color:#666">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f;font-weight:bold">package</span> <span style="color:#00f;font-weight:bold">a.b.c</span><span style="color:#666">;</span>
 
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Child</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">walk</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;I can walk&#34;</span><span style="color:#f92672">);</span>
-    <span style="color:#f92672">}</span>
+<span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">Child</span> <span style="color:#666">{</span>
+    <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">walk</span><span style="color:#666">()</span> <span style="color:#666">{</span>
+        System<span style="color:#666">.</span><span style="color:#b44">out</span><span style="color:#666">.</span><span style="color:#b44">println</span><span style="color:#666">(</span><span style="color:#b44">&#34;I can walk&#34;</span><span style="color:#666">);</span>
+    <span style="color:#666">}</span>
 
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">speak</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;I can talk&#34;</span><span style="color:#f92672">);</span>
-    <span style="color:#f92672">}</span>
+    <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">speak</span><span style="color:#666">()</span> <span style="color:#666">{</span>
+        System<span style="color:#666">.</span><span style="color:#b44">out</span><span style="color:#666">.</span><span style="color:#b44">println</span><span style="color:#666">(</span><span style="color:#b44">&#34;I can talk&#34;</span><span style="color:#666">);</span>
+    <span style="color:#666">}</span>
 
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">write</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;I can write&#34;</span><span style="color:#f92672">);</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><p>在<code>/tmp/classloader/a/b/c</code>中修改<code>Child.java</code>，修改之后执行<code>javac Child.java</code>会引起<code>Child.class</code>文件的变化，从而触发系统自动重新加载新的class文件，执行新的方法。</p>
+    <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">write</span><span style="color:#666">()</span> <span style="color:#666">{</span>
+        System<span style="color:#666">.</span><span style="color:#b44">out</span><span style="color:#666">.</span><span style="color:#b44">println</span><span style="color:#666">(</span><span style="color:#b44">&#34;I can write&#34;</span><span style="color:#666">);</span>
+    <span style="color:#666">}</span>
+<span style="color:#666">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>在<code>/tmp/classloader/a/b/c</code>中修改<code>Child.java</code>，修改之后执行<code>javac Child.java</code>会引起<code>Child.class</code>文件的变化，从而触发系统自动重新加载新的class文件，执行新的方法。</p>
 <h2 id="总结">总结</h2>
 <p>对于Tomcat会更复杂一些，但也就是把加载一个单独的class文件升级成加载一个war包，原理是一样的。</p>
 <p>不过我不太理解的是，为什么Tomcat不能实现热更新，也就是为什么不能像Nginx那样有一段时间是新老服务共存，等已经连接到老的服务上的请求完成之后再停掉老服务呢？这个答案只能从Tomcat的源码中寻找了。</p>

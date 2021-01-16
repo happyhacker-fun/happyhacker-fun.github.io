@@ -207,49 +207,110 @@
             <p>Python虽然简单，但长时间不写还是忘，记录一些常用的片段。</p>
 <h3 id="1-脚本中出现中文时报错">1. 脚本中出现中文时报错</h3>
 <p>python2默认是不识别中文编码的，头部需要这么写</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#!/usr/bin/env python</span>
-<span style="color:#75715e"># -*- coding: utf-8 -*-</span>
-</code></pre></div><p>python3默认就支持UTF-8了，这个也就不需要了。</p>
+<div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-style:italic">#!/usr/bin/env python</span>
+<span style="color:#080;font-style:italic"># -*- coding: utf-8 -*-</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>python3默认就支持UTF-8了，这个也就不需要了。</p>
 <h3 id="2-获取本机ip">2. 获取本机IP</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#!/usr/bin/env python</span>
-<span style="color:#75715e"># -*- coding: utf-8 -*-</span>
+<div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-style:italic">#!/usr/bin/env python</span>
+<span style="color:#080;font-style:italic"># -*- coding: utf-8 -*-</span>
 
-<span style="color:#f92672">import</span> netifaces <span style="color:#f92672">as</span> ni
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">netifaces</span> <span style="color:#a2f;font-weight:bold">as</span> <span style="color:#00f;font-weight:bold">ni</span>
 
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_hostname</span>():
-	<span style="color:#66d9ef">return</span> ni<span style="color:#f92672">.</span>ifaddresses(<span style="color:#e6db74">&#39;eth0&#39;</span>)[ni<span style="color:#f92672">.</span>AF_INET][<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;addr&#39;</span>]
-</code></pre></div><h3 id="3-判断一个包是否已经安装">3. 判断一个包是否已经安装</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#!/usr/bin/env python</span>
-<span style="color:#75715e"># -*- coding: utf-8 -*-</span>
-<span style="color:#f92672">import</span> os
+<span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">get_hostname</span>():
+	<span style="color:#a2f;font-weight:bold">return</span> ni<span style="color:#666">.</span>ifaddresses(<span style="color:#b44">&#39;eth0&#39;</span>)[ni<span style="color:#666">.</span>AF_INET][<span style="color:#666">0</span>][<span style="color:#b44">&#39;addr&#39;</span>]
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="3-判断一个包是否已经安装">3. 判断一个包是否已经安装</h3>
+<div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-style:italic">#!/usr/bin/env python</span>
+<span style="color:#080;font-style:italic"># -*- coding: utf-8 -*-</span>
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">os</span>
 
-output <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>popen(<span style="color:#e6db74">&#39;rpm -q jdk1.8&#39;</span>)<span style="color:#f92672">.</span>readlines()
-<span style="color:#66d9ef">for</span> line <span style="color:#f92672">in</span> output:
-    <span style="color:#66d9ef">print</span>(line)
+output <span style="color:#666">=</span> os<span style="color:#666">.</span>popen(<span style="color:#b44">&#39;rpm -q jdk1.8&#39;</span>)<span style="color:#666">.</span>readlines()
+<span style="color:#a2f;font-weight:bold">for</span> line <span style="color:#a2f;font-weight:bold">in</span> output:
+    <span style="color:#a2f;font-weight:bold">print</span>(line)
 
-</code></pre></div><blockquote>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
 <p><code>os.popen('cmd').readlines()</code>和<code>os.system('cmd')</code>的区别在于前者会把命令的输出保存到<code>output</code>中，而后者则不会，所以如果需要关注命令的输出，就用前面这个。</p>
 </blockquote>
 <h3 id="4-下载一个文件">4. 下载一个文件</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#!/usr/bin/env python</span>
-<span style="color:#75715e"># -*- coding: utf-8 -*-</span>
+<div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-style:italic">#!/usr/bin/env python</span>
+<span style="color:#080;font-style:italic"># -*- coding: utf-8 -*-</span>
 
-<span style="color:#f92672">import</span> urllib
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">urllib</span>
 
-urllib<span style="color:#f92672">.</span>urlretrieve(URL_JDK_8, filename<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;/data1/jdk-8u231-linux-x64.rpm&#39;</span>)
-</code></pre></div><blockquote>
+urllib<span style="color:#666">.</span>urlretrieve(URL_JDK_8, filename<span style="color:#666">=</span><span style="color:#b44">&#39;/data1/jdk-8u231-linux-x64.rpm&#39;</span>)
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
 <p>如果文件已经存在，则会覆盖</p>
 </blockquote>
 <h3 id="5-检查文件是否存在">5. 检查文件是否存在</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#!/usr/bin/env python</span>
-<span style="color:#75715e"># -*- coding: utf-8 -*-</span>
+<div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-style:italic">#!/usr/bin/env python</span>
+<span style="color:#080;font-style:italic"># -*- coding: utf-8 -*-</span>
 
-<span style="color:#f92672">import</span> os
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">os</span>
 
-<span style="color:#66d9ef">if</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>isfile(<span style="color:#e6db74">&#39;/path/to/file&#39;</span>):
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;文件存在&#39;</span>)
+<span style="color:#a2f;font-weight:bold">if</span> os<span style="color:#666">.</span>path<span style="color:#666">.</span>isfile(<span style="color:#b44">&#39;/path/to/file&#39;</span>):
+    <span style="color:#a2f;font-weight:bold">print</span>(<span style="color:#b44">&#39;文件存在&#39;</span>)
 
-</code></pre></div>
+</code></pre></td></tr></table>
+</div>
+</div>
         </div>
 
         

@@ -216,41 +216,82 @@
 <li>这两个我谁都不用，我要用第三个，所有第三方的库写的日志都转发到我自己用的这个日志框架上</li>
 </ol>
 <p>这就是所谓的bridge了，具体来说如下</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> fun.happyhacker<span style="color:#f92672">;</span>
+<div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f;font-weight:bold">package</span> <span style="color:#00f;font-weight:bold">fun.happyhacker</span><span style="color:#666">;</span>
 
-<span style="color:#f92672">import</span> java.util.logging.Logger<span style="color:#f92672">;</span>
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">java.util.logging.Logger</span><span style="color:#666">;</span>
 
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">JULTest</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> Logger LOG <span style="color:#f92672">=</span> Logger<span style="color:#f92672">.</span><span style="color:#a6e22e">getLogger</span><span style="color:#f92672">(</span>JULTest<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getCanonicalName</span><span style="color:#f92672">());</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        log<span style="color:#f92672">();</span>
-    <span style="color:#f92672">}</span>
+<span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">JULTest</span> <span style="color:#666">{</span>
+    <span style="color:#a2f;font-weight:bold">private</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#a2f;font-weight:bold">final</span> Logger LOG <span style="color:#666">=</span> Logger<span style="color:#666">.</span><span style="color:#b44">getLogger</span><span style="color:#666">(</span>JULTest<span style="color:#666">.</span><span style="color:#b44">class</span><span style="color:#666">.</span><span style="color:#b44">getCanonicalName</span><span style="color:#666">());</span>
+    <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">main</span><span style="color:#666">(</span>String<span style="color:#666">[]</span> args<span style="color:#666">)</span> <span style="color:#666">{</span>
+        log<span style="color:#666">();</span>
+    <span style="color:#666">}</span>
 
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">log</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-        LOG<span style="color:#f92672">.</span><span style="color:#a6e22e">info</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;hello log from JUL&#34;</span><span style="color:#f92672">);</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><p>
+    <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">log</span><span style="color:#666">()</span> <span style="color:#666">{</span>
+        LOG<span style="color:#666">.</span><span style="color:#b44">info</span><span style="color:#666">(</span><span style="color:#b44">&#34;hello log from JUL&#34;</span><span style="color:#666">);</span>
+    <span style="color:#666">}</span>
+<span style="color:#666">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>
         <a data-fancybox="gallery" href="/images/2020-11-21-16-05-19.png">
             <img class="mx-auto" alt="" src="/images/2020-11-21-16-05-19.png" />
         </a>
     </p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> fun.happyhacker<span style="color:#f92672">;</span>
+<div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f;font-weight:bold">package</span> <span style="color:#00f;font-weight:bold">fun.happyhacker</span><span style="color:#666">;</span>
 
-<span style="color:#f92672">import</span> org.apache.log4j.Logger<span style="color:#f92672">;</span>
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">org.apache.log4j.Logger</span><span style="color:#666">;</span>
 
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Log4jTest</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> Logger LOG <span style="color:#f92672">=</span> Logger<span style="color:#f92672">.</span><span style="color:#a6e22e">getLogger</span><span style="color:#f92672">(</span>Log4jTest<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
+<span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">Log4jTest</span> <span style="color:#666">{</span>
+    <span style="color:#a2f;font-weight:bold">private</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#a2f;font-weight:bold">final</span> Logger LOG <span style="color:#666">=</span> Logger<span style="color:#666">.</span><span style="color:#b44">getLogger</span><span style="color:#666">(</span>Log4jTest<span style="color:#666">.</span><span style="color:#b44">class</span><span style="color:#666">);</span>
 
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        log<span style="color:#f92672">();</span>
-    <span style="color:#f92672">}</span>
+    <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">main</span><span style="color:#666">(</span>String<span style="color:#666">[]</span> args<span style="color:#666">)</span> <span style="color:#666">{</span>
+        log<span style="color:#666">();</span>
+    <span style="color:#666">}</span>
 
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">log</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-        LOG<span style="color:#f92672">.</span><span style="color:#a6e22e">info</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;hello log from log4j&#34;</span><span style="color:#f92672">);</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><p>
+    <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">log</span><span style="color:#666">()</span> <span style="color:#666">{</span>
+        LOG<span style="color:#666">.</span><span style="color:#b44">info</span><span style="color:#666">(</span><span style="color:#b44">&#34;hello log from log4j&#34;</span><span style="color:#666">);</span>
+    <span style="color:#666">}</span>
+<span style="color:#666">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>
         <a data-fancybox="gallery" href="/images/2020-11-21-15-40-36.png">
             <img class="mx-auto" alt="" src="/images/2020-11-21-15-40-36.png" />
         </a>
@@ -263,61 +304,125 @@
         </a>
     </p>
 <p>就现在的例子来说，加上</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">        <span style="color:#f92672">&lt;dependency&gt;</span>
-            <span style="color:#f92672">&lt;groupId&gt;</span>org.slf4j<span style="color:#f92672">&lt;/groupId&gt;</span>
-            <span style="color:#f92672">&lt;artifactId&gt;</span>slf4j-api<span style="color:#f92672">&lt;/artifactId&gt;</span>
-            <span style="color:#f92672">&lt;version&gt;</span>1.7.30<span style="color:#f92672">&lt;/version&gt;</span>
-        <span style="color:#f92672">&lt;/dependency&gt;</span>
-        <span style="color:#f92672">&lt;dependency&gt;</span>
-            <span style="color:#f92672">&lt;groupId&gt;</span>org.slf4j<span style="color:#f92672">&lt;/groupId&gt;</span>
-            <span style="color:#f92672">&lt;artifactId&gt;</span>jul-to-slf4j<span style="color:#f92672">&lt;/artifactId&gt;</span>
-            <span style="color:#f92672">&lt;version&gt;</span>1.7.30<span style="color:#f92672">&lt;/version&gt;</span>
-        <span style="color:#f92672">&lt;/dependency&gt;</span>
-        <span style="color:#f92672">&lt;dependency&gt;</span>
-            <span style="color:#f92672">&lt;groupId&gt;</span>org.slf4j<span style="color:#f92672">&lt;/groupId&gt;</span>
-            <span style="color:#f92672">&lt;artifactId&gt;</span>slf4j-log4j12<span style="color:#f92672">&lt;/artifactId&gt;</span>
-            <span style="color:#f92672">&lt;version&gt;</span>1.7.30<span style="color:#f92672">&lt;/version&gt;</span>
-        <span style="color:#f92672">&lt;/dependency&gt;</span>
-</code></pre></div><p>这些依赖再执行<code>JULTest</code>类，发现还是一样的结果。。。。这是怎么回事儿呢。。。原来它不能自动桥接，还需要做一些改动。这里我们是将<code>JULTest</code>作为依赖使用的，也就是假设我们不能改变它的源码，所以只能改我们自己的应用。我们的应用原本是这样的</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> fun.happyhacker<span style="color:#f92672">;</span>
+<div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">        <span style="color:#008000;font-weight:bold">&lt;dependency&gt;</span>
+            <span style="color:#008000;font-weight:bold">&lt;groupId&gt;</span>org.slf4j<span style="color:#008000;font-weight:bold">&lt;/groupId&gt;</span>
+            <span style="color:#008000;font-weight:bold">&lt;artifactId&gt;</span>slf4j-api<span style="color:#008000;font-weight:bold">&lt;/artifactId&gt;</span>
+            <span style="color:#008000;font-weight:bold">&lt;version&gt;</span>1.7.30<span style="color:#008000;font-weight:bold">&lt;/version&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;/dependency&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;dependency&gt;</span>
+            <span style="color:#008000;font-weight:bold">&lt;groupId&gt;</span>org.slf4j<span style="color:#008000;font-weight:bold">&lt;/groupId&gt;</span>
+            <span style="color:#008000;font-weight:bold">&lt;artifactId&gt;</span>jul-to-slf4j<span style="color:#008000;font-weight:bold">&lt;/artifactId&gt;</span>
+            <span style="color:#008000;font-weight:bold">&lt;version&gt;</span>1.7.30<span style="color:#008000;font-weight:bold">&lt;/version&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;/dependency&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;dependency&gt;</span>
+            <span style="color:#008000;font-weight:bold">&lt;groupId&gt;</span>org.slf4j<span style="color:#008000;font-weight:bold">&lt;/groupId&gt;</span>
+            <span style="color:#008000;font-weight:bold">&lt;artifactId&gt;</span>slf4j-log4j12<span style="color:#008000;font-weight:bold">&lt;/artifactId&gt;</span>
+            <span style="color:#008000;font-weight:bold">&lt;version&gt;</span>1.7.30<span style="color:#008000;font-weight:bold">&lt;/version&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;/dependency&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>这些依赖再执行<code>JULTest</code>类，发现还是一样的结果。。。。这是怎么回事儿呢。。。原来它不能自动桥接，还需要做一些改动。这里我们是将<code>JULTest</code>作为依赖使用的，也就是假设我们不能改变它的源码，所以只能改我们自己的应用。我们的应用原本是这样的</p>
+<div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f;font-weight:bold">package</span> <span style="color:#00f;font-weight:bold">fun.happyhacker</span><span style="color:#666">;</span>
 
-<span style="color:#f92672">import</span> org.slf4j.Logger<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> org.slf4j.LoggerFactory<span style="color:#f92672">;</span>
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">org.slf4j.Logger</span><span style="color:#666">;</span>
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">org.slf4j.LoggerFactory</span><span style="color:#666">;</span>
 
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">App</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> Logger LOG <span style="color:#f92672">=</span> LoggerFactory<span style="color:#f92672">.</span><span style="color:#a6e22e">getLogger</span><span style="color:#f92672">(</span>App<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
+<span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">App</span> <span style="color:#666">{</span>
+    <span style="color:#a2f;font-weight:bold">private</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#a2f;font-weight:bold">final</span> Logger LOG <span style="color:#666">=</span> LoggerFactory<span style="color:#666">.</span><span style="color:#b44">getLogger</span><span style="color:#666">(</span>App<span style="color:#666">.</span><span style="color:#b44">class</span><span style="color:#666">);</span>
 
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        JULTest<span style="color:#f92672">.</span><span style="color:#a6e22e">log</span><span style="color:#f92672">();</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><p>执行的结果如下
+    <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">main</span><span style="color:#666">(</span>String<span style="color:#666">[]</span> args<span style="color:#666">)</span> <span style="color:#666">{</span>
+        JULTest<span style="color:#666">.</span><span style="color:#b44">log</span><span style="color:#666">();</span>
+    <span style="color:#666">}</span>
+<span style="color:#666">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>执行的结果如下
 
         <a data-fancybox="gallery" href="/images/2020-11-21-16-08-44.png">
             <img class="mx-auto" alt="" src="/images/2020-11-21-16-08-44.png" />
         </a>
     </p>
 <p>还需要改成这样</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> fun.happyhacker<span style="color:#f92672">;</span>
+<div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f;font-weight:bold">package</span> <span style="color:#00f;font-weight:bold">fun.happyhacker</span><span style="color:#666">;</span>
 
-<span style="color:#f92672">import</span> org.slf4j.Logger<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> org.slf4j.LoggerFactory<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> org.slf4j.bridge.SLF4JBridgeHandler<span style="color:#f92672">;</span>
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">org.slf4j.Logger</span><span style="color:#666">;</span>
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">org.slf4j.LoggerFactory</span><span style="color:#666">;</span>
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">org.slf4j.bridge.SLF4JBridgeHandler</span><span style="color:#666">;</span>
 
-<span style="color:#f92672">import</span> java.util.logging.LogManager<span style="color:#f92672">;</span>
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">java.util.logging.LogManager</span><span style="color:#666">;</span>
 
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">App</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> Logger LOG <span style="color:#f92672">=</span> LoggerFactory<span style="color:#f92672">.</span><span style="color:#a6e22e">getLogger</span><span style="color:#f92672">(</span>App<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
-    <span style="color:#66d9ef">static</span> <span style="color:#f92672">{</span>
-        LogManager<span style="color:#f92672">.</span><span style="color:#a6e22e">getLogManager</span><span style="color:#f92672">().</span><span style="color:#a6e22e">reset</span><span style="color:#f92672">();</span>
-        SLF4JBridgeHandler<span style="color:#f92672">.</span><span style="color:#a6e22e">install</span><span style="color:#f92672">();</span>
-    <span style="color:#f92672">}</span>
+<span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">App</span> <span style="color:#666">{</span>
+    <span style="color:#a2f;font-weight:bold">private</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#a2f;font-weight:bold">final</span> Logger LOG <span style="color:#666">=</span> LoggerFactory<span style="color:#666">.</span><span style="color:#b44">getLogger</span><span style="color:#666">(</span>App<span style="color:#666">.</span><span style="color:#b44">class</span><span style="color:#666">);</span>
+    <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#666">{</span>
+        LogManager<span style="color:#666">.</span><span style="color:#b44">getLogManager</span><span style="color:#666">().</span><span style="color:#b44">reset</span><span style="color:#666">();</span>
+        SLF4JBridgeHandler<span style="color:#666">.</span><span style="color:#b44">install</span><span style="color:#666">();</span>
+    <span style="color:#666">}</span>
 
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        JULTest<span style="color:#f92672">.</span><span style="color:#a6e22e">log</span><span style="color:#f92672">();</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><p>
+    <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">main</span><span style="color:#666">(</span>String<span style="color:#666">[]</span> args<span style="color:#666">)</span> <span style="color:#666">{</span>
+        JULTest<span style="color:#666">.</span><span style="color:#b44">log</span><span style="color:#666">();</span>
+    <span style="color:#666">}</span>
+<span style="color:#666">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>
         <a data-fancybox="gallery" href="/images/2020-11-21-16-11-14.png">
             <img class="mx-auto" alt="" src="/images/2020-11-21-16-11-14.png" />
         </a>
@@ -326,29 +431,62 @@
 <p>好消息是并没有太多的应用使用jul。所以啊，即便你是官方的实现，也不一定那么受欢迎。</p>
 <h3 id="延伸">延伸</h3>
 <p>多数情况可能是要用<code>log4j-over-slf4j</code>来将对log4j的直接调用转调到slf4j-api上，然后再通过其他的日志框架，比如logback来写日志。这里可以简单的追踪以下调用过程。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> fun.happyhacker<span style="color:#f92672">;</span>
+<div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f;font-weight:bold">package</span> <span style="color:#00f;font-weight:bold">fun.happyhacker</span><span style="color:#666">;</span>
 
-<span style="color:#f92672">import</span> org.apache.log4j.Logger<span style="color:#f92672">;</span>
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">org.apache.log4j.Logger</span><span style="color:#666">;</span>
 
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Log4jTest</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> Logger LOG <span style="color:#f92672">=</span> Logger<span style="color:#f92672">.</span><span style="color:#a6e22e">getLogger</span><span style="color:#f92672">(</span>Log4jTest<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
+<span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">Log4jTest</span> <span style="color:#666">{</span>
+    <span style="color:#a2f;font-weight:bold">private</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#a2f;font-weight:bold">final</span> Logger LOG <span style="color:#666">=</span> Logger<span style="color:#666">.</span><span style="color:#b44">getLogger</span><span style="color:#666">(</span>Log4jTest<span style="color:#666">.</span><span style="color:#b44">class</span><span style="color:#666">);</span>
 
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        LOG<span style="color:#f92672">.</span><span style="color:#a6e22e">info</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;hello from log4j&#34;</span><span style="color:#f92672">);</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><p>配合相应的log4j.properties就能有相应的输出。那么如果我不想改这块代码，而想让它直接通过logback输出，就需要引入另外两个依赖</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">    <span style="color:#f92672">&lt;dependency&gt;</span>
-      <span style="color:#f92672">&lt;groupId&gt;</span>ch.qos.logback<span style="color:#f92672">&lt;/groupId&gt;</span>
-      <span style="color:#f92672">&lt;artifactId&gt;</span>logback-classic<span style="color:#f92672">&lt;/artifactId&gt;</span>
-      <span style="color:#f92672">&lt;version&gt;</span>1.2.3<span style="color:#f92672">&lt;/version&gt;</span>
-    <span style="color:#f92672">&lt;/dependency&gt;</span>
-    <span style="color:#f92672">&lt;dependency&gt;</span>
-      <span style="color:#f92672">&lt;groupId&gt;</span>org.slf4j<span style="color:#f92672">&lt;/groupId&gt;</span>
-      <span style="color:#f92672">&lt;artifactId&gt;</span>log4j-over-slf4j<span style="color:#f92672">&lt;/artifactId&gt;</span>
-      <span style="color:#f92672">&lt;version&gt;</span>1.7.25<span style="color:#f92672">&lt;/version&gt;</span>
-    <span style="color:#f92672">&lt;/dependency&gt;</span>
-</code></pre></div><p>这时在上述代码的第9行打个断点进入debug模式，走到第一步<code>Category.java</code>，就会发现上面会有一个提示，如图所示
+    <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">main</span><span style="color:#666">(</span>String<span style="color:#666">[]</span> args<span style="color:#666">)</span> <span style="color:#666">{</span>
+        LOG<span style="color:#666">.</span><span style="color:#b44">info</span><span style="color:#666">(</span><span style="color:#b44">&#34;hello from log4j&#34;</span><span style="color:#666">);</span>
+    <span style="color:#666">}</span>
+<span style="color:#666">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>配合相应的log4j.properties就能有相应的输出。那么如果我不想改这块代码，而想让它直接通过logback输出，就需要引入另外两个依赖</p>
+<div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">    <span style="color:#008000;font-weight:bold">&lt;dependency&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;groupId&gt;</span>ch.qos.logback<span style="color:#008000;font-weight:bold">&lt;/groupId&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;artifactId&gt;</span>logback-classic<span style="color:#008000;font-weight:bold">&lt;/artifactId&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;version&gt;</span>1.2.3<span style="color:#008000;font-weight:bold">&lt;/version&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;/dependency&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;dependency&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;groupId&gt;</span>org.slf4j<span style="color:#008000;font-weight:bold">&lt;/groupId&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;artifactId&gt;</span>log4j-over-slf4j<span style="color:#008000;font-weight:bold">&lt;/artifactId&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;version&gt;</span>1.7.25<span style="color:#008000;font-weight:bold">&lt;/version&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;/dependency&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>这时在上述代码的第9行打个断点进入debug模式，走到第一步<code>Category.java</code>，就会发现上面会有一个提示，如图所示
 
         <a data-fancybox="gallery" href="/images/2020-11-23-22-20-22.png">
             <img class="mx-auto" alt="" src="/images/2020-11-23-22-20-22.png" />
@@ -378,18 +516,35 @@
         </a>
     </p>
 <p>也就是说现在classpath中存在了两个<code>LoggerFactoryBinder</code>的实现，我们要做的就是把它们中的屏蔽一个。比如如果你不想用logback，只需要在spring相关依赖中添加</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">        <span style="color:#f92672">&lt;dependency&gt;</span>
-            <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
-            <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-starter-web<span style="color:#f92672">&lt;/artifactId&gt;</span>
-            <span style="color:#f92672">&lt;version&gt;</span>2.3.1.RELEASE<span style="color:#f92672">&lt;/version&gt;</span>
-            <span style="color:#f92672">&lt;exclusions&gt;</span>
-                <span style="color:#f92672">&lt;exclusion&gt;</span>
-                    <span style="color:#f92672">&lt;groupId&gt;</span>ch.qos.logback<span style="color:#f92672">&lt;/groupId&gt;</span>
-                    <span style="color:#f92672">&lt;artifactId&gt;</span>logback-classic<span style="color:#f92672">&lt;/artifactId&gt;</span>
-                <span style="color:#f92672">&lt;/exclusion&gt;</span>
-            <span style="color:#f92672">&lt;/exclusions&gt;</span>
-        <span style="color:#f92672">&lt;/dependency&gt;</span>
-</code></pre></div><p>相应的，如果要用logback而不是log4j，就把<code>slf4j-log4j12</code>排除即可。</p>
+<div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">        <span style="color:#008000;font-weight:bold">&lt;dependency&gt;</span>
+            <span style="color:#008000;font-weight:bold">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#008000;font-weight:bold">&lt;/groupId&gt;</span>
+            <span style="color:#008000;font-weight:bold">&lt;artifactId&gt;</span>spring-boot-starter-web<span style="color:#008000;font-weight:bold">&lt;/artifactId&gt;</span>
+            <span style="color:#008000;font-weight:bold">&lt;version&gt;</span>2.3.1.RELEASE<span style="color:#008000;font-weight:bold">&lt;/version&gt;</span>
+            <span style="color:#008000;font-weight:bold">&lt;exclusions&gt;</span>
+                <span style="color:#008000;font-weight:bold">&lt;exclusion&gt;</span>
+                    <span style="color:#008000;font-weight:bold">&lt;groupId&gt;</span>ch.qos.logback<span style="color:#008000;font-weight:bold">&lt;/groupId&gt;</span>
+                    <span style="color:#008000;font-weight:bold">&lt;artifactId&gt;</span>logback-classic<span style="color:#008000;font-weight:bold">&lt;/artifactId&gt;</span>
+                <span style="color:#008000;font-weight:bold">&lt;/exclusion&gt;</span>
+            <span style="color:#008000;font-weight:bold">&lt;/exclusions&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;/dependency&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>相应的，如果要用logback而不是log4j，就把<code>slf4j-log4j12</code>排除即可。</p>
 <h2 id="一点提示">一点提示</h2>
 <p>前面我们说到了，如果想把直接调用log4j的请求转发到slf4j-api上，再根据实际情况决定最终底层用哪个日志框架。而slf4j-log4j12就是那个决定让slf4j使用log4j写日志的包，那么如果这两个包同时出现又会怎么样呢？</p>
 <p>
@@ -397,19 +552,37 @@
             <img class="mx-auto" alt="" src="/images/2020-11-21-16-50-17.png" />
         </a>
     </p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">    <span style="color:#f92672">&lt;dependencies&gt;</span>
-        <span style="color:#f92672">&lt;dependency&gt;</span>
-            <span style="color:#f92672">&lt;groupId&gt;</span>org.slf4j<span style="color:#f92672">&lt;/groupId&gt;</span>
-            <span style="color:#f92672">&lt;artifactId&gt;</span>slf4j-log4j12<span style="color:#f92672">&lt;/artifactId&gt;</span>
-            <span style="color:#f92672">&lt;version&gt;</span>1.7.30<span style="color:#f92672">&lt;/version&gt;</span>
-        <span style="color:#f92672">&lt;/dependency&gt;</span>
-        <span style="color:#f92672">&lt;dependency&gt;</span>
-            <span style="color:#f92672">&lt;groupId&gt;</span>org.slf4j<span style="color:#f92672">&lt;/groupId&gt;</span>
-            <span style="color:#f92672">&lt;artifactId&gt;</span>log4j-over-slf4j<span style="color:#f92672">&lt;/artifactId&gt;</span>
-            <span style="color:#f92672">&lt;version&gt;</span>1.7.30<span style="color:#f92672">&lt;/version&gt;</span>
-        <span style="color:#f92672">&lt;/dependency&gt;</span>
-    <span style="color:#f92672">&lt;/dependencies&gt;</span>
-</code></pre></div><p>再执行<code>App</code>，就会像下面这样崩溃了
+<div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">    <span style="color:#008000;font-weight:bold">&lt;dependencies&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;dependency&gt;</span>
+            <span style="color:#008000;font-weight:bold">&lt;groupId&gt;</span>org.slf4j<span style="color:#008000;font-weight:bold">&lt;/groupId&gt;</span>
+            <span style="color:#008000;font-weight:bold">&lt;artifactId&gt;</span>slf4j-log4j12<span style="color:#008000;font-weight:bold">&lt;/artifactId&gt;</span>
+            <span style="color:#008000;font-weight:bold">&lt;version&gt;</span>1.7.30<span style="color:#008000;font-weight:bold">&lt;/version&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;/dependency&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;dependency&gt;</span>
+            <span style="color:#008000;font-weight:bold">&lt;groupId&gt;</span>org.slf4j<span style="color:#008000;font-weight:bold">&lt;/groupId&gt;</span>
+            <span style="color:#008000;font-weight:bold">&lt;artifactId&gt;</span>log4j-over-slf4j<span style="color:#008000;font-weight:bold">&lt;/artifactId&gt;</span>
+            <span style="color:#008000;font-weight:bold">&lt;version&gt;</span>1.7.30<span style="color:#008000;font-weight:bold">&lt;/version&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;/dependency&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;/dependencies&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>再执行<code>App</code>，就会像下面这样崩溃了
 
         <a data-fancybox="gallery" href="/images/2020-11-21-16-52-24.png">
             <img class="mx-auto" alt="" src="/images/2020-11-21-16-52-24.png" />

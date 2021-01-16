@@ -231,120 +231,285 @@
 </ol>
 <h2 id="创建stream的几种方式">创建Stream的几种方式</h2>
 <h3 id="1-streamofval1-val2-val3">1. <code>Stream.Of(val1, val2, val3)</code></h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">StreamBuilders</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        Stream<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> stream <span style="color:#f92672">=</span> Stream<span style="color:#f92672">.</span><span style="color:#a6e22e">of</span><span style="color:#f92672">(</span>1<span style="color:#f92672">,</span>2<span style="color:#f92672">,</span>3<span style="color:#f92672">,</span>4<span style="color:#f92672">,</span>5<span style="color:#f92672">,</span>6<span style="color:#f92672">,</span>7<span style="color:#f92672">,</span>8<span style="color:#f92672">,</span>9<span style="color:#f92672">);</span>
-        stream<span style="color:#f92672">.</span><span style="color:#a6e22e">forEach</span><span style="color:#f92672">(</span>p <span style="color:#f92672">-&gt;</span> System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>p<span style="color:#f92672">));</span>
-        <span style="color:#75715e">// stream.forEach(System.out::println);
-</span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><h3 id="2-streamofarrayofelements">2. <code>Stream.of(arrayOfElements)</code></h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">StreamBuilders</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        Stream<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> stream <span style="color:#f92672">=</span> Stream<span style="color:#f92672">.</span><span style="color:#a6e22e">of</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Integer<span style="color:#f92672">[]{</span>1<span style="color:#f92672">,</span>2<span style="color:#f92672">,</span>3<span style="color:#f92672">,</span>4<span style="color:#f92672">,</span>5<span style="color:#f92672">,</span>6<span style="color:#f92672">,</span>7<span style="color:#f92672">,</span>8<span style="color:#f92672">,</span>9<span style="color:#f92672">});</span>
-        stream<span style="color:#f92672">.</span><span style="color:#a6e22e">forEach</span><span style="color:#f92672">(</span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">::</span>println<span style="color:#f92672">);</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><h3 id="3-liststream">3. <code>List.stream()</code></h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">StreamBuilders</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        List<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> list <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;();</span>
-        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> 10<span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
-            list<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>i<span style="color:#f92672">);</span>
-        <span style="color:#f92672">}</span>
+<div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">StreamBuilders</span> <span style="color:#666">{</span>
+    <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">main</span><span style="color:#666">(</span>String<span style="color:#666">[]</span> args<span style="color:#666">)</span> <span style="color:#666">{</span>
+        Stream<span style="color:#666">&lt;</span>Integer<span style="color:#666">&gt;</span> stream <span style="color:#666">=</span> Stream<span style="color:#666">.</span><span style="color:#b44">of</span><span style="color:#666">(</span>1<span style="color:#666">,</span>2<span style="color:#666">,</span>3<span style="color:#666">,</span>4<span style="color:#666">,</span>5<span style="color:#666">,</span>6<span style="color:#666">,</span>7<span style="color:#666">,</span>8<span style="color:#666">,</span>9<span style="color:#666">);</span>
+        stream<span style="color:#666">.</span><span style="color:#b44">forEach</span><span style="color:#666">(</span>p <span style="color:#666">-&gt;</span> System<span style="color:#666">.</span><span style="color:#b44">out</span><span style="color:#666">.</span><span style="color:#b44">println</span><span style="color:#666">(</span>p<span style="color:#666">));</span>
+        <span style="color:#080;font-style:italic">// stream.forEach(System.out::println);
+</span><span style="color:#080;font-style:italic"></span>    <span style="color:#666">}</span>
+<span style="color:#666">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="2-streamofarrayofelements">2. <code>Stream.of(arrayOfElements)</code></h3>
+<div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">StreamBuilders</span> <span style="color:#666">{</span>
+    <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">main</span><span style="color:#666">(</span>String<span style="color:#666">[]</span> args<span style="color:#666">)</span> <span style="color:#666">{</span>
+        Stream<span style="color:#666">&lt;</span>Integer<span style="color:#666">&gt;</span> stream <span style="color:#666">=</span> Stream<span style="color:#666">.</span><span style="color:#b44">of</span><span style="color:#666">(</span><span style="color:#a2f;font-weight:bold">new</span> Integer<span style="color:#666">[]{</span>1<span style="color:#666">,</span>2<span style="color:#666">,</span>3<span style="color:#666">,</span>4<span style="color:#666">,</span>5<span style="color:#666">,</span>6<span style="color:#666">,</span>7<span style="color:#666">,</span>8<span style="color:#666">,</span>9<span style="color:#666">});</span>
+        stream<span style="color:#666">.</span><span style="color:#b44">forEach</span><span style="color:#666">(</span>System<span style="color:#666">.</span><span style="color:#b44">out</span><span style="color:#666">::</span>println<span style="color:#666">);</span>
+    <span style="color:#666">}</span>
+<span style="color:#666">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="3-liststream">3. <code>List.stream()</code></h3>
+<div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">StreamBuilders</span> <span style="color:#666">{</span>
+    <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">main</span><span style="color:#666">(</span>String<span style="color:#666">[]</span> args<span style="color:#666">)</span> <span style="color:#666">{</span>
+        List<span style="color:#666">&lt;</span>Integer<span style="color:#666">&gt;</span> list <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> ArrayList<span style="color:#666">&lt;&gt;();</span>
+        <span style="color:#a2f;font-weight:bold">for</span> <span style="color:#666">(</span><span style="color:#0b0;font-weight:bold">int</span> i <span style="color:#666">=</span> 0<span style="color:#666">;</span> i <span style="color:#666">&lt;</span> 10<span style="color:#666">;</span> i<span style="color:#666">++)</span> <span style="color:#666">{</span>
+            list<span style="color:#666">.</span><span style="color:#b44">add</span><span style="color:#666">(</span>i<span style="color:#666">);</span>
+        <span style="color:#666">}</span>
         
-        Stream<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> stream <span style="color:#f92672">=</span> list<span style="color:#f92672">.</span><span style="color:#a6e22e">stream</span><span style="color:#f92672">();</span>
-        stream<span style="color:#f92672">.</span><span style="color:#a6e22e">forEach</span><span style="color:#f92672">(</span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">::</span>println<span style="color:#f92672">);</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><h3 id="4-streamgenerate或streamiterate">4. <code>Stream.generate()</code>或<code>Stream.iterate()</code></h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">StreamBuilders</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        Stream<span style="color:#f92672">&lt;</span>Date<span style="color:#f92672">&gt;</span> stream <span style="color:#f92672">=</span> Stream<span style="color:#f92672">.</span><span style="color:#a6e22e">generate</span><span style="color:#f92672">(</span>Date<span style="color:#f92672">::</span><span style="color:#66d9ef">new</span><span style="color:#f92672">);</span>
-        stream<span style="color:#f92672">.</span><span style="color:#a6e22e">forEach</span><span style="color:#f92672">(</span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">::</span>println<span style="color:#f92672">);</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><h3 id="5-string-chars或string-tokens">5. <code>String chars</code>或<code>String tokens</code></h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">StreamBuilders</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        IntStream stream <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;12345_abcde&#34;</span><span style="color:#f92672">.</span><span style="color:#a6e22e">chars</span><span style="color:#f92672">();</span>
-        stream<span style="color:#f92672">.</span><span style="color:#a6e22e">forEach</span><span style="color:#f92672">(</span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">::</span>println<span style="color:#f92672">);</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><h3 id="6-map通过entrysetstream">6. Map通过<code>entrySet().stream()</code></h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">StreamBuilders</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        Map<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">,</span> String<span style="color:#f92672">&gt;</span> map <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashMap<span style="color:#f92672">&lt;&gt;();</span>
-        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> 10<span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
-            map<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>i<span style="color:#f92672">,</span> Character<span style="color:#f92672">.</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">(</span>i<span style="color:#f92672">+</span>96<span style="color:#f92672">));</span>
-        <span style="color:#f92672">}</span>
-        Stream<span style="color:#f92672">&lt;</span>Map<span style="color:#f92672">.</span><span style="color:#a6e22e">Entry</span><span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">,</span> String<span style="color:#f92672">&gt;&gt;</span> stream <span style="color:#f92672">=</span> map<span style="color:#f92672">.</span><span style="color:#a6e22e">entrySet</span><span style="color:#f92672">().</span><span style="color:#a6e22e">stream</span><span style="color:#f92672">();</span>
-        stream<span style="color:#f92672">.</span><span style="color:#a6e22e">forEach</span><span style="color:#f92672">(</span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">::</span>println<span style="color:#f92672">);</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><h2 id="中间操作和终止操作">中间操作和终止操作</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">StreamBuilders</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> memberNames <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;();</span>
-    <span style="color:#66d9ef">static</span> <span style="color:#f92672">{</span>
-        memberNames<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Amitabh&#34;</span><span style="color:#f92672">);</span>
-        memberNames<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Shekhar&#34;</span><span style="color:#f92672">);</span>
-        memberNames<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Aman&#34;</span><span style="color:#f92672">);</span>
-        memberNames<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Rahul&#34;</span><span style="color:#f92672">);</span>
-        memberNames<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Shahrukh&#34;</span><span style="color:#f92672">);</span>
-        memberNames<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Salman&#34;</span><span style="color:#f92672">);</span>
-        memberNames<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Yana&#34;</span><span style="color:#f92672">);</span>
-        memberNames<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Lokesh&#34;</span><span style="color:#f92672">);</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><h3 id="中间操作">中间操作</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        memberNames<span style="color:#f92672">.</span><span style="color:#a6e22e">stream</span><span style="color:#f92672">().</span><span style="color:#a6e22e">filter</span><span style="color:#f92672">(</span>s <span style="color:#f92672">-&gt;</span> s<span style="color:#f92672">.</span><span style="color:#a6e22e">startsWith</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;A&#34;</span><span style="color:#f92672">))</span>
-                <span style="color:#f92672">.</span><span style="color:#a6e22e">forEach</span><span style="color:#f92672">(</span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">::</span>println<span style="color:#f92672">);</span>
+        Stream<span style="color:#666">&lt;</span>Integer<span style="color:#666">&gt;</span> stream <span style="color:#666">=</span> list<span style="color:#666">.</span><span style="color:#b44">stream</span><span style="color:#666">();</span>
+        stream<span style="color:#666">.</span><span style="color:#b44">forEach</span><span style="color:#666">(</span>System<span style="color:#666">.</span><span style="color:#b44">out</span><span style="color:#666">::</span>println<span style="color:#666">);</span>
+    <span style="color:#666">}</span>
+<span style="color:#666">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="4-streamgenerate或streamiterate">4. <code>Stream.generate()</code>或<code>Stream.iterate()</code></h3>
+<div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">StreamBuilders</span> <span style="color:#666">{</span>
+    <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">main</span><span style="color:#666">(</span>String<span style="color:#666">[]</span> args<span style="color:#666">)</span> <span style="color:#666">{</span>
+        Stream<span style="color:#666">&lt;</span>Date<span style="color:#666">&gt;</span> stream <span style="color:#666">=</span> Stream<span style="color:#666">.</span><span style="color:#b44">generate</span><span style="color:#666">(</span>Date<span style="color:#666">::</span><span style="color:#a2f;font-weight:bold">new</span><span style="color:#666">);</span>
+        stream<span style="color:#666">.</span><span style="color:#b44">forEach</span><span style="color:#666">(</span>System<span style="color:#666">.</span><span style="color:#b44">out</span><span style="color:#666">::</span>println<span style="color:#666">);</span>
+    <span style="color:#666">}</span>
+<span style="color:#666">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="5-string-chars或string-tokens">5. <code>String chars</code>或<code>String tokens</code></h3>
+<div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">StreamBuilders</span> <span style="color:#666">{</span>
+    <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">main</span><span style="color:#666">(</span>String<span style="color:#666">[]</span> args<span style="color:#666">)</span> <span style="color:#666">{</span>
+        IntStream stream <span style="color:#666">=</span> <span style="color:#b44">&#34;12345_abcde&#34;</span><span style="color:#666">.</span><span style="color:#b44">chars</span><span style="color:#666">();</span>
+        stream<span style="color:#666">.</span><span style="color:#b44">forEach</span><span style="color:#666">(</span>System<span style="color:#666">.</span><span style="color:#b44">out</span><span style="color:#666">::</span>println<span style="color:#666">);</span>
+    <span style="color:#666">}</span>
+<span style="color:#666">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="6-map通过entrysetstream">6. Map通过<code>entrySet().stream()</code></h3>
+<div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">StreamBuilders</span> <span style="color:#666">{</span>
+    <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">main</span><span style="color:#666">(</span>String<span style="color:#666">[]</span> args<span style="color:#666">)</span> <span style="color:#666">{</span>
+        Map<span style="color:#666">&lt;</span>Integer<span style="color:#666">,</span> String<span style="color:#666">&gt;</span> map <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> HashMap<span style="color:#666">&lt;&gt;();</span>
+        <span style="color:#a2f;font-weight:bold">for</span> <span style="color:#666">(</span><span style="color:#0b0;font-weight:bold">int</span> i <span style="color:#666">=</span> 0<span style="color:#666">;</span> i <span style="color:#666">&lt;</span> 10<span style="color:#666">;</span> i<span style="color:#666">++)</span> <span style="color:#666">{</span>
+            map<span style="color:#666">.</span><span style="color:#b44">put</span><span style="color:#666">(</span>i<span style="color:#666">,</span> Character<span style="color:#666">.</span><span style="color:#b44">toString</span><span style="color:#666">(</span>i<span style="color:#666">+</span>96<span style="color:#666">));</span>
+        <span style="color:#666">}</span>
+        Stream<span style="color:#666">&lt;</span>Map<span style="color:#666">.</span><span style="color:#b44">Entry</span><span style="color:#666">&lt;</span>Integer<span style="color:#666">,</span> String<span style="color:#666">&gt;&gt;</span> stream <span style="color:#666">=</span> map<span style="color:#666">.</span><span style="color:#b44">entrySet</span><span style="color:#666">().</span><span style="color:#b44">stream</span><span style="color:#666">();</span>
+        stream<span style="color:#666">.</span><span style="color:#b44">forEach</span><span style="color:#666">(</span>System<span style="color:#666">.</span><span style="color:#b44">out</span><span style="color:#666">::</span>println<span style="color:#666">);</span>
+    <span style="color:#666">}</span>
+<span style="color:#666">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="中间操作和终止操作">中间操作和终止操作</h2>
+<div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">StreamBuilders</span> <span style="color:#666">{</span>
+    <span style="color:#a2f;font-weight:bold">private</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#a2f;font-weight:bold">final</span> List<span style="color:#666">&lt;</span>String<span style="color:#666">&gt;</span> memberNames <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> ArrayList<span style="color:#666">&lt;&gt;();</span>
+    <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#666">{</span>
+        memberNames<span style="color:#666">.</span><span style="color:#b44">add</span><span style="color:#666">(</span><span style="color:#b44">&#34;Amitabh&#34;</span><span style="color:#666">);</span>
+        memberNames<span style="color:#666">.</span><span style="color:#b44">add</span><span style="color:#666">(</span><span style="color:#b44">&#34;Shekhar&#34;</span><span style="color:#666">);</span>
+        memberNames<span style="color:#666">.</span><span style="color:#b44">add</span><span style="color:#666">(</span><span style="color:#b44">&#34;Aman&#34;</span><span style="color:#666">);</span>
+        memberNames<span style="color:#666">.</span><span style="color:#b44">add</span><span style="color:#666">(</span><span style="color:#b44">&#34;Rahul&#34;</span><span style="color:#666">);</span>
+        memberNames<span style="color:#666">.</span><span style="color:#b44">add</span><span style="color:#666">(</span><span style="color:#b44">&#34;Shahrukh&#34;</span><span style="color:#666">);</span>
+        memberNames<span style="color:#666">.</span><span style="color:#b44">add</span><span style="color:#666">(</span><span style="color:#b44">&#34;Salman&#34;</span><span style="color:#666">);</span>
+        memberNames<span style="color:#666">.</span><span style="color:#b44">add</span><span style="color:#666">(</span><span style="color:#b44">&#34;Yana&#34;</span><span style="color:#666">);</span>
+        memberNames<span style="color:#666">.</span><span style="color:#b44">add</span><span style="color:#666">(</span><span style="color:#b44">&#34;Lokesh&#34;</span><span style="color:#666">);</span>
+    <span style="color:#666">}</span>
+<span style="color:#666">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="中间操作">中间操作</h3>
+<div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">main</span><span style="color:#666">(</span>String<span style="color:#666">[]</span> args<span style="color:#666">)</span> <span style="color:#666">{</span>
+        memberNames<span style="color:#666">.</span><span style="color:#b44">stream</span><span style="color:#666">().</span><span style="color:#b44">filter</span><span style="color:#666">(</span>s <span style="color:#666">-&gt;</span> s<span style="color:#666">.</span><span style="color:#b44">startsWith</span><span style="color:#666">(</span><span style="color:#b44">&#34;A&#34;</span><span style="color:#666">))</span>
+                <span style="color:#666">.</span><span style="color:#b44">forEach</span><span style="color:#666">(</span>System<span style="color:#666">.</span><span style="color:#b44">out</span><span style="color:#666">::</span>println<span style="color:#666">);</span>
 
-        memberNames<span style="color:#f92672">.</span><span style="color:#a6e22e">stream</span><span style="color:#f92672">().</span><span style="color:#a6e22e">filter</span><span style="color:#f92672">(</span>s <span style="color:#f92672">-&gt;</span> s<span style="color:#f92672">.</span><span style="color:#a6e22e">startsWith</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;S&#34;</span><span style="color:#f92672">))</span>
-                <span style="color:#f92672">.</span><span style="color:#a6e22e">map</span><span style="color:#f92672">(</span>String<span style="color:#f92672">::</span>toUpperCase<span style="color:#f92672">)</span>
-                <span style="color:#f92672">.</span><span style="color:#a6e22e">forEach</span><span style="color:#f92672">(</span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">::</span>println<span style="color:#f92672">);</span>
-        memberNames<span style="color:#f92672">.</span><span style="color:#a6e22e">stream</span><span style="color:#f92672">().</span><span style="color:#a6e22e">sorted</span><span style="color:#f92672">()</span>
-                <span style="color:#f92672">.</span><span style="color:#a6e22e">map</span><span style="color:#f92672">(</span>String<span style="color:#f92672">::</span>toUpperCase<span style="color:#f92672">)</span>
-                <span style="color:#f92672">.</span><span style="color:#a6e22e">forEach</span><span style="color:#f92672">(</span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">::</span>println<span style="color:#f92672">);</span>
-    <span style="color:#f92672">}</span>
-</code></pre></div><h3 id="终止操作">终止操作</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">        memberNames<span style="color:#f92672">.</span><span style="color:#a6e22e">forEach</span><span style="color:#f92672">(</span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">::</span>println<span style="color:#f92672">);</span>
-        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>memberNames<span style="color:#f92672">.</span><span style="color:#a6e22e">stream</span><span style="color:#f92672">().</span><span style="color:#a6e22e">map</span><span style="color:#f92672">(</span>String<span style="color:#f92672">::</span>toLowerCase<span style="color:#f92672">)</span>
-                <span style="color:#f92672">.</span><span style="color:#a6e22e">collect</span><span style="color:#f92672">(</span>Collectors<span style="color:#f92672">.</span><span style="color:#a6e22e">toList</span><span style="color:#f92672">()));</span>
-        <span style="color:#66d9ef">boolean</span> b1 <span style="color:#f92672">=</span> memberNames<span style="color:#f92672">.</span><span style="color:#a6e22e">stream</span><span style="color:#f92672">().</span><span style="color:#a6e22e">anyMatch</span><span style="color:#f92672">(</span>s <span style="color:#f92672">-&gt;</span> s<span style="color:#f92672">.</span><span style="color:#a6e22e">startsWith</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;A&#34;</span><span style="color:#f92672">));</span>
-        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>b1<span style="color:#f92672">);</span>
-        <span style="color:#66d9ef">boolean</span> b2 <span style="color:#f92672">=</span> memberNames<span style="color:#f92672">.</span><span style="color:#a6e22e">stream</span><span style="color:#f92672">().</span><span style="color:#a6e22e">allMatch</span><span style="color:#f92672">(</span>s <span style="color:#f92672">-&gt;</span> s<span style="color:#f92672">.</span><span style="color:#a6e22e">startsWith</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;A&#34;</span><span style="color:#f92672">));</span>
-        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>b2<span style="color:#f92672">);</span>
-        <span style="color:#66d9ef">boolean</span> b3 <span style="color:#f92672">=</span> memberNames<span style="color:#f92672">.</span><span style="color:#a6e22e">stream</span><span style="color:#f92672">().</span><span style="color:#a6e22e">noneMatch</span><span style="color:#f92672">(</span>s <span style="color:#f92672">-&gt;</span> s<span style="color:#f92672">.</span><span style="color:#a6e22e">startsWith</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;A&#34;</span><span style="color:#f92672">));</span>
-        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>b3<span style="color:#f92672">);</span>
+        memberNames<span style="color:#666">.</span><span style="color:#b44">stream</span><span style="color:#666">().</span><span style="color:#b44">filter</span><span style="color:#666">(</span>s <span style="color:#666">-&gt;</span> s<span style="color:#666">.</span><span style="color:#b44">startsWith</span><span style="color:#666">(</span><span style="color:#b44">&#34;S&#34;</span><span style="color:#666">))</span>
+                <span style="color:#666">.</span><span style="color:#b44">map</span><span style="color:#666">(</span>String<span style="color:#666">::</span>toUpperCase<span style="color:#666">)</span>
+                <span style="color:#666">.</span><span style="color:#b44">forEach</span><span style="color:#666">(</span>System<span style="color:#666">.</span><span style="color:#b44">out</span><span style="color:#666">::</span>println<span style="color:#666">);</span>
+        memberNames<span style="color:#666">.</span><span style="color:#b44">stream</span><span style="color:#666">().</span><span style="color:#b44">sorted</span><span style="color:#666">()</span>
+                <span style="color:#666">.</span><span style="color:#b44">map</span><span style="color:#666">(</span>String<span style="color:#666">::</span>toUpperCase<span style="color:#666">)</span>
+                <span style="color:#666">.</span><span style="color:#b44">forEach</span><span style="color:#666">(</span>System<span style="color:#666">.</span><span style="color:#b44">out</span><span style="color:#666">::</span>println<span style="color:#666">);</span>
+    <span style="color:#666">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="终止操作">终止操作</h3>
+<div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">        memberNames<span style="color:#666">.</span><span style="color:#b44">forEach</span><span style="color:#666">(</span>System<span style="color:#666">.</span><span style="color:#b44">out</span><span style="color:#666">::</span>println<span style="color:#666">);</span>
+        System<span style="color:#666">.</span><span style="color:#b44">out</span><span style="color:#666">.</span><span style="color:#b44">println</span><span style="color:#666">(</span>memberNames<span style="color:#666">.</span><span style="color:#b44">stream</span><span style="color:#666">().</span><span style="color:#b44">map</span><span style="color:#666">(</span>String<span style="color:#666">::</span>toLowerCase<span style="color:#666">)</span>
+                <span style="color:#666">.</span><span style="color:#b44">collect</span><span style="color:#666">(</span>Collectors<span style="color:#666">.</span><span style="color:#b44">toList</span><span style="color:#666">()));</span>
+        <span style="color:#0b0;font-weight:bold">boolean</span> b1 <span style="color:#666">=</span> memberNames<span style="color:#666">.</span><span style="color:#b44">stream</span><span style="color:#666">().</span><span style="color:#b44">anyMatch</span><span style="color:#666">(</span>s <span style="color:#666">-&gt;</span> s<span style="color:#666">.</span><span style="color:#b44">startsWith</span><span style="color:#666">(</span><span style="color:#b44">&#34;A&#34;</span><span style="color:#666">));</span>
+        System<span style="color:#666">.</span><span style="color:#b44">out</span><span style="color:#666">.</span><span style="color:#b44">println</span><span style="color:#666">(</span>b1<span style="color:#666">);</span>
+        <span style="color:#0b0;font-weight:bold">boolean</span> b2 <span style="color:#666">=</span> memberNames<span style="color:#666">.</span><span style="color:#b44">stream</span><span style="color:#666">().</span><span style="color:#b44">allMatch</span><span style="color:#666">(</span>s <span style="color:#666">-&gt;</span> s<span style="color:#666">.</span><span style="color:#b44">startsWith</span><span style="color:#666">(</span><span style="color:#b44">&#34;A&#34;</span><span style="color:#666">));</span>
+        System<span style="color:#666">.</span><span style="color:#b44">out</span><span style="color:#666">.</span><span style="color:#b44">println</span><span style="color:#666">(</span>b2<span style="color:#666">);</span>
+        <span style="color:#0b0;font-weight:bold">boolean</span> b3 <span style="color:#666">=</span> memberNames<span style="color:#666">.</span><span style="color:#b44">stream</span><span style="color:#666">().</span><span style="color:#b44">noneMatch</span><span style="color:#666">(</span>s <span style="color:#666">-&gt;</span> s<span style="color:#666">.</span><span style="color:#b44">startsWith</span><span style="color:#666">(</span><span style="color:#b44">&#34;A&#34;</span><span style="color:#666">));</span>
+        System<span style="color:#666">.</span><span style="color:#b44">out</span><span style="color:#666">.</span><span style="color:#b44">println</span><span style="color:#666">(</span>b3<span style="color:#666">);</span>
 
-        <span style="color:#66d9ef">long</span> count <span style="color:#f92672">=</span> memberNames<span style="color:#f92672">.</span><span style="color:#a6e22e">stream</span><span style="color:#f92672">().</span><span style="color:#a6e22e">filter</span><span style="color:#f92672">(</span>s <span style="color:#f92672">-&gt;</span> s<span style="color:#f92672">.</span><span style="color:#a6e22e">startsWith</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;S&#34;</span><span style="color:#f92672">)).</span><span style="color:#a6e22e">count</span><span style="color:#f92672">();</span>
-        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>count<span style="color:#f92672">);</span>
+        <span style="color:#0b0;font-weight:bold">long</span> count <span style="color:#666">=</span> memberNames<span style="color:#666">.</span><span style="color:#b44">stream</span><span style="color:#666">().</span><span style="color:#b44">filter</span><span style="color:#666">(</span>s <span style="color:#666">-&gt;</span> s<span style="color:#666">.</span><span style="color:#b44">startsWith</span><span style="color:#666">(</span><span style="color:#b44">&#34;S&#34;</span><span style="color:#666">)).</span><span style="color:#b44">count</span><span style="color:#666">();</span>
+        System<span style="color:#666">.</span><span style="color:#b44">out</span><span style="color:#666">.</span><span style="color:#b44">println</span><span style="color:#666">(</span>count<span style="color:#666">);</span>
 
-        Optional<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> reduced <span style="color:#f92672">=</span> memberNames<span style="color:#f92672">.</span><span style="color:#a6e22e">stream</span><span style="color:#f92672">()</span>
-                <span style="color:#f92672">.</span><span style="color:#a6e22e">reduce</span><span style="color:#f92672">((</span>s1<span style="color:#f92672">,</span> s2<span style="color:#f92672">)</span> <span style="color:#f92672">-&gt;</span> s1 <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;#&#34;</span> <span style="color:#f92672">+</span> s2<span style="color:#f92672">);</span>
-        reduced<span style="color:#f92672">.</span><span style="color:#a6e22e">ifPresent</span><span style="color:#f92672">(</span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">::</span>println<span style="color:#f92672">);</span>
-</code></pre></div><h2 id="map和flatmap"><code>map</code>和<code>flatMap</code></h2>
+        Optional<span style="color:#666">&lt;</span>String<span style="color:#666">&gt;</span> reduced <span style="color:#666">=</span> memberNames<span style="color:#666">.</span><span style="color:#b44">stream</span><span style="color:#666">()</span>
+                <span style="color:#666">.</span><span style="color:#b44">reduce</span><span style="color:#666">((</span>s1<span style="color:#666">,</span> s2<span style="color:#666">)</span> <span style="color:#666">-&gt;</span> s1 <span style="color:#666">+</span> <span style="color:#b44">&#34;#&#34;</span> <span style="color:#666">+</span> s2<span style="color:#666">);</span>
+        reduced<span style="color:#666">.</span><span style="color:#b44">ifPresent</span><span style="color:#666">(</span>System<span style="color:#666">.</span><span style="color:#b44">out</span><span style="color:#666">::</span>println<span style="color:#666">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="map和flatmap"><code>map</code>和<code>flatMap</code></h2>
 <p>这两个真是最容易搞混的，不过如果要搞清楚他们的区别也很简单：<code>map</code>就是一个转换，把原来是a的转换成b，原来是<code>List&lt;String&gt;</code>，<code>map</code>之后还是<code>List&lt;String&gt;</code>（其实是stream，是类型没有变），而<code>flatMap</code>会生成一个新的stream把原先的多个stream合并在一起。举例说明下</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">// 例1
-</span><span style="color:#75715e"></span>List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> lower <span style="color:#f92672">=</span> Arrays<span style="color:#f92672">.</span><span style="color:#a6e22e">asList</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;a&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;b&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;c&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;d&#34;</span><span style="color:#f92672">);</span>
-List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> upper <span style="color:#f92672">=</span> lower<span style="color:#f92672">.</span><span style="color:#a6e22e">stream</span><span style="color:#f92672">().</span><span style="color:#a6e22e">map</span><span style="color:#f92672">(</span>String<span style="color:#f92672">::</span>toUpperCase<span style="color:#f92672">).</span><span style="color:#a6e22e">collect</span><span style="color:#f92672">(</span>Collectors<span style="color:#f92672">.</span><span style="color:#a6e22e">toList</span><span style="color:#f92672">());</span>
-System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>lower<span style="color:#f92672">);</span>
-System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>upper<span style="color:#f92672">);</span>
-</code></pre></div><p>从这个例子可以看出，通过<code>map</code>，让这个<code>List&lt;String&gt;</code>中的每个元素都执行了<code>e.toUpperCase()</code>方法，输出的结果就是</p>
+<div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-style:italic">// 例1
+</span><span style="color:#080;font-style:italic"></span>List<span style="color:#666">&lt;</span>String<span style="color:#666">&gt;</span> lower <span style="color:#666">=</span> Arrays<span style="color:#666">.</span><span style="color:#b44">asList</span><span style="color:#666">(</span><span style="color:#b44">&#34;a&#34;</span><span style="color:#666">,</span> <span style="color:#b44">&#34;b&#34;</span><span style="color:#666">,</span> <span style="color:#b44">&#34;c&#34;</span><span style="color:#666">,</span> <span style="color:#b44">&#34;d&#34;</span><span style="color:#666">);</span>
+List<span style="color:#666">&lt;</span>String<span style="color:#666">&gt;</span> upper <span style="color:#666">=</span> lower<span style="color:#666">.</span><span style="color:#b44">stream</span><span style="color:#666">().</span><span style="color:#b44">map</span><span style="color:#666">(</span>String<span style="color:#666">::</span>toUpperCase<span style="color:#666">).</span><span style="color:#b44">collect</span><span style="color:#666">(</span>Collectors<span style="color:#666">.</span><span style="color:#b44">toList</span><span style="color:#666">());</span>
+System<span style="color:#666">.</span><span style="color:#b44">out</span><span style="color:#666">.</span><span style="color:#b44">println</span><span style="color:#666">(</span>lower<span style="color:#666">);</span>
+System<span style="color:#666">.</span><span style="color:#b44">out</span><span style="color:#666">.</span><span style="color:#b44">println</span><span style="color:#666">(</span>upper<span style="color:#666">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>从这个例子可以看出，通过<code>map</code>，让这个<code>List&lt;String&gt;</code>中的每个元素都执行了<code>e.toUpperCase()</code>方法，输出的结果就是</p>
 <pre><code>[a, b, c, d]
 [A, B, C, D]
 </code></pre><p>下面看<code>flatMap</code>可以实现什么功能</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">// 例2
-</span><span style="color:#75715e"></span>List<span style="color:#f92672">&lt;</span>List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;&gt;</span> packed <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;();</span>
-packed<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>lower<span style="color:#f92672">);</span>
-packed<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>upper<span style="color:#f92672">);</span>
-System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>packed<span style="color:#f92672">);</span>
+<div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-style:italic">// 例2
+</span><span style="color:#080;font-style:italic"></span>List<span style="color:#666">&lt;</span>List<span style="color:#666">&lt;</span>String<span style="color:#666">&gt;&gt;</span> packed <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> ArrayList<span style="color:#666">&lt;&gt;();</span>
+packed<span style="color:#666">.</span><span style="color:#b44">add</span><span style="color:#666">(</span>lower<span style="color:#666">);</span>
+packed<span style="color:#666">.</span><span style="color:#b44">add</span><span style="color:#666">(</span>upper<span style="color:#666">);</span>
+System<span style="color:#666">.</span><span style="color:#b44">out</span><span style="color:#666">.</span><span style="color:#b44">println</span><span style="color:#666">(</span>packed<span style="color:#666">);</span>
 
-List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> flat <span style="color:#f92672">=</span> packed<span style="color:#f92672">.</span><span style="color:#a6e22e">stream</span><span style="color:#f92672">().</span><span style="color:#a6e22e">flatMap</span><span style="color:#f92672">(</span>s <span style="color:#f92672">-&gt;</span> s<span style="color:#f92672">.</span><span style="color:#a6e22e">stream</span><span style="color:#f92672">()).</span><span style="color:#a6e22e">map</span><span style="color:#f92672">(</span>String<span style="color:#f92672">::</span>toUpperCase<span style="color:#f92672">).</span><span style="color:#a6e22e">collect</span><span style="color:#f92672">(</span>Collectors<span style="color:#f92672">.</span><span style="color:#a6e22e">toList</span><span style="color:#f92672">());</span>
-System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>flat<span style="color:#f92672">);</span>
-</code></pre></div><p>这里必须要注意一点，<code>map()</code>的输出是stream中的一级元素，像例1中的<code>String::toUpperCase</code>显然是输入<code>a</code>，输出<code>A</code>。而对于<code>flatMap</code>而言，它的输入是一个Collection，而输出是一个stream，那怎么形成一个stream呢，像例2中的<code>packed</code>，它就是由两个<code>List&lt;String&gt;</code>组成的，对他们调用<code>stream()</code>方法就让它返回一个stream到<code>flatMap</code>的输出了。</p>
+List<span style="color:#666">&lt;</span>String<span style="color:#666">&gt;</span> flat <span style="color:#666">=</span> packed<span style="color:#666">.</span><span style="color:#b44">stream</span><span style="color:#666">().</span><span style="color:#b44">flatMap</span><span style="color:#666">(</span>s <span style="color:#666">-&gt;</span> s<span style="color:#666">.</span><span style="color:#b44">stream</span><span style="color:#666">()).</span><span style="color:#b44">map</span><span style="color:#666">(</span>String<span style="color:#666">::</span>toUpperCase<span style="color:#666">).</span><span style="color:#b44">collect</span><span style="color:#666">(</span>Collectors<span style="color:#666">.</span><span style="color:#b44">toList</span><span style="color:#666">());</span>
+System<span style="color:#666">.</span><span style="color:#b44">out</span><span style="color:#666">.</span><span style="color:#b44">println</span><span style="color:#666">(</span>flat<span style="color:#666">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>这里必须要注意一点，<code>map()</code>的输出是stream中的一级元素，像例1中的<code>String::toUpperCase</code>显然是输入<code>a</code>，输出<code>A</code>。而对于<code>flatMap</code>而言，它的输入是一个Collection，而输出是一个stream，那怎么形成一个stream呢，像例2中的<code>packed</code>，它就是由两个<code>List&lt;String&gt;</code>组成的，对他们调用<code>stream()</code>方法就让它返回一个stream到<code>flatMap</code>的输出了。</p>
 <p>举个不太恰当的例子，这里有3包牛奶，<code>map</code>方法只能把3包牛奶倒到3个杯子里，而<code>flatMap</code>可以把它们倒到1个杯子里。如何实现呢？当然就是在<code>flatMap</code>中把每个牛奶的袋子撕开，然后倒出来。</p>
 <p>例2的输出如下</p>
 <pre><code>[[a, b, c, d], [A, B, C, D]]
@@ -352,27 +517,57 @@ System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span>
 </code></pre><p>理解到了这一步，基本上就搞清楚了二者的区别了，总之就是记住<strong>一定要让<code>flatMap()</code>输出一个stream</strong>。</p>
 <h2 id="map的stream">Map的stream()</h2>
 <p><code>List</code>输出到stream的方法很容易理解，因为它本身就是一个一个的元素，但Map是分了key和value的，要怎么才能把它转换成stream呢？答案是<code>Map.Entry</code>。可能第一门语言就是Java的同学觉得很理所应当，但熟悉PHP的同学再来理解这个概念就有点对应不上了（因为PHP里基本上不区分<code>List</code>和<code>Map</code>，一切皆为数组）。先看一个PHP的例子</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">$a <span style="color:#f92672">=</span> [
-    <span style="color:#e6db74">&#39;a&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;b&#39;</span>,
-    <span style="color:#e6db74">&#39;c&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;d&#39;</span>,
+<div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#b8860b">$a</span> <span style="color:#666">=</span> [
+    <span style="color:#b44">&#39;a&#39;</span> <span style="color:#666">=&gt;</span> <span style="color:#b44">&#39;b&#39;</span>,
+    <span style="color:#b44">&#39;c&#39;</span> <span style="color:#666">=&gt;</span> <span style="color:#b44">&#39;d&#39;</span>,
 ];
 
-<span style="color:#66d9ef">foreach</span> ($a <span style="color:#66d9ef">as</span> $key <span style="color:#f92672">=&gt;</span> $value) {
-    <span style="color:#66d9ef">echo</span> $key <span style="color:#f92672">.</span> <span style="color:#e6db74">&#39;=&gt;&#39;</span> <span style="color:#f92672">.</span> $value, <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+<span style="color:#a2f;font-weight:bold">foreach</span> (<span style="color:#b8860b">$a</span> <span style="color:#a2f;font-weight:bold">as</span> <span style="color:#b8860b">$key</span> <span style="color:#666">=&gt;</span> <span style="color:#b8860b">$value</span>) {
+    <span style="color:#a2f;font-weight:bold">echo</span> <span style="color:#b8860b">$key</span> <span style="color:#666">.</span> <span style="color:#b44">&#39;=&gt;&#39;</span> <span style="color:#666">.</span> <span style="color:#b8860b">$value</span>, <span style="color:#b44">&#34;</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>;
 }
-</code></pre></div><p>在这个例子中<code>$key</code>和<code>$value</code>的组合就是Java中<code>Map.Entry</code>的概念了，只不过继续遵循<strong>封闭</strong>的原则，给二者都配备了对应的方法<code>getKey()</code>和<code>getValue()</code>，也就是说，可以从一个<code>Map</code>的<code>Entry</code>中同时获取当前这个元素的key和value。那么问题又来了，怎么拿到它的<code>Entry</code>呢？通过<code>entrySet()</code>方法。</p>
+</code></pre></td></tr></table>
+</div>
+</div><p>在这个例子中<code>$key</code>和<code>$value</code>的组合就是Java中<code>Map.Entry</code>的概念了，只不过继续遵循<strong>封闭</strong>的原则，给二者都配备了对应的方法<code>getKey()</code>和<code>getValue()</code>，也就是说，可以从一个<code>Map</code>的<code>Entry</code>中同时获取当前这个元素的key和value。那么问题又来了，怎么拿到它的<code>Entry</code>呢？通过<code>entrySet()</code>方法。</p>
 <p>对一个<code>Map</code>调用<code>entrySet()</code>方法，相当于新建了一个<code>List</code>，它的元素是这个<code>Map</code>的<code>Entry</code>，这就又回到了<code>List</code>，当然也就可以用stream api了。比如要把一个<code>Map</code>的key和value倒过来（PHP的<code>array_flip</code>方法）</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Map<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> String<span style="color:#f92672">&gt;</span> g <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashMap<span style="color:#f92672">&lt;&gt;();</span>
-g<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;k1&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;v1&#34;</span><span style="color:#f92672">);</span>
-g<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;k2&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;v2&#34;</span><span style="color:#f92672">);</span>
-g<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;k3&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;v3&#34;</span><span style="color:#f92672">);</span>
-g<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;k4&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;v4&#34;</span><span style="color:#f92672">);</span>
-g<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;k5&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;v5&#34;</span><span style="color:#f92672">);</span>
+<div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Map<span style="color:#666">&lt;</span>String<span style="color:#666">,</span> String<span style="color:#666">&gt;</span> g <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> HashMap<span style="color:#666">&lt;&gt;();</span>
+g<span style="color:#666">.</span><span style="color:#b44">put</span><span style="color:#666">(</span><span style="color:#b44">&#34;k1&#34;</span><span style="color:#666">,</span> <span style="color:#b44">&#34;v1&#34;</span><span style="color:#666">);</span>
+g<span style="color:#666">.</span><span style="color:#b44">put</span><span style="color:#666">(</span><span style="color:#b44">&#34;k2&#34;</span><span style="color:#666">,</span> <span style="color:#b44">&#34;v2&#34;</span><span style="color:#666">);</span>
+g<span style="color:#666">.</span><span style="color:#b44">put</span><span style="color:#666">(</span><span style="color:#b44">&#34;k3&#34;</span><span style="color:#666">,</span> <span style="color:#b44">&#34;v3&#34;</span><span style="color:#666">);</span>
+g<span style="color:#666">.</span><span style="color:#b44">put</span><span style="color:#666">(</span><span style="color:#b44">&#34;k4&#34;</span><span style="color:#666">,</span> <span style="color:#b44">&#34;v4&#34;</span><span style="color:#666">);</span>
+g<span style="color:#666">.</span><span style="color:#b44">put</span><span style="color:#666">(</span><span style="color:#b44">&#34;k5&#34;</span><span style="color:#666">,</span> <span style="color:#b44">&#34;v5&#34;</span><span style="color:#666">);</span>
 
-val h <span style="color:#f92672">=</span> g<span style="color:#f92672">.</span><span style="color:#a6e22e">entrySet</span><span style="color:#f92672">().</span><span style="color:#a6e22e">stream</span><span style="color:#f92672">().</span><span style="color:#a6e22e">collect</span><span style="color:#f92672">(</span>Collectors<span style="color:#f92672">.</span><span style="color:#a6e22e">toMap</span><span style="color:#f92672">(</span>Map<span style="color:#f92672">.</span><span style="color:#a6e22e">Entry</span><span style="color:#f92672">::</span>getValue<span style="color:#f92672">,</span> Map<span style="color:#f92672">.</span><span style="color:#a6e22e">Entry</span><span style="color:#f92672">::</span>getKey<span style="color:#f92672">));</span>
-System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>g<span style="color:#f92672">);</span>
-System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>h<span style="color:#f92672">);</span>
-</code></pre></div><p>结果如下</p>
+val h <span style="color:#666">=</span> g<span style="color:#666">.</span><span style="color:#b44">entrySet</span><span style="color:#666">().</span><span style="color:#b44">stream</span><span style="color:#666">().</span><span style="color:#b44">collect</span><span style="color:#666">(</span>Collectors<span style="color:#666">.</span><span style="color:#b44">toMap</span><span style="color:#666">(</span>Map<span style="color:#666">.</span><span style="color:#b44">Entry</span><span style="color:#666">::</span>getValue<span style="color:#666">,</span> Map<span style="color:#666">.</span><span style="color:#b44">Entry</span><span style="color:#666">::</span>getKey<span style="color:#666">));</span>
+System<span style="color:#666">.</span><span style="color:#b44">out</span><span style="color:#666">.</span><span style="color:#b44">println</span><span style="color:#666">(</span>g<span style="color:#666">);</span>
+System<span style="color:#666">.</span><span style="color:#b44">out</span><span style="color:#666">.</span><span style="color:#b44">println</span><span style="color:#666">(</span>h<span style="color:#666">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>结果如下</p>
 <pre><code>{k1=v1, k2=v2, k3=v3, k4=v4, k5=v5}
 {v1=k1, v2=k2, v3=k3, v4=k4, v5=k5}
 </code></pre><blockquote>
@@ -397,11 +592,21 @@ System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span>
 <p>这是最简单的，把一个stream中的所有元素按前面的输出收集到一个<code>List</code>中。而这个<code>List</code>的类型，当然就取决于这个stream中的元素了，参考例1的代码即可。</p>
 <h3 id="collectcollectorstomap"><code>collect(Collectors.toMap())</code></h3>
 <p>这个就相对复杂一点了，既然把结果收集成<code>map</code>，那就肯定得设置<code>key</code>和<code>value</code>，比如我们要把一个小写字母的列表和它对应的大写字母分别对应起来，</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">// 例3
-</span><span style="color:#75715e"></span>List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> lower <span style="color:#f92672">=</span> Arrays<span style="color:#f92672">.</span><span style="color:#a6e22e">asList</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;a&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;b&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;c&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;d&#34;</span><span style="color:#f92672">);</span>
-val f <span style="color:#f92672">=</span> lower<span style="color:#f92672">.</span><span style="color:#a6e22e">stream</span><span style="color:#f92672">().</span><span style="color:#a6e22e">collect</span><span style="color:#f92672">(</span>Collectors<span style="color:#f92672">.</span><span style="color:#a6e22e">toMap</span><span style="color:#f92672">(</span>e <span style="color:#f92672">-&gt;</span> e<span style="color:#f92672">,</span> String<span style="color:#f92672">::</span>toUpperCase<span style="color:#f92672">));</span>
-System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>f<span style="color:#f92672">);</span>
-</code></pre></div><p>输出如下</p>
+<div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-style:italic">// 例3
+</span><span style="color:#080;font-style:italic"></span>List<span style="color:#666">&lt;</span>String<span style="color:#666">&gt;</span> lower <span style="color:#666">=</span> Arrays<span style="color:#666">.</span><span style="color:#b44">asList</span><span style="color:#666">(</span><span style="color:#b44">&#34;a&#34;</span><span style="color:#666">,</span> <span style="color:#b44">&#34;b&#34;</span><span style="color:#666">,</span> <span style="color:#b44">&#34;c&#34;</span><span style="color:#666">,</span> <span style="color:#b44">&#34;d&#34;</span><span style="color:#666">);</span>
+val f <span style="color:#666">=</span> lower<span style="color:#666">.</span><span style="color:#b44">stream</span><span style="color:#666">().</span><span style="color:#b44">collect</span><span style="color:#666">(</span>Collectors<span style="color:#666">.</span><span style="color:#b44">toMap</span><span style="color:#666">(</span>e <span style="color:#666">-&gt;</span> e<span style="color:#666">,</span> String<span style="color:#666">::</span>toUpperCase<span style="color:#666">));</span>
+System<span style="color:#666">.</span><span style="color:#b44">out</span><span style="color:#666">.</span><span style="color:#b44">println</span><span style="color:#666">(</span>f<span style="color:#666">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>输出如下</p>
 <pre><code>{a=A, b=B, c=C, d=D}
 </code></pre>
         </div>
