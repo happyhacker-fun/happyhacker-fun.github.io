@@ -95,7 +95,6 @@
 </div>
 
 <script type="text/javascript">
-
     var getUrlParameter = function getUrlParameter(sParam) {
         var sPageURL = window.location.search.substring(1),
             sURLVariables = sPageURL.split('&'),
@@ -112,26 +111,57 @@
     };
 
     $(document).ready(function () {
+        
+        
+        
+        
+
+        
+        
+        
+        
         var q = getUrlParameter("q");
         $("span.keyword").text(q);
         $("article.post").remove();
         $.ajax({
-            url: 'http:\/\/blog.happyhacker.fun\/index.xml',
-            dataType: "xml",
+            url: 'http:\/\/blog.happyhacker.fun\/js\/index.json',
+            dataType: "json",
             success: function (data) {
-                $(data).find("item").each(function () {
-                    var item = $(this);
-                    var title = item.find("title").text();
-                    if (title.toLowerCase().indexOf(q.toLowerCase()) >= 0) {
-                        var url = item.find("link").text();
-                        var searchItem = `<article class="post"><header><h1 class="post-title"><a href="` + url + `">` + title + `</a></h1></header>`;
-                        var pubDate = new Date(item.find("pubDate").text())
-                        searchItem += `<date class="post-meta meta-date">` + pubDate.getFullYear() + `年` + (pubDate.getMonth() + 1) + `月` + pubDate.getDate() + `日</date>`;
-                        searchItem += `<div class="post-content">` + item.find("description").text() + `……<p class="readmore"><a href="` + url + `">阅读全文</a></p></div></article>`;
+                const idx = lunr(function() {
+                    this.ref("uri")
+                    this.field("content")
+                    this.field("tags")
+                    this.field("categories")
+                    this.field("title")
+                    data.forEach(function(e) {
+                        this.add(e);
+                    }, this);
+                })
 
-                        $("div.res-cons").append(searchItem);
-                    }
-                });
+                const result = idx.search(q);
+                
+                const hitRefs = result.map(e => e.ref);
+                console.log(hitRefs)
+                result.forEach(e => {
+                    const item = data.filter(d => d.uri == e.ref)[0];
+                    const oriTitle = item['oriTitle']
+                    const content = item['content']
+                    const title = item['title']
+
+                    const uri = item['uri']
+                    const score = result.filter(f => uri == f.ref)[0]['score']
+                    let searchItem =
+                        `<article class="post"><header><h1 class="post-title"><a href="` +
+                        uri + `">` + oriTitle + `</a></h1></header>`;
+                    const pubDate = new Date(item['date'])
+                    searchItem += `<date class="post-meta meta-date">` + pubDate
+                        .getFullYear() + `年` + (pubDate.getMonth() + 1) + `月` + pubDate
+                        .getDate() + `日&nbsp; 匹配度：` + score + `</date>`;
+                    searchItem += `<div class="post-content">` + item['content'].replace(/\s*/g,"").substring(0, 100) + `……<p class="readmore"><a href="` +
+                        uri + `">阅读全文</a></p></div></article>`;
+
+                    $("div.res-cons").append(searchItem);
+                })
             }
         });
     });
@@ -220,6 +250,8 @@
 
 
 
+    <script src='/js/lunr.min.js'></script>
+
                 </div>
 
                 <div id="secondary">
@@ -227,8 +259,7 @@
         <form id="search" action='http://blog.happyhacker.fun/search/' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
       <input type="text" name="q" maxlength="20" placeholder="Search">
-      <input type="hidden" name="sitesearch" value="http://blog.happyhacker.fun/">
-      <button type="submit" class="submit icon-search"></button>
+      <button type="button" class="submit icon-search" onclick="search()"></button>
 </form>
     </section>
     
