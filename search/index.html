@@ -131,7 +131,6 @@
 
                 const result = idx.search(q);
                 const hitRefs = result.map(e => e.ref);
-                console.log(hitRefs)
                 result.forEach(e => {
                     const item = data.filter(d => d.uri == e.ref)[0];
                     const oriTitle = item['oriTitle']
