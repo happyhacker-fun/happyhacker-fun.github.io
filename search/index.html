@@ -115,7 +115,7 @@
         $("span.keyword").text(q);
         $("article.post").remove();
         $.ajax({
-            url: '\/js\/index.json',
+            url: 'https:\/\/blog.happyhacker.fun\/js\/index.json',
             dataType: "json",
             success: function (data) {
                 const idx = lunr(function() {
@@ -130,7 +130,6 @@
                 })
 
                 const result = idx.search(q);
-                
                 const hitRefs = result.map(e => e.ref);
                 console.log(hitRefs)
                 result.forEach(e => {
@@ -247,7 +246,7 @@
 
                 <div id="secondary">
     <section class="widget">
-        <form id="search" action='/search/' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+        <form id="search" action='https://blog.happyhacker.fun/search/' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
       <input type="text" name="q" maxlength="20" placeholder="Search">
       <button type="button" class="submit icon-search" onclick="search()"></button>
