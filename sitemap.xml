@@ -3,903 +3,903 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://blog.happyhacker.fun/about/</loc>
+    <loc>https://blog.happyhacker.fun/about/</loc>
     <lastmod>2020-03-28T12:53:52+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/categories/</loc>
+    <loc>https://blog.happyhacker.fun/categories/</loc>
     <lastmod>2021-01-14T16:28:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/</loc>
+    <loc>https://blog.happyhacker.fun/</loc>
     <lastmod>2021-01-14T16:28:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/homebrew/</loc>
+    <loc>https://blog.happyhacker.fun/tags/homebrew/</loc>
     <lastmod>2021-01-14T16:28:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/java/</loc>
+    <loc>https://blog.happyhacker.fun/tags/java/</loc>
     <lastmod>2021-01-14T16:28:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/categories/java/</loc>
+    <loc>https://blog.happyhacker.fun/categories/java/</loc>
     <lastmod>2021-01-14T16:28:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/jdk/</loc>
+    <loc>https://blog.happyhacker.fun/tags/jdk/</loc>
     <lastmod>2021-01-14T16:28:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/post/</loc>
+    <loc>https://blog.happyhacker.fun/post/</loc>
     <lastmod>2021-01-14T16:28:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/</loc>
+    <loc>https://blog.happyhacker.fun/tags/</loc>
     <lastmod>2021-01-14T16:28:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/post/java/install-java-with-homebrew/</loc>
+    <loc>https://blog.happyhacker.fun/post/java/install-java-with-homebrew/</loc>
     <lastmod>2021-01-14T16:28:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/categories/life/</loc>
+    <loc>https://blog.happyhacker.fun/categories/life/</loc>
     <lastmod>2021-01-02T12:37:30+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/%E5%B7%A5%E4%BD%9C%E5%B1%85%E4%BD%8F%E8%AF%81/</loc>
+    <loc>https://blog.happyhacker.fun/tags/%E5%B7%A5%E4%BD%9C%E5%B1%85%E4%BD%8F%E8%AF%81/</loc>
     <lastmod>2021-01-02T12:37:30+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/%E6%94%BF%E5%8A%A1/</loc>
+    <loc>https://blog.happyhacker.fun/tags/%E6%94%BF%E5%8A%A1/</loc>
     <lastmod>2021-01-02T12:37:30+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/post/life/fix-gzjzz-website-with-extension/</loc>
+    <loc>https://blog.happyhacker.fun/post/life/fix-gzjzz-website-with-extension/</loc>
     <lastmod>2021-01-02T12:37:30+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/post/life/renting-invoice-applying-in-beijing/</loc>
+    <loc>https://blog.happyhacker.fun/post/life/renting-invoice-applying-in-beijing/</loc>
     <lastmod>2020-12-30T22:01:15+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/categories/%E5%B9%BC%E5%8D%87%E5%B0%8F/</loc>
+    <loc>https://blog.happyhacker.fun/categories/%E5%B9%BC%E5%8D%87%E5%B0%8F/</loc>
     <lastmod>2020-12-30T22:01:15+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/tiggo8/</loc>
+    <loc>https://blog.happyhacker.fun/tags/tiggo8/</loc>
     <lastmod>2020-12-30T15:18:16+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/post/life/tiggo8-upgrade-apps/</loc>
+    <loc>https://blog.happyhacker.fun/post/life/tiggo8-upgrade-apps/</loc>
     <lastmod>2020-12-30T15:18:16+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/post/life/tiggo8-second-1000-km/</loc>
+    <loc>https://blog.happyhacker.fun/post/life/tiggo8-second-1000-km/</loc>
     <lastmod>2020-12-02T22:28:03+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/bash/</loc>
+    <loc>https://blog.happyhacker.fun/tags/bash/</loc>
     <lastmod>2020-11-27T16:37:50+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/categories/linux/</loc>
+    <loc>https://blog.happyhacker.fun/categories/linux/</loc>
     <lastmod>2020-11-27T16:37:50+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/python/</loc>
+    <loc>https://blog.happyhacker.fun/tags/python/</loc>
     <lastmod>2020-11-27T16:37:50+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/post/linux/python-in-a-nutshell/</loc>
+    <loc>https://blog.happyhacker.fun/post/linux/python-in-a-nutshell/</loc>
     <lastmod>2020-11-27T16:37:50+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/post/linux/shell-in-a-nutshell/</loc>
+    <loc>https://blog.happyhacker.fun/post/linux/shell-in-a-nutshell/</loc>
     <lastmod>2020-11-27T16:29:38+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/key-repeat/</loc>
+    <loc>https://blog.happyhacker.fun/tags/key-repeat/</loc>
     <lastmod>2020-11-21T22:48:25+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/categories/macos/</loc>
+    <loc>https://blog.happyhacker.fun/categories/macos/</loc>
     <lastmod>2020-11-21T22:48:25+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/post/mac-faster-key-repeat/</loc>
+    <loc>https://blog.happyhacker.fun/post/mac-faster-key-repeat/</loc>
     <lastmod>2020-11-21T22:48:25+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/post/java/history-of-log-for-java/</loc>
+    <loc>https://blog.happyhacker.fun/post/java/history-of-log-for-java/</loc>
     <lastmod>2020-11-21T15:21:05+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/log/</loc>
+    <loc>https://blog.happyhacker.fun/tags/log/</loc>
     <lastmod>2020-11-21T15:21:05+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/log4j/</loc>
+    <loc>https://blog.happyhacker.fun/tags/log4j/</loc>
     <lastmod>2020-11-21T15:21:05+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/log4j2/</loc>
+    <loc>https://blog.happyhacker.fun/tags/log4j2/</loc>
     <lastmod>2020-11-21T15:21:05+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/logback/</loc>
+    <loc>https://blog.happyhacker.fun/tags/logback/</loc>
     <lastmod>2020-11-21T15:21:05+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/slf4j/</loc>
+    <loc>https://blog.happyhacker.fun/tags/slf4j/</loc>
     <lastmod>2020-11-21T15:21:05+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/categories/in-action/</loc>
+    <loc>https://blog.happyhacker.fun/categories/in-action/</loc>
     <lastmod>2020-11-21T14:14:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/spymemcached/</loc>
+    <loc>https://blog.happyhacker.fun/tags/spymemcached/</loc>
     <lastmod>2020-11-21T14:14:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/post/java/set-log-level-of-spymemcached/</loc>
+    <loc>https://blog.happyhacker.fun/post/java/set-log-level-of-spymemcached/</loc>
     <lastmod>2020-11-21T14:14:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/archetype/</loc>
+    <loc>https://blog.happyhacker.fun/tags/archetype/</loc>
     <lastmod>2020-11-18T23:03:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/maven/</loc>
+    <loc>https://blog.happyhacker.fun/tags/maven/</loc>
     <lastmod>2020-11-18T23:03:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/post/java/create-custom-archetype/</loc>
+    <loc>https://blog.happyhacker.fun/post/java/create-custom-archetype/</loc>
     <lastmod>2020-11-18T23:03:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/macos/</loc>
+    <loc>https://blog.happyhacker.fun/tags/macos/</loc>
     <lastmod>2020-11-17T22:34:31+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/post/life/macos-network-proxy-script/</loc>
+    <loc>https://blog.happyhacker.fun/post/life/macos-network-proxy-script/</loc>
     <lastmod>2020-11-17T22:34:31+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/jvm/</loc>
+    <loc>https://blog.happyhacker.fun/tags/jvm/</loc>
     <lastmod>2020-10-27T22:04:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/post/java/jvm-class-loader/</loc>
+    <loc>https://blog.happyhacker.fun/post/java/jvm-class-loader/</loc>
     <lastmod>2020-10-27T22:04:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/springboot/</loc>
+    <loc>https://blog.happyhacker.fun/tags/springboot/</loc>
     <lastmod>2020-10-22T16:32:44+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/post/springboot-profiles-active/</loc>
+    <loc>https://blog.happyhacker.fun/post/springboot-profiles-active/</loc>
     <lastmod>2020-10-22T16:32:44+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/%E6%BB%A1%E6%BB%A1/</loc>
+    <loc>https://blog.happyhacker.fun/tags/%E6%BB%A1%E6%BB%A1/</loc>
     <lastmod>2020-10-22T11:30:55+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/post/life/mandy-words/</loc>
+    <loc>https://blog.happyhacker.fun/post/life/mandy-words/</loc>
     <lastmod>2020-10-22T11:30:55+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/categories/%E7%94%9F%E6%B4%BB%E8%B6%A3%E4%BA%8B/</loc>
+    <loc>https://blog.happyhacker.fun/categories/%E7%94%9F%E6%B4%BB%E8%B6%A3%E4%BA%8B/</loc>
     <lastmod>2020-10-22T11:30:55+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/car/</loc>
+    <loc>https://blog.happyhacker.fun/tags/car/</loc>
     <lastmod>2020-10-15T22:51:47+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/post/life/tiggo8-first-1000-km/</loc>
+    <loc>https://blog.happyhacker.fun/post/life/tiggo8-first-1000-km/</loc>
     <lastmod>2020-10-15T22:51:47+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/post/life/tiggo8-first-glance/</loc>
+    <loc>https://blog.happyhacker.fun/post/life/tiggo8-first-glance/</loc>
     <lastmod>2020-09-23T09:56:14+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/categories/devops/</loc>
+    <loc>https://blog.happyhacker.fun/categories/devops/</loc>
     <lastmod>2020-08-22T17:25:53+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/visualvm/</loc>
+    <loc>https://blog.happyhacker.fun/tags/visualvm/</loc>
     <lastmod>2020-08-22T17:25:53+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/post/devops/remote-monitor-jvm-with-visualvm/</loc>
+    <loc>https://blog.happyhacker.fun/post/devops/remote-monitor-jvm-with-visualvm/</loc>
     <lastmod>2020-08-22T17:25:53+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/post/devops/install-jdk-maven-in-debian/</loc>
+    <loc>https://blog.happyhacker.fun/post/devops/install-jdk-maven-in-debian/</loc>
     <lastmod>2020-08-22T11:57:03+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/mvn/</loc>
+    <loc>https://blog.happyhacker.fun/tags/mvn/</loc>
     <lastmod>2020-08-22T11:57:03+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/devops/</loc>
+    <loc>https://blog.happyhacker.fun/tags/devops/</loc>
     <lastmod>2020-08-22T10:56:59+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/gitlab/</loc>
+    <loc>https://blog.happyhacker.fun/tags/gitlab/</loc>
     <lastmod>2020-08-22T10:56:59+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/jenkins/</loc>
+    <loc>https://blog.happyhacker.fun/tags/jenkins/</loc>
     <lastmod>2020-08-22T10:56:59+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/post/devops/nginx-tomcat-hot-deployment/</loc>
+    <loc>https://blog.happyhacker.fun/post/devops/nginx-tomcat-hot-deployment/</loc>
     <lastmod>2020-08-22T10:56:59+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/categories/bigdata/</loc>
+    <loc>https://blog.happyhacker.fun/categories/bigdata/</loc>
     <lastmod>2020-08-06T15:07:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/flink/</loc>
+    <loc>https://blog.happyhacker.fun/tags/flink/</loc>
     <lastmod>2020-08-06T15:07:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/post/flink/flink-0x03/</loc>
+    <loc>https://blog.happyhacker.fun/post/flink/flink-0x03/</loc>
     <lastmod>2020-08-06T15:07:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/hadoop/</loc>
+    <loc>https://blog.happyhacker.fun/tags/hadoop/</loc>
     <lastmod>2020-08-06T15:07:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/yarn/</loc>
+    <loc>https://blog.happyhacker.fun/tags/yarn/</loc>
     <lastmod>2020-08-06T15:07:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/linux/</loc>
+    <loc>https://blog.happyhacker.fun/tags/linux/</loc>
     <lastmod>2020-08-01T16:38:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/sed/</loc>
+    <loc>https://blog.happyhacker.fun/tags/sed/</loc>
     <lastmod>2020-08-01T16:38:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/post/sed-in-a-nutshell/</loc>
+    <loc>https://blog.happyhacker.fun/post/sed-in-a-nutshell/</loc>
     <lastmod>2020-08-01T16:38:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/post/flink/flink-0x02/</loc>
+    <loc>https://blog.happyhacker.fun/post/flink/flink-0x02/</loc>
     <lastmod>2020-07-27T11:25:19+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/post/docker-in-ryzentosh/</loc>
+    <loc>https://blog.happyhacker.fun/post/docker-in-ryzentosh/</loc>
     <lastmod>2020-07-25T23:35:01+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/docker/</loc>
+    <loc>https://blog.happyhacker.fun/tags/docker/</loc>
     <lastmod>2020-07-25T23:35:01+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/mailx/</loc>
+    <loc>https://blog.happyhacker.fun/tags/mailx/</loc>
     <lastmod>2020-07-20T17:10:43+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/post/setting-mailx-on-linux/</loc>
+    <loc>https://blog.happyhacker.fun/post/setting-mailx-on-linux/</loc>
     <lastmod>2020-07-20T17:10:43+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/ryzentosh/</loc>
+    <loc>https://blog.happyhacker.fun/tags/ryzentosh/</loc>
     <lastmod>2020-06-14T10:12:22+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/post/update-ryzentosh/</loc>
+    <loc>https://blog.happyhacker.fun/post/update-ryzentosh/</loc>
     <lastmod>2020-06-14T10:12:22+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/tips/</loc>
+    <loc>https://blog.happyhacker.fun/tags/tips/</loc>
     <lastmod>2020-06-10T10:52:37+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/post/turn-off-macos-update-notification/</loc>
+    <loc>https://blog.happyhacker.fun/post/turn-off-macos-update-notification/</loc>
     <lastmod>2020-06-10T10:52:37+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/categories/springboot/</loc>
+    <loc>https://blog.happyhacker.fun/categories/springboot/</loc>
     <lastmod>2020-05-21T10:41:26+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/post/avoid-5s-hangs-before-springboot-starts/</loc>
+    <loc>https://blog.happyhacker.fun/post/avoid-5s-hangs-before-springboot-starts/</loc>
     <lastmod>2020-05-21T10:41:26+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/jar/</loc>
+    <loc>https://blog.happyhacker.fun/tags/jar/</loc>
     <lastmod>2020-05-18T22:18:51+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/categories/research/</loc>
+    <loc>https://blog.happyhacker.fun/categories/research/</loc>
     <lastmod>2020-05-18T22:18:51+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/post/what-is-jar/</loc>
+    <loc>https://blog.happyhacker.fun/post/what-is-jar/</loc>
     <lastmod>2020-05-18T22:18:51+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/firefox/</loc>
+    <loc>https://blog.happyhacker.fun/tags/firefox/</loc>
     <lastmod>2020-05-16T00:49:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/post/disable-zoom-in-and-out-in-firefox-with-mouse/</loc>
+    <loc>https://blog.happyhacker.fun/post/disable-zoom-in-and-out-in-firefox-with-mouse/</loc>
     <lastmod>2020-05-16T00:49:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/post/install-homebrew-in-china/</loc>
+    <loc>https://blog.happyhacker.fun/post/install-homebrew-in-china/</loc>
     <lastmod>2020-05-16T00:20:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/basics/</loc>
+    <loc>https://blog.happyhacker.fun/tags/basics/</loc>
     <lastmod>2020-04-29T23:23:57+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/post/java-stream-api/</loc>
+    <loc>https://blog.happyhacker.fun/post/java-stream-api/</loc>
     <lastmod>2020-04-29T23:23:57+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/categories/theory/</loc>
+    <loc>https://blog.happyhacker.fun/categories/theory/</loc>
     <lastmod>2020-04-29T23:23:57+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/post/java-basics/</loc>
+    <loc>https://blog.happyhacker.fun/post/java-basics/</loc>
     <lastmod>2020-04-21T23:28:34+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/centos/</loc>
+    <loc>https://blog.happyhacker.fun/tags/centos/</loc>
     <lastmod>2020-04-17T23:02:34+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/post/centos8-set-static-network/</loc>
+    <loc>https://blog.happyhacker.fun/post/centos8-set-static-network/</loc>
     <lastmod>2020-04-17T23:02:34+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/%E8%BF%90%E7%BB%B4/</loc>
+    <loc>https://blog.happyhacker.fun/tags/%E8%BF%90%E7%BB%B4/</loc>
     <lastmod>2020-04-17T23:02:34+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/crontab/</loc>
+    <loc>https://blog.happyhacker.fun/tags/crontab/</loc>
     <lastmod>2020-04-14T22:40:01+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/post/cron-issues/</loc>
+    <loc>https://blog.happyhacker.fun/post/cron-issues/</loc>
     <lastmod>2020-04-14T22:40:01+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/junit/</loc>
+    <loc>https://blog.happyhacker.fun/tags/junit/</loc>
     <lastmod>2020-04-08T00:30:39+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/post/error-running-junit/</loc>
+    <loc>https://blog.happyhacker.fun/post/error-running-junit/</loc>
     <lastmod>2020-04-08T00:30:39+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/centos8/</loc>
+    <loc>https://blog.happyhacker.fun/tags/centos8/</loc>
     <lastmod>2020-04-06T00:10:43+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/post/install-centos8/</loc>
+    <loc>https://blog.happyhacker.fun/post/install-centos8/</loc>
     <lastmod>2020-04-06T00:10:43+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/post/java-memory-leak-record/</loc>
+    <loc>https://blog.happyhacker.fun/post/java-memory-leak-record/</loc>
     <lastmod>2020-04-05T23:11:28+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/memory-leak/</loc>
+    <loc>https://blog.happyhacker.fun/tags/memory-leak/</loc>
     <lastmod>2020-04-05T23:11:28+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/ftp/</loc>
+    <loc>https://blog.happyhacker.fun/tags/ftp/</loc>
     <lastmod>2020-04-05T11:32:45+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/lftp/</loc>
+    <loc>https://blog.happyhacker.fun/tags/lftp/</loc>
     <lastmod>2020-04-05T11:32:45+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/post/lftp-usage/</loc>
+    <loc>https://blog.happyhacker.fun/post/lftp-usage/</loc>
     <lastmod>2020-04-05T11:32:45+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/post/centos8-garbled-chars/</loc>
+    <loc>https://blog.happyhacker.fun/post/centos8-garbled-chars/</loc>
     <lastmod>2020-04-03T22:14:19+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/post/java-localdatetime-timezone/</loc>
+    <loc>https://blog.happyhacker.fun/post/java-localdatetime-timezone/</loc>
     <lastmod>2020-04-01T12:48:50+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/timezone/</loc>
+    <loc>https://blog.happyhacker.fun/tags/timezone/</loc>
     <lastmod>2020-04-01T12:48:50+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/chrome/</loc>
+    <loc>https://blog.happyhacker.fun/tags/chrome/</loc>
     <lastmod>2020-03-31T10:02:07+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/freedom/</loc>
+    <loc>https://blog.happyhacker.fun/tags/freedom/</loc>
     <lastmod>2020-03-31T10:02:07+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/categories/jabber/</loc>
+    <loc>https://blog.happyhacker.fun/categories/jabber/</loc>
     <lastmod>2020-03-31T10:02:07+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/post/about-chrome-and-firefox/</loc>
+    <loc>https://blog.happyhacker.fun/post/about-chrome-and-firefox/</loc>
     <lastmod>2020-03-31T10:02:07+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/post/sshd-in-macos/</loc>
+    <loc>https://blog.happyhacker.fun/post/sshd-in-macos/</loc>
     <lastmod>2020-03-29T10:57:10+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/ssh/</loc>
+    <loc>https://blog.happyhacker.fun/tags/ssh/</loc>
     <lastmod>2020-03-29T10:57:10+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/post/macos-service-management/</loc>
+    <loc>https://blog.happyhacker.fun/post/macos-service-management/</loc>
     <lastmod>2020-03-29T10:53:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/amd/</loc>
+    <loc>https://blog.happyhacker.fun/tags/amd/</loc>
     <lastmod>2020-03-29T10:49:38+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/post/ryzentosh/</loc>
+    <loc>https://blog.happyhacker.fun/post/ryzentosh/</loc>
     <lastmod>2020-03-29T10:49:38+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/hackintosh/</loc>
+    <loc>https://blog.happyhacker.fun/tags/hackintosh/</loc>
     <lastmod>2020-03-29T10:49:38+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/categories/ryzentosh/</loc>
+    <loc>https://blog.happyhacker.fun/categories/ryzentosh/</loc>
     <lastmod>2020-03-29T10:49:38+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/gradle/</loc>
+    <loc>https://blog.happyhacker.fun/tags/gradle/</loc>
     <lastmod>2020-03-29T00:21:43+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/post/accelerating-maven-downloading-with-aliyun-mirror/</loc>
+    <loc>https://blog.happyhacker.fun/post/accelerating-maven-downloading-with-aliyun-mirror/</loc>
     <lastmod>2020-03-29T00:21:43+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/hugo/</loc>
+    <loc>https://blog.happyhacker.fun/tags/hugo/</loc>
     <lastmod>2020-03-28T23:44:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/markdown/</loc>
+    <loc>https://blog.happyhacker.fun/tags/markdown/</loc>
     <lastmod>2020-03-28T23:44:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/categories/records/</loc>
+    <loc>https://blog.happyhacker.fun/categories/records/</loc>
     <lastmod>2020-03-28T23:44:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/vscode/</loc>
+    <loc>https://blog.happyhacker.fun/tags/vscode/</loc>
     <lastmod>2020-03-28T23:44:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/post/config-hugo-image-path/</loc>
+    <loc>https://blog.happyhacker.fun/post/config-hugo-image-path/</loc>
     <lastmod>2020-03-28T23:44:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/in-action/</loc>
+    <loc>https://blog.happyhacker.fun/tags/in-action/</loc>
     <lastmod>2020-03-28T12:56:22+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/post/spring-tomcat-tutorial/</loc>
+    <loc>https://blog.happyhacker.fun/post/spring-tomcat-tutorial/</loc>
     <lastmod>2020-03-28T12:56:22+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/categories/tech/</loc>
+    <loc>https://blog.happyhacker.fun/categories/tech/</loc>
     <lastmod>2020-03-28T12:56:22+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/tags/tomcat/</loc>
+    <loc>https://blog.happyhacker.fun/tags/tomcat/</loc>
     <lastmod>2020-03-28T12:56:22+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.happyhacker.fun/search/</loc>
+    <loc>https://blog.happyhacker.fun/search/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
