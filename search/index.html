@@ -118,13 +118,28 @@
             url: 'https:\/\/blog.happyhacker.fun\/js\/index.json',
             dataType: "json",
             success: function (data) {
-                const idx = lunr(function() {
+                lunr.zh = function () {
+                    this.pipeline.reset();
+                    this.pipeline.add(lunr.zh.trimmer, lunr.stopWordFilter, lunr.stemmer);
+                };
+
+                lunr.zh.trimmer = function (token) {
+                    return token.update(str => {
+                        if (/[\u4E00-\u9FA5\uF900-\uFA2D]/.test(str)) return str;
+                        return str.replace(/^\W+/, "").replace(/\W+$/, "");
+                    });
+                };
+
+                lunr.Pipeline.registerFunction(lunr.zh.trimmer, "trimmer-zh");
+
+                const idx = lunr(function () {
+                    this.use(lunr.zh);
                     this.ref("uri")
                     this.field("content")
                     this.field("tags")
                     this.field("categories")
                     this.field("title")
-                    data.forEach(function(e) {
+                    data.forEach(function (e) {
                         this.add(e);
                     }, this);
                 })
@@ -146,7 +161,9 @@
                     searchItem += `<date class="post-meta meta-date">` + pubDate
                         .getFullYear() + `年` + (pubDate.getMonth() + 1) + `月` + pubDate
                         .getDate() + `日&nbsp; 匹配度：` + score + `</date>`;
-                    searchItem += `<div class="post-content">` + item['content'].replace(/\s*/g,"").substring(0, 100) + `……<p class="readmore"><a href="` +
+                    searchItem += `<div class="post-content">` + item['content'].replace(
+                            /\s*/g, "").substring(0, 100) +
+                        `……<p class="readmore"><a href="` +
                         uri + `">阅读全文</a></p></div></article>`;
 
                     $("div.res-cons").append(searchItem);
