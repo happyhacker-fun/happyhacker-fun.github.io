@@ -205,10 +205,10 @@
         
         <div class="post-content">
             <p>这个博客也写了不少东西了，但功能还是有些简陋，比如不支持搜索，也不能评论，甚至不知道有多少人访问过。</p>
-<p>逛知乎的时候无意间看到了Maupassant这个主题，总体看上去还挺简洁大方的，主要是信息展示的比较丰富，不像之前的even主题，想看标签和分类还要专门去单独的页面。</p>
+<p>逛知乎的时候无意间看到了 Maupassant 这个主题，总体看上去还挺简洁大方的，主要是信息展示的比较丰富，不像之前的 even 主题，想看标签和分类还要专门去单独的页面。</p>
 <p>所以就开始了改造。</p>
 <h2 id="访问计数">访问计数</h2>
-<p>这个就比较简单了，之前用的even主题里也有这个位置，只是没有打开而已。</p>
+<p>这个就比较简单了，之前用的 even 主题里也有这个位置，只是没有打开而已。</p>
 <div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -248,7 +248,7 @@
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="站内搜索">站内搜索</h2>
-<p>重头戏是站内搜索。本来也没想弄，发现这个主题有这个功能就想着把它搞定。但按主题作者的说法配置完成了之后并没有任何效果，所以我就研究了下hugo下实现站内搜索的方案。</p>
+<p>重头戏是站内搜索。本来也没想弄，发现这个主题有这个功能就想着把它搞定。但按主题作者的说法配置完成了之后并没有任何效果，所以我就研究了下 hugo 下实现站内搜索的方案。</p>
 <p>首先是打开</p>
 <div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -277,37 +277,37 @@ type: &#34;search&#34;
 ---
 </code></pre></td></tr></table>
 </div>
-</div><p>做这些的目的是在使用搜索功能的时候可以跳转到<code>${baseURL}/search/q=keyword</code>这个页面，而它对应的页面模板就是<code>single.html</code>。我读了下源码，其实它做的事情是在这个页面load完成时从<code>public/index.xml</code>中找到所有文章的标题，然后在标题列表中查找相应的关键词。</p>
+</div><p>做这些的目的是在使用搜索功能的时候可以跳转到<code>${baseURL}/search/q=keyword</code>这个页面，而它对应的页面模板就是<code>single.html</code>。我读了下源码，其实它做的事情是在这个页面 load 完成时从<code>public/index.xml</code>中找到所有文章的标题，然后在标题列表中查找相应的关键词。</p>
 <p>这存在几个问题</p>
 <ol>
 <li>中文分词的支持肯定不好</li>
 <li><code>public/index.html</code>无法下载</li>
 </ol>
 <h3 id="选型">选型</h3>
-<p>所以我就转而去hugo的官网查解决方案了。查了一圈对lunr.js比较感兴趣，好像功能也比较强大，对应也有hugo的小工具。说来也搞笑，hugo本来是要取代hexo作为新一代的静态站点生成引擎的，这是go语言和node的竞争，但当涉及到这个领域时，竟然需要在hugo中引入node模块来解决。不过还好，我对这个也没有洁癖，能工作就行。</p>
-<p>原理其实和上面描述的差不多，通过<code>hugo-lunr-zh</code>生成一个<code>index.json</code>文件，页面加载的时候把这个文件加载过来，通过lunr的搜索功能在里面查到关键词，进而进行下一步的展示。
-这个<code>hugo-lunr-zh</code>其实项目本身和lunr并无关系，它只是用来生成lunr可以识别的数据而已。而要使用<code>hugo-lunr-zh</code>则是为了支持中文分词。</p>
+<p>所以我就转而去 hugo 的官网查解决方案了。查了一圈对 lunr.js 比较感兴趣，好像功能也比较强大，对应也有 hugo 的小工具。说来也搞笑，hugo 本来是要取代 hexo 作为新一代的静态站点生成引擎的，这是 go 语言和 node 的竞争，但当涉及到这个领域时，竟然需要在 hugo 中引入 node 模块来解决。不过还好，我对这个也没有洁癖，能工作就行。</p>
+<p>原理其实和上面描述的差不多，通过<code>hugo-lunr-zh</code>生成一个<code>index.json</code>文件，页面加载的时候把这个文件加载过来，通过 lunr 的搜索功能在里面查到关键词，进而进行下一步的展示。
+这个<code>hugo-lunr-zh</code>其实项目本身和 lunr 并无关系，它只是用来生成 lunr 可以识别的数据而已。而要使用<code>hugo-lunr-zh</code>则是为了支持中文分词。</p>
 <h3 id="行动">行动</h3>
-<p>既然改了搜索方案，现有的<code>single.html</code>也肯定不能用了，先fork一个。然后<code>npm -g install hugo-lunr-zh</code>，然后在博客的根目录执行<code>hugo-lunr-zh</code>，简直是涕泗横流，跑不通。</p>
-<p>搜索了一下确实这个方案是有些问题的，主要是作者也不更新了。但我觉得这个原理很清晰，于是进入了不断的debug阶段。</p>
+<p>既然改了搜索方案，现有的<code>single.html</code>也肯定不能用了，先 fork 一个。然后<code>npm -g install hugo-lunr-zh</code>，然后在博客的根目录执行<code>hugo-lunr-zh</code>，简直是涕泗横流，跑不通。</p>
+<p>搜索了一下确实这个方案是有些问题的，主要是作者也不更新了。但我觉得这个原理很清晰，于是进入了不断的 debug 阶段。</p>
 <blockquote>
-<p>在npm上的版本是1.0.3，而我自己魔改成功运行之后才发现github上的master已经是2.1.0了，但我把master版本下载下来竟然都无法安装。我也没兴趣研究到底哪里出了问题了。</p>
+<p>在 npm 上的版本是 1.0.3，而我自己魔改成功运行之后才发现 github 上的 master 已经是 2.1.0 了，但我把 master 版本下载下来竟然都无法安装。我也没兴趣研究到底哪里出了问题了。</p>
 </blockquote>
 <p>遇到了以下问题</p>
 <ol>
 <li>路径解析的不对</li>
-<li>在https页面上向http的接口发起请求被浏览器拦截</li>
+<li>在 https 页面上向 http 的接口发起请求被浏览器拦截</li>
 <li>在<code>$document.ready(() =&gt; {})</code>中操作<code>lunr</code></li>
 <li>为新方案适配页面</li>
 </ol>
 <h4 id="1-路径解析的不对">1. 路径解析的不对</h4>
 <p>不知道是为什么作者会设计成这样的，我的文件是在类似<code>post/life/a.md</code>、<code>post/devops/b.md</code>这种路径，为什么它会认为最终的访问路径是<code>posts/a</code>和<code>posts/b</code>呢？这个解决的比较简单，就是破坏了原本的设计，主要是我也不认同它的设计。</p>
-<h4 id="2-在https页面上向http的接口发起请求被浏览器拦截">2. 在https页面上向http的接口发起请求被浏览器拦截</h4>
-<p>这个问题是我这个站点没有使用https，在配置文件中的<code>baseURL=http://blog.happyhacker.fun</code>，也没有用https，相应的搜索框的写法是<code>{{ &quot;search/&quot; | absURL }}</code>，经过hugo黑盒的解析之后这个完整的链接变成了<code>https://blog.happyhacker.fun/search</code>；由于无法从<code>public</code>目录下载<code>index.json</code>文件，所以我把它放在<code>static/js/</code>目录下了，在页面模板中的写法是<code>{{ &quot;js/index.json&quot; | absURL }}</code>，最终的完成链接却变成了<code>http://blog.happyhacker.fun/js/index.json</code>。</p>
-<p>注意到区别了吗？js目录下的文件没有https，而跳转的页面有https。</p>
-<p>所以我干脆就在配置文件里把<code>baseURL</code>也改成<code>https</code>了，问题就这么解决了。因为所有的请求都变成了https，虽然我并没有配置证书。</p>
+<h4 id="2-在-https-页面上向-http-的接口发起请求被浏览器拦截">2. 在 https 页面上向 http 的接口发起请求被浏览器拦截</h4>
+<p>这个问题是我这个站点没有使用 https，在配置文件中的<code>baseURL=http://blog.happyhacker.fun</code>，也没有用 https，相应的搜索框的写法是<code>{{ &quot;search/&quot; | absURL }}</code>，经过 hugo 黑盒的解析之后这个完整的链接变成了<code>https://blog.happyhacker.fun/search</code>；由于无法从<code>public</code>目录下载<code>index.json</code>文件，所以我把它放在<code>static/js/</code>目录下了，在页面模板中的写法是<code>{{ &quot;js/index.json&quot; | absURL }}</code>，最终的完成链接却变成了<code>http://blog.happyhacker.fun/js/index.json</code>。</p>
+<p>注意到区别了吗？js 目录下的文件没有 https，而跳转的页面有 https。</p>
+<p>所以我干脆就在配置文件里把<code>baseURL</code>也改成<code>https</code>了，问题就这么解决了。因为所有的请求都变成了 https，虽然我并没有配置证书。</p>
 <h4 id="3-在documentready--中操作lunr">3. 在<code>$document.ready(() =&gt; {})</code>中操作<code>lunr</code></h4>
-<p>在完成这块之前我是没想着要用到分词的，只是简单分析了在命令行生成的词表的结构，想着干脆把这些内容用空格分开生成一个大列表，然后用<code>Array.prototype.includes()</code>方法来实现搜索，后来研究了一下发现用lunr自身的搜索引擎看起来要强大许多。</p>
+<p>在完成这块之前我是没想着要用到分词的，只是简单分析了在命令行生成的词表的结构，想着干脆把这些内容用空格分开生成一个大列表，然后用<code>Array.prototype.includes()</code>方法来实现搜索，后来研究了一下发现用 lunr 自身的搜索引擎看起来要强大许多。</p>
 <p>核心代码如下</p>
 <div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -355,63 +355,121 @@ type: &#34;search&#34;
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">62
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">63
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">64
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">65
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">66
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">67
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">68
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">69
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">70
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">71
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">72
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">73
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">$(<span style="color:#a2f">document</span>).ready(<span style="color:#a2f;font-weight:bold">function</span> () {
-        <span style="color:#a2f;font-weight:bold">var</span> q <span style="color:#666">=</span> getUrlParameter(<span style="color:#b44">&#34;q&#34;</span>);
-        $(<span style="color:#b44">&#34;span.keyword&#34;</span>).text(q);
-        $(<span style="color:#b44">&#34;article.post&#34;</span>).remove();
-        $.ajax({
-            url<span style="color:#666">:</span> <span style="color:#b44">&#39;{{&#34;js/index.json&#34;|absURL}}&#39;</span>,
-            dataType<span style="color:#666">:</span> <span style="color:#b44">&#34;json&#34;</span>,
-            success<span style="color:#666">:</span> <span style="color:#a2f;font-weight:bold">function</span> (data) {
-                <span style="color:#a2f;font-weight:bold">const</span> idx <span style="color:#666">=</span> lunr(<span style="color:#a2f;font-weight:bold">function</span>() {
-                    <span style="color:#a2f;font-weight:bold">this</span>.ref(<span style="color:#b44">&#34;uri&#34;</span>)
-                    <span style="color:#a2f;font-weight:bold">this</span>.field(<span style="color:#b44">&#34;content&#34;</span>)
-                    <span style="color:#a2f;font-weight:bold">this</span>.field(<span style="color:#b44">&#34;tags&#34;</span>)
-                    <span style="color:#a2f;font-weight:bold">this</span>.field(<span style="color:#b44">&#34;categories&#34;</span>)
-                    <span style="color:#a2f;font-weight:bold">this</span>.field(<span style="color:#b44">&#34;title&#34;</span>)
-                    data.forEach(<span style="color:#a2f;font-weight:bold">function</span>(e) {
-                        <span style="color:#a2f;font-weight:bold">this</span>.add(e);
-                    }, <span style="color:#a2f;font-weight:bold">this</span>);
-                })
+  <span style="color:#a2f;font-weight:bold">var</span> q <span style="color:#666">=</span> getUrlParameter(<span style="color:#b44">&#34;q&#34;</span>);
+  $(<span style="color:#b44">&#34;span.keyword&#34;</span>).text(q);
+  $(<span style="color:#b44">&#34;article.post&#34;</span>).remove();
+  $.ajax({
+    url<span style="color:#666">:</span> <span style="color:#b44">&#39;{{&#34;js/index.json&#34;|absURL}}&#39;</span>,
+    dataType<span style="color:#666">:</span> <span style="color:#b44">&#34;json&#34;</span>,
+    success<span style="color:#666">:</span> <span style="color:#a2f;font-weight:bold">function</span> (data) {
+      lunr.zh <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">function</span> () {
+        <span style="color:#a2f;font-weight:bold">this</span>.pipeline.reset();
+        <span style="color:#a2f;font-weight:bold">this</span>.pipeline.add(lunr.zh.trimmer, lunr.stopWordFilter, lunr.stemmer);
+      };
 
-                <span style="color:#a2f;font-weight:bold">const</span> result <span style="color:#666">=</span> idx.search(q);
-                <span style="color:#a2f;font-weight:bold">const</span> hitRefs <span style="color:#666">=</span> result.map(e =&gt; e.ref);
-                console.log(hitRefs)
-                result.forEach(e =&gt; {
-                    <span style="color:#a2f;font-weight:bold">const</span> item <span style="color:#666">=</span> data.filter(d =&gt; d.uri <span style="color:#666">==</span> e.ref)[<span style="color:#666">0</span>];
-                    <span style="color:#a2f;font-weight:bold">const</span> oriTitle <span style="color:#666">=</span> item[<span style="color:#b44">&#39;oriTitle&#39;</span>]
-                    <span style="color:#a2f;font-weight:bold">const</span> content <span style="color:#666">=</span> item[<span style="color:#b44">&#39;content&#39;</span>]
-                    <span style="color:#a2f;font-weight:bold">const</span> title <span style="color:#666">=</span> item[<span style="color:#b44">&#39;title&#39;</span>]
-
-                    <span style="color:#a2f;font-weight:bold">const</span> uri <span style="color:#666">=</span> item[<span style="color:#b44">&#39;uri&#39;</span>]
-                    <span style="color:#a2f;font-weight:bold">const</span> score <span style="color:#666">=</span> result.filter(f =&gt; uri <span style="color:#666">==</span> f.ref)[<span style="color:#666">0</span>][<span style="color:#b44">&#39;score&#39;</span>]
-                    <span style="color:#a2f;font-weight:bold">let</span> searchItem <span style="color:#666">=</span>
-                        <span style="color:#b44">`&lt;article class=&#34;post&#34;&gt;&lt;header&gt;&lt;h1 class=&#34;post-title&#34;&gt;&lt;a href=&#34;`</span> <span style="color:#666">+</span>
-                        uri <span style="color:#666">+</span> <span style="color:#b44">`&#34;&gt;`</span> <span style="color:#666">+</span> oriTitle <span style="color:#666">+</span> <span style="color:#b44">`&lt;/a&gt;&lt;/h1&gt;&lt;/header&gt;`</span>;
-                    <span style="color:#a2f;font-weight:bold">const</span> pubDate <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> <span style="color:#a2f">Date</span>(item[<span style="color:#b44">&#39;date&#39;</span>])
-                    searchItem <span style="color:#666">+=</span> <span style="color:#b44">`&lt;date class=&#34;post-meta meta-date&#34;&gt;`</span> <span style="color:#666">+</span> pubDate
-                        .getFullYear() <span style="color:#666">+</span> <span style="color:#b44">`年`</span> <span style="color:#666">+</span> (pubDate.getMonth() <span style="color:#666">+</span> <span style="color:#666">1</span>) <span style="color:#666">+</span> <span style="color:#b44">`月`</span> <span style="color:#666">+</span> pubDate
-                        .getDate() <span style="color:#666">+</span> <span style="color:#b44">`日&amp;nbsp; 匹配度：`</span> <span style="color:#666">+</span> score <span style="color:#666">+</span> <span style="color:#b44">`&lt;/date&gt;`</span>;
-                    searchItem <span style="color:#666">+=</span> <span style="color:#b44">`&lt;div class=&#34;post-content&#34;&gt;`</span> <span style="color:#666">+</span> item[<span style="color:#b44">&#39;content&#39;</span>].replace(<span style="color:#b68">/\s*/g</span>,<span style="color:#b44">&#34;&#34;</span>).substring(<span style="color:#666">0</span>, <span style="color:#666">100</span>) <span style="color:#666">+</span> <span style="color:#b44">`……&lt;p class=&#34;readmore&#34;&gt;&lt;a href=&#34;`</span> <span style="color:#666">+</span>
-                        uri <span style="color:#666">+</span> <span style="color:#b44">`&#34;&gt;阅读全文&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;&lt;/article&gt;`</span>;
-
-                    $(<span style="color:#b44">&#34;div.res-cons&#34;</span>).append(searchItem);
-                })
-            }
+      lunr.zh.trimmer <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">function</span> (token) {
+        <span style="color:#a2f;font-weight:bold">return</span> token.update((str) =&gt; {
+          <span style="color:#a2f;font-weight:bold">if</span> (<span style="color:#b68">/[\u4E00-\u9FA5\uF900-\uFA2D]/</span>.test(str)) <span style="color:#a2f;font-weight:bold">return</span> str;
+          <span style="color:#a2f;font-weight:bold">return</span> str.replace(<span style="color:#b68">/^\W+/</span>, <span style="color:#b44">&#34;&#34;</span>).replace(<span style="color:#b68">/\W+$/</span>, <span style="color:#b44">&#34;&#34;</span>);
         });
+      };
+
+      lunr.Pipeline.registerFunction(lunr.zh.trimmer, <span style="color:#b44">&#34;trimmer-zh&#34;</span>);
+
+      <span style="color:#a2f;font-weight:bold">const</span> idx <span style="color:#666">=</span> lunr(<span style="color:#a2f;font-weight:bold">function</span> () {
+        <span style="color:#a2f;font-weight:bold">this</span>.use(lunr.zh);
+        <span style="color:#a2f;font-weight:bold">this</span>.ref(<span style="color:#b44">&#34;uri&#34;</span>);
+        <span style="color:#a2f;font-weight:bold">this</span>.field(<span style="color:#b44">&#34;content&#34;</span>);
+        <span style="color:#a2f;font-weight:bold">this</span>.field(<span style="color:#b44">&#34;tags&#34;</span>);
+        <span style="color:#a2f;font-weight:bold">this</span>.field(<span style="color:#b44">&#34;categories&#34;</span>);
+        <span style="color:#a2f;font-weight:bold">this</span>.field(<span style="color:#b44">&#34;title&#34;</span>);
+        data.forEach(<span style="color:#a2f;font-weight:bold">function</span> (e) {
+          <span style="color:#a2f;font-weight:bold">this</span>.add(e);
+        }, <span style="color:#a2f;font-weight:bold">this</span>);
+      });
+
+      <span style="color:#a2f;font-weight:bold">const</span> result <span style="color:#666">=</span> idx.search(q);
+      <span style="color:#a2f;font-weight:bold">const</span> hitRefs <span style="color:#666">=</span> result.map((e) =&gt; e.ref);
+      result.forEach((e) =&gt; {
+        <span style="color:#a2f;font-weight:bold">const</span> item <span style="color:#666">=</span> data.filter((d) =&gt; d.uri <span style="color:#666">==</span> e.ref)[<span style="color:#666">0</span>];
+        <span style="color:#a2f;font-weight:bold">const</span> oriTitle <span style="color:#666">=</span> item[<span style="color:#b44">&#34;oriTitle&#34;</span>];
+        <span style="color:#a2f;font-weight:bold">const</span> content <span style="color:#666">=</span> item[<span style="color:#b44">&#34;content&#34;</span>];
+        <span style="color:#a2f;font-weight:bold">const</span> title <span style="color:#666">=</span> item[<span style="color:#b44">&#34;title&#34;</span>];
+
+        <span style="color:#a2f;font-weight:bold">const</span> uri <span style="color:#666">=</span> item[<span style="color:#b44">&#34;uri&#34;</span>];
+        <span style="color:#a2f;font-weight:bold">const</span> score <span style="color:#666">=</span> result.filter((f) =&gt; uri <span style="color:#666">==</span> f.ref)[<span style="color:#666">0</span>][<span style="color:#b44">&#34;score&#34;</span>];
+        <span style="color:#a2f;font-weight:bold">let</span> searchItem <span style="color:#666">=</span>
+          <span style="color:#b44">`&lt;article class=&#34;post&#34;&gt;&lt;header&gt;&lt;h1 class=&#34;post-title&#34;&gt;&lt;a href=&#34;`</span> <span style="color:#666">+</span>
+          uri <span style="color:#666">+</span>
+          <span style="color:#b44">`&#34;&gt;`</span> <span style="color:#666">+</span>
+          oriTitle <span style="color:#666">+</span>
+          <span style="color:#b44">`&lt;/a&gt;&lt;/h1&gt;&lt;/header&gt;`</span>;
+        <span style="color:#a2f;font-weight:bold">const</span> pubDate <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> <span style="color:#a2f">Date</span>(item[<span style="color:#b44">&#34;date&#34;</span>]);
+        searchItem <span style="color:#666">+=</span>
+          <span style="color:#b44">`&lt;date class=&#34;post-meta meta-date&#34;&gt;`</span> <span style="color:#666">+</span>
+          pubDate.getFullYear() <span style="color:#666">+</span>
+          <span style="color:#b44">`年`</span> <span style="color:#666">+</span>
+          (pubDate.getMonth() <span style="color:#666">+</span> <span style="color:#666">1</span>) <span style="color:#666">+</span>
+          <span style="color:#b44">`月`</span> <span style="color:#666">+</span>
+          pubDate.getDate() <span style="color:#666">+</span>
+          <span style="color:#b44">`日&amp;nbsp; 匹配度：`</span> <span style="color:#666">+</span>
+          score <span style="color:#666">+</span>
+          <span style="color:#b44">`&lt;/date&gt;`</span>;
+        searchItem <span style="color:#666">+=</span>
+          <span style="color:#b44">`&lt;div class=&#34;post-content&#34;&gt;`</span> <span style="color:#666">+</span>
+          item[<span style="color:#b44">&#34;content&#34;</span>].replace(<span style="color:#b68">/\s*/g</span>, <span style="color:#b44">&#34;&#34;</span>).substring(<span style="color:#666">0</span>, <span style="color:#666">100</span>) <span style="color:#666">+</span>
+          <span style="color:#b44">`……&lt;p class=&#34;readmore&#34;&gt;&lt;a href=&#34;`</span> <span style="color:#666">+</span>
+          uri <span style="color:#666">+</span>
+          <span style="color:#b44">`&#34;&gt;阅读全文&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;&lt;/article&gt;`</span>;
+
+        $(<span style="color:#b44">&#34;div.res-cons&#34;</span>).append(searchItem);
+      });
+    },
+  });
+});
 </code></pre></td></tr></table>
 </div>
-</div><p>梳理下逻辑就是拿到词表之后在前端构建一个lunr搜索引擎，从中搜索想要的结果，然后根据结果中的ref再回到原始结果中拿数据，拼页面。</p>
-<p>这里提一点，hugo的设计还是很灵活的，可以在<code>config.toml</code>中配置<code>customJs</code>可以在所有页面引入一个js，简直不要太方便。</p>
+</div><p>梳理下逻辑就是拿到词表之后在前端构建一个 lunr 搜索引擎，从中搜索想要的结果，然后根据结果中的 ref 再回到原始结果中拿数据，拼页面。</p>
+<p>这里提一点，hugo 的设计还是很灵活的，可以在<code>config.toml</code>中配置<code>customJs</code>可以在所有页面引入一个 js，简直不要太方便。</p>
 <h4 id="4-为新方案适配页面">4. 为新方案适配页面</h4>
 <p>代码已经在上面贴出来了，比较简单。</p>
 <h2 id="总结">总结</h2>
 <p>开源项目真的是很依赖作者，虽说用的人可能很多，但真正去改它的人可能凤毛麟角。作者一时兴起发起了一个开源项目，后面不想维护了，就把一堆烂摊子丢给了用户。开源免费的东西我们不能要求太多，那就只好自己在前人的基础上研究了，只是要多花些时间。</p>
-<p>本次改造中新建了两个repo</p>
+<p>本次改造中新建了两个 repo</p>
 <ol>
-<li><a href="https://github.com/lovelock/maupassant-hugo">Maupassant主题</a></li>
+<li><a href="https://github.com/lovelock/maupassant-hugo">Maupassant 主题</a></li>
 <li><a href="https://github.com/lovelock/hugo-lunr-zh">hugo-lunr-zh</a></li>
 </ol>
         </div>
