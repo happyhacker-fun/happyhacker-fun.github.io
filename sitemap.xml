@@ -557,7 +557,14 @@
   
   <url>
     <loc>https://blog.happyhacker.fun/tags/ryzentosh/</loc>
-    <lastmod>2020-06-14T10:12:22+08:00</lastmod>
+    <lastmod>2020-06-14T15:49:21+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.happyhacker.fun/post/update-boot-menu-for-ryzentosh/</loc>
+    <lastmod>2020-06-14T15:49:21+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
