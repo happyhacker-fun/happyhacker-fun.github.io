@@ -497,8 +497,12 @@ connection<span style="color:#666">.</span><span style="color:#b44">close</span>
 </code></pre></td></tr></table>
 </div>
 </div><blockquote>
-<p>注意其中的<code>Class.forName(&quot;com.mysql.cj.jdbc.Driver&quot;)</code>这句，老的文档都会写这句，但其实使用新版的 MySQL Driver 的话这个已经不需要了，因为新版本有这个</p>
-<p><!-- raw HTML omitted --></p>
+<p>注意其中的<code>Class.forName(&quot;com.mysql.cj.jdbc.Driver&quot;)</code>这句，老的文档都会写这句，但其实使用新版的 MySQL Driver 的话这个已经不需要了，因为新版本有这个
+
+        <a data-fancybox="gallery" href="/images/2021-02-18-22-31-13.png">
+            <img class="mx-auto" alt="" src="/images/2021-02-18-22-31-13.png" />
+        </a>
+    </p>
 </blockquote>
 <h3 id="连接池">连接池</h3>
 <p>前面我们看到<code>Statement</code>和<code>Connection</code>都是可以复用的，但这仅仅局限在一个方法中。想让一个连接在整个应用中都可用，就要把它做成全局变量。</p>
