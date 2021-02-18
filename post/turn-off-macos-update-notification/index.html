@@ -145,6 +145,7 @@
       <ul>
         <li><a href="#1-在系统偏好设置中关闭自动更新">1. 在系统偏好设置中关闭自动更新</a></li>
         <li><a href="#2-在终端执行以下命令">2. 在终端执行以下命令</a></li>
+        <li><a href="#3-补充">3. 补充</a></li>
       </ul>
     </li>
     <li><a href="#总结">总结</a></li>
@@ -224,7 +225,38 @@
 <pre><code>sudo softwareupdate --ignore &quot;macOS Catalina&quot;
 defaults write com.apple.systempreferences AttentionPrefBundleIDs 0 
 killall Dock 
-</code></pre><h2 id="总结">总结</h2>
+</code></pre><h3 id="3-补充">3. 补充</h3>
+<p>最近的不知道哪次更新又带来了一个问题，执行上面的命令的时候会报</p>
+<div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Password:
+Ignored updates:
+(
+)
+
+Software Update can only ignore updates that are eligible for installation.
+If the label provided to ignore is not in the above list, it is not eligible
+to be ignored.
+
+Ignoring software updates is deprecated.
+The ability to ignore individual updates will be removed in a future release of macOS.
+</code></pre></td></tr></table>
+</div>
+</div><p>也就是说苹果以后要把这个选项去掉了，可以参考一下这个文章<a href="https://www.idownloadblog.com/2020/05/28/apple-removes-ignoring-macos-updates/">Apple’s has brought back the nagging — you can no longer ignore major macOS updates</a>，看起来不光是我反感这个事儿，全世界都觉得苹果一点都不在乎用户的感受啊，和微信有点像。</p>
+<h2 id="总结">总结</h2>
 <p>macOS和iPhone的升级速度快（指最新版本的更新率高）的原因就是这么不停提醒吧，太讨厌了。这种方法亲测有效。</p>
         </div>
 
