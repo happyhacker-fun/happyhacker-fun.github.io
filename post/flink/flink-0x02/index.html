@@ -211,11 +211,11 @@
 <p>只有单机运行时才有用，正常线上这个配置是没有用的，也不需要配置</p>
 <div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#008000;font-weight:bold">jobmanager.rpc.address</span>:<span style="color:#bbb"> </span>localhost<span style="color:#bbb">
+<pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#008000;font-weight:bold">jobmanager.rpc.address</span>:<span style="color:#bbb"> </span>localhost<span style="color:#bbb">
 </span><span style="color:#bbb"></span><span style="color:#008000;font-weight:bold">jobmanager.rpc.port</span>:<span style="color:#bbb"> </span><span style="color:#666">6123</span><span style="color:#bbb">
 </span></code></pre></td></tr></table>
 </div>
@@ -223,31 +223,31 @@
 <p>JobManager的堆内存大小，正常默认配置就够了，但如果任务的state比较大，可能就需要调整这个大小了</p>
 <div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#008000;font-weight:bold">jobmanager.heap.size</span>:<span style="color:#bbb"> </span>1024m<span style="color:#bbb">
+<pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#008000;font-weight:bold">jobmanager.heap.size</span>:<span style="color:#bbb"> </span>1024m<span style="color:#bbb">
 </span></code></pre></td></tr></table>
 </div>
 </div><h2 id="3-taskmanager配置">3. TaskManager配置</h2>
 <p>整个TaskManager可用的所有内存大小，其中包括JVM的metaspace和其他开销</p>
 <div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#008000;font-weight:bold">taskmanager.memory.process.size</span>:<span style="color:#bbb"> </span>1728m<span style="color:#bbb">
+<pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#008000;font-weight:bold">taskmanager.memory.process.size</span>:<span style="color:#bbb"> </span>1728m<span style="color:#bbb">
 </span><span style="color:#bbb"></span><span style="color:#008000;font-weight:bold">taskmanager.memory.jvm-metaspace.size</span>:<span style="color:#bbb"> </span>512m<span style="color:#bbb">
 </span></code></pre></td></tr></table>
 </div>
 </div><p>一个TaskManager中的TaskSlots的个数。假设一个集群有8台机器，其中7台是NodeManager，每台NodeManager有8个核心，也就是每台NodeManager可以最多提供8个Slots，一共可以提供56个TaskSlots。如果一个任务配置的所有并行度加起来是50，按照默认配置，就需要启动50个TaskManager，本质上每个TaskManager都是一个JVM进程，假设JVM的metaspace设置为256M，那应用启动的时候就需要至少 <code>256MB*50</code> 的内存空间，并且TaskManager太多也会增加它们之间通信的开销。相应的，每个TaskManager都是隔离的，一个挂了对另外一个影响也是最小的。但如果把这个值改成8，就只需要启动7个TaskManager，也就是7个JVM进程，任务启动时需要的metaspace就是 <code>256MB*7</code> 的内存空间。（注意7个TaskManager会有56个TaskSlots，所以就会有6个空闲的），这样节省了内存空间，但TaskSlots之间的耦合度增加了，如果一个TaskManager挂了，会导致8个TaskSlots都挂了。所以需要在实际应用中对效率和资源隔离作出取舍。</p>
 <div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#008000;font-weight:bold">taskmanager.numberOfTaskSlots</span>:<span style="color:#bbb"> </span><span style="color:#666">1</span><span style="color:#bbb">
+<pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#008000;font-weight:bold">taskmanager.numberOfTaskSlots</span>:<span style="color:#bbb"> </span><span style="color:#666">1</span><span style="color:#bbb">
 </span></code></pre></td></tr></table>
 </div>
 </div><h2 id="4-checkpoint配置">4. CheckPoint配置</h2>
@@ -256,13 +256,13 @@
 开启了savepoint之后，在cancel任务时会将savepoint写入指定的地址，在启动时指定该地址即可。通常用于版本升级过程。</p>
 <div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#008000;font-weight:bold">state.checkpoints.num-retained</span>:<span style="color:#bbb"> </span><span style="color:#666">20</span><span style="color:#bbb">
+<pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#008000;font-weight:bold">state.checkpoints.num-retained</span>:<span style="color:#bbb"> </span><span style="color:#666">20</span><span style="color:#bbb">
 </span><span style="color:#bbb"></span><span style="color:#008000;font-weight:bold">state.backend</span>:<span style="color:#bbb"> </span>filesystem<span style="color:#bbb">
 </span><span style="color:#bbb"></span><span style="color:#008000;font-weight:bold">state.checkpoints.dir</span>:<span style="color:#bbb"> </span>hdfs:///flink-checkpoints<span style="color:#bbb">
 </span><span style="color:#bbb"></span><span style="color:#008000;font-weight:bold">state.savepoints.dir</span>:<span style="color:#bbb"> </span>hdfs:///flink-savepoints<span style="color:#bbb">
@@ -272,12 +272,12 @@
 <p>这个参数就很表意了，按固定时间间隔尝试重启，最多尝试10次。可以根据需求调整配置。</p>
 <div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#008000;font-weight:bold">restart-strategy</span>:<span style="color:#bbb"> </span>fixed-delay<span style="color:#bbb">
+<pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#008000;font-weight:bold">restart-strategy</span>:<span style="color:#bbb"> </span>fixed-delay<span style="color:#bbb">
 </span><span style="color:#bbb"></span><span style="color:#008000;font-weight:bold">restart-strategy.fixed-delay.attempts</span>:<span style="color:#bbb"> </span><span style="color:#666">10</span><span style="color:#bbb">
 </span><span style="color:#bbb"></span><span style="color:#008000;font-weight:bold">restart-strategy.fixed-delay.delay</span>:<span style="color:#bbb"> </span>10s<span style="color:#bbb">
 </span></code></pre></td></tr></table>
@@ -286,11 +286,11 @@
 <p>之前是没有想写这个配置的，但在实际运行过程中确实发现了这个问题。其实在前面也说过了，就是因为每个task一个slot，然后开了100个taskmanager，这样就有100个taskmanager线程都需要和jobmanager交互，每个都不超时的概率就很低了。所以改了<code>numberOfTaskSlots</code>来减少taskmanager线程的同时也调整了以下这个超时时间。</p>
 <div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#008000;font-weight:bold">akka.ask.timeout</span>:<span style="color:#bbb"> </span><span style="color:#666">100</span><span style="color:#bbb"> </span>s<span style="color:#bbb">
+<pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#008000;font-weight:bold">akka.ask.timeout</span>:<span style="color:#bbb"> </span><span style="color:#666">100</span><span style="color:#bbb"> </span>s<span style="color:#bbb">
 </span><span style="color:#bbb"></span><span style="color:#008000;font-weight:bold">web.timeout</span>:<span style="color:#bbb"> </span><span style="color:#666">100000</span><span style="color:#bbb">
 </span></code></pre></td></tr></table>
 </div>

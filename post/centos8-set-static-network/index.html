@@ -217,7 +217,7 @@ Mask: 255.255.255.0
 DNS: 114.114.114.114</p>
 <h2 id="命令">命令</h2>
 <p>不出意外的话，第一个网络接口应该是<code>enp0s3</code>，所以下面的命令一气呵成就可以配置成功了</p>
-<pre><code>[root@localhost network-scripts]# nmcli con
+<pre tabindex="0"><code>[root@localhost network-scripts]# nmcli con
 NAME    UUID                                  TYPE      DEVICE
 enp0s3  f131fbc3-12a2-4d96-bb3a-623aad5c4fda  ethernet  enp0s3
 [root@localhost network-scripts]# nmcli con mod enp0s3 ipv4.addresses 192.168.0.108/24 # 配置IP和Mask
@@ -227,7 +227,7 @@ enp0s3  f131fbc3-12a2-4d96-bb3a-623aad5c4fda  ethernet  enp0s3
 [root@localhost network-scripts]# nmcli con up enp0s3                                  # 重启网络接口
 </code></pre><h2 id="配置key登录">配置key登录</h2>
 <p>然后就可以愉快的在macOS上通过以下命令生成配置使用key登录虚拟机了</p>
-<pre><code>$ ssh-copy-id frost@192.168.0.108
+<pre tabindex="0"><code>$ ssh-copy-id frost@192.168.0.108
 /usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: &quot;/Users/frost/.ssh/id_rsa.pub&quot;
 /usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
 /usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
@@ -239,7 +239,7 @@ Now try logging into the machine, with:   &quot;ssh 'frost@192.168.0.108'&quot;
 and check to make sure that only the key(s) you wanted were added.
 </code></pre><h2 id="配置快捷登录方式">配置快捷登录方式</h2>
 <p>接着在macOS的<code>$HOME/.ssh/config</code>中添加以下内容</p>
-<pre><code>Host *
+<pre tabindex="0"><code>Host *
 ControlMaster auto
 ControlPath  /tmp/ssh-%r@%h
 
@@ -249,7 +249,7 @@ User frost
 </code></pre><p>这样就可以通过<code>ssh dev</code>这条简短的命令登录了。虽然用key做认证倒也无所谓，不过通常还是配置上上述内容中的前三行，让登录到同一个主机的ssh共享session，也就是说在使用密码登录时，只有第一次需要输入密码，在保留第一个连接时，后续的连接都可以免密。</p>
 <h2 id="补充">补充</h2>
 <p>后来因为买了块新的硬盘重新安装了macOS，把之前安装的CentOS8虚拟机拷贝过来之后无法运行，调整了网络配置（从BridgeNetwork调整到NAT）之后可以开机了但是无法联网，不知道是什么原因。由于之前是配置了静态地址，在NAT模式下想着还是配置成DHCP吧，但发现nmcli并没有提供类似<code>nmcli connection reset</code>这种操作，所以只能删了重新配置。</p>
-<pre><code>nmcli connection delete enp0s3
+<pre tabindex="0"><code>nmcli connection delete enp0s3
 nmcli connection add type ethernet con-name home ifname enp3s0
 nmcli connection up home
 </code></pre><p>即可联网了。关于<code>nmcli</code>还有很多细节的用法，可以参考<a href="https://access.redhat.com/documentation/zh-cn/red_hat_enterprise_linux/7/html/networking_guide/sec-using_the_networkmanager_command_line_tool_nmcli">RedHat官方文档</a>。</p>

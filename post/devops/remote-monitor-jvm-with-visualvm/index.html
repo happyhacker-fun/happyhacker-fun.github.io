@@ -203,7 +203,7 @@
             <p>服务器端没有可视化界面，监控这种事情看CLI界面还是差点意思。</p>
 <h2 id="方法">方法</h2>
 <p>需要看Tomcat的监控，需要远程连接之，只需要在tomcat启动前在<code>$TOMCAT_HOME/bin</code>目录下添加<code>setenv.sh</code>文件，加上以下内容即可</p>
-<pre><code>JAVA_OPTS=&quot;-Dcom.sun.management.jmxremote=true \
+<pre tabindex="0"><code>JAVA_OPTS=&quot;-Dcom.sun.management.jmxremote=true \
                   -Dcom.sun.management.jmxremote.port=9090 \
                   -Dcom.sun.management.jmxremote.ssl=false \
                   -Dcom.sun.management.jmxremote.authenticate=false \
@@ -216,7 +216,7 @@
     </p>
 <h2 id="扩展">扩展</h2>
 <p>既然Tomcat是这么做，其实我们自己的应用当然也可以，只需要在启动的时候加上这些参数即可。</p>
-<pre><code>➜  tomcat vim Hello.java
+<pre tabindex="0"><code>➜  tomcat vim Hello.java
 ➜  tomcat javac Hello.java
 ➜  tomcat java -Dcom.sun.management.jmxremote=true \
                   -Dcom.sun.management.jmxremote.port=9090 \

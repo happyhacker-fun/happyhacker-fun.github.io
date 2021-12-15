@@ -206,16 +206,16 @@
         <div class="post-content">
             <p>本文使用docker环境。</p>
 <h2 id="修改软件源">修改软件源</h2>
-<pre><code>sed -i 's/deb.debian.org/mirrors.aliyun.com/g' /etc/apt/sources.list
+<pre tabindex="0"><code>sed -i 's/deb.debian.org/mirrors.aliyun.com/g' /etc/apt/sources.list
 sed -i 's/security.debian.org/mirrors.aliyun.com/g' /etc/apt/sources.list
 </code></pre><h2 id="安装jdk和maven">安装JDK和maven</h2>
-<pre><code>apt update
+<pre tabindex="0"><code>apt update
 apt install openjdk-11-jdk-headless maven vim git curl wget
 </code></pre><h2 id="配置阿里云maven加速">配置阿里云maven加速</h2>
 <p>参考<a href="/post/accelerating-maven-downloading-with-aliyun-mirror/">使用阿里云加速依赖管理</a></p>
 <h2 id="创建一个java应用">创建一个Java应用</h2>
 <h3 id="使用maven创建一个应用骨架">使用maven创建一个应用骨架</h3>
-<pre><code>mvn archetype:generate -DgroupId=fun.happyhacker -DartifactId=spring-demo -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
+<pre tabindex="0"><code>mvn archetype:generate -DgroupId=fun.happyhacker -DartifactId=spring-demo -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
 </code></pre><h2 id="总结">总结</h2>
 <p>在一个全新的机器上搭建Java开发和运行环境，主要还是网络问题，使用阿里云的加速服务能极大的提高使用体验。</p>
         </div>

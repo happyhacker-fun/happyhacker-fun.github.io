@@ -208,7 +208,7 @@
 <p>之前也没有研究这个原因，最近在总结日志相关的坑，就把这里详细看了一下。</p>
 <h2 id="观察现象">观察现象</h2>
 <p>首先是这个日志是红色的，INFO级别，而且在log4j.properties中添加</p>
-<pre><code class="language-properties" data-lang="properties">log4j.logger.net.spy.memcached=ERROR, console
+<pre tabindex="0"><code class="language-properties" data-lang="properties">log4j.logger.net.spy.memcached=ERROR, console
 log4j.logger.addivitity.*=false
 </code></pre><p>是不起作用的。</p>
 <h2 id="分析原因">分析原因</h2>
@@ -230,10 +230,10 @@ log4j.logger.addivitity.*=false
 <p>很明显我们要找的就是<code>net.spy.memcached.compat.log.Log4jLogger</code>，所以只需要在程序入口加上这行</p>
 <div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">System<span style="color:#666">.</span><span style="color:#b44">setProperty</span><span style="color:#666">(</span><span style="color:#b44">&#34;net.spy.log.LoggerImpl&#34;</span><span style="color:#666">,</span> <span style="color:#b44">&#34;net.spy.memcached.compat.log.Log4JLogger&#34;</span><span style="color:#666">);</span>
+<pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">System<span style="color:#666">.</span><span style="color:#b44">setProperty</span><span style="color:#666">(</span><span style="color:#b44">&#34;net.spy.log.LoggerImpl&#34;</span><span style="color:#666">,</span> <span style="color:#b44">&#34;net.spy.memcached.compat.log.Log4JLogger&#34;</span><span style="color:#666">);</span>
 </code></pre></td></tr></table>
 </div>
 </div><blockquote>

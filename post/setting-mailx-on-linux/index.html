@@ -205,10 +205,10 @@
         <div class="post-content">
             <p>用newman搞了个自动化测试脚本，测试出错的时候需要发邮件提醒，但之前尝试配置了sendmail有各种神奇的问题，这次换了思路，尝试用mailx。</p>
 <h2 id="安装软件包">安装软件包</h2>
-<pre><code>yum install -y mailx
+<pre tabindex="0"><code>yum install -y mailx
 </code></pre><h2 id="配置发件人信息">配置发件人信息</h2>
 <p>安装完成后会生成一个<code>/etc/mail.rc</code>配置文件，前面的那些都不用看，直接无脑在最后添加以下内容</p>
-<pre><code>set from=&quot;myname@happyhacker.fun&quot;
+<pre tabindex="0"><code>set from=&quot;myname@happyhacker.fun&quot;
 set smtp=&quot;mail.happyhacker.fun&quot;
 set smtp-auth-user=&quot;myname@happyhacker.fun&quot;
 set smtp-auth-password=&quot;this is a strong password&quot;
@@ -216,12 +216,12 @@ set smtp-auth=login
 </code></pre><h2 id="测试几种不同方式">测试几种不同方式</h2>
 <h3 id="不带附件">不带附件</h3>
 <h4 id="管道">管道</h4>
-<pre><code>echo &quot;这是正文&quot; | mail -s &quot;这是标题&quot; myname@happyhacker.fun
+<pre tabindex="0"><code>echo &quot;这是正文&quot; | mail -s &quot;这是标题&quot; myname@happyhacker.fun
 </code></pre><h4 id="重定向">重定向</h4>
-<pre><code>mail -s &quot;这是标题&quot; myname@happyhacker.fun &lt; /path/to/a/text/file
+<pre tabindex="0"><code>mail -s &quot;这是标题&quot; myname@happyhacker.fun &lt; /path/to/a/text/file
 </code></pre><p>这样会把指定的文件中的内容当作邮件的正文发出</p>
 <h3 id="带附件">带附件</h3>
-<pre><code>mail -a 附件.docx -s &quot;这是标题&quot; myname@happyhacker.fun &lt; /path/to/a/text/file
+<pre tabindex="0"><code>mail -a 附件.docx -s &quot;这是标题&quot; myname@happyhacker.fun &lt; /path/to/a/text/file
 </code></pre><p>这些就可以应付大部分场景了。</p>
         </div>
 

@@ -212,9 +212,9 @@
 而我想要的是可以设置好一个固定的代理地址，我需要开启的时候在一个很明显的入口点一下，就配置上了。不想用的时候关掉即可，不用清空配置。然而我搜遍了全网也没有找到。</p>
 <p>于是我就想macOS系统既然脱胎于BSD，那会不会有相应的命令行可以做这件事儿呢，果然被我找到了一系列命令<code>networksetup</code>。</p>
 <p>先看一下这个命令都有什么功能吧，</p>
-<pre><code>networksetup -help
+<pre tabindex="0"><code>networksetup -help
 </code></pre><p>输出太多了，这里就不贴了，可以自己尝试一下。我们关注的是代理（Proxy），所以在输出的信息里搜索proxy，就会找到以下内容</p>
-<pre><code>Usage: networksetup -setautoproxyurl &lt;networkservice&gt; &lt;url&gt;
+<pre tabindex="0"><code>Usage: networksetup -setautoproxyurl &lt;networkservice&gt; &lt;url&gt;
 	Set proxy auto-config to url for &lt;networkservice&gt; and enable it.
 
 Usage: networksetup -getautoproxyurl &lt;networkservice&gt;
@@ -228,7 +228,7 @@ Usage: networksetup -setautoproxystate &lt;networkservice&gt; &lt;on off&gt;
 <h3 id="设置代理">设置代理</h3>
 <div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -241,7 +241,7 @@ Usage: networksetup -setautoproxystate &lt;networkservice&gt; &lt;on off&gt;
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#080">#!/usr/bin/env bash
+<pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#080">#!/usr/bin/env bash
 </span><span style="color:#080"></span>
 <span style="color:#a2f">echo</span> <span style="color:#b44">&#34;Enabling auto proxy....&#34;</span>
 
@@ -257,7 +257,7 @@ networksetup -getautoproxyurl <span style="color:#b44">&#34;Ethernet Adaptor (en
 </div><h3 id="关掉代理">关掉代理</h3>
 <div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
@@ -268,7 +268,7 @@ networksetup -getautoproxyurl <span style="color:#b44">&#34;Ethernet Adaptor (en
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#080">#!/usr/bin/env bash
+<pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#080">#!/usr/bin/env bash
 </span><span style="color:#080"></span>
 <span style="color:#a2f">echo</span> <span style="color:#b44">&#34;Disabling auto proxy...&#34;</span>
 networksetup -setautoproxystate <span style="color:#b44">&#34;Ethernet Adaptor (en0)&#34;</span> off
@@ -283,10 +283,10 @@ networksetup -getautoproxyurl <span style="color:#b44">&#34;Ethernet Adaptor (en
 <p>把这分别保存为<code>disable_proxy</code>和<code>enable_proxy</code>，放在<code>$HOME/.local/bin/</code>目录下，然后在你的<code>$HOME/.zshrc</code>或<code>$HOME/.bashrc</code>的最后一行追加</p>
 <div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#a2f">export</span> <span style="color:#b8860b">PATH</span><span style="color:#666">=</span><span style="color:#b8860b">$PATH</span>:<span style="color:#b8860b">$HOME</span>/.local/bin
+<pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#a2f">export</span> <span style="color:#b8860b">PATH</span><span style="color:#666">=</span><span style="color:#b8860b">$PATH</span>:<span style="color:#b8860b">$HOME</span>/.local/bin
 </code></pre></td></tr></table>
 </div>
 </div><p>再执行<code>source ~/.zshrc</code>或<code>source ~/.bashrc</code>，就可以生效了。之后就可以通过执行<code>enable_proxy</code>开启代理，通过<code>disable_proxy</code>来关闭代理了。再也不用找那么深的入口去一遍遍的配置代理了。</p>

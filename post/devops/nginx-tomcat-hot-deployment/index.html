@@ -248,7 +248,7 @@
 <h3 id="编写同一个接口的不同版本">编写同一个接口的不同版本</h3>
 <div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
@@ -258,7 +258,7 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-style:italic">// tag v1
+<pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-style:italic">// tag v1
 </span><span style="color:#080;font-style:italic"></span><span style="color:#a2f">@RestController</span>
 <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">HelloController</span> <span style="color:#666">{</span>
     <span style="color:#a2f">@GetMapping</span><span style="color:#666">(</span><span style="color:#b44">&#34;/hello&#34;</span><span style="color:#666">)</span>
@@ -270,7 +270,7 @@
 </div>
 </div><div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
@@ -280,7 +280,7 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-style:italic">// tag v2
+<pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-style:italic">// tag v2
 </span><span style="color:#080;font-style:italic"></span><span style="color:#a2f">@RestController</span>
 <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">HelloController</span> <span style="color:#666">{</span>
     <span style="color:#a2f">@GetMapping</span><span style="color:#666">(</span><span style="color:#b44">&#34;/hello&#34;</span><span style="color:#666">)</span>
@@ -291,17 +291,17 @@
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="打包">打包</h3>
-<pre><code>mvn clean package -Dmaven.test.skip=true
+<pre tabindex="0"><code>mvn clean package -Dmaven.test.skip=true
 </code></pre><h3 id="创建两个tomcat容器">创建两个tomcat容器</h3>
-<pre><code>docker run -itd --name tomcat-active -v /tmp/tomcat/active:/usr/local/tomcat/webapps -p 32771:8080 tomcat
+<pre tabindex="0"><code>docker run -itd --name tomcat-active -v /tmp/tomcat/active:/usr/local/tomcat/webapps -p 32771:8080 tomcat
 docker run -itd --name tomcat-backup -v /tmp/tomcat/backup:/usr/local/tomcat/webapps -p 32772:8080 tomcat
 </code></pre><h3 id="将war包拷贝到容器中">将war包拷贝到容器中</h3>
 <p>可能是docker toolbox的问题，无法挂载目录，所以只好把war包手动拷贝进去。</p>
-<pre><code>docker cp ~/workspace/spring-demo/target/spring-demo-0.0.1-SNAPSHOT.war tomcat-active:/usr/local/tomcat/webapps/
+<pre tabindex="0"><code>docker cp ~/workspace/spring-demo/target/spring-demo-0.0.1-SNAPSHOT.war tomcat-active:/usr/local/tomcat/webapps/
 docker cp ~/workspace/spring-demo/target/spring-demo-0.0.1-SNAPSHOT.war tomcat-backup:/usr/local/tomcat/webapps/
 </code></pre><h3 id="访问两个容器中的服务">访问两个容器中的服务</h3>
 <p>稍等片刻两个容器中的服务会自动部署，就可以分别通过相应的端口访问了，简单压测一下QPS可以达到2000+且没有报错。</p>
-<pre><code>$ wrk -c 20 -d 10 -t 4 http://192.168.99.100:32771/spring-demo-0.0.1-SNAPSHOT/hello
+<pre tabindex="0"><code>$ wrk -c 20 -d 10 -t 4 http://192.168.99.100:32771/spring-demo-0.0.1-SNAPSHOT/hello
 Running 10s test @ http://192.168.99.100:32771/spring-demo-0.0.1-SNAPSHOT/hello
   4 threads and 20 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
@@ -323,7 +323,7 @@ Transfer/sec:    247.05KB
 </code></pre><h3 id="配置nginx">配置Nginx</h3>
 <div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -338,7 +338,7 @@ Transfer/sec:    247.05KB
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nginx" data-lang="nginx"><span style="color:#a2f;font-weight:bold">upstream</span> <span style="color:#b44">ha</span> {
+<pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nginx" data-lang="nginx"><span style="color:#a2f;font-weight:bold">upstream</span> <span style="color:#b44">ha</span> {
 	<span style="color:#a2f;font-weight:bold">server</span> 192.168.99.100:<span style="color:#666">32771</span>;
 	<span style="color:#a2f;font-weight:bold">server</span> 192.168.99.100:<span style="color:#666">32772</span> <span style="color:#b44">backup</span>;
 }
@@ -356,7 +356,7 @@ Transfer/sec:    247.05KB
 </div><p>注意：默认情况下只会转发<code>GET</code>/<code>HEAD</code>/<code>PUT</code>/<code>DELETE</code>/<code>OPTIONS</code>这种幂等的请求，而不会转发<code>POST</code>请求，如果需要对<code>POST</code>请求也做转发，就需要加上<code>non_idempotent</code>配置，整体配置如下</p>
 <div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -371,7 +371,7 @@ Transfer/sec:    247.05KB
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nginx" data-lang="nginx"><span style="color:#a2f;font-weight:bold">upstream</span> <span style="color:#b44">ha</span> {
+<pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nginx" data-lang="nginx"><span style="color:#a2f;font-weight:bold">upstream</span> <span style="color:#b44">ha</span> {
 	<span style="color:#a2f;font-weight:bold">server</span> 192.168.99.100:<span style="color:#666">32771</span>;
 	<span style="color:#a2f;font-weight:bold">server</span> 192.168.99.100:<span style="color:#666">32772</span> <span style="color:#b44">backup</span>;
 }
@@ -393,7 +393,7 @@ Transfer/sec:    247.05KB
 <ol>
 <li>两个tomcat节点均正常的情况下压测</li>
 </ol>
-<pre><code>$ wrk -c 20 -d 10 -t 4 http://192.168.99.100:32778/hello
+<pre tabindex="0"><code>$ wrk -c 20 -d 10 -t 4 http://192.168.99.100:32778/hello
 Running 10s test @ http://192.168.99.100:32778/hello
   4 threads and 20 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
@@ -406,7 +406,7 @@ Transfer/sec:     55.93KB
 <ol start="2">
 <li>在开始压测后立即删除<code>tomcat-active</code>容器中的war包和目录，结果如下</li>
 </ol>
-<pre><code>$ wrk -c 20 -d 10 -t 4 http://192.168.99.100:32778/hello
+<pre tabindex="0"><code>$ wrk -c 20 -d 10 -t 4 http://192.168.99.100:32778/hello
 Running 10s test @ http://192.168.99.100:32778/hello
   4 threads and 20 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
@@ -419,7 +419,7 @@ Transfer/sec:     55.05KB
 <ol start="3">
 <li>只有backup节点工作的情况下压测</li>
 </ol>
-<pre><code>$ wrk -c 20 -d 10 -t 4 http://192.168.99.100:32778/hello
+<pre tabindex="0"><code>$ wrk -c 20 -d 10 -t 4 http://192.168.99.100:32778/hello
 Running 10s test @ http://192.168.99.100:32778/hello
   4 threads and 20 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
@@ -434,7 +434,7 @@ Transfer/sec:     43.93KB
 <ol>
 <li>两个节点都正常的情况</li>
 </ol>
-<pre><code>$ wrk -c 20 -d 60 -t 4 http://192.168.99.100:32778/hello
+<pre tabindex="0"><code>$ wrk -c 20 -d 60 -t 4 http://192.168.99.100:32778/hello
 Running 1m test @ http://192.168.99.100:32778/hello
   4 threads and 20 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
@@ -444,7 +444,7 @@ Running 1m test @ http://192.168.99.100:32778/hello
 Requests/sec:    364.66
 Transfer/sec:     57.32KB
 </code></pre><p>整体情况和上面10s的测试相同。查看日志发现backup节点没有接收到任何请求。为了验证是否是<code>worker_processes</code>配置导致的，把这个值改成4之后重新测试，结果如下</p>
-<pre><code>$ wrk -c 20 -d 60 -t 4 http://192.168.99.100:32778/hello
+<pre tabindex="0"><code>$ wrk -c 20 -d 60 -t 4 http://192.168.99.100:32778/hello
 Running 1m test @ http://192.168.99.100:32778/hello
   4 threads and 20 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
@@ -457,7 +457,7 @@ Transfer/sec:     78.29KB
 <ol start="2">
 <li>开始测试后立即更新active节点的war包</li>
 </ol>
-<pre><code>$ wrk -c 20 -d 60 -t 4 http://192.168.99.100:32778/hello
+<pre tabindex="0"><code>$ wrk -c 20 -d 60 -t 4 http://192.168.99.100:32778/hello
 Running 1m test @ http://192.168.99.100:32778/hello
   4 threads and 20 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
@@ -468,7 +468,7 @@ Requests/sec:    381.42
 Transfer/sec:     59.95KB
 </code></pre><p>没有明显变化，测试开始后有一段时间backup节点收到请求，后面请求又全部指向了active节点。可能是因为服务太简单，重新加载的太快，只有很少量（5750）的请求转发到了backup节点，所以对整体结果影响不大。
 3. 开始测试后立即删除active节点的war包</p>
-<pre><code>$ wrk -c 20 -d 60 -t 4 http://192.168.99.100:32778/hello
+<pre tabindex="0"><code>$ wrk -c 20 -d 60 -t 4 http://192.168.99.100:32778/hello
 Running 1m test @ http://192.168.99.100:32778/hello
   4 threads and 20 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
@@ -482,7 +482,7 @@ Transfer/sec:     43.99KB
 <ol>
 <li>直接访问active</li>
 </ol>
-<pre><code>$ wrk -c 20 -d 60 -t 4 http://10.75.1.42:28080/web-0.0.1-SNAPSHOT/hello
+<pre tabindex="0"><code>$ wrk -c 20 -d 60 -t 4 http://10.75.1.42:28080/web-0.0.1-SNAPSHOT/hello
 Running 1m test @ http://10.75.1.42:28080/web-0.0.1-SNAPSHOT/hello
   4 threads and 20 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
@@ -495,7 +495,7 @@ Transfer/sec:      3.61MB
 <ol start="2">
 <li>在进行性能压测期间发布新版本</li>
 </ol>
-<pre><code>$ wrk -c 20 -d 60 -t 4 http://10.75.1.42:28080/web-0.0.1-SNAPSHOT/hello
+<pre tabindex="0"><code>$ wrk -c 20 -d 60 -t 4 http://10.75.1.42:28080/web-0.0.1-SNAPSHOT/hello
 Running 1m test @ http://10.75.1.42:28080/web-0.0.1-SNAPSHOT/hello
   4 threads and 20 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
@@ -509,7 +509,7 @@ Transfer/sec:      4.76MB
 <ol start="3">
 <li>通过Nginx访问服务</li>
 </ol>
-<pre><code>$ wrk -c 20 -d 60 -t 4 http://10.75.1.42:28010/web/hello
+<pre tabindex="0"><code>$ wrk -c 20 -d 60 -t 4 http://10.75.1.42:28010/web/hello
 Running 1m test @ http://10.75.1.42:28010/web/hello
   4 threads and 20 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
@@ -522,7 +522,7 @@ Transfer/sec:      4.34MB
 <ol start="4">
 <li>通过Nginx压测期间发布新版本</li>
 </ol>
-<pre><code>$ wrk -c 20 -d 60 -t 4 http://10.75.1.42:28010/web/hello
+<pre tabindex="0"><code>$ wrk -c 20 -d 60 -t 4 http://10.75.1.42:28010/web/hello
 Running 1m test @ http://10.75.1.42:28010/web/hello
   4 threads and 20 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev

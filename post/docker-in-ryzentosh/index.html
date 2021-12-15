@@ -223,7 +223,7 @@
 <blockquote>
 <p>注意：执行<code>docker-machine create</code>命令的时候还是会检查上面提到的有问题的虚拟化技术检查，所以需要加上一个<code>--virtualbox-no-vtx-check</code>选项</p>
 </blockquote>
-<pre><code>docker-machine create default --engine-registry-mirror=https://yourcode.mirror.aliyuncs.com -d virtualbox --virtualbox-no-vtx-check --virtualbox-memory &quot;8096&quot; --virtualbox-cpu-count &quot;6&quot;
+<pre tabindex="0"><code>docker-machine create default --engine-registry-mirror=https://yourcode.mirror.aliyuncs.com -d virtualbox --virtualbox-no-vtx-check --virtualbox-memory &quot;8096&quot; --virtualbox-cpu-count &quot;6&quot;
 </code></pre><blockquote>
 <p>2020年11月添加：后来使用过程中发现内存会不够用，因为默认是1G内存和1个CPU核心，这明显是不能满足正常的使用需求的，所以就需要加一些资源了。</p>
 </blockquote>

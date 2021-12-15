@@ -223,11 +223,11 @@
 <li><code>vim /var/spool/cron/frost</code></li>
 </ul>
 <p>这两种方式本质上是一样的。值得注意的是，它的文件内容格式如下</p>
-<pre><code class="language-crontab" data-lang="crontab">* * * * * /path/to/command
+<pre tabindex="0"><code class="language-crontab" data-lang="crontab">* * * * * /path/to/command
 </code></pre><p>先记住这个格式，后面会做对比。</p>
 <h3 id="etccrond"><code>/etc/cron.d</code></h3>
 <p>这里存储的是更通用的配置，每一行可以由不同的用户执行，没有了用户名做区分应该怎么做呢？这就是它的文件内容和前面的不同的地方了，放在这个目录种的cron文件想要被执行，需要满足下面的格式</p>
-<pre><code class="language-crontab" data-lang="crontab">* * * * * ${username} /path/to/command
+<pre tabindex="0"><code class="language-crontab" data-lang="crontab">* * * * * ${username} /path/to/command
 </code></pre><p>也就是说，在<strong>时间格式后面需要指定执行命令所用的用户名</strong>，这是非常重要的，因为如果没有这个用户名，这行命令就不会被执行。<br>
 个人认为，这种方式其实更适合批量执行的环境，从中心节点下发crontab相关的配置时，都放在一个文件会导致该文件功能众多，难以维护，相反如果把不同功能的配置文件以不同的名字下发到<code>/etc/cron.d</code>中，则更为清晰，可维护性更好。<br>
 比如在<code>/etc/cron.d</code>中可以有<code>log</code>, <code>check_db</code>等，分别用于执行压缩/删除日志、检查数据库是否可访问等任务，职责清晰明了。</p>
