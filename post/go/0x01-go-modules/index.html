@@ -156,7 +156,17 @@
     </li>
     <li><a href="#go-clean"><code>go clean</code></a></li>
     <li><a href="#go-install"><code>go install</code></a></li>
-    <li><a href="#go-test"><code>go test</code></a></li>
+    <li><a href="#go-test"><code>go test</code></a>
+      <ul>
+        <li><a href="#执行当前项目内所有的单元测试文件">执行当前项目内所有的单元测试文件</a></li>
+        <li><a href="#执行gopath指定目录内的所有单元测试文件">执行<code>$GOPATH</code>指定目录内的所有单元测试文件</a></li>
+        <li><a href="#执行当前目录内指定目录内所有单元测试文件">执行当前目录内指定目录内所有单元测试文件</a></li>
+        <li><a href="#执行gopath内指定文件前缀的单元测试文件">执行<code>$GOPATH</code>内指定文件前缀的单元测试文件</a></li>
+        <li><a href="#执行当前项目内指定文件前缀的单元测试文件">执行当前项目内指定文件前缀的单元测试文件</a></li>
+        <li><a href="#执行gopath内所有的单元测试文件文件">执行<code>$GOPATH</code>内所有的单元测试文件文件</a></li>
+        <li><a href="#执行指定的方法">执行指定的方法</a></li>
+      </ul>
+    </li>
     <li><a href="#go-get"><code>go get</code></a></li>
   </ul>
 </nav>
@@ -304,7 +314,77 @@ go build main.go
 <p>执行单元测试用的，可以用来做功能测试和性能测试，所有测试文件以<code>_test.go</code>结尾。
 功能测试的方法以<code>Test</code>开始，参数是<code>(t *testing.T)</code>；
 性能测试的方法以<code>Benchmark</code>开始，参数是<code>(b *testing.B)</code>。</p>
-<h2 id="go-get"><code>go get</code></h2>
+<p>如果要执行指定的test文件，有以下几种情形</p>
+<h3 id="执行当前项目内所有的单元测试文件">执行当前项目内所有的单元测试文件</h3>
+<div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">go <span style="color:#a2f">test</span> ./...
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="执行gopath指定目录内的所有单元测试文件">执行<code>$GOPATH</code>指定目录内的所有单元测试文件</h3>
+<div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">go <span style="color:#a2f">test</span> foo/...
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="执行当前目录内指定目录内所有单元测试文件">执行当前目录内指定目录内所有单元测试文件</h3>
+<div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">go <span style="color:#a2f">test</span> ./foo/...
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="执行gopath内指定文件前缀的单元测试文件">执行<code>$GOPATH</code>内指定文件前缀的单元测试文件</h3>
+<div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">go <span style="color:#a2f">test</span> foo...
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="执行当前项目内指定文件前缀的单元测试文件">执行当前项目内指定文件前缀的单元测试文件</h3>
+<div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">go <span style="color:#a2f">test</span> foo...
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="执行gopath内所有的单元测试文件文件">执行<code>$GOPATH</code>内所有的单元测试文件文件</h3>
+<div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">go <span style="color:#a2f">test</span> ...
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="执行指定的方法">执行指定的方法</h3>
+<div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">go <span style="color:#a2f">test</span> tests/foo/math_test.go -test.run TestHello
+go <span style="color:#a2f">test</span> ./... -test.run TestHello
+go <span style="color:#a2f">test</span> tests/foo/math_test.go -run TestHello
+go <span style="color:#a2f">test</span> ./... -run TestHello
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="go-get"><code>go get</code></h2>
 <p>到这才是go modules的关键，它是用来拉取依赖包的，它有一些控制参数，比如<code>go get -t</code>表示要打包要安装的包的单元测试，<code>go get -u</code>表示安装依赖包的最新的小版本。所谓小版本又涉及到语义化版本了，具体可以看<a href="https://semver.org/lang/zh-CN/">这里</a></p>
         </div>
 
@@ -462,6 +542,10 @@ go build main.go
 <ul class="widget-list">
     
     <li>
+        <a href="https://blog.happyhacker.fun/post/go/0x02-commandline-programs/" title="0x02 命令行应用">0x02 命令行应用</a>
+    </li>
+    
+    <li>
         <a href="https://blog.happyhacker.fun/post/go/0x01-go-modules/" title="0x01 基础命令以及go mod">0x01 基础命令以及go mod</a>
     </li>
     
@@ -497,10 +581,6 @@ go build main.go
         <a href="https://blog.happyhacker.fun/post/devops/install-mysql-with-homebrew/" title="使用homebrew安装 MySQL">使用homebrew安装 MySQL</a>
     </li>
     
-    <li>
-        <a href="https://blog.happyhacker.fun/post/hugo-localsearch-support/" title="Hugo支持站内搜索">Hugo支持站内搜索</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -518,7 +598,7 @@ go build main.go
     
     <li><a href="https://blog.happyhacker.fun/categories/git/">git (1)</a></li>
     
-    <li><a href="https://blog.happyhacker.fun/categories/go/">go (2)</a></li>
+    <li><a href="https://blog.happyhacker.fun/categories/go/">go (3)</a></li>
     
     <li><a href="https://blog.happyhacker.fun/categories/in-action/">in-action (29)</a></li>
     
@@ -572,6 +652,8 @@ go build main.go
     <a href="https://blog.happyhacker.fun/tags/centos8/">centos8</a>
     
     <a href="https://blog.happyhacker.fun/tags/chrome/">chrome</a>
+    
+    <a href="https://blog.happyhacker.fun/tags/cobra/">cobra</a>
     
     <a href="https://blog.happyhacker.fun/tags/crontab/">crontab</a>
     
