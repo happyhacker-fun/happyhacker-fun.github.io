@@ -252,22 +252,22 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://blog.happyhacker.fun/tags/%E6%94%BF%E5%8A%A1/</loc>
-    <lastmod>2021-01-02T13:49:32+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
     <loc>https://blog.happyhacker.fun/post/life/fix-gzjzz-website-with-extension/</loc>
     <lastmod>2021-01-02T13:49:32+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://blog.happyhacker.fun/post/life/renting-invoice-applying-in-beijing/</loc>
-    <lastmod>2020-12-30T22:27:39+08:00</lastmod>
+    <loc>https://blog.happyhacker.fun/tags/%E6%94%BF%E5%8A%A1/</loc>
+    <lastmod>2021-01-02T13:49:32+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://blog.happyhacker.fun/categories/%E5%B9%BC%E5%8D%87%E5%B0%8F/</loc>
+    <lastmod>2020-12-30T22:27:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://blog.happyhacker.fun/post/life/renting-invoice-applying-in-beijing/</loc>
     <lastmod>2020-12-30T22:27:39+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
