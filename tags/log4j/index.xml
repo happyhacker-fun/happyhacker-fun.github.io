@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>Log4j on Geekdocs</title>
+        <title>Log4j on happyhacker的技术分享</title>
         <link>http://blog.happyhacker.fun/tags/log4j/</link>
-        <description>Recent content in Log4j on Geekdocs</description>
+        <description>Recent content in Log4j on happyhacker的技术分享</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
         <lastBuildDate>Sat, 21 Nov 2020 15:21:05 +0800</lastBuildDate><atom:link href="http://blog.happyhacker.fun/tags/log4j/index.xml" rel="self" type="application/rss+xml" /><item>

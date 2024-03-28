@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>Centos on Geekdocs</title>
+        <title>Centos on happyhacker的技术分享</title>
         <link>http://blog.happyhacker.fun/tags/centos/</link>
-        <description>Recent content in Centos on Geekdocs</description>
+        <description>Recent content in Centos on happyhacker的技术分享</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
         <lastBuildDate>Fri, 17 Apr 2020 23:02:34 +0800</lastBuildDate><atom:link href="http://blog.happyhacker.fun/tags/centos/index.xml" rel="self" type="application/rss+xml" /><item>

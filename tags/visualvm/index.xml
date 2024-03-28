@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>Visualvm on Geekdocs</title>
+        <title>Visualvm on happyhacker的技术分享</title>
         <link>http://blog.happyhacker.fun/tags/visualvm/</link>
-        <description>Recent content in Visualvm on Geekdocs</description>
+        <description>Recent content in Visualvm on happyhacker的技术分享</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
         <lastBuildDate>Sat, 22 Aug 2020 17:25:53 +0800</lastBuildDate><atom:link href="http://blog.happyhacker.fun/tags/visualvm/index.xml" rel="self" type="application/rss+xml" /><item>
