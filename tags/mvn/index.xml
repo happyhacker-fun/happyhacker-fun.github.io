@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Mvn on Geekdocs</title>
+        <link>http://blog.happyhacker.fun/tags/mvn/</link>
+        <description>Recent content in Mvn on Geekdocs</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en</language>
+        <lastBuildDate>Sat, 22 Aug 2020 11:57:03 +0800</lastBuildDate><atom:link href="http://blog.happyhacker.fun/tags/mvn/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Debian Linux快速搭建Java运行环境</title>
+        <link>http://blog.happyhacker.fun/post/devops/install-jdk-maven-in-debian/</link>
+        <pubDate>Sat, 22 Aug 2020 11:57:03 +0800</pubDate>
+        
+        <guid>http://blog.happyhacker.fun/post/devops/install-jdk-maven-in-debian/</guid>
+        <description>&lt;p&gt;本文使用docker环境。&lt;/p&gt;
+&lt;h2 id=&#34;修改软件源&#34;&gt;修改软件源&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sed -i &amp;#39;s/deb.debian.org/mirrors.aliyun.com/g&amp;#39; /etc/apt/sources.list
+sed -i &amp;#39;s/security.debian.org/mirrors.aliyun.com/g&amp;#39; /etc/apt/sources.list
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;安装jdk和maven&#34;&gt;安装JDK和maven&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;apt update
+apt install openjdk-11-jdk-headless maven vim git curl wget
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;配置阿里云maven加速&#34;&gt;配置阿里云maven加速&lt;/h2&gt;
+&lt;p&gt;参考&lt;a class=&#34;link&#34; href=&#34;http://blog.happyhacker.fun/post/accelerating-maven-downloading-with-aliyun-mirror/&#34; &gt;使用阿里云加速依赖管理&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;创建一个java应用&#34;&gt;创建一个Java应用&lt;/h2&gt;
+&lt;h3 id=&#34;使用maven创建一个应用骨架&#34;&gt;使用maven创建一个应用骨架&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;mvn archetype:generate -DgroupId=fun.happyhacker -DartifactId=spring-demo -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;总结&#34;&gt;总结&lt;/h2&gt;
+&lt;p&gt;在一个全新的机器上搭建Java开发和运行环境，主要还是网络问题，使用阿里云的加速服务能极大的提高使用体验。&lt;/p&gt;</description>
+        </item>
+        
+    </channel>
+</rss>

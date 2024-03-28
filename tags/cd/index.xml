@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cd on Geekdocs</title><link>http://localhost:1313/tags/cd/</link><description>Recent content in Cd on Geekdocs</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 17 Apr 2020 23:28:21 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/cd/index.xml" rel="self" type="application/rss+xml"/><item><title>基于ansible的渐进上线流程探究</title><link>http://localhost:1313/post/ansible-step-release/</link><pubDate>Fri, 17 Apr 2020 23:28:21 +0800</pubDate><guid>http://localhost:1313/post/ansible-step-release/</guid><description>&lt;p>继上一篇文章&lt;a
+ class="gdoc-markdown__link"
+ href="http://localhost:1313/post/spring-tomcat-tutorial/"
+>Springboot使用内置和独立tomcat以及其他思考&lt;/a>中描述的，继续优化整个发布流程。&lt;/p></description></item></channel></rss>

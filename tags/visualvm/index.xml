@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Visualvm on Geekdocs</title>
+        <link>http://blog.happyhacker.fun/tags/visualvm/</link>
+        <description>Recent content in Visualvm on Geekdocs</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en</language>
+        <lastBuildDate>Sat, 22 Aug 2020 17:25:53 +0800</lastBuildDate><atom:link href="http://blog.happyhacker.fun/tags/visualvm/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>使用VisualVM监控远程JVM进程</title>
+        <link>http://blog.happyhacker.fun/post/devops/remote-monitor-jvm-with-visualvm/</link>
+        <pubDate>Sat, 22 Aug 2020 17:25:53 +0800</pubDate>
+        
+        <guid>http://blog.happyhacker.fun/post/devops/remote-monitor-jvm-with-visualvm/</guid>
+        <description>&lt;p&gt;服务器端没有可视化界面，监控这种事情看CLI界面还是差点意思。&lt;/p&gt;
+&lt;h2 id=&#34;方法&#34;&gt;方法&lt;/h2&gt;
+&lt;p&gt;需要看Tomcat的监控，需要远程连接之，只需要在tomcat启动前在&lt;code&gt;$TOMCAT_HOME/bin&lt;/code&gt;目录下添加&lt;code&gt;setenv.sh&lt;/code&gt;文件，加上以下内容即可&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;JAVA_OPTS=&amp;#34;-Dcom.sun.management.jmxremote=true \
+                  -Dcom.sun.management.jmxremote.port=9090 \
+                  -Dcom.sun.management.jmxremote.ssl=false \
+                  -Dcom.sun.management.jmxremote.authenticate=false \
+                  -Djava.rmi.server.hostname=current ip&amp;#34;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这样就可以在本地看到这种监控图了
+&lt;img src=&#34;http://blog.happyhacker.fun/images/2020-08-22-17-06-47.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;压测期间的active节点&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;扩展&#34;&gt;扩展&lt;/h2&gt;
+&lt;p&gt;既然Tomcat是这么做，其实我们自己的应用当然也可以，只需要在启动的时候加上这些参数即可。&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;➜  tomcat vim Hello.java
+➜  tomcat javac Hello.java
+➜  tomcat java -Dcom.sun.management.jmxremote=true \
+                  -Dcom.sun.management.jmxremote.port=9090 \
+                  -Dcom.sun.management.jmxremote.ssl=false \
+                  -Dcom.sun.management.jmxremote.authenticate=false \
+                  -Djava.rmi.server.hostname=10.75.1.42 Hello
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img src=&#34;http://blog.happyhacker.fun/images/2020-08-22-17-51-04.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;
+果然是可以的。&lt;/p&gt;
+&lt;h2 id=&#34;总结&#34;&gt;总结&lt;/h2&gt;
+&lt;p&gt;其实很多开源的Java软件，都有类似这种做法，比如Apache Flink用&lt;code&gt;$FLINK_HOME/bin/config.sh&lt;/code&gt;等，通过这种方式可以很容易的设置一些环境变量。&lt;/p&gt;</description>
+        </item>
+        
+    </channel>
+</rss>

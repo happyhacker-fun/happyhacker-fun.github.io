@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Mailx on Geekdocs</title>
+        <link>http://blog.happyhacker.fun/tags/mailx/</link>
+        <description>Recent content in Mailx on Geekdocs</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en</language>
+        <lastBuildDate>Mon, 20 Jul 2020 17:10:43 +0800</lastBuildDate><atom:link href="http://blog.happyhacker.fun/tags/mailx/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>最简单的命令行发邮件方式</title>
+        <link>http://blog.happyhacker.fun/post/setting-mailx-on-linux/</link>
+        <pubDate>Mon, 20 Jul 2020 17:10:43 +0800</pubDate>
+        
+        <guid>http://blog.happyhacker.fun/post/setting-mailx-on-linux/</guid>
+        <description>&lt;p&gt;用newman搞了个自动化测试脚本，测试出错的时候需要发邮件提醒，但之前尝试配置了sendmail有各种神奇的问题，这次换了思路，尝试用mailx。&lt;/p&gt;
+&lt;h2 id=&#34;安装软件包&#34;&gt;安装软件包&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;yum install -y mailx
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;配置发件人信息&#34;&gt;配置发件人信息&lt;/h2&gt;
+&lt;p&gt;安装完成后会生成一个&lt;code&gt;/etc/mail.rc&lt;/code&gt;配置文件，前面的那些都不用看，直接无脑在最后添加以下内容&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;set from=&amp;#34;myname@happyhacker.fun&amp;#34;
+set smtp=&amp;#34;mail.happyhacker.fun&amp;#34;
+set smtp-auth-user=&amp;#34;myname@happyhacker.fun&amp;#34;
+set smtp-auth-password=&amp;#34;this is a strong password&amp;#34;
+set smtp-auth=login
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;测试几种不同方式&#34;&gt;测试几种不同方式&lt;/h2&gt;
+&lt;h3 id=&#34;不带附件&#34;&gt;不带附件&lt;/h3&gt;
+&lt;h4 id=&#34;管道&#34;&gt;管道&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;echo &amp;#34;这是正文&amp;#34; | mail -s &amp;#34;这是标题&amp;#34; myname@happyhacker.fun
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;重定向&#34;&gt;重定向&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;mail -s &amp;#34;这是标题&amp;#34; myname@happyhacker.fun &amp;lt; /path/to/a/text/file
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这样会把指定的文件中的内容当作邮件的正文发出&lt;/p&gt;
+&lt;h3 id=&#34;带附件&#34;&gt;带附件&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;mail -a 附件.docx -s &amp;#34;这是标题&amp;#34; myname@happyhacker.fun &amp;lt; /path/to/a/text/file
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这些就可以应付大部分场景了。&lt;/p&gt;</description>
+        </item>
+        
+    </channel>
+</rss>
