@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>Lftp on happyhacker的技术分享</title>
-        <link>http://blog.happyhacker.fun/tags/lftp/</link>
-        <description>Recent content in Lftp on happyhacker的技术分享</description>
-        <generator>Hugo -- gohugo.io</generator>
-        <language>en</language>
-        <lastBuildDate>Sun, 05 Apr 2020 11:32:45 +0800</lastBuildDate><atom:link href="http://blog.happyhacker.fun/tags/lftp/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>lftp记录密码</title>
-        <link>http://blog.happyhacker.fun/post/lftp-usage/</link>
-        <pubDate>Sun, 05 Apr 2020 11:32:45 +0800</pubDate>
-        
-        <guid>http://blog.happyhacker.fun/post/lftp-usage/</guid>
-        <description>&lt;p&gt;简单的工具最好用。&lt;/p&gt;
-&lt;p&gt;lftp是我非常喜欢的一个lftp工具，命令简单。为了避免每次输入密码，可以通过在&lt;code&gt;$HOME/.netrc&lt;/code&gt;中添加一行记录来实现&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;machine 192.168.1.108 login ${my_user_name} password ${my_password}
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;非常简单。而且这个&lt;code&gt;.netrc&lt;/code&gt;并不是lftp专用的，而是一个用在很多开源软件上的公用配置。&lt;/p&gt;</description>
-        </item>
-        
-    </channel>
+  <channel>
+    <title>Lftp on happyhacker的技术分享</title>
+    <link>http://blog.happyhacker.fun/tags/lftp/</link>
+    <description>Recent content in Lftp on happyhacker的技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 05 Apr 2020 11:32:45 +0800</lastBuildDate>
+    <atom:link href="http://blog.happyhacker.fun/tags/lftp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>lftp记录密码</title>
+      <link>http://blog.happyhacker.fun/post/lftp-usage/</link>
+      <pubDate>Sun, 05 Apr 2020 11:32:45 +0800</pubDate>
+      <guid>http://blog.happyhacker.fun/post/lftp-usage/</guid>
+      <description>&lt;p&gt;简单的工具最好用。&lt;/p&gt;</description>
+    </item>
+  </channel>
 </rss>

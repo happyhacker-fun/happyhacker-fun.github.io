@@ -1,53 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>Centos8 on happyhacker的技术分享</title>
-        <link>http://blog.happyhacker.fun/tags/centos8/</link>
-        <description>Recent content in Centos8 on happyhacker的技术分享</description>
-        <generator>Hugo -- gohugo.io</generator>
-        <language>en</language>
-        <lastBuildDate>Mon, 06 Apr 2020 00:10:43 +0800</lastBuildDate><atom:link href="http://blog.happyhacker.fun/tags/centos8/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>Install Centos8</title>
-        <link>http://blog.happyhacker.fun/post/install-centos8/</link>
-        <pubDate>Mon, 06 Apr 2020 00:10:43 +0800</pubDate>
-        
-        <guid>http://blog.happyhacker.fun/post/install-centos8/</guid>
-        <description>&lt;p&gt;多年不安装虚拟机，竟然卡在了第一步。&lt;/p&gt;
-&lt;p&gt;拣重点提一下容易出问题的地方。&lt;/p&gt;
-&lt;h2 id=&#34;配置联网&#34;&gt;配置联网&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;http://blog.happyhacker.fun/images/2020-04-06-00-13-21.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;h2 id=&#34;选择安装源&#34;&gt;选择安装源&lt;/h2&gt;
-&lt;p&gt;因为DVD的安装iso太大了，就选了个最小化安装iso。这里配置的地方也没有可以参考的文档，照着这个写就可以了。国内有很多镜像站，可以选一个你自己访问速度最快的。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://blog.happyhacker.fun/images/2020-04-06-00-11-33.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;后面的步骤就不用说了。&lt;/p&gt;</description>
-        </item>
-        <item>
-        <title>Centos8乱码及解决</title>
-        <link>http://blog.happyhacker.fun/post/centos8-garbled-chars/</link>
-        <pubDate>Fri, 03 Apr 2020 22:14:19 +0800</pubDate>
-        
-        <guid>http://blog.happyhacker.fun/post/centos8-garbled-chars/</guid>
-        <description>&lt;p&gt;以下操作基于CentOS8, 理论上应该适用于其他版本的操作系统.&lt;/p&gt;
-&lt;p&gt;现在终端默认的编码都已经设置成了&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;export LANG=en_US.UTF-8
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;所以, 这里应该是不需要改动的, 只需要安装一下&lt;code&gt;glibc-langpack-*&lt;/code&gt;包就可以了, 对于我们的实际使用来说, 其实就是中文包&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;yum install -y glibc-langpack-zh
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;即可.&lt;/p&gt;</description>
-        </item>
-        
-    </channel>
+  <channel>
+    <title>Centos8 on happyhacker的技术分享</title>
+    <link>http://blog.happyhacker.fun/tags/centos8/</link>
+    <description>Recent content in Centos8 on happyhacker的技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 06 Apr 2020 00:10:43 +0800</lastBuildDate>
+    <atom:link href="http://blog.happyhacker.fun/tags/centos8/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Install Centos8</title>
+      <link>http://blog.happyhacker.fun/post/install-centos8/</link>
+      <pubDate>Mon, 06 Apr 2020 00:10:43 +0800</pubDate>
+      <guid>http://blog.happyhacker.fun/post/install-centos8/</guid>
+      <description>&lt;p&gt;多年不安装虚拟机，竟然卡在了第一步。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Centos8乱码及解决</title>
+      <link>http://blog.happyhacker.fun/post/centos8-garbled-chars/</link>
+      <pubDate>Fri, 03 Apr 2020 22:14:19 +0800</pubDate>
+      <guid>http://blog.happyhacker.fun/post/centos8-garbled-chars/</guid>
+      <description>&lt;p&gt;以下操作基于CentOS8, 理论上应该适用于其他版本的操作系统.&lt;/p&gt;</description>
+    </item>
+  </channel>
 </rss>

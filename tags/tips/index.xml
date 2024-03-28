@@ -1,79 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>Tips on happyhacker的技术分享</title>
-        <link>http://blog.happyhacker.fun/tags/tips/</link>
-        <description>Recent content in Tips on happyhacker的技术分享</description>
-        <generator>Hugo -- gohugo.io</generator>
-        <language>en</language>
-        <lastBuildDate>Wed, 10 Jun 2020 10:52:37 +0800</lastBuildDate><atom:link href="http://blog.happyhacker.fun/tags/tips/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>彻底关闭macOS系统升级提示</title>
-        <link>http://blog.happyhacker.fun/post/turn-off-macOS-update-notification/</link>
-        <pubDate>Wed, 10 Jun 2020 10:52:37 +0800</pubDate>
-        
-        <guid>http://blog.happyhacker.fun/post/turn-off-macOS-update-notification/</guid>
-        <description>&lt;p&gt;作为黑苹果用户，不知道直接更新系统会发生什么不可预知的问题，所以还是尽量避免升级。&lt;/p&gt;
-&lt;h2 id=&#34;设置方法&#34;&gt;设置方法&lt;/h2&gt;
-&lt;h3 id=&#34;1-在系统偏好设置中关闭自动更新&#34;&gt;1. 在系统偏好设置中关闭自动更新&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;http://blog.happyhacker.fun/images/2020-06-10-10-55-42.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://blog.happyhacker.fun/images/2020-06-10-11-03-03.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://blog.happyhacker.fun/images/2020-06-10-11-04-06.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;h3 id=&#34;2-在终端执行以下命令&#34;&gt;2. 在终端执行以下命令&lt;/h3&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo softwareupdate --ignore &amp;#34;macOS Catalina&amp;#34;
-defaults write com.apple.systempreferences AttentionPrefBundleIDs 0 
-killall Dock 
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;3-补充&#34;&gt;3. 补充&lt;/h3&gt;
-&lt;p&gt;最近的不知道哪次更新又带来了一个问题，执行上面的命令的时候会报&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Password:
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Ignored updates:
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;(
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Software Update can only ignore updates that are eligible for installation.
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;If the label provided to ignore is not in the above list, it is not eligible
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;to be ignored.
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Ignoring software updates is deprecated.
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;The ability to ignore individual updates will be removed in a future release of macOS.
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;也就是说苹果以后要把这个选项去掉了，可以参考一下这个文章&lt;a class=&#34;link&#34; href=&#34;https://www.idownloadblog.com/2020/05/28/apple-removes-ignoring-macos-updates/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Apple’s has brought back the nagging — you can no longer ignore major macOS updates&lt;/a&gt;，看起来不光是我反感这个事儿，全世界都觉得苹果一点都不在乎用户的感受啊，和微信有点像。&lt;/p&gt;
-&lt;h2 id=&#34;总结&#34;&gt;总结&lt;/h2&gt;
-&lt;p&gt;macOS和iPhone的升级速度快（指最新版本的更新率高）的原因就是这么不停提醒吧，太讨厌了。这种方法亲测有效。&lt;/p&gt;</description>
-        </item>
-        <item>
-        <title>避免Springboot应用启动前5秒的等待</title>
-        <link>http://blog.happyhacker.fun/post/avoid-5s-hangs-before-springboot-starts/</link>
-        <pubDate>Thu, 21 May 2020 10:41:26 +0800</pubDate>
-        
-        <guid>http://blog.happyhacker.fun/post/avoid-5s-hangs-before-springboot-starts/</guid>
-        <description>&lt;p&gt;在macOS上开发Springboot应用时发现应用启动前总是等待5秒钟，体现在应用启动的很慢。&lt;/p&gt;
-&lt;p&gt;具体的提示信息因为改完之后找不到了，就是一句提示，说使用了5000 milliseconds，建议macOS用户修改/etc/hosts。但具体改什么就没有提到。&lt;/p&gt;
-&lt;p&gt;其实是因为应用启动时会查询域名&lt;code&gt;${hostname}&lt;/code&gt;，而macOS上默认是没有配置这个域名的，所以就要等到超时（5秒）才能继续了。知道了问题的原因也就清楚如何解决了，在&lt;code&gt;/etc/hosts&lt;/code&gt;中添加以下两行&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;127.0.0.1 ${hostname}
-::1 ${hostname}
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;其中&lt;code&gt;${hostname}&lt;/code&gt;要替换成你机器的hostname，要得到它只需要执行&lt;code&gt;hostname&lt;/code&gt;命令即可，一般是一个以&lt;code&gt;.local&lt;/code&gt;结尾的字符串。&lt;/p&gt;</description>
-        </item>
-        
-    </channel>
+  <channel>
+    <title>Tips on happyhacker的技术分享</title>
+    <link>http://blog.happyhacker.fun/tags/tips/</link>
+    <description>Recent content in Tips on happyhacker的技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 10 Jun 2020 10:52:37 +0800</lastBuildDate>
+    <atom:link href="http://blog.happyhacker.fun/tags/tips/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>彻底关闭macOS系统升级提示</title>
+      <link>http://blog.happyhacker.fun/post/turn-off-macOS-update-notification/</link>
+      <pubDate>Wed, 10 Jun 2020 10:52:37 +0800</pubDate>
+      <guid>http://blog.happyhacker.fun/post/turn-off-macOS-update-notification/</guid>
+      <description>&lt;p&gt;作为黑苹果用户，不知道直接更新系统会发生什么不可预知的问题，所以还是尽量避免升级。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>避免Springboot应用启动前5秒的等待</title>
+      <link>http://blog.happyhacker.fun/post/avoid-5s-hangs-before-springboot-starts/</link>
+      <pubDate>Thu, 21 May 2020 10:41:26 +0800</pubDate>
+      <guid>http://blog.happyhacker.fun/post/avoid-5s-hangs-before-springboot-starts/</guid>
+      <description>&lt;p&gt;在macOS上开发Springboot应用时发现应用启动前总是等待5秒钟，体现在应用启动的很慢。&lt;/p&gt;</description>
+    </item>
+  </channel>
 </rss>
