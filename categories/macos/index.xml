@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Macos on happyhacker的技术分享</title>
+        <link>http://localhost:50582/categories/macos/</link>
+        <description>Recent content in Macos on happyhacker的技术分享</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Tue, 29 Nov 2022 23:28:48 +0800</lastBuildDate><atom:link href="http://localhost:50582/categories/macos/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>WindowServer Crash on Macos 13</title>
+        <link>http://localhost:50582/p/windowserver-crash-on-macos-13/</link>
+        <pubDate>Tue, 29 Nov 2022 23:28:48 +0800</pubDate>
+        
+        <guid>http://localhost:50582/p/windowserver-crash-on-macos-13/</guid>
+        <description>&lt;p&gt;公司发的2020款M1芯片MacBook Pro前几天升级了macOS 13.0.1，噩梦开始了。&lt;/p&gt;
+&lt;p&gt;是从官网看到新版本的macOS更新了更好用的Spotlight、邮件等app，觉得是挺好用的新特性，加上已经更新了一个小的bugfix版本，就更新了，结果遇到了以下问题&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;无端突然黑屏隔几秒后回到登录界面，输入密码登录后提示WindowServer crash，一大堆没什么用的信息&lt;/li&gt;
+&lt;li&gt;Spotlight反应明显慢亿拍，这是我每天用几十次的功能，结果现在变成了唤起之后输入等5秒左右才显示在输入框里，然后开始搜索，所以是反向升级了&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;这是非常影响工作的，几乎变成不可用的状态了，毕竟一崩溃所有正在用的窗口全都异常关闭，好在没出现数据异常丢失的情况。而且最常用的功能反应慢了那么多。&lt;/p&gt;
+&lt;p&gt;问了周围几个同事，有的很早之前就更新了也没有出现这个问题，我就纳闷了，后来发现好像他们都不是M1芯片。&lt;/p&gt;
+&lt;p&gt;Reddit上扒了一些帖子，发现遇到这个问题的还不在少数，而且目前看起来13.1Beta2也没有解决。好在有&lt;a class=&#34;link&#34; href=&#34;https://www.reddit.com/r/MacOSBeta/comments/yq0mwd/ventura_131_beta_2_completely_breaks_external/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;网友发现了问题的根源&lt;/a&gt;，按照这个帖子删除以下两个文件&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;~/Library/Preferences/ByHost/com.apple.windowserver.displays.&amp;lt;LONG HEX STRING&amp;gt;.plist
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/Library/Preferences/com.apple.windowserver.displays.plist
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;重启，就好了。不过这只是解决了黑屏崩溃的问题，并没有解决Spotlight反应慢的问题。&lt;/p&gt;
+&lt;p&gt;其实中间想着降级来着，但不知道为什么已经回不到出厂的10.12 Monterey版本了，重新装了一遍13.0.1（已经备份的数据的情况），数据没有丢，问题也没有解决。好在现在这个最严重的问题解决了，就记录一下。&lt;/p&gt;</description>
+        </item>
+        <item>
+        <title>macOS设置Key Repeat和Delay Until Repeat</title>
+        <link>http://localhost:50582/p/macos%E8%AE%BE%E7%BD%AEkey-repeat%E5%92%8Cdelay-until-repeat/</link>
+        <pubDate>Sat, 21 Nov 2020 22:48:25 +0800</pubDate>
+        
+        <guid>http://localhost:50582/p/macos%E8%AE%BE%E7%BD%AEkey-repeat%E5%92%8Cdelay-until-repeat/</guid>
+        <description>&lt;p&gt;macOS上用Vim觉得很卡顿，不流畅，终于找到原因了。&lt;/p&gt;
+&lt;p&gt;有两个相关设置
+&lt;img src=&#34;http://localhost:50582/images/2020-11-21-22-50-28.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;这两个把&lt;code&gt;Key Repeat&lt;/code&gt;设置到最快，把&lt;code&gt;Delay Until Repeat&lt;/code&gt;设置到最短，但实际上这么设置之后还是不够，再小就不能通过配置页面设置了，只能通过命令行设置了。我觉得合适的配置是这样的&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;defaults write -g InitialKeyRepeat -int 10
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;defaults write -g KeyRepeat -int 1
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;这样之后再操作就明显流畅多了。&lt;/p&gt;</description>
+        </item>
+        <item>
+        <title>macOS 网络代理设置脚本</title>
+        <link>http://localhost:50582/p/macos-%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE%E8%84%9A%E6%9C%AC/</link>
+        <pubDate>Tue, 17 Nov 2020 22:34:31 +0800</pubDate>
+        
+        <guid>http://localhost:50582/p/macos-%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE%E8%84%9A%E6%9C%AC/</guid>
+        <description>&lt;p&gt;一直以来我都有个疑问，就是为什么所有操作系统的网络代理设置都不能保存。&lt;/p&gt;
+&lt;p&gt;以macOS为例，如果我设置了代理地址，而没有勾选左边的勾选项，那么保存之后再打开也同时没有了已经设置好的代理地址。
+&lt;img src=&#34;http://localhost:50582/images/2020-11-17-22-36-46.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;
+而我想要的是可以设置好一个固定的代理地址，我需要开启的时候在一个很明显的入口点一下，就配置上了。不想用的时候关掉即可，不用清空配置。然而我搜遍了全网也没有找到。&lt;/p&gt;
+&lt;p&gt;于是我就想macOS系统既然脱胎于BSD，那会不会有相应的命令行可以做这件事儿呢，果然被我找到了一系列命令&lt;code&gt;networksetup&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;先看一下这个命令都有什么功能吧，&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;networksetup -help
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;输出太多了，这里就不贴了，可以自己尝试一下。我们关注的是代理（Proxy），所以在输出的信息里搜索proxy，就会找到以下内容&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Usage: networksetup -setautoproxyurl &amp;lt;networkservice&amp;gt; &amp;lt;url&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	Set proxy auto-config to url for &amp;lt;networkservice&amp;gt; and enable it.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Usage: networksetup -getautoproxyurl &amp;lt;networkservice&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	Display proxy auto-config (url, enabled) info for &amp;lt;networkservice&amp;gt;.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Usage: networksetup -setautoproxystate &amp;lt;networkservice&amp;gt; &amp;lt;on off&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	Set proxy auto-config to either &amp;lt;on&amp;gt; or &amp;lt;off&amp;gt;.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;很明显也就看出来各自的用途了，知道这个了就很容写出两个脚本了&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;由于我的是黑苹果，使用的是有线网络，所以这里的网络名是en0，你的电脑用的是什么网络需要你自己去发现了&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;设置代理&#34;&gt;
+    &lt;a href=&#34;#%e8%ae%be%e7%bd%ae%e4%bb%a3%e7%90%86&#34;&gt;#&lt;/a&gt;
+    设置代理
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#!/usr/bin/env bash
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;Enabling auto proxy....&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;networksetup -setautoproxyurl &lt;span class=&#34;s2&#34;&gt;&amp;#34;Ethernet Adaptor (en0)&amp;#34;&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;http://your.host/proxy.pac&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;networksetup -setautoproxystate &lt;span class=&#34;s2&#34;&gt;&amp;#34;Ethernet Adaptor (en0)&amp;#34;&lt;/span&gt; on
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;networksetup -getautoproxyurl &lt;span class=&#34;s2&#34;&gt;&amp;#34;Ethernet Adaptor (en0)&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$?&lt;/span&gt; -eq &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;then&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;Proxy is set&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;fi&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;关掉代理&#34;&gt;
+    &lt;a href=&#34;#%e5%85%b3%e6%8e%89%e4%bb%a3%e7%90%86&#34;&gt;#&lt;/a&gt;
+    关掉代理
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#!/usr/bin/env bash
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;Disabling auto proxy...&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;networksetup -setautoproxystate &lt;span class=&#34;s2&#34;&gt;&amp;#34;Ethernet Adaptor (en0)&amp;#34;&lt;/span&gt; off
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;networksetup -getautoproxyurl &lt;span class=&#34;s2&#34;&gt;&amp;#34;Ethernet Adaptor (en0)&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$?&lt;/span&gt; -eq &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;then&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;Proxy is disabled&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;fi&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;设置快捷方式&#34;&gt;
+    &lt;a href=&#34;#%e8%ae%be%e7%bd%ae%e5%bf%ab%e6%8d%b7%e6%96%b9%e5%bc%8f&#34;&gt;#&lt;/a&gt;
+    设置快捷方式
+&lt;/h3&gt;&lt;p&gt;把这分别保存为&lt;code&gt;disable_proxy&lt;/code&gt;和&lt;code&gt;enable_proxy&lt;/code&gt;，放在&lt;code&gt;$HOME/.local/bin/&lt;/code&gt;目录下，然后在你的&lt;code&gt;$HOME/.zshrc&lt;/code&gt;或&lt;code&gt;$HOME/.bashrc&lt;/code&gt;的最后一行追加&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;PATH&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$PATH&lt;/span&gt;:&lt;span class=&#34;nv&#34;&gt;$HOME&lt;/span&gt;/.local/bin
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;再执行&lt;code&gt;source ~/.zshrc&lt;/code&gt;或&lt;code&gt;source ~/.bashrc&lt;/code&gt;，就可以生效了。之后就可以通过执行&lt;code&gt;enable_proxy&lt;/code&gt;开启代理，通过&lt;code&gt;disable_proxy&lt;/code&gt;来关闭代理了。再也不用找那么深的入口去一遍遍的配置代理了。&lt;/p&gt;</description>
+        </item>
+        <item>
+        <title>使用Homebrew管理macOS上的服务</title>
+        <link>http://localhost:50582/p/%E4%BD%BF%E7%94%A8homebrew%E7%AE%A1%E7%90%86macos%E4%B8%8A%E7%9A%84%E6%9C%8D%E5%8A%A1/</link>
+        <pubDate>Sun, 29 Mar 2020 10:53:04 +0800</pubDate>
+        
+        <guid>http://localhost:50582/p/%E4%BD%BF%E7%94%A8homebrew%E7%AE%A1%E7%90%86macos%E4%B8%8A%E7%9A%84%E6%9C%8D%E5%8A%A1/</guid>
+        <description>&lt;p&gt;用了5年macOS也一直没有用过苹果原生的服务管理、AppleSript等等，总感觉不够直观，好在还有Homebrew这个神器，帮我解决了很多问题。&lt;/p&gt;
+&lt;p&gt;对于通过homebrew安装的服务，可以通过其提供的&lt;code&gt;brew services&lt;/code&gt;或者服务自带的命令进行管理。这里只记录了两种，其他需要查看启动方法的可以通过&lt;code&gt;brew info&lt;/code&gt;命令查看。&lt;/p&gt;
+&lt;h2 id=&#34;mysql&#34;&gt;
+    &lt;a href=&#34;#mysql&#34;&gt;#&lt;/a&gt;
+    MySQL
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;brew install mysql
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mysql.server start
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mysql.server stop
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;zookeeper&#34;&gt;
+    &lt;a href=&#34;#zookeeper&#34;&gt;#&lt;/a&gt;
+    ZooKeeper
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;brew install zookeeper
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;brew services start zookeeper # 后台启动
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;zkServer start # 前台启动
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+        </item>
+        
+    </channel>
+</rss>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Newman on happyhacker的技术分享</title>
+        <link>http://localhost:50582/tags/newman/</link>
+        <description>Recent content in Newman on happyhacker的技术分享</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Thu, 26 Nov 2020 11:46:28 +0800</lastBuildDate><atom:link href="http://localhost:50582/tags/newman/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Postman和Newman实操</title>
+        <link>http://localhost:50582/p/postman%E5%92%8Cnewman%E5%AE%9E%E6%93%8D/</link>
+        <pubDate>Thu, 26 Nov 2020 11:46:28 +0800</pubDate>
+        
+        <guid>http://localhost:50582/p/postman%E5%92%8Cnewman%E5%AE%9E%E6%93%8D/</guid>
+        <description>&lt;p&gt;作为开发，总免不了也和测试打交道，了解一点测试工具还是有帮助的。&lt;/p&gt;
+&lt;p&gt;接口测试最受欢迎的工具可能就是postman了，很多人都在用，但可能大多数人都不知道怎么用它做自动化测试，毕竟图形化的工具做自动化测试还是比较困难的。但实际上它还有一个cli版本，也就是newman。&lt;/p&gt;
+&lt;p&gt;先介绍一下postman的基本用法，让我们跳过配置params/body的步骤，直接进入**请求前置脚本(Pre-request Script)**配置阶段。&lt;/p&gt;</description>
+        </item>
+        
+    </channel>
+</rss>

@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=50582&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Spring datasource config with Hikari">
+<title>Springboot使用Hikari集成数据源</title>
+
+<link rel='canonical' href='http://localhost:50582/p/springboot%E4%BD%BF%E7%94%A8hikari%E9%9B%86%E6%88%90%E6%95%B0%E6%8D%AE%E6%BA%90/'>
+
+<link rel="stylesheet" href="/scss/style.min.8e60baf4cd3fc55968717a6e39762f4d28ed7ef6007566b6c7970ad0fe907198.css"><meta property='og:title' content="Springboot使用Hikari集成数据源">
+<meta property='og:description' content="Spring datasource config with Hikari">
+<meta property='og:url' content='http://localhost:50582/p/springboot%E4%BD%BF%E7%94%A8hikari%E9%9B%86%E6%88%90%E6%95%B0%E6%8D%AE%E6%BA%90/'>
+<meta property='og:site_name' content='happyhacker的技术分享'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='springboot' /><meta property='article:tag' content='java' /><meta property='article:tag' content='hikari' /><meta property='article:tag' content='mybatis' /><meta property='article:published_time' content='2020-03-28T23:03:18&#43;08:00'/><meta property='article:modified_time' content='2020-03-28T23:03:18&#43;08:00'/>
+<meta name="twitter:title" content="Springboot使用Hikari集成数据源">
+<meta name="twitter:description" content="Spring datasource config with Hikari">
+    <link rel="shortcut icon" href="/favicon.png" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">happyhacker的技术分享</a></h1>
+            <h2 class="site-description"></h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/lovelock'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/p/%E5%85%B3%E4%BA%8E%E6%88%91/' >
+                
+                
+                
+                <span>关于我</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#概念">概念</a>
+      <ol>
+        <li><a href="#jdbc">JDBC</a></li>
+        <li><a href="#连接池">连接池</a></li>
+        <li><a href="#sqlbuildercode-generator">SqlBuilder/Code generator</a></li>
+        <li><a href="#主从分离">主从分离</a></li>
+        <li><a href="#数据库多实例配置">数据库多实例配置</a></li>
+      </ol>
+    </li>
+    <li><a href="#jdbc基本操作">JDBC基本操作</a></li>
+    <li><a href="#hikari的配置">Hikari的配置</a></li>
+    <li><a href="#mybatis">mybatis</a>
+      <ol>
+        <li><a href="#mybatis-generator">mybatis-generator</a></li>
+        <li><a href="#mybatis-dynamic-sql">mybatis-dynamic-sql</a></li>
+      </ol>
+    </li>
+    <li><a href="#主从切换">主从切换</a></li>
+    <li><a href="#多数据源配置">多数据源配置</a></li>
+    <li><a href="#尝试写一个springboot-hikari-datasource-starter">尝试写一个springboot-hikari-datasource-starter</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/in-action/" >
+                In-Action
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/springboot%E4%BD%BF%E7%94%A8hikari%E9%9B%86%E6%88%90%E6%95%B0%E6%8D%AE%E6%BA%90/">Springboot使用Hikari集成数据源</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            Spring datasource config with Hikari
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Mar 28, 2020</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 3 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>Springboot提供了多种方式集成数据源，常用的是Hikari（国外）和Druid（国内）。但二者专注的问题其实都相对简单，没有对多数据源、主从分离做直接支持，而需要使用者自行配置。</p>
+<h2 id="概念">
+    <a href="#%e6%a6%82%e5%bf%b5">#</a>
+    概念
+</h2><p>首先要明确这里提到的所有东西是干嘛用的。</p>
+<h3 id="jdbc">
+    <a href="#jdbc">#</a>
+    JDBC
+</h3><p>这里提到的所有东西的基础是JDBC，它定义了和所有类型的数据库通信的方法，但没有提供实现，需要指定驱动类来和指定的数据库通信。</p>
+<h3 id="连接池">
+    <a href="#%e8%bf%9e%e6%8e%a5%e6%b1%a0">#</a>
+    连接池
+</h3><p>Java服务是常驻进程的，这点和PHP不同，所以Java通常要使用连接池来减少频繁连接数据库的开销，当然PHP也想减少，但FPM的运行机制不允许它这么做。Hikari就是做这件事情的。连接池可不是创建之后就不管了，还需要对已经建立的连接进行管理，比如请求量较小时最多允许多少个空闲的连接/请求量较大时最大允许多少个连接/由于连接会被server端关闭（通常由于<code>wait_timeout</code>的配置）需要重连/新建连接后是否需要验证连接的有效性等等，但不管怎么样，它做的最本质的工作就是可以让我们从中取出一个JDBC的实例来操作数据库。</p>
+<h3 id="sqlbuildercode-generator">
+    <a href="#sqlbuildercode-generator">#</a>
+    SqlBuilder/Code generator
+</h3><p>至于mybatis，现在直接说mybatis是什么好像不太好说了，因为mybatis社区现在做了太多项目了。我理解原本它就是一个sqlbuilder，定义了一套基于XML的配置，根据定义好的Mapper来生成sql语句。后来整个社区好像都在去XML化，所以就有了Java代码版本的Mapper，然后就发现用Java写Mapper有太多模板代码（看起来差不多但又不完全相同的代码，通常认为是可以避免的）了，每次复制一番也不爽，于是又诞生了mybatis-generator，可以根据指定的表结构生成Mapper文件，加上封装良好的各种<code>*Statement*Provider</code>，可以很简单的实现灵活的功能。</p>
+<h3 id="主从分离">
+    <a href="#%e4%b8%bb%e4%bb%8e%e5%88%86%e7%a6%bb">#</a>
+    主从分离
+</h3><p>通常数据库会有主从分离，当然也就需要在写主库、读从库，我们当然不想每次指定要用哪个库了，因为已经有了连接池，主从数据库都已经建立了连接，简单理解就是所有<code>select</code>操作都从从库的连接池取连接，所有的<code>insert/update/delete</code>操作都从主库的连接池取连接，AOP大放异彩的时候就到了。</p>
+<h3 id="数据库多实例配置">
+    <a href="#%e6%95%b0%e6%8d%ae%e5%ba%93%e5%a4%9a%e5%ae%9e%e4%be%8b%e9%85%8d%e7%bd%ae">#</a>
+    数据库多实例配置
+</h3><p>说起来如果从微服务的角度考虑，每个服务应该只配置一个数据库实例（库或者端口），但当业务没有那么复杂，没有太大的动力去做微服务时，就需要在一个项目中配置多个数据库实例，而Springboot是没有直接提供这种方式的。</p>
+<p>解决完上面的问题，其实也就解决了SpringBoot项目在使用数据库过程中的几乎所有问题，那么能不能再把它打一个包，通过starter的方式被引入呢？可以尝试一下。</p>
+<h2 id="jdbc基本操作">
+    <a href="#jdbc%e5%9f%ba%e6%9c%ac%e6%93%8d%e4%bd%9c">#</a>
+    JDBC基本操作
+</h2><h2 id="hikari的配置">
+    <a href="#hikari%e7%9a%84%e9%85%8d%e7%bd%ae">#</a>
+    Hikari的配置
+</h2><h2 id="mybatis">
+    <a href="#mybatis">#</a>
+    mybatis
+</h2><h3 id="mybatis-generator">
+    <a href="#mybatis-generator">#</a>
+    mybatis-generator
+</h3><h3 id="mybatis-dynamic-sql">
+    <a href="#mybatis-dynamic-sql">#</a>
+    mybatis-dynamic-sql
+</h3><h2 id="主从切换">
+    <a href="#%e4%b8%bb%e4%bb%8e%e5%88%87%e6%8d%a2">#</a>
+    主从切换
+</h2><h2 id="多数据源配置">
+    <a href="#%e5%a4%9a%e6%95%b0%e6%8d%ae%e6%ba%90%e9%85%8d%e7%bd%ae">#</a>
+    多数据源配置
+</h2><h2 id="尝试写一个springboot-hikari-datasource-starter">
+    <a href="#%e5%b0%9d%e8%af%95%e5%86%99%e4%b8%80%e4%b8%aaspringboot-hikari-datasource-starter">#</a>
+    尝试写一个springboot-hikari-datasource-starter
+</h2><p>定义配置，可以让用户简单的实现多数据源的配置</p>
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/springboot/">Springboot</a>
+        
+            <a href="/tags/java/">Java</a>
+        
+            <a href="/tags/hikari/">Hikari</a>
+        
+            <a href="/tags/mybatis/">Mybatis</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/springboot%E4%BD%BF%E7%94%A8%E5%A4%96%E9%83%A8%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Springboot使用外部配置文件</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/springboot%E9%85%8D%E7%BD%AE%E7%83%AD%E5%8A%A0%E8%BD%BD/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Springboot配置热加载</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/tomcat%E9%85%8D%E7%BD%AEnativelib/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Tomcat配置nativelib</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E5%85%B3%E4%BA%8Espringboot%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%97%A5%E5%BF%97%E9%85%8D%E7%BD%AE%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%E7%9A%84%E6%80%9D%E8%80%83/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">关于SpringBoot项目的日志配置最佳实践的思考</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/springboot%E8%BF%87%E6%BB%A4%E5%99%A8/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Springboot过滤器</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2024 happyhacker的技术分享
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.25.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
