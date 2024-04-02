@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Macos on happyhacker的技术分享</title>
-        <link>http://localhost:50582/categories/macos/</link>
+        <link>https://blog.happyhacker.fun/categories/macos/</link>
         <description>Recent content in Macos on happyhacker的技术分享</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Tue, 29 Nov 2022 23:28:48 +0800</lastBuildDate><atom:link href="http://localhost:50582/categories/macos/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 29 Nov 2022 23:28:48 +0800</lastBuildDate><atom:link href="https://blog.happyhacker.fun/categories/macos/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>WindowServer Crash on Macos 13</title>
-        <link>http://localhost:50582/p/windowserver-crash-on-macos-13/</link>
+        <link>https://blog.happyhacker.fun/p/windowserver-crash-on-macos-13/</link>
         <pubDate>Tue, 29 Nov 2022 23:28:48 +0800</pubDate>
         
-        <guid>http://localhost:50582/p/windowserver-crash-on-macos-13/</guid>
+        <guid>https://blog.happyhacker.fun/p/windowserver-crash-on-macos-13/</guid>
         <description>&lt;p&gt;公司发的2020款M1芯片MacBook Pro前几天升级了macOS 13.0.1，噩梦开始了。&lt;/p&gt;
 &lt;p&gt;是从官网看到新版本的macOS更新了更好用的Spotlight、邮件等app，觉得是挺好用的新特性，加上已经更新了一个小的bugfix版本，就更新了，结果遇到了以下问题&lt;/p&gt;
 &lt;ol&gt;
@@ -37,13 +37,13 @@
         </item>
         <item>
         <title>macOS设置Key Repeat和Delay Until Repeat</title>
-        <link>http://localhost:50582/p/macos%E8%AE%BE%E7%BD%AEkey-repeat%E5%92%8Cdelay-until-repeat/</link>
+        <link>https://blog.happyhacker.fun/p/macos%E8%AE%BE%E7%BD%AEkey-repeat%E5%92%8Cdelay-until-repeat/</link>
         <pubDate>Sat, 21 Nov 2020 22:48:25 +0800</pubDate>
         
-        <guid>http://localhost:50582/p/macos%E8%AE%BE%E7%BD%AEkey-repeat%E5%92%8Cdelay-until-repeat/</guid>
+        <guid>https://blog.happyhacker.fun/p/macos%E8%AE%BE%E7%BD%AEkey-repeat%E5%92%8Cdelay-until-repeat/</guid>
         <description>&lt;p&gt;macOS上用Vim觉得很卡顿，不流畅，终于找到原因了。&lt;/p&gt;
 &lt;p&gt;有两个相关设置
-&lt;img src=&#34;http://localhost:50582/images/2020-11-21-22-50-28.png&#34;
+&lt;img src=&#34;https://blog.happyhacker.fun/images/2020-11-21-22-50-28.png&#34;
 	
 	
 	
@@ -66,13 +66,13 @@
         </item>
         <item>
         <title>macOS 网络代理设置脚本</title>
-        <link>http://localhost:50582/p/macos-%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE%E8%84%9A%E6%9C%AC/</link>
+        <link>https://blog.happyhacker.fun/p/macos-%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE%E8%84%9A%E6%9C%AC/</link>
         <pubDate>Tue, 17 Nov 2020 22:34:31 +0800</pubDate>
         
-        <guid>http://localhost:50582/p/macos-%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE%E8%84%9A%E6%9C%AC/</guid>
+        <guid>https://blog.happyhacker.fun/p/macos-%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE%E8%84%9A%E6%9C%AC/</guid>
         <description>&lt;p&gt;一直以来我都有个疑问，就是为什么所有操作系统的网络代理设置都不能保存。&lt;/p&gt;
 &lt;p&gt;以macOS为例，如果我设置了代理地址，而没有勾选左边的勾选项，那么保存之后再打开也同时没有了已经设置好的代理地址。
-&lt;img src=&#34;http://localhost:50582/images/2020-11-17-22-36-46.png&#34;
+&lt;img src=&#34;https://blog.happyhacker.fun/images/2020-11-17-22-36-46.png&#34;
 	
 	
 	
@@ -190,10 +190,10 @@
         </item>
         <item>
         <title>使用Homebrew管理macOS上的服务</title>
-        <link>http://localhost:50582/p/%E4%BD%BF%E7%94%A8homebrew%E7%AE%A1%E7%90%86macos%E4%B8%8A%E7%9A%84%E6%9C%8D%E5%8A%A1/</link>
+        <link>https://blog.happyhacker.fun/p/%E4%BD%BF%E7%94%A8homebrew%E7%AE%A1%E7%90%86macos%E4%B8%8A%E7%9A%84%E6%9C%8D%E5%8A%A1/</link>
         <pubDate>Sun, 29 Mar 2020 10:53:04 +0800</pubDate>
         
-        <guid>http://localhost:50582/p/%E4%BD%BF%E7%94%A8homebrew%E7%AE%A1%E7%90%86macos%E4%B8%8A%E7%9A%84%E6%9C%8D%E5%8A%A1/</guid>
+        <guid>https://blog.happyhacker.fun/p/%E4%BD%BF%E7%94%A8homebrew%E7%AE%A1%E7%90%86macos%E4%B8%8A%E7%9A%84%E6%9C%8D%E5%8A%A1/</guid>
         <description>&lt;p&gt;用了5年macOS也一直没有用过苹果原生的服务管理、AppleSript等等，总感觉不够直观，好在还有Homebrew这个神器，帮我解决了很多问题。&lt;/p&gt;
 &lt;p&gt;对于通过homebrew安装的服务，可以通过其提供的&lt;code&gt;brew services&lt;/code&gt;或者服务自带的命令进行管理。这里只记录了两种，其他需要查看启动方法的可以通过&lt;code&gt;brew info&lt;/code&gt;命令查看。&lt;/p&gt;
 &lt;h2 id=&#34;mysql&#34;&gt;

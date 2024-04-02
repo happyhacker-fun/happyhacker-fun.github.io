@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Cmake on happyhacker的技术分享</title>
-        <link>http://localhost:50582/tags/cmake/</link>
+        <link>https://blog.happyhacker.fun/tags/cmake/</link>
         <description>Recent content in Cmake on happyhacker的技术分享</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Tue, 02 Apr 2024 00:13:48 +0800</lastBuildDate><atom:link href="http://localhost:50582/tags/cmake/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 02 Apr 2024 00:13:48 +0800</lastBuildDate><atom:link href="https://blog.happyhacker.fun/tags/cmake/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>光速学会CMake</title>
-        <link>http://localhost:50582/p/%E5%85%89%E9%80%9F%E5%AD%A6%E4%BC%9Acmake/</link>
+        <link>https://blog.happyhacker.fun/p/%E5%85%89%E9%80%9F%E5%AD%A6%E4%BC%9Acmake/</link>
         <pubDate>Tue, 02 Apr 2024 00:13:48 +0800</pubDate>
         
-        <guid>http://localhost:50582/p/%E5%85%89%E9%80%9F%E5%AD%A6%E4%BC%9Acmake/</guid>
-        <description>&lt;img src="http://localhost:50582/p/%E5%85%89%E9%80%9F%E5%AD%A6%E4%BC%9Acmake/cover.png" alt="Featured image of post 光速学会CMake" /&gt;&lt;h2 id=&#34;什么是-cmake它能干什么&#34;&gt;
+        <guid>https://blog.happyhacker.fun/p/%E5%85%89%E9%80%9F%E5%AD%A6%E4%BC%9Acmake/</guid>
+        <description>&lt;img src="https://blog.happyhacker.fun/p/%E5%85%89%E9%80%9F%E5%AD%A6%E4%BC%9Acmake/cover.png" alt="Featured image of post 光速学会CMake" /&gt;&lt;h2 id=&#34;什么是-cmake它能干什么&#34;&gt;
     &lt;a href=&#34;#%e4%bb%80%e4%b9%88%e6%98%af-cmake%e5%ae%83%e8%83%bd%e5%b9%b2%e4%bb%80%e4%b9%88&#34;&gt;#&lt;/a&gt;
     什么是 CMake？它能干什么？
 &lt;/h2&gt;&lt;p&gt;CMake 是一个开源的跨平台自动化构建系统，它使用平台和编译器独立的配置文件来生成标准的构建文件，这使得开发者可以使用统一的方法来管理项目的构建过程。CMake的配置文件通常命名为 &lt;code&gt;CMakeLists.txt&lt;/code&gt;，在这个文件中，开发者可以定义项目的源码文件、依赖关系、目标（如可执行文件和库）、编译选项以及其他构建参数。&lt;/p&gt;

@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Springboot on happyhacker的技术分享</title>
-        <link>http://localhost:50582/categories/springboot/</link>
+        <link>https://blog.happyhacker.fun/categories/springboot/</link>
         <description>Recent content in Springboot on happyhacker的技术分享</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Thu, 21 May 2020 10:41:26 +0800</lastBuildDate><atom:link href="http://localhost:50582/categories/springboot/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 21 May 2020 10:41:26 +0800</lastBuildDate><atom:link href="https://blog.happyhacker.fun/categories/springboot/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>避免Springboot应用启动前5秒的等待</title>
-        <link>http://localhost:50582/p/%E9%81%BF%E5%85%8Dspringboot%E5%BA%94%E7%94%A8%E5%90%AF%E5%8A%A8%E5%89%8D5%E7%A7%92%E7%9A%84%E7%AD%89%E5%BE%85/</link>
+        <link>https://blog.happyhacker.fun/p/%E9%81%BF%E5%85%8Dspringboot%E5%BA%94%E7%94%A8%E5%90%AF%E5%8A%A8%E5%89%8D5%E7%A7%92%E7%9A%84%E7%AD%89%E5%BE%85/</link>
         <pubDate>Thu, 21 May 2020 10:41:26 +0800</pubDate>
         
-        <guid>http://localhost:50582/p/%E9%81%BF%E5%85%8Dspringboot%E5%BA%94%E7%94%A8%E5%90%AF%E5%8A%A8%E5%89%8D5%E7%A7%92%E7%9A%84%E7%AD%89%E5%BE%85/</guid>
+        <guid>https://blog.happyhacker.fun/p/%E9%81%BF%E5%85%8Dspringboot%E5%BA%94%E7%94%A8%E5%90%AF%E5%8A%A8%E5%89%8D5%E7%A7%92%E7%9A%84%E7%AD%89%E5%BE%85/</guid>
         <description>&lt;p&gt;在macOS上开发Springboot应用时发现应用启动前总是等待5秒钟，体现在应用启动的很慢。&lt;/p&gt;
 &lt;p&gt;具体的提示信息因为改完之后找不到了，就是一句提示，说使用了5000 milliseconds，建议macOS用户修改/etc/hosts。但具体改什么就没有提到。&lt;/p&gt;
 &lt;p&gt;其实是因为应用启动时会查询域名&lt;code&gt;${hostname}&lt;/code&gt;，而macOS上默认是没有配置这个域名的，所以就要等到超时（5秒）才能继续了。知道了问题的原因也就清楚如何解决了，在&lt;code&gt;/etc/hosts&lt;/code&gt;中添加以下两行&lt;/p&gt;
@@ -26,123 +26,6 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;其中&lt;code&gt;${hostname}&lt;/code&gt;要替换成你机器的hostname，要得到它只需要执行&lt;code&gt;hostname&lt;/code&gt;命令即可，一般是一个以&lt;code&gt;.local&lt;/code&gt;结尾的字符串。&lt;/p&gt;</description>
-        </item>
-        <item>
-        <title>Springboot生态学习及实践</title>
-        <link>http://localhost:50582/p/springboot%E7%94%9F%E6%80%81%E5%AD%A6%E4%B9%A0%E5%8F%8A%E5%AE%9E%E8%B7%B5/</link>
-        <pubDate>Mon, 18 May 2020 21:44:33 +0800</pubDate>
-        
-        <guid>http://localhost:50582/p/springboot%E7%94%9F%E6%80%81%E5%AD%A6%E4%B9%A0%E5%8F%8A%E5%AE%9E%E8%B7%B5/</guid>
-        <description>&lt;p&gt;Spring生态真是庞大到爆炸，各种东西看的眼花缭乱。但如果只停留在应用层面，就会总是为各种新出现的问题费劲，所以还是要深入了解其中的原理，才能在遇到新的问题时知道如何分析解决。&lt;/p&gt;
-&lt;p&gt;所以我准备编写关于Springboot的一系列文章，把我在工作中遇到的和想到的一些问题记录下来，辅以源码分析，既为自己保留了记忆，也给后来者一个参考。&lt;/p&gt;
-&lt;p&gt;系列大概分为四部分：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;核心源码分析（理论）
-&lt;ul&gt;
-&lt;li&gt;简介
-&lt;ul&gt;
-&lt;li&gt;spring-boot-loader&lt;/li&gt;
-&lt;li&gt;spring-boot-starter-parent和spring-boot-dependencies&lt;/li&gt;
-&lt;li&gt;嵌入式Web容器
-&lt;ul&gt;
-&lt;li&gt;Servlet Web容器
-&lt;ul&gt;
-&lt;li&gt;Tomcat
-&lt;ul&gt;
-&lt;li&gt;三种运行模式的性能测试&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Jetty&lt;/li&gt;
-&lt;li&gt;Undertow&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Reactive Web容器&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Autowire
-&lt;ul&gt;
-&lt;li&gt;约定大于配置&lt;/li&gt;
-&lt;li&gt;注解编程模型&lt;/li&gt;
-&lt;li&gt;注解驱动设计模式&lt;/li&gt;
-&lt;li&gt;Springboot自动装配&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;SpringApplication
-&lt;ul&gt;
-&lt;li&gt;初始化阶段&lt;/li&gt;
-&lt;li&gt;运行阶段&lt;/li&gt;
-&lt;li&gt;结束阶段&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;搭建一个功能复杂的Spring应用
-&lt;ul&gt;
-&lt;li&gt;profile
-&lt;ul&gt;
-&lt;li&gt;基于profile的配置&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;@Profile&lt;/code&gt;注解&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;日志配置
-&lt;ul&gt;
-&lt;li&gt;不同的输出形式/文件切割&lt;/li&gt;
-&lt;li&gt;不同的日志级别&lt;/li&gt;
-&lt;li&gt;不同profile使用不同的日志格式&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;数据库（HikariCP/Mybatis）
-&lt;ul&gt;
-&lt;li&gt;初学者可能遇到的问题&lt;/li&gt;
-&lt;li&gt;读写分离&lt;/li&gt;
-&lt;li&gt;分库分表&lt;/li&gt;
-&lt;li&gt;mybatis-generator&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Redis
-&lt;ul&gt;
-&lt;li&gt;连接池&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Memcached
-&lt;ul&gt;
-&lt;li&gt;基于spymemcached开发一个连接池&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Kafka/ES/ZooKeeper/Hive等
-&lt;ul&gt;
-&lt;li&gt;操作Java生态中的其他组件&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;SpringCloud应用
-&lt;ul&gt;
-&lt;li&gt;配置中心&lt;/li&gt;
-&lt;li&gt;服务发现&lt;/li&gt;
-&lt;li&gt;Hystrix&lt;/li&gt;
-&lt;li&gt;服务网关&lt;/li&gt;
-&lt;li&gt;服务认证&lt;/li&gt;
-&lt;li&gt;SpringCloudStream&lt;/li&gt;
-&lt;li&gt;全链路跟踪&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;h2 id=&#34;spring运维实践&#34;&gt;
-    &lt;a href=&#34;#spring%e8%bf%90%e7%bb%b4%e5%ae%9e%e8%b7%b5&#34;&gt;#&lt;/a&gt;
-    Spring运维实践
-&lt;/h2&gt;&lt;/li&gt;
-&lt;/ol&gt;</description>
-        </item>
-        <item>
-        <title>Springboot启动</title>
-        <link>http://localhost:50582/p/springboot%E5%90%AF%E5%8A%A8/</link>
-        <pubDate>Mon, 18 May 2020 21:44:27 +0800</pubDate>
-        
-        <guid>http://localhost:50582/p/springboot%E5%90%AF%E5%8A%A8/</guid>
-        <description>&lt;p&gt;我们知道SpringBoot可以通过多种方式执行，如jar包、war包甚至直接在目录中执行，本文主要介绍这些功能是如何实现的。&lt;/p&gt;</description>
         </item>
         
     </channel>

@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Jenkins on happyhacker的技术分享</title>
-        <link>http://localhost:50582/tags/jenkins/</link>
+        <link>https://blog.happyhacker.fun/tags/jenkins/</link>
         <description>Recent content in Jenkins on happyhacker的技术分享</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Sat, 22 Aug 2020 10:56:59 +0800</lastBuildDate><atom:link href="http://localhost:50582/tags/jenkins/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 22 Aug 2020 10:56:59 +0800</lastBuildDate><atom:link href="https://blog.happyhacker.fun/tags/jenkins/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Nginx和Tomcat配合实现Java Web服务热部署</title>
-        <link>http://localhost:50582/p/nginx%E5%92%8Ctomcat%E9%85%8D%E5%90%88%E5%AE%9E%E7%8E%B0java-web%E6%9C%8D%E5%8A%A1%E7%83%AD%E9%83%A8%E7%BD%B2/</link>
+        <link>https://blog.happyhacker.fun/p/nginx%E5%92%8Ctomcat%E9%85%8D%E5%90%88%E5%AE%9E%E7%8E%B0java-web%E6%9C%8D%E5%8A%A1%E7%83%AD%E9%83%A8%E7%BD%B2/</link>
         <pubDate>Sat, 22 Aug 2020 10:56:59 +0800</pubDate>
         
-        <guid>http://localhost:50582/p/nginx%E5%92%8Ctomcat%E9%85%8D%E5%90%88%E5%AE%9E%E7%8E%B0java-web%E6%9C%8D%E5%8A%A1%E7%83%AD%E9%83%A8%E7%BD%B2/</guid>
+        <guid>https://blog.happyhacker.fun/p/nginx%E5%92%8Ctomcat%E9%85%8D%E5%90%88%E5%AE%9E%E7%8E%B0java-web%E6%9C%8D%E5%8A%A1%E7%83%AD%E9%83%A8%E7%BD%B2/</guid>
         <description>&lt;p&gt;最终还是得解决Springboot应用热部署的问题。&lt;/p&gt;
 &lt;h2 id=&#34;背景&#34;&gt;
     &lt;a href=&#34;#%e8%83%8c%e6%99%af&#34;&gt;#&lt;/a&gt;
@@ -20,7 +20,7 @@
 &lt;h2 id=&#34;实验素材&#34;&gt;
     &lt;a href=&#34;#%e5%ae%9e%e9%aa%8c%e7%b4%a0%e6%9d%90&#34;&gt;#&lt;/a&gt;
     实验素材
-&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:50582/images/2020-08-22-14-46-19.png&#34;
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://blog.happyhacker.fun/images/2020-08-22-14-46-19.png&#34;
 	
 	
 	
@@ -570,7 +570,7 @@
     &lt;a href=&#34;#%e6%80%9d%e8%80%83&#34;&gt;#&lt;/a&gt;
     思考
 &lt;/h2&gt;&lt;p&gt;原来是一台机器上运行一个tomcat容器，现在要运行两个，那么会对机器的负载造成多大的影响呢？可以通过visualvm连接上远程tomcat来观察对内存和CPU的占用&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:50582/images/2020-08-22-17-06-47.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://blog.happyhacker.fun/images/2020-08-22-17-06-47.png&#34;
 	
 	
 	
@@ -580,7 +580,7 @@
 	
 	
 &gt;
-&lt;img src=&#34;http://localhost:50582/images/2020-08-22-17-07-02.png&#34;
+&lt;img src=&#34;https://blog.happyhacker.fun/images/2020-08-22-17-07-02.png&#34;
 	
 	
 	
@@ -591,7 +591,7 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;可以看到正常情况下，backup容器对服务器的负载基本可以忽略不计。即便是在发布期间，backup容器也只是在active容器重新载入期间承担职责，之后马上就恢复了。
-&lt;img src=&#34;http://localhost:50582/images/2020-08-22-17-10-53.png&#34;
+&lt;img src=&#34;https://blog.happyhacker.fun/images/2020-08-22-17-10-53.png&#34;
 	
 	
 	
@@ -601,7 +601,7 @@
 	
 	
 &gt;
-&lt;img src=&#34;http://localhost:50582/images/2020-08-22-17-11-05.png&#34;
+&lt;img src=&#34;https://blog.happyhacker.fun/images/2020-08-22-17-11-05.png&#34;
 	
 	
 	
@@ -612,7 +612,7 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;新版本在线上正式运行之后为保证下一次发布新版本时backup版本是最新的，需要再发布一下backup版本，当然这时流量都在active节点上，对backup节点的发布更新操作不会对负载有什么影响。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:50582/images/2020-08-22-17-14-52.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://blog.happyhacker.fun/images/2020-08-22-17-14-52.png&#34;
 	
 	
 	

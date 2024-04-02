@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Ventura on happyhacker的技术分享</title>
-        <link>http://localhost:50582/tags/ventura/</link>
+        <link>https://blog.happyhacker.fun/tags/ventura/</link>
         <description>Recent content in Ventura on happyhacker的技术分享</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Tue, 29 Nov 2022 23:28:48 +0800</lastBuildDate><atom:link href="http://localhost:50582/tags/ventura/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 29 Nov 2022 23:28:48 +0800</lastBuildDate><atom:link href="https://blog.happyhacker.fun/tags/ventura/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>WindowServer Crash on Macos 13</title>
-        <link>http://localhost:50582/p/windowserver-crash-on-macos-13/</link>
+        <link>https://blog.happyhacker.fun/p/windowserver-crash-on-macos-13/</link>
         <pubDate>Tue, 29 Nov 2022 23:28:48 +0800</pubDate>
         
-        <guid>http://localhost:50582/p/windowserver-crash-on-macos-13/</guid>
+        <guid>https://blog.happyhacker.fun/p/windowserver-crash-on-macos-13/</guid>
         <description>&lt;p&gt;公司发的2020款M1芯片MacBook Pro前几天升级了macOS 13.0.1，噩梦开始了。&lt;/p&gt;
 &lt;p&gt;是从官网看到新版本的macOS更新了更好用的Spotlight、邮件等app，觉得是挺好用的新特性，加上已经更新了一个小的bugfix版本，就更新了，结果遇到了以下问题&lt;/p&gt;
 &lt;ol&gt;

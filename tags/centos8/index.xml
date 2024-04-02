@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Centos8 on happyhacker的技术分享</title>
-        <link>http://localhost:50582/tags/centos8/</link>
+        <link>https://blog.happyhacker.fun/tags/centos8/</link>
         <description>Recent content in Centos8 on happyhacker的技术分享</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Mon, 06 Apr 2020 00:10:43 +0800</lastBuildDate><atom:link href="http://localhost:50582/tags/centos8/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 06 Apr 2020 00:10:43 +0800</lastBuildDate><atom:link href="https://blog.happyhacker.fun/tags/centos8/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Install Centos8</title>
-        <link>http://localhost:50582/p/install-centos8/</link>
+        <link>https://blog.happyhacker.fun/p/install-centos8/</link>
         <pubDate>Mon, 06 Apr 2020 00:10:43 +0800</pubDate>
         
-        <guid>http://localhost:50582/p/install-centos8/</guid>
+        <guid>https://blog.happyhacker.fun/p/install-centos8/</guid>
         <description>&lt;p&gt;多年不安装虚拟机，竟然卡在了第一步。&lt;/p&gt;
 &lt;p&gt;拣重点提一下容易出问题的地方。&lt;/p&gt;
 &lt;h2 id=&#34;配置联网&#34;&gt;
     &lt;a href=&#34;#%e9%85%8d%e7%bd%ae%e8%81%94%e7%bd%91&#34;&gt;#&lt;/a&gt;
     配置联网
-&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:50582/images/2020-04-06-00-13-21.png&#34;
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://blog.happyhacker.fun/images/2020-04-06-00-13-21.png&#34;
 	
 	
 	
@@ -29,7 +29,7 @@
     &lt;a href=&#34;#%e9%80%89%e6%8b%a9%e5%ae%89%e8%a3%85%e6%ba%90&#34;&gt;#&lt;/a&gt;
     选择安装源
 &lt;/h2&gt;&lt;p&gt;因为DVD的安装iso太大了，就选了个最小化安装iso。这里配置的地方也没有可以参考的文档，照着这个写就可以了。国内有很多镜像站，可以选一个你自己访问速度最快的。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:50582/images/2020-04-06-00-11-33.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://blog.happyhacker.fun/images/2020-04-06-00-11-33.png&#34;
 	
 	
 	
@@ -41,10 +41,10 @@
         </item>
         <item>
         <title>Centos8乱码及解决</title>
-        <link>http://localhost:50582/p/centos8%E4%B9%B1%E7%A0%81%E5%8F%8A%E8%A7%A3%E5%86%B3/</link>
+        <link>https://blog.happyhacker.fun/p/centos8%E4%B9%B1%E7%A0%81%E5%8F%8A%E8%A7%A3%E5%86%B3/</link>
         <pubDate>Fri, 03 Apr 2020 22:14:19 +0800</pubDate>
         
-        <guid>http://localhost:50582/p/centos8%E4%B9%B1%E7%A0%81%E5%8F%8A%E8%A7%A3%E5%86%B3/</guid>
+        <guid>https://blog.happyhacker.fun/p/centos8%E4%B9%B1%E7%A0%81%E5%8F%8A%E8%A7%A3%E5%86%B3/</guid>
         <description>&lt;p&gt;以下操作基于CentOS8, 理论上应该适用于其他版本的操作系统.&lt;/p&gt;
 &lt;p&gt;现在终端默认的编码都已经设置成了&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;

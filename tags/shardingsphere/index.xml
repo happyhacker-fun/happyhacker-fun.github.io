@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Shardingsphere on happyhacker的技术分享</title>
-        <link>http://localhost:50582/tags/shardingsphere/</link>
+        <link>https://blog.happyhacker.fun/tags/shardingsphere/</link>
         <description>Recent content in Shardingsphere on happyhacker的技术分享</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Thu, 04 Feb 2021 22:43:50 +0800</lastBuildDate><atom:link href="http://localhost:50582/tags/shardingsphere/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 04 Feb 2021 22:43:50 +0800</lastBuildDate><atom:link href="https://blog.happyhacker.fun/tags/shardingsphere/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Springboot使用Shardingsphere配置数据库</title>
-        <link>http://localhost:50582/p/springboot%E4%BD%BF%E7%94%A8shardingsphere%E9%85%8D%E7%BD%AE%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
+        <link>https://blog.happyhacker.fun/p/springboot%E4%BD%BF%E7%94%A8shardingsphere%E9%85%8D%E7%BD%AE%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
         <pubDate>Thu, 04 Feb 2021 22:43:50 +0800</pubDate>
         
-        <guid>http://localhost:50582/p/springboot%E4%BD%BF%E7%94%A8shardingsphere%E9%85%8D%E7%BD%AE%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
+        <guid>https://blog.happyhacker.fun/p/springboot%E4%BD%BF%E7%94%A8shardingsphere%E9%85%8D%E7%BD%AE%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
         <description>&lt;p&gt;我们都自称 CRUD boy 了，没有数据库拿什么 CRUD？&lt;/p&gt;
 &lt;h2 id=&#34;实验环境&#34;&gt;
     &lt;a href=&#34;#%e5%ae%9e%e9%aa%8c%e7%8e%af%e5%a2%83&#34;&gt;#&lt;/a&gt;
@@ -309,7 +309,7 @@
 &lt;/div&gt;
 &lt;/div&gt;&lt;blockquote&gt;
 &lt;p&gt;注意其中的&lt;code&gt;Class.forName(&amp;quot;com.mysql.cj.jdbc.Driver&amp;quot;)&lt;/code&gt;这句，老的文档都会写这句，但其实使用新版的 MySQL Driver 的话这个已经不需要了，因为新版本有这个
-&lt;img src=&#34;http://localhost:50582/images/2021-02-18-22-31-13.png&#34;
+&lt;img src=&#34;https://blog.happyhacker.fun/images/2021-02-18-22-31-13.png&#34;
 	
 	
 	

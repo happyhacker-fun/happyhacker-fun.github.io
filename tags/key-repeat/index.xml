@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Key-Repeat on happyhacker的技术分享</title>
-        <link>http://localhost:50582/tags/key-repeat/</link>
+        <link>https://blog.happyhacker.fun/tags/key-repeat/</link>
         <description>Recent content in Key-Repeat on happyhacker的技术分享</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Sat, 21 Nov 2020 22:48:25 +0800</lastBuildDate><atom:link href="http://localhost:50582/tags/key-repeat/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 21 Nov 2020 22:48:25 +0800</lastBuildDate><atom:link href="https://blog.happyhacker.fun/tags/key-repeat/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>macOS设置Key Repeat和Delay Until Repeat</title>
-        <link>http://localhost:50582/p/macos%E8%AE%BE%E7%BD%AEkey-repeat%E5%92%8Cdelay-until-repeat/</link>
+        <link>https://blog.happyhacker.fun/p/macos%E8%AE%BE%E7%BD%AEkey-repeat%E5%92%8Cdelay-until-repeat/</link>
         <pubDate>Sat, 21 Nov 2020 22:48:25 +0800</pubDate>
         
-        <guid>http://localhost:50582/p/macos%E8%AE%BE%E7%BD%AEkey-repeat%E5%92%8Cdelay-until-repeat/</guid>
+        <guid>https://blog.happyhacker.fun/p/macos%E8%AE%BE%E7%BD%AEkey-repeat%E5%92%8Cdelay-until-repeat/</guid>
         <description>&lt;p&gt;macOS上用Vim觉得很卡顿，不流畅，终于找到原因了。&lt;/p&gt;
 &lt;p&gt;有两个相关设置
-&lt;img src=&#34;http://localhost:50582/images/2020-11-21-22-50-28.png&#34;
+&lt;img src=&#34;https://blog.happyhacker.fun/images/2020-11-21-22-50-28.png&#34;
 	
 	
 	

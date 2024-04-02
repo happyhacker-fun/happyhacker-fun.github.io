@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Linux on happyhacker的技术分享</title>
-        <link>http://localhost:50582/tags/linux/</link>
+        <link>https://blog.happyhacker.fun/tags/linux/</link>
         <description>Recent content in Linux on happyhacker的技术分享</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Tue, 02 Apr 2024 00:13:48 +0800</lastBuildDate><atom:link href="http://localhost:50582/tags/linux/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 02 Apr 2024 00:13:48 +0800</lastBuildDate><atom:link href="https://blog.happyhacker.fun/tags/linux/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>光速学会CMake</title>
-        <link>http://localhost:50582/p/%E5%85%89%E9%80%9F%E5%AD%A6%E4%BC%9Acmake/</link>
+        <link>https://blog.happyhacker.fun/p/%E5%85%89%E9%80%9F%E5%AD%A6%E4%BC%9Acmake/</link>
         <pubDate>Tue, 02 Apr 2024 00:13:48 +0800</pubDate>
         
-        <guid>http://localhost:50582/p/%E5%85%89%E9%80%9F%E5%AD%A6%E4%BC%9Acmake/</guid>
-        <description>&lt;img src="http://localhost:50582/p/%E5%85%89%E9%80%9F%E5%AD%A6%E4%BC%9Acmake/cover.png" alt="Featured image of post 光速学会CMake" /&gt;&lt;h2 id=&#34;什么是-cmake它能干什么&#34;&gt;
+        <guid>https://blog.happyhacker.fun/p/%E5%85%89%E9%80%9F%E5%AD%A6%E4%BC%9Acmake/</guid>
+        <description>&lt;img src="https://blog.happyhacker.fun/p/%E5%85%89%E9%80%9F%E5%AD%A6%E4%BC%9Acmake/cover.png" alt="Featured image of post 光速学会CMake" /&gt;&lt;h2 id=&#34;什么是-cmake它能干什么&#34;&gt;
     &lt;a href=&#34;#%e4%bb%80%e4%b9%88%e6%98%af-cmake%e5%ae%83%e8%83%bd%e5%b9%b2%e4%bb%80%e4%b9%88&#34;&gt;#&lt;/a&gt;
     什么是 CMake？它能干什么？
 &lt;/h2&gt;&lt;p&gt;CMake 是一个开源的跨平台自动化构建系统，它使用平台和编译器独立的配置文件来生成标准的构建文件，这使得开发者可以使用统一的方法来管理项目的构建过程。CMake的配置文件通常命名为 &lt;code&gt;CMakeLists.txt&lt;/code&gt;，在这个文件中，开发者可以定义项目的源码文件、依赖关系、目标（如可执行文件和库）、编译选项以及其他构建参数。&lt;/p&gt;
@@ -512,10 +512,10 @@ CMake 确定使用哪种具体构建工具（如 Make 或 Visual Studio）的过
         </item>
         <item>
         <title>Filebeat 自动删除已经收集完的文件</title>
-        <link>http://localhost:50582/p/filebeat-%E8%87%AA%E5%8A%A8%E5%88%A0%E9%99%A4%E5%B7%B2%E7%BB%8F%E6%94%B6%E9%9B%86%E5%AE%8C%E7%9A%84%E6%96%87%E4%BB%B6/</link>
+        <link>https://blog.happyhacker.fun/p/filebeat-%E8%87%AA%E5%8A%A8%E5%88%A0%E9%99%A4%E5%B7%B2%E7%BB%8F%E6%94%B6%E9%9B%86%E5%AE%8C%E7%9A%84%E6%96%87%E4%BB%B6/</link>
         <pubDate>Tue, 04 Jan 2022 11:46:03 +0800</pubDate>
         
-        <guid>http://localhost:50582/p/filebeat-%E8%87%AA%E5%8A%A8%E5%88%A0%E9%99%A4%E5%B7%B2%E7%BB%8F%E6%94%B6%E9%9B%86%E5%AE%8C%E7%9A%84%E6%96%87%E4%BB%B6/</guid>
+        <guid>https://blog.happyhacker.fun/p/filebeat-%E8%87%AA%E5%8A%A8%E5%88%A0%E9%99%A4%E5%B7%B2%E7%BB%8F%E6%94%B6%E9%9B%86%E5%AE%8C%E7%9A%84%E6%96%87%E4%BB%B6/</guid>
         <description>&lt;p&gt;用Filebeat收集日志一直有一个痛点，就是不知道要什么时候才能把要收集的文件删除。&lt;/p&gt;
 &lt;p&gt;之前的解决方案是定时删除文件，但删除的时候其实也不保证已经收集了，所以肯定是有概率会删除正在收集中的文件，这时候其实文件句柄正在被filebeat持有，所以删除也不能释放空间。&lt;/p&gt;
 &lt;p&gt;简单的搜索就发现了这篇文章&lt;a class=&#34;link&#34; href=&#34;https://discuss.elastic.co/t/filebeats-are-there-any-ways-we-can-delete-the-log-files-after-file-beat-harvest-the-data-to-logstash/177997&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -540,10 +540,10 @@ CMake 确定使用哪种具体构建工具（如 Make 或 Visual Studio）的过
         </item>
         <item>
         <title>Sed简单用法</title>
-        <link>http://localhost:50582/p/sed%E7%AE%80%E5%8D%95%E7%94%A8%E6%B3%95/</link>
+        <link>https://blog.happyhacker.fun/p/sed%E7%AE%80%E5%8D%95%E7%94%A8%E6%B3%95/</link>
         <pubDate>Sat, 01 Aug 2020 16:38:23 +0800</pubDate>
         
-        <guid>http://localhost:50582/p/sed%E7%AE%80%E5%8D%95%E7%94%A8%E6%B3%95/</guid>
+        <guid>https://blog.happyhacker.fun/p/sed%E7%AE%80%E5%8D%95%E7%94%A8%E6%B3%95/</guid>
         <description>&lt;p&gt;有时候需要批量处理一些文件，又不方便打开文件，所以&lt;code&gt;sed&lt;/code&gt;还是很有用的。简单记录一下常用的使用方法。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;本文介绍的用法仅仅针对GNU/sed，BSD的版本（macOS）会有不同，这里不涉及&lt;/strong&gt;&lt;/p&gt;
 &lt;h2 id=&#34;简介&#34;&gt;
@@ -1474,10 +1474,10 @@ CMake 确定使用哪种具体构建工具（如 Make 或 Visual Studio）的过
         </item>
         <item>
         <title>最简单的命令行发邮件方式</title>
-        <link>http://localhost:50582/p/%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8F%91%E9%82%AE%E4%BB%B6%E6%96%B9%E5%BC%8F/</link>
+        <link>https://blog.happyhacker.fun/p/%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8F%91%E9%82%AE%E4%BB%B6%E6%96%B9%E5%BC%8F/</link>
         <pubDate>Mon, 20 Jul 2020 17:10:43 +0800</pubDate>
         
-        <guid>http://localhost:50582/p/%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8F%91%E9%82%AE%E4%BB%B6%E6%96%B9%E5%BC%8F/</guid>
+        <guid>https://blog.happyhacker.fun/p/%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8F%91%E9%82%AE%E4%BB%B6%E6%96%B9%E5%BC%8F/</guid>
         <description>&lt;p&gt;用newman搞了个自动化测试脚本，测试出错的时候需要发邮件提醒，但之前尝试配置了sendmail有各种神奇的问题，这次换了思路，尝试用mailx。&lt;/p&gt;
 &lt;h2 id=&#34;安装软件包&#34;&gt;
     &lt;a href=&#34;#%e5%ae%89%e8%a3%85%e8%bd%af%e4%bb%b6%e5%8c%85&#34;&gt;#&lt;/a&gt;
@@ -1554,13 +1554,13 @@ CMake 确定使用哪种具体构建工具（如 Make 或 Visual Studio）的过
         </item>
         <item>
         <title>CentOS8配置静态地址</title>
-        <link>http://localhost:50582/p/centos8%E9%85%8D%E7%BD%AE%E9%9D%99%E6%80%81%E5%9C%B0%E5%9D%80/</link>
+        <link>https://blog.happyhacker.fun/p/centos8%E9%85%8D%E7%BD%AE%E9%9D%99%E6%80%81%E5%9C%B0%E5%9D%80/</link>
         <pubDate>Fri, 17 Apr 2020 23:02:34 +0800</pubDate>
         
-        <guid>http://localhost:50582/p/centos8%E9%85%8D%E7%BD%AE%E9%9D%99%E6%80%81%E5%9C%B0%E5%9D%80/</guid>
+        <guid>https://blog.happyhacker.fun/p/centos8%E9%85%8D%E7%BD%AE%E9%9D%99%E6%80%81%E5%9C%B0%E5%9D%80/</guid>
         <description>&lt;p&gt;CentOS 8又搞出这么幺蛾子，不过这个接口还挺好用，我喜欢。&lt;/p&gt;
 &lt;p&gt;AMD的黑苹果没办法安装Docker，只好虚拟机搞起了，还要硬件性能够强，这点性能损耗不算什么。装的服务器版本的当然要ssh登录，所以需要用桥接的网络接口
-&lt;img src=&#34;http://localhost:50582/images/2020-04-17-23-25-34.png&#34;
+&lt;img src=&#34;https://blog.happyhacker.fun/images/2020-04-17-23-25-34.png&#34;
 	
 	
 	
@@ -1684,10 +1684,10 @@ DNS: 114.114.114.114&lt;/p&gt;
         </item>
         <item>
         <title>crontab配置的一个常见错误</title>
-        <link>http://localhost:50582/p/crontab%E9%85%8D%E7%BD%AE%E7%9A%84%E4%B8%80%E4%B8%AA%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF/</link>
+        <link>https://blog.happyhacker.fun/p/crontab%E9%85%8D%E7%BD%AE%E7%9A%84%E4%B8%80%E4%B8%AA%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF/</link>
         <pubDate>Tue, 14 Apr 2020 22:40:01 +0800</pubDate>
         
-        <guid>http://localhost:50582/p/crontab%E9%85%8D%E7%BD%AE%E7%9A%84%E4%B8%80%E4%B8%AA%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF/</guid>
+        <guid>https://blog.happyhacker.fun/p/crontab%E9%85%8D%E7%BD%AE%E7%9A%84%E4%B8%80%E4%B8%AA%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF/</guid>
         <description>&lt;p&gt;如果你遇到了crontab不能按预期执行的问题，可以参考本文的内容。&lt;/p&gt;
 &lt;p&gt;crontab是运维工作中经常需要做的，多数时候只需要执行&lt;code&gt;crontab -e&lt;/code&gt;来编辑即可，当面对更复杂的场景时，这种方式就显得不够用了。&lt;/p&gt;
 &lt;blockquote&gt;
@@ -1745,16 +1745,16 @@ DNS: 114.114.114.114&lt;/p&gt;
         </item>
         <item>
         <title>Install Centos8</title>
-        <link>http://localhost:50582/p/install-centos8/</link>
+        <link>https://blog.happyhacker.fun/p/install-centos8/</link>
         <pubDate>Mon, 06 Apr 2020 00:10:43 +0800</pubDate>
         
-        <guid>http://localhost:50582/p/install-centos8/</guid>
+        <guid>https://blog.happyhacker.fun/p/install-centos8/</guid>
         <description>&lt;p&gt;多年不安装虚拟机，竟然卡在了第一步。&lt;/p&gt;
 &lt;p&gt;拣重点提一下容易出问题的地方。&lt;/p&gt;
 &lt;h2 id=&#34;配置联网&#34;&gt;
     &lt;a href=&#34;#%e9%85%8d%e7%bd%ae%e8%81%94%e7%bd%91&#34;&gt;#&lt;/a&gt;
     配置联网
-&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:50582/images/2020-04-06-00-13-21.png&#34;
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://blog.happyhacker.fun/images/2020-04-06-00-13-21.png&#34;
 	
 	
 	
@@ -1766,7 +1766,7 @@ DNS: 114.114.114.114&lt;/p&gt;
     &lt;a href=&#34;#%e9%80%89%e6%8b%a9%e5%ae%89%e8%a3%85%e6%ba%90&#34;&gt;#&lt;/a&gt;
     选择安装源
 &lt;/h2&gt;&lt;p&gt;因为DVD的安装iso太大了，就选了个最小化安装iso。这里配置的地方也没有可以参考的文档，照着这个写就可以了。国内有很多镜像站，可以选一个你自己访问速度最快的。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:50582/images/2020-04-06-00-11-33.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://blog.happyhacker.fun/images/2020-04-06-00-11-33.png&#34;
 	
 	
 	
@@ -1778,10 +1778,10 @@ DNS: 114.114.114.114&lt;/p&gt;
         </item>
         <item>
         <title>Centos8乱码及解决</title>
-        <link>http://localhost:50582/p/centos8%E4%B9%B1%E7%A0%81%E5%8F%8A%E8%A7%A3%E5%86%B3/</link>
+        <link>https://blog.happyhacker.fun/p/centos8%E4%B9%B1%E7%A0%81%E5%8F%8A%E8%A7%A3%E5%86%B3/</link>
         <pubDate>Fri, 03 Apr 2020 22:14:19 +0800</pubDate>
         
-        <guid>http://localhost:50582/p/centos8%E4%B9%B1%E7%A0%81%E5%8F%8A%E8%A7%A3%E5%86%B3/</guid>
+        <guid>https://blog.happyhacker.fun/p/centos8%E4%B9%B1%E7%A0%81%E5%8F%8A%E8%A7%A3%E5%86%B3/</guid>
         <description>&lt;p&gt;以下操作基于CentOS8, 理论上应该适用于其他版本的操作系统.&lt;/p&gt;
 &lt;p&gt;现在终端默认的编码都已经设置成了&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;

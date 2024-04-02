@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Centos on happyhacker的技术分享</title>
-        <link>http://localhost:50582/tags/centos/</link>
+        <link>https://blog.happyhacker.fun/tags/centos/</link>
         <description>Recent content in Centos on happyhacker的技术分享</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Fri, 17 Apr 2020 23:02:34 +0800</lastBuildDate><atom:link href="http://localhost:50582/tags/centos/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 17 Apr 2020 23:02:34 +0800</lastBuildDate><atom:link href="https://blog.happyhacker.fun/tags/centos/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>CentOS8配置静态地址</title>
-        <link>http://localhost:50582/p/centos8%E9%85%8D%E7%BD%AE%E9%9D%99%E6%80%81%E5%9C%B0%E5%9D%80/</link>
+        <link>https://blog.happyhacker.fun/p/centos8%E9%85%8D%E7%BD%AE%E9%9D%99%E6%80%81%E5%9C%B0%E5%9D%80/</link>
         <pubDate>Fri, 17 Apr 2020 23:02:34 +0800</pubDate>
         
-        <guid>http://localhost:50582/p/centos8%E9%85%8D%E7%BD%AE%E9%9D%99%E6%80%81%E5%9C%B0%E5%9D%80/</guid>
+        <guid>https://blog.happyhacker.fun/p/centos8%E9%85%8D%E7%BD%AE%E9%9D%99%E6%80%81%E5%9C%B0%E5%9D%80/</guid>
         <description>&lt;p&gt;CentOS 8又搞出这么幺蛾子，不过这个接口还挺好用，我喜欢。&lt;/p&gt;
 &lt;p&gt;AMD的黑苹果没办法安装Docker，只好虚拟机搞起了，还要硬件性能够强，这点性能损耗不算什么。装的服务器版本的当然要ssh登录，所以需要用桥接的网络接口
-&lt;img src=&#34;http://localhost:50582/images/2020-04-17-23-25-34.png&#34;
+&lt;img src=&#34;https://blog.happyhacker.fun/images/2020-04-17-23-25-34.png&#34;
 	
 	
 	

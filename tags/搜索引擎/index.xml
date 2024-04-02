@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>搜索引擎 on happyhacker的技术分享</title>
-        <link>http://localhost:50582/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/</link>
+        <link>https://blog.happyhacker.fun/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/</link>
         <description>Recent content in 搜索引擎 on happyhacker的技术分享</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Sun, 17 Jan 2021 00:11:45 +0800</lastBuildDate><atom:link href="http://localhost:50582/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 17 Jan 2021 00:11:45 +0800</lastBuildDate><atom:link href="https://blog.happyhacker.fun/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Hugo支持站内搜索</title>
-        <link>http://localhost:50582/p/hugo%E6%94%AF%E6%8C%81%E7%AB%99%E5%86%85%E6%90%9C%E7%B4%A2/</link>
+        <link>https://blog.happyhacker.fun/p/hugo%E6%94%AF%E6%8C%81%E7%AB%99%E5%86%85%E6%90%9C%E7%B4%A2/</link>
         <pubDate>Sun, 17 Jan 2021 00:11:45 +0800</pubDate>
         
-        <guid>http://localhost:50582/p/hugo%E6%94%AF%E6%8C%81%E7%AB%99%E5%86%85%E6%90%9C%E7%B4%A2/</guid>
+        <guid>https://blog.happyhacker.fun/p/hugo%E6%94%AF%E6%8C%81%E7%AB%99%E5%86%85%E6%90%9C%E7%B4%A2/</guid>
         <description>&lt;p&gt;这个博客也写了不少东西了，但功能还是有些简陋，比如不支持搜索，也不能评论，甚至不知道有多少人访问过。&lt;/p&gt;
 &lt;p&gt;逛知乎的时候无意间看到了 Maupassant 这个主题，总体看上去还挺简洁大方的，主要是信息展示的比较丰富，不像之前的 even 主题，想看标签和分类还要专门去单独的页面。&lt;/p&gt;
 &lt;p&gt;所以就开始了改造。&lt;/p&gt;

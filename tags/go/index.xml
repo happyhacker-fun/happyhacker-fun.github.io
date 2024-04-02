@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Go on happyhacker的技术分享</title>
-        <link>http://localhost:50582/tags/go/</link>
+        <link>https://blog.happyhacker.fun/tags/go/</link>
         <description>Recent content in Go on happyhacker的技术分享</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Tue, 04 Jan 2022 11:46:03 +0800</lastBuildDate><atom:link href="http://localhost:50582/tags/go/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 04 Jan 2022 11:46:03 +0800</lastBuildDate><atom:link href="https://blog.happyhacker.fun/tags/go/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Filebeat 自动删除已经收集完的文件</title>
-        <link>http://localhost:50582/p/filebeat-%E8%87%AA%E5%8A%A8%E5%88%A0%E9%99%A4%E5%B7%B2%E7%BB%8F%E6%94%B6%E9%9B%86%E5%AE%8C%E7%9A%84%E6%96%87%E4%BB%B6/</link>
+        <link>https://blog.happyhacker.fun/p/filebeat-%E8%87%AA%E5%8A%A8%E5%88%A0%E9%99%A4%E5%B7%B2%E7%BB%8F%E6%94%B6%E9%9B%86%E5%AE%8C%E7%9A%84%E6%96%87%E4%BB%B6/</link>
         <pubDate>Tue, 04 Jan 2022 11:46:03 +0800</pubDate>
         
-        <guid>http://localhost:50582/p/filebeat-%E8%87%AA%E5%8A%A8%E5%88%A0%E9%99%A4%E5%B7%B2%E7%BB%8F%E6%94%B6%E9%9B%86%E5%AE%8C%E7%9A%84%E6%96%87%E4%BB%B6/</guid>
+        <guid>https://blog.happyhacker.fun/p/filebeat-%E8%87%AA%E5%8A%A8%E5%88%A0%E9%99%A4%E5%B7%B2%E7%BB%8F%E6%94%B6%E9%9B%86%E5%AE%8C%E7%9A%84%E6%96%87%E4%BB%B6/</guid>
         <description>&lt;p&gt;用Filebeat收集日志一直有一个痛点，就是不知道要什么时候才能把要收集的文件删除。&lt;/p&gt;
 &lt;p&gt;之前的解决方案是定时删除文件，但删除的时候其实也不保证已经收集了，所以肯定是有概率会删除正在收集中的文件，这时候其实文件句柄正在被filebeat持有，所以删除也不能释放空间。&lt;/p&gt;
 &lt;p&gt;简单的搜索就发现了这篇文章&lt;a class=&#34;link&#34; href=&#34;https://discuss.elastic.co/t/filebeats-are-there-any-ways-we-can-delete-the-log-files-after-file-beat-harvest-the-data-to-logstash/177997&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -36,10 +36,10 @@
         </item>
         <item>
         <title>0x02 命令行应用</title>
-        <link>http://localhost:50582/p/0x02-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BA%94%E7%94%A8/</link>
+        <link>https://blog.happyhacker.fun/p/0x02-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BA%94%E7%94%A8/</link>
         <pubDate>Fri, 24 Dec 2021 22:24:17 +0800</pubDate>
         
-        <guid>http://localhost:50582/p/0x02-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BA%94%E7%94%A8/</guid>
+        <guid>https://blog.happyhacker.fun/p/0x02-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BA%94%E7%94%A8/</guid>
         <description>&lt;p&gt;自己用的最多的肯定是写一些命令行工具或者daemon应用，所以处理命令行参数还是很有必要的。&lt;/p&gt;
 &lt;p&gt;不得不说&lt;a class=&#34;link&#34; href=&#34;https://github.com/spf13&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;spf13&lt;/a&gt;这老哥是真的厉害，我最开始知道他是因为用了他的vim配置文件，当时就觉得这个配置是真详细，支持的功能非常多。&lt;/p&gt;
@@ -50,10 +50,10 @@
         </item>
         <item>
         <title>0x01 基础命令以及go mod</title>
-        <link>http://localhost:50582/p/0x01-%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E4%BB%A5%E5%8F%8Ago-mod/</link>
+        <link>https://blog.happyhacker.fun/p/0x01-%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E4%BB%A5%E5%8F%8Ago-mod/</link>
         <pubDate>Wed, 15 Dec 2021 23:50:38 +0800</pubDate>
         
-        <guid>http://localhost:50582/p/0x01-%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E4%BB%A5%E5%8F%8Ago-mod/</guid>
+        <guid>https://blog.happyhacker.fun/p/0x01-%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E4%BB%A5%E5%8F%8Ago-mod/</guid>
         <description>&lt;p&gt;本篇主要介绍golang的一些基础命令以及如何在大陆合理访问官方以及第三方的包。&lt;/p&gt;
 &lt;h2 id=&#34;go-run&#34;&gt;
     &lt;a href=&#34;#go-run&#34;&gt;#&lt;/a&gt;
@@ -258,10 +258,10 @@
         </item>
         <item>
         <title>0x00 引言</title>
-        <link>http://localhost:50582/p/0x00-%E5%BC%95%E8%A8%80/</link>
+        <link>https://blog.happyhacker.fun/p/0x00-%E5%BC%95%E8%A8%80/</link>
         <pubDate>Wed, 15 Dec 2021 23:42:00 +0800</pubDate>
         
-        <guid>http://localhost:50582/p/0x00-%E5%BC%95%E8%A8%80/</guid>
+        <guid>https://blog.happyhacker.fun/p/0x00-%E5%BC%95%E8%A8%80/</guid>
         <description>&lt;p&gt;最近要写一个可以跨平台执行又不依赖运行时的程序，所以就把golang又捡起来了。&lt;/p&gt;
 &lt;p&gt;说实话如果不是写公司的项目，Java实在是一个让人喜欢不起来的语言，主要maven这一套搞起来太麻烦，而且还需要在运行的机器上安装一个jre，这又增加了使用门槛，如果要给非开发人员写一个拿来即用的程序，go确实是一个不错的选择。&lt;/p&gt;
 &lt;p&gt;我要写的这个程序主要功能包括以下几部分&lt;/p&gt;

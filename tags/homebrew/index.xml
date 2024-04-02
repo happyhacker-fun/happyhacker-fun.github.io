@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Homebrew on happyhacker的技术分享</title>
-        <link>http://localhost:50582/tags/homebrew/</link>
+        <link>https://blog.happyhacker.fun/tags/homebrew/</link>
         <description>Recent content in Homebrew on happyhacker的技术分享</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Thu, 21 Jan 2021 11:04:09 +0800</lastBuildDate><atom:link href="http://localhost:50582/tags/homebrew/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 21 Jan 2021 11:04:09 +0800</lastBuildDate><atom:link href="https://blog.happyhacker.fun/tags/homebrew/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>使用homebrew安装 MySQL</title>
-        <link>http://localhost:50582/p/%E4%BD%BF%E7%94%A8homebrew%E5%AE%89%E8%A3%85-mysql/</link>
+        <link>https://blog.happyhacker.fun/p/%E4%BD%BF%E7%94%A8homebrew%E5%AE%89%E8%A3%85-mysql/</link>
         <pubDate>Thu, 21 Jan 2021 11:04:09 +0800</pubDate>
         
-        <guid>http://localhost:50582/p/%E4%BD%BF%E7%94%A8homebrew%E5%AE%89%E8%A3%85-mysql/</guid>
+        <guid>https://blog.happyhacker.fun/p/%E4%BD%BF%E7%94%A8homebrew%E5%AE%89%E8%A3%85-mysql/</guid>
         <description>&lt;p&gt;简单记录一下 MySQL 服务的安装方法。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -160,16 +160,16 @@
         </item>
         <item>
         <title>通过 homebrew 安装 JDK</title>
-        <link>http://localhost:50582/p/%E9%80%9A%E8%BF%87-homebrew-%E5%AE%89%E8%A3%85-jdk/</link>
+        <link>https://blog.happyhacker.fun/p/%E9%80%9A%E8%BF%87-homebrew-%E5%AE%89%E8%A3%85-jdk/</link>
         <pubDate>Thu, 14 Jan 2021 16:28:04 +0800</pubDate>
         
-        <guid>http://localhost:50582/p/%E9%80%9A%E8%BF%87-homebrew-%E5%AE%89%E8%A3%85-jdk/</guid>
+        <guid>https://blog.happyhacker.fun/p/%E9%80%9A%E8%BF%87-homebrew-%E5%AE%89%E8%A3%85-jdk/</guid>
         <description>&lt;p&gt;Oracle JDK 现在收费了，macOS 上安装个 JDK 还挺麻烦。&lt;/p&gt;
 &lt;h2 id=&#34;tldr&#34;&gt;
     &lt;a href=&#34;#tldr&#34;&gt;#&lt;/a&gt;
     TL；DR
 &lt;/h2&gt;&lt;p&gt;简单来讲，可以直接运行&lt;code&gt;brew search openjdk&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:50582/images/2021-01-14-17-13-40.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://blog.happyhacker.fun/images/2021-01-14-17-13-40.png&#34;
 	
 	
 	
@@ -184,7 +184,7 @@
     &lt;a href=&#34;#adoptopenjdk&#34;&gt;#&lt;/a&gt;
     AdoptOpenJDK
 &lt;/h2&gt;&lt;p&gt;这个名字有点长，其实是 Eclipse 基金会在维护的发行版，它和 Oracle OpenJDK 的关系有点类似于 MIUI 和 Andriod AOSP 的关系，功能上应该是一样的，不过添加了一些特色的功能，如图所示&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:50582/images/2021-01-14-17-17-47.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://blog.happyhacker.fun/images/2021-01-14-17-17-47.png&#34;
 	
 	
 	
@@ -218,10 +218,10 @@
         </item>
         <item>
         <title>中国大陆安装homebrew的最优方法</title>
-        <link>http://localhost:50582/p/%E4%B8%AD%E5%9B%BD%E5%A4%A7%E9%99%86%E5%AE%89%E8%A3%85homebrew%E7%9A%84%E6%9C%80%E4%BC%98%E6%96%B9%E6%B3%95/</link>
+        <link>https://blog.happyhacker.fun/p/%E4%B8%AD%E5%9B%BD%E5%A4%A7%E9%99%86%E5%AE%89%E8%A3%85homebrew%E7%9A%84%E6%9C%80%E4%BC%98%E6%96%B9%E6%B3%95/</link>
         <pubDate>Sat, 16 May 2020 00:20:48 +0800</pubDate>
         
-        <guid>http://localhost:50582/p/%E4%B8%AD%E5%9B%BD%E5%A4%A7%E9%99%86%E5%AE%89%E8%A3%85homebrew%E7%9A%84%E6%9C%80%E4%BC%98%E6%96%B9%E6%B3%95/</guid>
+        <guid>https://blog.happyhacker.fun/p/%E4%B8%AD%E5%9B%BD%E5%A4%A7%E9%99%86%E5%AE%89%E8%A3%85homebrew%E7%9A%84%E6%9C%80%E4%BC%98%E6%96%B9%E6%B3%95/</guid>
         <description>&lt;p&gt;不知道为什么好像家里的网络对github很不友好，网页能打开，但通过curl访问就有问题，所以安装homebrew时如果使用官方提供的花里胡哨的curl或者wget的方式就安装不上。&lt;/p&gt;
 &lt;p&gt;姑且说安装成功了吧，后面安装其他软件的时候又会各种慢。国内&lt;a class=&#34;link&#34; href=&#34;http://mirrors.ustc.edu.cn&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;中科大&lt;/a&gt;(个人认为国内做的最好的开源镜像站点)和清华大学都提供了homebrew的镜像，但比较吊诡的是他们提供的都是&lt;strong&gt;post-installation&lt;/strong&gt;，也就是前提是你已经安装好了brew。殊不知很多人（网络环境）这一步都过不了关了。&lt;/p&gt;
@@ -1431,10 +1431,10 @@
         </item>
         <item>
         <title>使用Homebrew管理macOS上的服务</title>
-        <link>http://localhost:50582/p/%E4%BD%BF%E7%94%A8homebrew%E7%AE%A1%E7%90%86macos%E4%B8%8A%E7%9A%84%E6%9C%8D%E5%8A%A1/</link>
+        <link>https://blog.happyhacker.fun/p/%E4%BD%BF%E7%94%A8homebrew%E7%AE%A1%E7%90%86macos%E4%B8%8A%E7%9A%84%E6%9C%8D%E5%8A%A1/</link>
         <pubDate>Sun, 29 Mar 2020 10:53:04 +0800</pubDate>
         
-        <guid>http://localhost:50582/p/%E4%BD%BF%E7%94%A8homebrew%E7%AE%A1%E7%90%86macos%E4%B8%8A%E7%9A%84%E6%9C%8D%E5%8A%A1/</guid>
+        <guid>https://blog.happyhacker.fun/p/%E4%BD%BF%E7%94%A8homebrew%E7%AE%A1%E7%90%86macos%E4%B8%8A%E7%9A%84%E6%9C%8D%E5%8A%A1/</guid>
         <description>&lt;p&gt;用了5年macOS也一直没有用过苹果原生的服务管理、AppleSript等等，总感觉不够直观，好在还有Homebrew这个神器，帮我解决了很多问题。&lt;/p&gt;
 &lt;p&gt;对于通过homebrew安装的服务，可以通过其提供的&lt;code&gt;brew services&lt;/code&gt;或者服务自带的命令进行管理。这里只记录了两种，其他需要查看启动方法的可以通过&lt;code&gt;brew info&lt;/code&gt;命令查看。&lt;/p&gt;
 &lt;h2 id=&#34;mysql&#34;&gt;

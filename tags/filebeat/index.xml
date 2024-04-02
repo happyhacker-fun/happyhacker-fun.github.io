@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Filebeat on happyhacker的技术分享</title>
-        <link>http://localhost:50582/tags/filebeat/</link>
+        <link>https://blog.happyhacker.fun/tags/filebeat/</link>
         <description>Recent content in Filebeat on happyhacker的技术分享</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Tue, 04 Jan 2022 11:46:03 +0800</lastBuildDate><atom:link href="http://localhost:50582/tags/filebeat/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 04 Jan 2022 11:46:03 +0800</lastBuildDate><atom:link href="https://blog.happyhacker.fun/tags/filebeat/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Filebeat 自动删除已经收集完的文件</title>
-        <link>http://localhost:50582/p/filebeat-%E8%87%AA%E5%8A%A8%E5%88%A0%E9%99%A4%E5%B7%B2%E7%BB%8F%E6%94%B6%E9%9B%86%E5%AE%8C%E7%9A%84%E6%96%87%E4%BB%B6/</link>
+        <link>https://blog.happyhacker.fun/p/filebeat-%E8%87%AA%E5%8A%A8%E5%88%A0%E9%99%A4%E5%B7%B2%E7%BB%8F%E6%94%B6%E9%9B%86%E5%AE%8C%E7%9A%84%E6%96%87%E4%BB%B6/</link>
         <pubDate>Tue, 04 Jan 2022 11:46:03 +0800</pubDate>
         
-        <guid>http://localhost:50582/p/filebeat-%E8%87%AA%E5%8A%A8%E5%88%A0%E9%99%A4%E5%B7%B2%E7%BB%8F%E6%94%B6%E9%9B%86%E5%AE%8C%E7%9A%84%E6%96%87%E4%BB%B6/</guid>
+        <guid>https://blog.happyhacker.fun/p/filebeat-%E8%87%AA%E5%8A%A8%E5%88%A0%E9%99%A4%E5%B7%B2%E7%BB%8F%E6%94%B6%E9%9B%86%E5%AE%8C%E7%9A%84%E6%96%87%E4%BB%B6/</guid>
         <description>&lt;p&gt;用Filebeat收集日志一直有一个痛点，就是不知道要什么时候才能把要收集的文件删除。&lt;/p&gt;
 &lt;p&gt;之前的解决方案是定时删除文件，但删除的时候其实也不保证已经收集了，所以肯定是有概率会删除正在收集中的文件，这时候其实文件句柄正在被filebeat持有，所以删除也不能释放空间。&lt;/p&gt;
 &lt;p&gt;简单的搜索就发现了这篇文章&lt;a class=&#34;link&#34; href=&#34;https://discuss.elastic.co/t/filebeats-are-there-any-ways-we-can-delete-the-log-files-after-file-beat-harvest-the-data-to-logstash/177997&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;

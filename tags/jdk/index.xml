@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Jdk on happyhacker的技术分享</title>
-        <link>http://localhost:50582/tags/jdk/</link>
+        <link>https://blog.happyhacker.fun/tags/jdk/</link>
         <description>Recent content in Jdk on happyhacker的技术分享</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Thu, 14 Jan 2021 16:28:04 +0800</lastBuildDate><atom:link href="http://localhost:50582/tags/jdk/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 14 Jan 2021 16:28:04 +0800</lastBuildDate><atom:link href="https://blog.happyhacker.fun/tags/jdk/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>通过 homebrew 安装 JDK</title>
-        <link>http://localhost:50582/p/%E9%80%9A%E8%BF%87-homebrew-%E5%AE%89%E8%A3%85-jdk/</link>
+        <link>https://blog.happyhacker.fun/p/%E9%80%9A%E8%BF%87-homebrew-%E5%AE%89%E8%A3%85-jdk/</link>
         <pubDate>Thu, 14 Jan 2021 16:28:04 +0800</pubDate>
         
-        <guid>http://localhost:50582/p/%E9%80%9A%E8%BF%87-homebrew-%E5%AE%89%E8%A3%85-jdk/</guid>
+        <guid>https://blog.happyhacker.fun/p/%E9%80%9A%E8%BF%87-homebrew-%E5%AE%89%E8%A3%85-jdk/</guid>
         <description>&lt;p&gt;Oracle JDK 现在收费了，macOS 上安装个 JDK 还挺麻烦。&lt;/p&gt;
 &lt;h2 id=&#34;tldr&#34;&gt;
     &lt;a href=&#34;#tldr&#34;&gt;#&lt;/a&gt;
     TL；DR
 &lt;/h2&gt;&lt;p&gt;简单来讲，可以直接运行&lt;code&gt;brew search openjdk&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:50582/images/2021-01-14-17-13-40.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://blog.happyhacker.fun/images/2021-01-14-17-13-40.png&#34;
 	
 	
 	
@@ -32,7 +32,7 @@
     &lt;a href=&#34;#adoptopenjdk&#34;&gt;#&lt;/a&gt;
     AdoptOpenJDK
 &lt;/h2&gt;&lt;p&gt;这个名字有点长，其实是 Eclipse 基金会在维护的发行版，它和 Oracle OpenJDK 的关系有点类似于 MIUI 和 Andriod AOSP 的关系，功能上应该是一样的，不过添加了一些特色的功能，如图所示&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:50582/images/2021-01-14-17-17-47.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://blog.happyhacker.fun/images/2021-01-14-17-17-47.png&#34;
 	
 	
 	

@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Flink on happyhacker的技术分享</title>
-        <link>http://localhost:50582/categories/flink/</link>
+        <link>https://blog.happyhacker.fun/categories/flink/</link>
         <description>Recent content in Flink on happyhacker的技术分享</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Thu, 04 Feb 2021 22:55:48 +0800</lastBuildDate><atom:link href="http://localhost:50582/categories/flink/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 04 Feb 2021 22:55:48 +0800</lastBuildDate><atom:link href="https://blog.happyhacker.fun/categories/flink/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Flink的新特性——Unaligned Checkpoints</title>
-        <link>http://localhost:50582/p/flink%E7%9A%84%E6%96%B0%E7%89%B9%E6%80%A7unaligned-checkpoints/</link>
+        <link>https://blog.happyhacker.fun/p/flink%E7%9A%84%E6%96%B0%E7%89%B9%E6%80%A7unaligned-checkpoints/</link>
         <pubDate>Thu, 04 Feb 2021 22:55:48 +0800</pubDate>
         
-        <guid>http://localhost:50582/p/flink%E7%9A%84%E6%96%B0%E7%89%B9%E6%80%A7unaligned-checkpoints/</guid>
+        <guid>https://blog.happyhacker.fun/p/flink%E7%9A%84%E6%96%B0%E7%89%B9%E6%80%A7unaligned-checkpoints/</guid>
         <description>&lt;p&gt;终于看到Flink承认自己在背压高的时候Checkpoint慢的事实了。甚至详细介绍的文章都才只写了第一篇。&lt;/p&gt;
 &lt;p&gt;关于&lt;strong&gt;Unaligned Checkpoint&lt;/strong&gt;（非对齐检查点）的详细介绍官网上已经有很多了，前段时间刚发布了系列文章的第一篇&lt;a class=&#34;link&#34; href=&#34;https://flink.apache.org/2020/10/15/from-aligned-to-unaligned-checkpoints-part-1.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;

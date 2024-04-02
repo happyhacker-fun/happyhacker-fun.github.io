@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Jar on happyhacker的技术分享</title>
-        <link>http://localhost:50582/tags/jar/</link>
+        <link>https://blog.happyhacker.fun/tags/jar/</link>
         <description>Recent content in Jar on happyhacker的技术分享</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Mon, 18 May 2020 22:18:51 +0800</lastBuildDate><atom:link href="http://localhost:50582/tags/jar/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 18 May 2020 22:18:51 +0800</lastBuildDate><atom:link href="https://blog.happyhacker.fun/tags/jar/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>聊聊jar包</title>
-        <link>http://localhost:50582/p/%E8%81%8A%E8%81%8Ajar%E5%8C%85/</link>
+        <link>https://blog.happyhacker.fun/p/%E8%81%8A%E8%81%8Ajar%E5%8C%85/</link>
         <pubDate>Mon, 18 May 2020 22:18:51 +0800</pubDate>
         
-        <guid>http://localhost:50582/p/%E8%81%8A%E8%81%8Ajar%E5%8C%85/</guid>
+        <guid>https://blog.happyhacker.fun/p/%E8%81%8A%E8%81%8Ajar%E5%8C%85/</guid>
         <description>&lt;p&gt;jar包应该是java应用使用最多的分发形式了，jar包中包含什么东西，怎么创建和执行它呢？&lt;/p&gt;
 &lt;h2 id=&#34;jar包是什么&#34;&gt;
     &lt;a href=&#34;#jar%e5%8c%85%e6%98%af%e4%bb%80%e4%b9%88&#34;&gt;#&lt;/a&gt;
@@ -269,7 +269,7 @@
     jar包的其他标准
 &lt;/h3&gt;&lt;p&gt;本节其实是为了说明标准的jar包和Springboot打包的FAT JAR的区别。&lt;/p&gt;
 &lt;p&gt;通常一个jar包只包含了&lt;strong&gt;应用代码&lt;/strong&gt;（区别于依赖），但Springboot的jar包则动辄几百MB，其实就是因为它把所有的依赖全部都打到jar包里了。一个典型的Springboot应用的jar包的清单文件内容如下
-&lt;img src=&#34;http://localhost:50582/images/2020-05-18-23-25-37.png&#34;
+&lt;img src=&#34;https://blog.happyhacker.fun/images/2020-05-18-23-25-37.png&#34;
 	
 	
 	
@@ -277,7 +277,7 @@
 	
 	
 &gt;
-可以看到，下面有波浪线的其实就是标准的清单文件中不包含的部分。而Springboot能从jar包启动，核心就在于&lt;code&gt;Main-Class&lt;/code&gt;配置。关于&lt;code&gt;org.springframework.boot.loader.JarLauncher&lt;/code&gt;的原理，详见&lt;a class=&#34;link&#34; href=&#34;http://localhost:50582/post/springboot-chapter-01&#34; &gt;Springboot启动&lt;/a&gt;&lt;/p&gt;
+可以看到，下面有波浪线的其实就是标准的清单文件中不包含的部分。而Springboot能从jar包启动，核心就在于&lt;code&gt;Main-Class&lt;/code&gt;配置。关于&lt;code&gt;org.springframework.boot.loader.JarLauncher&lt;/code&gt;的原理，详见&lt;a class=&#34;link&#34; href=&#34;https://blog.happyhacker.fun/post/springboot-chapter-01&#34; &gt;Springboot启动&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;jar包和war包的区别&#34;&gt;
     &lt;a href=&#34;#jar%e5%8c%85%e5%92%8cwar%e5%8c%85%e7%9a%84%e5%8c%ba%e5%88%ab&#34;&gt;#&lt;/a&gt;
     jar包和war包的区别

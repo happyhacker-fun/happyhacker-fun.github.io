@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Mailx on happyhacker的技术分享</title>
-        <link>http://localhost:50582/tags/mailx/</link>
+        <link>https://blog.happyhacker.fun/tags/mailx/</link>
         <description>Recent content in Mailx on happyhacker的技术分享</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Mon, 20 Jul 2020 17:10:43 +0800</lastBuildDate><atom:link href="http://localhost:50582/tags/mailx/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 20 Jul 2020 17:10:43 +0800</lastBuildDate><atom:link href="https://blog.happyhacker.fun/tags/mailx/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>最简单的命令行发邮件方式</title>
-        <link>http://localhost:50582/p/%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8F%91%E9%82%AE%E4%BB%B6%E6%96%B9%E5%BC%8F/</link>
+        <link>https://blog.happyhacker.fun/p/%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8F%91%E9%82%AE%E4%BB%B6%E6%96%B9%E5%BC%8F/</link>
         <pubDate>Mon, 20 Jul 2020 17:10:43 +0800</pubDate>
         
-        <guid>http://localhost:50582/p/%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8F%91%E9%82%AE%E4%BB%B6%E6%96%B9%E5%BC%8F/</guid>
+        <guid>https://blog.happyhacker.fun/p/%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8F%91%E9%82%AE%E4%BB%B6%E6%96%B9%E5%BC%8F/</guid>
         <description>&lt;p&gt;用newman搞了个自动化测试脚本，测试出错的时候需要发邮件提醒，但之前尝试配置了sendmail有各种神奇的问题，这次换了思路，尝试用mailx。&lt;/p&gt;
 &lt;h2 id=&#34;安装软件包&#34;&gt;
     &lt;a href=&#34;#%e5%ae%89%e8%a3%85%e8%bd%af%e4%bb%b6%e5%8c%85&#34;&gt;#&lt;/a&gt;

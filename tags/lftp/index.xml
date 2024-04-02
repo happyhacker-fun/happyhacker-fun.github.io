@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Lftp on happyhacker的技术分享</title>
-        <link>http://localhost:50582/tags/lftp/</link>
+        <link>https://blog.happyhacker.fun/tags/lftp/</link>
         <description>Recent content in Lftp on happyhacker的技术分享</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Sun, 05 Apr 2020 11:32:45 +0800</lastBuildDate><atom:link href="http://localhost:50582/tags/lftp/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 05 Apr 2020 11:32:45 +0800</lastBuildDate><atom:link href="https://blog.happyhacker.fun/tags/lftp/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>lftp记录密码</title>
-        <link>http://localhost:50582/p/lftp%E8%AE%B0%E5%BD%95%E5%AF%86%E7%A0%81/</link>
+        <link>https://blog.happyhacker.fun/p/lftp%E8%AE%B0%E5%BD%95%E5%AF%86%E7%A0%81/</link>
         <pubDate>Sun, 05 Apr 2020 11:32:45 +0800</pubDate>
         
-        <guid>http://localhost:50582/p/lftp%E8%AE%B0%E5%BD%95%E5%AF%86%E7%A0%81/</guid>
+        <guid>https://blog.happyhacker.fun/p/lftp%E8%AE%B0%E5%BD%95%E5%AF%86%E7%A0%81/</guid>
         <description>&lt;p&gt;简单的工具最好用。&lt;/p&gt;
 &lt;p&gt;lftp是我非常喜欢的一个lftp工具，命令简单。为了避免每次输入密码，可以通过在&lt;code&gt;$HOME/.netrc&lt;/code&gt;中添加一行记录来实现&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;

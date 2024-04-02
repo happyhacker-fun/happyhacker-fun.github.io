@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Ryzentosh on happyhacker的技术分享</title>
-        <link>http://localhost:50582/categories/ryzentosh/</link>
+        <link>https://blog.happyhacker.fun/categories/ryzentosh/</link>
         <description>Recent content in Ryzentosh on happyhacker的技术分享</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Sun, 29 Mar 2020 10:49:38 +0800</lastBuildDate><atom:link href="http://localhost:50582/categories/ryzentosh/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 29 Mar 2020 10:49:38 +0800</lastBuildDate><atom:link href="https://blog.happyhacker.fun/categories/ryzentosh/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>AMD黑苹果的装机经验</title>
-        <link>http://localhost:50582/p/amd%E9%BB%91%E8%8B%B9%E6%9E%9C%E7%9A%84%E8%A3%85%E6%9C%BA%E7%BB%8F%E9%AA%8C/</link>
+        <link>https://blog.happyhacker.fun/p/amd%E9%BB%91%E8%8B%B9%E6%9E%9C%E7%9A%84%E8%A3%85%E6%9C%BA%E7%BB%8F%E9%AA%8C/</link>
         <pubDate>Sun, 29 Mar 2020 10:49:38 +0800</pubDate>
         
-        <guid>http://localhost:50582/p/amd%E9%BB%91%E8%8B%B9%E6%9E%9C%E7%9A%84%E8%A3%85%E6%9C%BA%E7%BB%8F%E9%AA%8C/</guid>
+        <guid>https://blog.happyhacker.fun/p/amd%E9%BB%91%E8%8B%B9%E6%9E%9C%E7%9A%84%E8%A3%85%E6%9C%BA%E7%BB%8F%E9%AA%8C/</guid>
         <description>&lt;p&gt;实在是受不了MBP13孱弱的性能和糟糕的发热，终于下定决心组装一台台式机。最终还是真香。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;本文操作过程基于白苹果，Windows环境的小伙伴可参考其他教程&lt;/strong&gt;&lt;/p&gt;
 &lt;blockquote&gt;
@@ -109,7 +109,7 @@
 &lt;li&gt;
 &lt;p&gt;格式化优盘&lt;/p&gt;
 &lt;p&gt;虽然这个看起来是最简单的，但我偏偏是在这里出了问题。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:50582/images/image-20200321185555867.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://blog.happyhacker.fun/images/image-20200321185555867.png&#34;
 	
 	
 	
@@ -120,7 +120,7 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;注意这两个选项，如果你默认选中的是第一个，则在抹掉优盘的时候就找不到分区表的方式，如下图所示&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:50582/images/image-20200321185714075.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://blog.happyhacker.fun/images/image-20200321185714075.png&#34;
 	
 	
 	
@@ -131,7 +131,7 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;如果选择了Show All Devices，就如下图所示&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:50582/images/image-20200321185814231.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://blog.happyhacker.fun/images/image-20200321185814231.png&#34;
 	
 	
 	
@@ -162,7 +162,7 @@
     &lt;a href=&#34;#2-%e4%b8%8b%e8%bd%bdmountefi&#34;&gt;#&lt;/a&gt;
     2. 下载&lt;code&gt;MountEFI&lt;/code&gt;
 &lt;/h4&gt;&lt;p&gt;执行&lt;code&gt;./MountEFI.command&lt;/code&gt;，会弹出&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:50582/image-20200321191930513.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://blog.happyhacker.fun/image-20200321191930513.png&#34;
 	
 	
 	

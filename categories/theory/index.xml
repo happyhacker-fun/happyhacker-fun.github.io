@@ -2,80 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Theory on happyhacker的技术分享</title>
-        <link>http://localhost:50582/categories/theory/</link>
+        <link>https://blog.happyhacker.fun/categories/theory/</link>
         <description>Recent content in Theory on happyhacker的技术分享</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Fri, 05 Feb 2021 22:07:54 +0800</lastBuildDate><atom:link href="http://localhost:50582/categories/theory/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>Java并发编程</title>
-        <link>http://localhost:50582/p/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/</link>
-        <pubDate>Fri, 05 Feb 2021 22:07:54 +0800</pubDate>
-        
-        <guid>http://localhost:50582/p/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/</guid>
-        <description>&lt;p&gt;Java相比PHP的一大优势就是具有强大的并发能力了，本文详细阐述Java并发编程的方法和注意事项。&lt;/p&gt;
-&lt;h2 id=&#34;为什么要并发&#34;&gt;
-    &lt;a href=&#34;#%e4%b8%ba%e4%bb%80%e4%b9%88%e8%a6%81%e5%b9%b6%e5%8f%91&#34;&gt;#&lt;/a&gt;
-    为什么要并发
-&lt;/h2&gt;&lt;p&gt;使用并发最大的一个原因就是要&lt;strong&gt;充分发挥多核处理器的能力&lt;/strong&gt;，单线程应用&lt;/p&gt;
-&lt;h3 id=&#34;线程的优势&#34;&gt;
-    &lt;a href=&#34;#%e7%ba%bf%e7%a8%8b%e7%9a%84%e4%bc%98%e5%8a%bf&#34;&gt;#&lt;/a&gt;
-    线程的优势
-&lt;/h3&gt;&lt;h3 id=&#34;线程带来的风险&#34;&gt;
-    &lt;a href=&#34;#%e7%ba%bf%e7%a8%8b%e5%b8%a6%e6%9d%a5%e7%9a%84%e9%a3%8e%e9%99%a9&#34;&gt;#&lt;/a&gt;
-    线程带来的风险
-&lt;/h3&gt;&lt;h2 id=&#34;线程安全性&#34;&gt;
-    &lt;a href=&#34;#%e7%ba%bf%e7%a8%8b%e5%ae%89%e5%85%a8%e6%80%a7&#34;&gt;#&lt;/a&gt;
-    线程安全性
-&lt;/h2&gt;&lt;h2 id=&#34;对象的共享&#34;&gt;
-    &lt;a href=&#34;#%e5%af%b9%e8%b1%a1%e7%9a%84%e5%85%b1%e4%ba%ab&#34;&gt;#&lt;/a&gt;
-    对象的共享
-&lt;/h2&gt;&lt;h2 id=&#34;对象的组合&#34;&gt;
-    &lt;a href=&#34;#%e5%af%b9%e8%b1%a1%e7%9a%84%e7%bb%84%e5%90%88&#34;&gt;#&lt;/a&gt;
-    对象的组合
-&lt;/h2&gt;&lt;h2 id=&#34;基础构建模块&#34;&gt;
-    &lt;a href=&#34;#%e5%9f%ba%e7%a1%80%e6%9e%84%e5%bb%ba%e6%a8%a1%e5%9d%97&#34;&gt;#&lt;/a&gt;
-    基础构建模块
-&lt;/h2&gt;&lt;h2 id=&#34;任务执行&#34;&gt;
-    &lt;a href=&#34;#%e4%bb%bb%e5%8a%a1%e6%89%a7%e8%a1%8c&#34;&gt;#&lt;/a&gt;
-    任务执行
-&lt;/h2&gt;&lt;h2 id=&#34;取消与关闭&#34;&gt;
-    &lt;a href=&#34;#%e5%8f%96%e6%b6%88%e4%b8%8e%e5%85%b3%e9%97%ad&#34;&gt;#&lt;/a&gt;
-    取消与关闭
-&lt;/h2&gt;&lt;h2 id=&#34;线程池的使用&#34;&gt;
-    &lt;a href=&#34;#%e7%ba%bf%e7%a8%8b%e6%b1%a0%e7%9a%84%e4%bd%bf%e7%94%a8&#34;&gt;#&lt;/a&gt;
-    线程池的使用
-&lt;/h2&gt;&lt;h2 id=&#34;图形用户界面应用程序&#34;&gt;
-    &lt;a href=&#34;#%e5%9b%be%e5%bd%a2%e7%94%a8%e6%88%b7%e7%95%8c%e9%9d%a2%e5%ba%94%e7%94%a8%e7%a8%8b%e5%ba%8f&#34;&gt;#&lt;/a&gt;
-    图形用户界面应用程序
-&lt;/h2&gt;&lt;h2 id=&#34;避免活跃性危险&#34;&gt;
-    &lt;a href=&#34;#%e9%81%bf%e5%85%8d%e6%b4%bb%e8%b7%83%e6%80%a7%e5%8d%b1%e9%99%a9&#34;&gt;#&lt;/a&gt;
-    避免活跃性危险
-&lt;/h2&gt;&lt;h2 id=&#34;性能与可伸缩性&#34;&gt;
-    &lt;a href=&#34;#%e6%80%a7%e8%83%bd%e4%b8%8e%e5%8f%af%e4%bc%b8%e7%bc%a9%e6%80%a7&#34;&gt;#&lt;/a&gt;
-    性能与可伸缩性
-&lt;/h2&gt;&lt;h2 id=&#34;并发程序的测试&#34;&gt;
-    &lt;a href=&#34;#%e5%b9%b6%e5%8f%91%e7%a8%8b%e5%ba%8f%e7%9a%84%e6%b5%8b%e8%af%95&#34;&gt;#&lt;/a&gt;
-    并发程序的测试
-&lt;/h2&gt;&lt;h2 id=&#34;显式锁&#34;&gt;
-    &lt;a href=&#34;#%e6%98%be%e5%bc%8f%e9%94%81&#34;&gt;#&lt;/a&gt;
-    显式锁
-&lt;/h2&gt;&lt;h2 id=&#34;构建自定义的同步工具&#34;&gt;
-    &lt;a href=&#34;#%e6%9e%84%e5%bb%ba%e8%87%aa%e5%ae%9a%e4%b9%89%e7%9a%84%e5%90%8c%e6%ad%a5%e5%b7%a5%e5%85%b7&#34;&gt;#&lt;/a&gt;
-    构建自定义的同步工具
-&lt;/h2&gt;&lt;h2 id=&#34;原子变量与非阻塞同步机制&#34;&gt;
-    &lt;a href=&#34;#%e5%8e%9f%e5%ad%90%e5%8f%98%e9%87%8f%e4%b8%8e%e9%9d%9e%e9%98%bb%e5%a1%9e%e5%90%8c%e6%ad%a5%e6%9c%ba%e5%88%b6&#34;&gt;#&lt;/a&gt;
-    原子变量与非阻塞同步机制
-&lt;/h2&gt;&lt;h2 id=&#34;java内存模型&#34;&gt;
-    &lt;a href=&#34;#java%e5%86%85%e5%ad%98%e6%a8%a1%e5%9e%8b&#34;&gt;#&lt;/a&gt;
-    Java内存模型
-&lt;/h2&gt;</description>
-        </item>
-        <item>
+        <lastBuildDate>Thu, 21 Jan 2021 17:53:05 +0800</lastBuildDate><atom:link href="https://blog.happyhacker.fun/categories/theory/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>实现 toJson() 方法</title>
-        <link>http://localhost:50582/p/%E5%AE%9E%E7%8E%B0-tojson-%E6%96%B9%E6%B3%95/</link>
+        <link>https://blog.happyhacker.fun/p/%E5%AE%9E%E7%8E%B0-tojson-%E6%96%B9%E6%B3%95/</link>
         <pubDate>Thu, 21 Jan 2021 17:53:05 +0800</pubDate>
         
-        <guid>http://localhost:50582/p/%E5%AE%9E%E7%8E%B0-tojson-%E6%96%B9%E6%B3%95/</guid>
+        <guid>https://blog.happyhacker.fun/p/%E5%AE%9E%E7%8E%B0-tojson-%E6%96%B9%E6%B3%95/</guid>
         <description>&lt;p&gt;Java 中 POJO 的&lt;code&gt;toString()&lt;/code&gt;方法和我们预期的 JSON 格式不符合，而如果直接覆盖它写一个生成 JSON 的又不合适，因为当需要那种格式的时候就没得用的，所以本着各司其职的原则，我们来实现一个&lt;code&gt;toJson()&lt;/code&gt;方法。&lt;/p&gt;
 &lt;h2 id=&#34;序列化库选择&#34;&gt;
     &lt;a href=&#34;#%e5%ba%8f%e5%88%97%e5%8c%96%e5%ba%93%e9%80%89%e6%8b%a9&#34;&gt;#&lt;/a&gt;
@@ -279,10 +215,10 @@
         </item>
         <item>
         <title>Java日期函数的一个坑</title>
-        <link>http://localhost:50582/p/java%E6%97%A5%E6%9C%9F%E5%87%BD%E6%95%B0%E7%9A%84%E4%B8%80%E4%B8%AA%E5%9D%91/</link>
+        <link>https://blog.happyhacker.fun/p/java%E6%97%A5%E6%9C%9F%E5%87%BD%E6%95%B0%E7%9A%84%E4%B8%80%E4%B8%AA%E5%9D%91/</link>
         <pubDate>Thu, 21 Jan 2021 16:33:43 +0800</pubDate>
         
-        <guid>http://localhost:50582/p/java%E6%97%A5%E6%9C%9F%E5%87%BD%E6%95%B0%E7%9A%84%E4%B8%80%E4%B8%AA%E5%9D%91/</guid>
+        <guid>https://blog.happyhacker.fun/p/java%E6%97%A5%E6%9C%9F%E5%87%BD%E6%95%B0%E7%9A%84%E4%B8%80%E4%B8%AA%E5%9D%91/</guid>
         <description>&lt;p&gt;我们知道 Java1.8 推荐使用 &lt;code&gt;LocalDate&lt;/code&gt;和&lt;code&gt;LocalDateTime&lt;/code&gt;类来处理日期和时间，但之前的版本是用&lt;code&gt;GregorianCalendar&lt;/code&gt;。之前一直以为只是易用性上的差别，没想到还有一个神坑。&lt;/p&gt;
 &lt;h2 id=&#34;事情经过&#34;&gt;
     &lt;a href=&#34;#%e4%ba%8b%e6%83%85%e7%bb%8f%e8%bf%87&#34;&gt;#&lt;/a&gt;
@@ -369,10 +305,10 @@
         </item>
         <item>
         <title>Java Stream Api</title>
-        <link>http://localhost:50582/p/java-stream-api/</link>
+        <link>https://blog.happyhacker.fun/p/java-stream-api/</link>
         <pubDate>Wed, 29 Apr 2020 23:23:57 +0800</pubDate>
         
-        <guid>http://localhost:50582/p/java-stream-api/</guid>
+        <guid>https://blog.happyhacker.fun/p/java-stream-api/</guid>
         <description>&lt;p&gt;Java的stream api真是功能强大，但写的时候总是忘，这里简单记录以下。&lt;/p&gt;
 &lt;h2 id=&#34;概念&#34;&gt;
     &lt;a href=&#34;#%e6%a6%82%e5%bf%b5&#34;&gt;#&lt;/a&gt;
@@ -844,10 +780,10 @@
         </item>
         <item>
         <title>Java基础</title>
-        <link>http://localhost:50582/p/java%E5%9F%BA%E7%A1%80/</link>
+        <link>https://blog.happyhacker.fun/p/java%E5%9F%BA%E7%A1%80/</link>
         <pubDate>Tue, 21 Apr 2020 23:28:34 +0800</pubDate>
         
-        <guid>http://localhost:50582/p/java%E5%9F%BA%E7%A1%80/</guid>
+        <guid>https://blog.happyhacker.fun/p/java%E5%9F%BA%E7%A1%80/</guid>
         <description>&lt;p&gt;前段时间写Java一直忙于做工程上的工作，还是得停下来看看理论的东西。&lt;/p&gt;
 &lt;h2 id=&#34;基本类型&#34;&gt;
     &lt;a href=&#34;#%e5%9f%ba%e6%9c%ac%e7%b1%bb%e5%9e%8b&#34;&gt;#&lt;/a&gt;
