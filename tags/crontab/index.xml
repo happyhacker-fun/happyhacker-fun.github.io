@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Crontab on happyhacker的技术分享</title>
+        <link>https://blog.happyhacker.fun/tags/crontab/</link>
+        <description>Recent content in Crontab on happyhacker的技术分享</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Tue, 14 Apr 2020 22:40:01 +0800</lastBuildDate><atom:link href="https://blog.happyhacker.fun/tags/crontab/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>crontab配置的一个常见错误</title>
+        <link>https://blog.happyhacker.fun/p/crontab%E9%85%8D%E7%BD%AE%E7%9A%84%E4%B8%80%E4%B8%AA%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF/</link>
+        <pubDate>Tue, 14 Apr 2020 22:40:01 +0800</pubDate>
+        
+        <guid>https://blog.happyhacker.fun/p/crontab%E9%85%8D%E7%BD%AE%E7%9A%84%E4%B8%80%E4%B8%AA%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF/</guid>
+        <description>&lt;p&gt;如果你遇到了crontab不能按预期执行的问题，可以参考本文的内容。&lt;/p&gt;
+&lt;p&gt;crontab是运维工作中经常需要做的，多数时候只需要执行&lt;code&gt;crontab -e&lt;/code&gt;来编辑即可，当面对更复杂的场景时，这种方式就显得不够用了。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;关于crontab更多的内容可以通过查看&lt;code&gt;man 8 cron&lt;/code&gt;和&lt;code&gt;man 5 crontab&lt;/code&gt;来获取。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;crontab的分类&#34;&gt;
+    &lt;a href=&#34;#crontab%e7%9a%84%e5%88%86%e7%b1%bb&#34;&gt;#&lt;/a&gt;
+    crontab的分类
+&lt;/h2&gt;&lt;p&gt;一般来说，crontab可以分为三种，分别位于以下三个目录中&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;/var/spool/cron/&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/etc/cron.d&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/etc/cron.{hourly,daily,weekly,monthly}&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;不同的crontab的作用&#34;&gt;
+    &lt;a href=&#34;#%e4%b8%8d%e5%90%8c%e7%9a%84crontab%e7%9a%84%e4%bd%9c%e7%94%a8&#34;&gt;#&lt;/a&gt;
+    不同的crontab的作用
+&lt;/h2&gt;&lt;h3 id=&#34;varspoolcron&#34;&gt;
+    &lt;a href=&#34;#varspoolcron&#34;&gt;#&lt;/a&gt;
+    &lt;code&gt;/var/spool/cron/&lt;/code&gt;
+&lt;/h3&gt;&lt;p&gt;这里就是存储我们最常用的&lt;code&gt;crontab -e&lt;/code&gt;编辑的文件的地方了，这里保存着和执行这个命令的用户名相同的文件，所以当需要用某一个用户名执行cron时，有两种方式，以用户名&lt;code&gt;frost&lt;/code&gt;为例&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;执行&lt;code&gt;crontab -e&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;vim /var/spool/cron/frost&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这两种方式本质上是一样的。值得注意的是，它的文件内容格式如下&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;* * * * * /path/to/command
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;先记住这个格式，后面会做对比。&lt;/p&gt;
+&lt;h3 id=&#34;etccrond&#34;&gt;
+    &lt;a href=&#34;#etccrond&#34;&gt;#&lt;/a&gt;
+    &lt;code&gt;/etc/cron.d&lt;/code&gt;
+&lt;/h3&gt;&lt;p&gt;这里存储的是更通用的配置，每一行可以由不同的用户执行，没有了用户名做区分应该怎么做呢？这就是它的文件内容和前面的不同的地方了，放在这个目录种的cron文件想要被执行，需要满足下面的格式&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;* * * * * ${username} /path/to/command
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;也就是说，在&lt;strong&gt;时间格式后面需要指定执行命令所用的用户名&lt;/strong&gt;，这是非常重要的，因为如果没有这个用户名，这行命令就不会被执行。&lt;br&gt;
+个人认为，这种方式其实更适合批量执行的环境，从中心节点下发crontab相关的配置时，都放在一个文件会导致该文件功能众多，难以维护，相反如果把不同功能的配置文件以不同的名字下发到&lt;code&gt;/etc/cron.d&lt;/code&gt;中，则更为清晰，可维护性更好。&lt;br&gt;
+比如在&lt;code&gt;/etc/cron.d&lt;/code&gt;中可以有&lt;code&gt;log&lt;/code&gt;, &lt;code&gt;check_db&lt;/code&gt;等，分别用于执行压缩/删除日志、检查数据库是否可访问等任务，职责清晰明了。&lt;/p&gt;
+&lt;h3 id=&#34;etccronhourlydailyweeklymonthly&#34;&gt;
+    &lt;a href=&#34;#etccronhourlydailyweeklymonthly&#34;&gt;#&lt;/a&gt;
+    &lt;code&gt;/etc/cron.{hourly,daily,weekly,monthly}&lt;/code&gt;
+&lt;/h3&gt;&lt;p&gt;这里和前面两种都不同，因为它里面存放的并不是任何类型的crontab的配置，而是脚本，从目录名也可以知道，对应的目录中的脚本会以相应的时间间隔执行。&lt;/p&gt;</description>
+        </item>
+        
+    </channel>
+</rss>

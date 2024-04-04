@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="这个博客也写了不少东西了，但功能还是有些简陋，比如不支持搜索，也不能评论，甚至不知道有多少人访问过。\n">
+<title>Hugo支持站内搜索</title>
+
+<link rel='canonical' href='https://blog.happyhacker.fun/p/hugo%E6%94%AF%E6%8C%81%E7%AB%99%E5%86%85%E6%90%9C%E7%B4%A2/'>
+
+<link rel="stylesheet" href="/scss/style.min.8e60baf4cd3fc55968717a6e39762f4d28ed7ef6007566b6c7970ad0fe907198.css"><meta property='og:title' content="Hugo支持站内搜索">
+<meta property='og:description' content="这个博客也写了不少东西了，但功能还是有些简陋，比如不支持搜索，也不能评论，甚至不知道有多少人访问过。\n">
+<meta property='og:url' content='https://blog.happyhacker.fun/p/hugo%E6%94%AF%E6%8C%81%E7%AB%99%E5%86%85%E6%90%9C%E7%B4%A2/'>
+<meta property='og:site_name' content='happyhacker的技术分享'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='hugo' /><meta property='article:tag' content='blog' /><meta property='article:tag' content='lunr' /><meta property='article:tag' content='搜索引擎' /><meta property='article:tag' content='站内搜索' /><meta property='article:published_time' content='2021-01-17T00:11:45&#43;08:00'/><meta property='article:modified_time' content='2021-01-17T00:11:45&#43;08:00'/>
+<meta name="twitter:title" content="Hugo支持站内搜索">
+<meta name="twitter:description" content="这个博客也写了不少东西了，但功能还是有些简陋，比如不支持搜索，也不能评论，甚至不知道有多少人访问过。\n">
+    <link rel="shortcut icon" href="/favicon.png" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">happyhacker的技术分享</a></h1>
+            <h2 class="site-description"></h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/lovelock'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/p/%E5%85%B3%E4%BA%8E%E6%88%91/' >
+                
+                
+                
+                <span>关于我</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#访问计数">访问计数</a></li>
+    <li><a href="#评论">评论</a></li>
+    <li><a href="#站内搜索">站内搜索</a>
+      <ol>
+        <li><a href="#选型">选型</a></li>
+        <li><a href="#行动">行动</a>
+          <ol>
+            <li><a href="#1-路径解析的不对">1. 路径解析的不对</a></li>
+            <li><a href="#2-在-https-页面上向-http-的接口发起请求被浏览器拦截">2. 在 https 页面上向 http 的接口发起请求被浏览器拦截</a></li>
+            <li><a href="#3-在documentready--中操作lunr">3. 在<code>$document.ready(() =&gt; {})</code>中操作<code>lunr</code></a></li>
+            <li><a href="#4-为新方案适配页面">4. 为新方案适配页面</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#总结">总结</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/in-action/" >
+                In-Action
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/hugo%E6%94%AF%E6%8C%81%E7%AB%99%E5%86%85%E6%90%9C%E7%B4%A2/">Hugo支持站内搜索</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Jan 17, 2021</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 6 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>这个博客也写了不少东西了，但功能还是有些简陋，比如不支持搜索，也不能评论，甚至不知道有多少人访问过。</p>
+<p>逛知乎的时候无意间看到了 Maupassant 这个主题，总体看上去还挺简洁大方的，主要是信息展示的比较丰富，不像之前的 even 主题，想看标签和分类还要专门去单独的页面。</p>
+<p>所以就开始了改造。</p>
+<h2 id="访问计数">
+    <a href="#%e8%ae%bf%e9%97%ae%e8%ae%a1%e6%95%b0">#</a>
+    访问计数
+</h2><p>这个就比较简单了，之前用的 even 主题里也有这个位置，只是没有打开而已。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">params</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="nx">params</span><span class="p">.</span><span class="nx">busuanzi</span><span class="p">]</span>         <span class="c"># count web traffic by busuanzi                             # 是否使用不蒜子统计站点访问量</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">enable</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">siteUV</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">sitePV</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">pagePV</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="评论">
+    <a href="#%e8%af%84%e8%ae%ba">#</a>
+    评论
+</h2><p>评论也比较简单，使用的是<a class="link" href="https://utteranc.es/"  target="_blank" rel="noopener"
+    >utteranc</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"> <span class="p">[</span><span class="nx">params</span><span class="p">.</span><span class="nx">utteranc</span><span class="p">]</span>       <span class="c"># https://utteranc.es/</span>
+</span></span><span class="line"><span class="cl">   <span class="nx">enable</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">   <span class="nx">repo</span> <span class="p">=</span> <span class="s2">&#34;lovelock/blog-comments&#34;</span>               <span class="c"># The repo to store comments</span>
+</span></span><span class="line"><span class="cl">   <span class="nx">issueTerm</span> <span class="p">=</span> <span class="s2">&#34;pathname&#34;</span>  <span class="c">#表示你选择以那种方式让github issue的评论和你的文章关联。</span>
+</span></span><span class="line"><span class="cl">   <span class="nx">theme</span> <span class="p">=</span> <span class="s2">&#34;github-light&#34;</span> <span class="c"># 样式主题，有github-light和github-dark两种</span>
+</span></span><span class="line"><span class="cl">   <span class="nx">async</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="站内搜索">
+    <a href="#%e7%ab%99%e5%86%85%e6%90%9c%e7%b4%a2">#</a>
+    站内搜索
+</h2><p>重头戏是站内搜索。本来也没想弄，发现这个主题有这个功能就想着把它搞定。但按主题作者的说法配置完成了之后并没有任何效果，所以我就研究了下 hugo 下实现站内搜索的方案。</p>
+<p>首先是打开</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">params</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">localSearch</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>然后在<code>content/search</code>目录下新建<code>index.md</code>文件，并添加以下内容</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">title: &#34;搜索&#34;
+</span></span><span class="line"><span class="cl">description: &#34;搜索页面&#34;
+</span></span><span class="line"><span class="cl">type: &#34;search&#34;
+</span></span><span class="line"><span class="cl">---
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>做这些的目的是在使用搜索功能的时候可以跳转到<code>${baseURL}/search/q=keyword</code>这个页面，而它对应的页面模板就是<code>single.html</code>。我读了下源码，其实它做的事情是在这个页面 load 完成时从<code>public/index.xml</code>中找到所有文章的标题，然后在标题列表中查找相应的关键词。</p>
+<p>这存在几个问题</p>
+<ol>
+<li>中文分词的支持肯定不好</li>
+<li><code>public/index.html</code>无法下载</li>
+</ol>
+<h3 id="选型">
+    <a href="#%e9%80%89%e5%9e%8b">#</a>
+    选型
+</h3><p>所以我就转而去 hugo 的官网查解决方案了。查了一圈对 lunr.js 比较感兴趣，好像功能也比较强大，对应也有 hugo 的小工具。说来也搞笑，hugo 本来是要取代 hexo 作为新一代的静态站点生成引擎的，这是 go 语言和 node 的竞争，但当涉及到这个领域时，竟然需要在 hugo 中引入 node 模块来解决。不过还好，我对这个也没有洁癖，能工作就行。</p>
+<p>原理其实和上面描述的差不多，通过<code>hugo-lunr-zh</code>生成一个<code>index.json</code>文件，页面加载的时候把这个文件加载过来，通过 lunr 的搜索功能在里面查到关键词，进而进行下一步的展示。
+这个<code>hugo-lunr-zh</code>其实项目本身和 lunr 并无关系，它只是用来生成 lunr 可以识别的数据而已。而要使用<code>hugo-lunr-zh</code>则是为了支持中文分词。</p>
+<h3 id="行动">
+    <a href="#%e8%a1%8c%e5%8a%a8">#</a>
+    行动
+</h3><p>既然改了搜索方案，现有的<code>single.html</code>也肯定不能用了，先 fork 一个。然后<code>npm -g install hugo-lunr-zh</code>，然后在博客的根目录执行<code>hugo-lunr-zh</code>，简直是涕泗横流，跑不通。</p>
+<p>搜索了一下确实这个方案是有些问题的，主要是作者也不更新了。但我觉得这个原理很清晰，于是进入了不断的 debug 阶段。</p>
+<blockquote>
+<p>在 npm 上的版本是 1.0.3，而我自己魔改成功运行之后才发现 github 上的 master 已经是 2.1.0 了，但我把 master 版本下载下来竟然都无法安装。我也没兴趣研究到底哪里出了问题了。</p>
+</blockquote>
+<p>遇到了以下问题</p>
+<ol>
+<li>路径解析的不对</li>
+<li>在 https 页面上向 http 的接口发起请求被浏览器拦截</li>
+<li>在<code>$document.ready(() =&gt; {})</code>中操作<code>lunr</code></li>
+<li>为新方案适配页面</li>
+</ol>
+<h4 id="1-路径解析的不对">
+    <a href="#1-%e8%b7%af%e5%be%84%e8%a7%a3%e6%9e%90%e7%9a%84%e4%b8%8d%e5%af%b9">#</a>
+    1. 路径解析的不对
+</h4><p>不知道是为什么作者会设计成这样的，我的文件是在类似<code>post/life/a.md</code>、<code>post/devops/b.md</code>这种路径，为什么它会认为最终的访问路径是<code>posts/a</code>和<code>posts/b</code>呢？这个解决的比较简单，就是破坏了原本的设计，主要是我也不认同它的设计。</p>
+<h4 id="2-在-https-页面上向-http-的接口发起请求被浏览器拦截">
+    <a href="#2-%e5%9c%a8-https-%e9%a1%b5%e9%9d%a2%e4%b8%8a%e5%90%91-http-%e7%9a%84%e6%8e%a5%e5%8f%a3%e5%8f%91%e8%b5%b7%e8%af%b7%e6%b1%82%e8%a2%ab%e6%b5%8f%e8%a7%88%e5%99%a8%e6%8b%a6%e6%88%aa">#</a>
+    2. 在 https 页面上向 http 的接口发起请求被浏览器拦截
+</h4><p>这个问题是我这个站点没有使用 https，在配置文件中的<code>baseURL=http://blog.happyhacker.fun</code>，也没有用 https，相应的搜索框的写法是<code>{{ &quot;search/&quot; | absURL }}</code>，经过 hugo 黑盒的解析之后这个完整的链接变成了<code>https://blog.happyhacker.fun/search</code>；由于无法从<code>public</code>目录下载<code>index.json</code>文件，所以我把它放在<code>static/js/</code>目录下了，在页面模板中的写法是<code>{{ &quot;js/index.json&quot; | absURL }}</code>，最终的完成链接却变成了<code>http://blog.happyhacker.fun/js/index.json</code>。</p>
+<p>注意到区别了吗？js 目录下的文件没有 https，而跳转的页面有 https。</p>
+<p>所以我干脆就在配置文件里把<code>baseURL</code>也改成<code>https</code>了，问题就这么解决了。因为所有的请求都变成了 https，虽然我并没有配置证书。</p>
+<h4 id="3-在documentready--中操作lunr">
+    <a href="#3-%e5%9c%a8documentready--%e4%b8%ad%e6%93%8d%e4%bd%9clunr">#</a>
+    3. 在<code>$document.ready(() =&gt; {})</code>中操作<code>lunr</code>
+</h4><p>在完成这块之前我是没想着要用到分词的，只是简单分析了在命令行生成的词表的结构，想着干脆把这些内容用空格分开生成一个大列表，然后用<code>Array.prototype.includes()</code>方法来实现搜索，后来研究了一下发现用 lunr 自身的搜索引擎看起来要强大许多。</p>
+<p>核心代码如下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">q</span> <span class="o">=</span> <span class="nx">getUrlParameter</span><span class="p">(</span><span class="s2">&#34;q&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">$</span><span class="p">(</span><span class="s2">&#34;span.keyword&#34;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="nx">q</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">$</span><span class="p">(</span><span class="s2">&#34;article.post&#34;</span><span class="p">).</span><span class="nx">remove</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;{{&#34;js/index.json&#34;|absURL}}&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">dataType</span><span class="o">:</span> <span class="s2">&#34;json&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">lunr</span><span class="p">.</span><span class="nx">zh</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="p">.</span><span class="nx">pipeline</span><span class="p">.</span><span class="nx">reset</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="p">.</span><span class="nx">pipeline</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">lunr</span><span class="p">.</span><span class="nx">zh</span><span class="p">.</span><span class="nx">trimmer</span><span class="p">,</span> <span class="nx">lunr</span><span class="p">.</span><span class="nx">stopWordFilter</span><span class="p">,</span> <span class="nx">lunr</span><span class="p">.</span><span class="nx">stemmer</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="nx">lunr</span><span class="p">.</span><span class="nx">zh</span><span class="p">.</span><span class="nx">trimmer</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">token</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">token</span><span class="p">.</span><span class="nx">update</span><span class="p">((</span><span class="nx">str</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="k">if</span> <span class="p">(</span><span class="sr">/[\u4E00-\u9FA5\uF900-\uFA2D]/</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">str</span><span class="p">))</span> <span class="k">return</span> <span class="nx">str</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">          <span class="k">return</span> <span class="nx">str</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/^\W+/</span><span class="p">,</span> <span class="s2">&#34;&#34;</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/\W+$/</span><span class="p">,</span> <span class="s2">&#34;&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">});</span>
+</span></span><span class="line"><span class="cl">      <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="nx">lunr</span><span class="p">.</span><span class="nx">Pipeline</span><span class="p">.</span><span class="nx">registerFunction</span><span class="p">(</span><span class="nx">lunr</span><span class="p">.</span><span class="nx">zh</span><span class="p">.</span><span class="nx">trimmer</span><span class="p">,</span> <span class="s2">&#34;trimmer-zh&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="kr">const</span> <span class="nx">idx</span> <span class="o">=</span> <span class="nx">lunr</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">lunr</span><span class="p">.</span><span class="nx">zh</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="p">.</span><span class="nx">ref</span><span class="p">(</span><span class="s2">&#34;uri&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="p">.</span><span class="nx">field</span><span class="p">(</span><span class="s2">&#34;content&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="p">.</span><span class="nx">field</span><span class="p">(</span><span class="s2">&#34;tags&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="p">.</span><span class="nx">field</span><span class="p">(</span><span class="s2">&#34;categories&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="p">.</span><span class="nx">field</span><span class="p">(</span><span class="s2">&#34;title&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">data</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="k">this</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span> <span class="k">this</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="kr">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">idx</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="nx">q</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="kr">const</span> <span class="nx">hitRefs</span> <span class="o">=</span> <span class="nx">result</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">e</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">e</span><span class="p">.</span><span class="nx">ref</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">result</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">e</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">const</span> <span class="nx">item</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">d</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">d</span><span class="p">.</span><span class="nx">uri</span> <span class="o">==</span> <span class="nx">e</span><span class="p">.</span><span class="nx">ref</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">const</span> <span class="nx">oriTitle</span> <span class="o">=</span> <span class="nx">item</span><span class="p">[</span><span class="s2">&#34;oriTitle&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">const</span> <span class="nx">content</span> <span class="o">=</span> <span class="nx">item</span><span class="p">[</span><span class="s2">&#34;content&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">const</span> <span class="nx">title</span> <span class="o">=</span> <span class="nx">item</span><span class="p">[</span><span class="s2">&#34;title&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kr">const</span> <span class="nx">uri</span> <span class="o">=</span> <span class="nx">item</span><span class="p">[</span><span class="s2">&#34;uri&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">const</span> <span class="nx">score</span> <span class="o">=</span> <span class="nx">result</span><span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">f</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">uri</span> <span class="o">==</span> <span class="nx">f</span><span class="p">.</span><span class="nx">ref</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&#34;score&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">let</span> <span class="nx">searchItem</span> <span class="o">=</span>
+</span></span><span class="line"><span class="cl">          <span class="sb">`&lt;article class=&#34;post&#34;&gt;&lt;header&gt;&lt;h1 class=&#34;post-title&#34;&gt;&lt;a href=&#34;`</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">uri</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">          <span class="sb">`&#34;&gt;`</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">oriTitle</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">          <span class="sb">`&lt;/a&gt;&lt;/h1&gt;&lt;/header&gt;`</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">const</span> <span class="nx">pubDate</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="nx">item</span><span class="p">[</span><span class="s2">&#34;date&#34;</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">searchItem</span> <span class="o">+=</span>
+</span></span><span class="line"><span class="cl">          <span class="sb">`&lt;date class=&#34;post-meta meta-date&#34;&gt;`</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">pubDate</span><span class="p">.</span><span class="nx">getFullYear</span><span class="p">()</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">          <span class="sb">`年`</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">          <span class="p">(</span><span class="nx">pubDate</span><span class="p">.</span><span class="nx">getMonth</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">          <span class="sb">`月`</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">pubDate</span><span class="p">.</span><span class="nx">getDate</span><span class="p">()</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">          <span class="sb">`日&amp;nbsp; 匹配度：`</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">score</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">          <span class="sb">`&lt;/date&gt;`</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">searchItem</span> <span class="o">+=</span>
+</span></span><span class="line"><span class="cl">          <span class="sb">`&lt;div class=&#34;post-content&#34;&gt;`</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">item</span><span class="p">[</span><span class="s2">&#34;content&#34;</span><span class="p">].</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/\s*/g</span><span class="p">,</span> <span class="s2">&#34;&#34;</span><span class="p">).</span><span class="nx">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">          <span class="sb">`……&lt;p class=&#34;readmore&#34;&gt;&lt;a href=&#34;`</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">uri</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">          <span class="sb">`&#34;&gt;阅读全文&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;&lt;/article&gt;`</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nx">$</span><span class="p">(</span><span class="s2">&#34;div.res-cons&#34;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="nx">searchItem</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="p">});</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>梳理下逻辑就是拿到词表之后在前端构建一个 lunr 搜索引擎，从中搜索想要的结果，然后根据结果中的 ref 再回到原始结果中拿数据，拼页面。</p>
+<p>这里提一点，hugo 的设计还是很灵活的，可以在<code>config.toml</code>中配置<code>customJs</code>可以在所有页面引入一个 js，简直不要太方便。</p>
+<h4 id="4-为新方案适配页面">
+    <a href="#4-%e4%b8%ba%e6%96%b0%e6%96%b9%e6%a1%88%e9%80%82%e9%85%8d%e9%a1%b5%e9%9d%a2">#</a>
+    4. 为新方案适配页面
+</h4><p>代码已经在上面贴出来了，比较简单。</p>
+<h2 id="总结">
+    <a href="#%e6%80%bb%e7%bb%93">#</a>
+    总结
+</h2><p>开源项目真的是很依赖作者，虽说用的人可能很多，但真正去改它的人可能凤毛麟角。作者一时兴起发起了一个开源项目，后面不想维护了，就把一堆烂摊子丢给了用户。开源免费的东西我们不能要求太多，那就只好自己在前人的基础上研究了，只是要多花些时间。</p>
+<p>本次改造中新建了两个 repo</p>
+<ol>
+<li><a class="link" href="https://github.com/lovelock/maupassant-hugo"  target="_blank" rel="noopener"
+    >Maupassant 主题</a></li>
+<li><a class="link" href="https://github.com/lovelock/hugo-lunr-zh"  target="_blank" rel="noopener"
+    >hugo-lunr-zh</a></li>
+</ol>
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/hugo/">Hugo</a>
+        
+            <a href="/tags/blog/">Blog</a>
+        
+            <a href="/tags/lunr/">Lunr</a>
+        
+            <a href="/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/">搜索引擎</a>
+        
+            <a href="/tags/%E7%AB%99%E5%86%85%E6%90%9C%E7%B4%A2/">站内搜索</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/%E4%BD%BF%E7%94%A8ninja%E4%BD%9C%E4%B8%BAcmake%E7%9A%84%E5%90%8E%E7%AB%AF/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/images/CMake-with-Ninja-cover.png" loading="lazy" data-key="" data-hash="/images/CMake-with-Ninja-cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">使用Ninja作为CMake的后端</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E5%85%89%E9%80%9F%E5%AD%A6%E4%BC%9Acmake/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E5%85%89%E9%80%9F%E5%AD%A6%E4%BC%9Acmake/cover.ab4d68c4c7ad931a5b3e1a6d4e8bc992_hu792f1a0561a8d6d66c4c119859805226_1770492_250x150_fill_box_smart1_3.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 光速学会CMake"
+                        
+                        data-hash="md5-q01oxMetkxpbPhptTovJkg==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">光速学会CMake</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/filebeat-%E8%87%AA%E5%8A%A8%E5%88%A0%E9%99%A4%E5%B7%B2%E7%BB%8F%E6%94%B6%E9%9B%86%E5%AE%8C%E7%9A%84%E6%96%87%E4%BB%B6/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Filebeat 自动删除已经收集完的文件</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/gson-%E5%92%8C-jackson-%E5%AF%B9%E6%AF%94/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Gson 和 Jackson 对比</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/springboot%E4%BD%BF%E7%94%A8shardingsphere%E9%85%8D%E7%BD%AE%E6%95%B0%E6%8D%AE%E5%BA%93/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Springboot使用Shardingsphere配置数据库</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2024 happyhacker的技术分享
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.25.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Viper on happyhacker的技术分享</title>
+        <link>https://blog.happyhacker.fun/tags/viper/</link>
+        <description>Recent content in Viper on happyhacker的技术分享</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Fri, 24 Dec 2021 22:24:17 +0800</lastBuildDate><atom:link href="https://blog.happyhacker.fun/tags/viper/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>0x02 命令行应用</title>
+        <link>https://blog.happyhacker.fun/p/0x02-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BA%94%E7%94%A8/</link>
+        <pubDate>Fri, 24 Dec 2021 22:24:17 +0800</pubDate>
+        
+        <guid>https://blog.happyhacker.fun/p/0x02-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BA%94%E7%94%A8/</guid>
+        <description>&lt;p&gt;自己用的最多的肯定是写一些命令行工具或者daemon应用，所以处理命令行参数还是很有必要的。&lt;/p&gt;
+&lt;p&gt;不得不说&lt;a class=&#34;link&#34; href=&#34;https://github.com/spf13&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;spf13&lt;/a&gt;这老哥是真的厉害，我最开始知道他是因为用了他的vim配置文件，当时就觉得这个配置是真详细，支持的功能非常多。&lt;/p&gt;
+&lt;p&gt;后来想写文章了，发现他搞了个性能最好的博客生成工具hugo，就是我现在在用的这个。&lt;/p&gt;
+&lt;p&gt;再后来想写一个命令行应用，发现他搞了个几乎是最好用的命令行应用开发框架cobra，我已经用它写了好几个应用了。&lt;/p&gt;
+&lt;p&gt;再后来需要处理配置文件，发现他搞了个几乎是最好用的配置管理工具viper，解决了解析shardingsphere的yaml配置中遇到的棘手问题。&lt;/p&gt;
+&lt;p&gt;总之，这老哥设计的东西就是牛逼。&lt;/p&gt;</description>
+        </item>
+        
+    </channel>
+</rss>

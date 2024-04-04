@@ -1,0 +1,686 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Life on happyhacker的技术分享</title>
+        <link>http://localhost:1313/categories/life/</link>
+        <description>Recent content in Life on happyhacker的技术分享</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Sat, 02 Jan 2021 12:37:30 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/life/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>通过Chrome扩展修复北京工作居住证网站</title>
+        <link>http://localhost:1313/p/%E9%80%9A%E8%BF%87chrome%E6%89%A9%E5%B1%95%E4%BF%AE%E5%A4%8D%E5%8C%97%E4%BA%AC%E5%B7%A5%E4%BD%9C%E5%B1%85%E4%BD%8F%E8%AF%81%E7%BD%91%E7%AB%99/</link>
+        <pubDate>Sat, 02 Jan 2021 12:37:30 +0800</pubDate>
+        
+        <guid>http://localhost:1313/p/%E9%80%9A%E8%BF%87chrome%E6%89%A9%E5%B1%95%E4%BF%AE%E5%A4%8D%E5%8C%97%E4%BA%AC%E5%B7%A5%E4%BD%9C%E5%B1%85%E4%BD%8F%E8%AF%81%E7%BD%91%E7%AB%99/</guid>
+        <description>&lt;p&gt;工作居住证这个网站不知道是什么时候开发的了，现在用新款的浏览器打开会有各种样式错乱、功能报错，不过这都难不倒我们伟大的人民！&lt;/p&gt;
+&lt;h2 id=&#34;问题一macos电脑无法登陆网站&#34;&gt;
+    &lt;a href=&#34;#%e9%97%ae%e9%a2%98%e4%b8%80macos%e7%94%b5%e8%84%91%e6%97%a0%e6%b3%95%e7%99%bb%e9%99%86%e7%bd%91%e7%ab%99&#34;&gt;#&lt;/a&gt;
+    问题一：macOS电脑无法登陆网站
+&lt;/h2&gt;&lt;h3 id=&#34;解决方案&#34;&gt;
+    &lt;a href=&#34;#%e8%a7%a3%e5%86%b3%e6%96%b9%e6%a1%88&#34;&gt;#&lt;/a&gt;
+    解决方案
+&lt;/h3&gt;&lt;p&gt;访问 &lt;code&gt;http://219.232.200.39/uamsso/SSOSecService?sid=e10adc3949ba59abbe56e057f20f883e&amp;amp;LinkType=online&amp;amp;LinkID=666&lt;/code&gt; 这个地址打开一个可以输入用户名、密码和验证码的页面，虽然页面样式也是错乱的，但不影响。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/2021-01-02-12-59-34.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;输入正确的信息之后会跳转到另一个页面，不用管它，再次访问上面的这个链接，就能找到系统的入口了。&lt;/p&gt;
+&lt;p&gt;到这一步你就能正常填写信息，等待工作居住证审批完成了。现在（2021年1月）已经没有纸质的工作居住证了，办事儿需要自己打印确认单。
+&lt;img src=&#34;http://localhost:1313/images/2021-01-02-13-02-41.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;
+这里的功能没有问题，跳过。&lt;/p&gt;
+&lt;h2 id=&#34;问题二无法切换标签页&#34;&gt;
+    &lt;a href=&#34;#%e9%97%ae%e9%a2%98%e4%ba%8c%e6%97%a0%e6%b3%95%e5%88%87%e6%8d%a2%e6%a0%87%e7%ad%be%e9%a1%b5&#34;&gt;#&lt;/a&gt;
+    问题二：无法切换标签页
+&lt;/h2&gt;&lt;p&gt;有时候办事儿还需要提供工作居住证的审批流程，也就是
+&lt;img src=&#34;http://localhost:1313/images/2021-01-02-13-03-20.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;比如要给孩子办入学手续，就需要有孩子的随往证明，这就需要点击这里
+&lt;img src=&#34;http://localhost:1313/images/2021-01-02-13-04-41.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;但点击了之后发现页面报错了，查找原因其实是在页面上的js里面有这样一段，有语法错误，导致后面的js无法执行了。我入行晚，也不知道这种写法在以前可不可行，或者在IE浏览器里可以的？&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/2021-01-02-13-06-22.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;这相当于是要重写系统函数了，反正在Chrome里是无法执行的。&lt;/p&gt;
+&lt;p&gt;找到了问题的根源就好解决了。&lt;/p&gt;
+&lt;p&gt;解决方案：&lt;/p&gt;
+&lt;h3 id=&#34;方案一&#34;&gt;
+    &lt;a href=&#34;#%e6%96%b9%e6%a1%88%e4%b8%80&#34;&gt;#&lt;/a&gt;
+    方案一
+&lt;/h3&gt;&lt;p&gt;最简单的办法就是把这行错误代码后面的函数定义直接复制到console里面执行一下就好了。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;32
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;33
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;34
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;35
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;36
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;37
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;38
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;39
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;40
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;41
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;42
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;43
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;44
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;45
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;46
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;47
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;48
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;49
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;50
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;51
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;changeSub&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;flag&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;flag&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;education&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;document&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;getElementById&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;education&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;style&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;display&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;document&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;getElementById&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;unit&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;style&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;display&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;none&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;document&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;getElementById&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;achievement&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;style&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;display&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;none&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;document&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;getElementById&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;follows&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;style&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;display&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;none&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;flag&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;unit&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;document&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;getElementById&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;education&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;style&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;display&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;none&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;document&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;getElementById&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;unit&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;style&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;display&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;document&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;getElementById&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;achievement&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;style&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;display&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;none&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;document&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;getElementById&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;follows&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;style&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;display&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;none&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;flag&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;achievement&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;document&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;getElementById&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;education&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;style&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;display&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;none&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;document&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;getElementById&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;unit&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;style&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;display&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;none&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;document&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;getElementById&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;achievement&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;style&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;display&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;document&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;getElementById&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;follows&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;style&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;display&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;none&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;flag&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;follows&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;document&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;getElementById&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;education&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;style&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;display&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;none&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;document&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;getElementById&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;unit&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;style&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;display&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;none&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;document&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;getElementById&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;achievement&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;style&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;display&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;none&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;document&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;getElementById&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;follows&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;style&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;display&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;toMod&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nb&#34;&gt;window&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;location&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;/yjrc/person/ApplyCardAction.do?formAction=cApply&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;back&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nb&#34;&gt;window&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;location&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;s2&#34;&gt;&amp;#34;/yjrc/person/ApplyListAction.do?formAction=in&amp;amp;opType=cApply&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;queryEdu&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;id&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;kd&#34;&gt;var&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;goUrl&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;/yjrc/person/QueryEduResumAction.do?formAction=in&amp;amp;applyId=&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;id&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nb&#34;&gt;window&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;open&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nx&#34;&gt;goUrl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;s2&#34;&gt;&amp;#34;querywindow&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;s2&#34;&gt;&amp;#34;width=1030,height=420,top=10,left=10,status=yes,menubar=no,resizable=yes,scrollbars=yes&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;queryWork&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;id&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;kd&#34;&gt;var&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;goUrl&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;s2&#34;&gt;&amp;#34;/yjrc/person/QueryWorkResumAction.do?formAction=in&amp;amp;applyId=&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;id&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nb&#34;&gt;window&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;open&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nx&#34;&gt;goUrl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;s2&#34;&gt;&amp;#34;querywindow&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;s2&#34;&gt;&amp;#34;width=1030,height=420,top=10,left=10,status=yes,menubar=no,resizable=yes,scrollbars=yes&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;但为了刷新页面之后还能用，还是得把代码“注入”到页面上，这也是方案二要做的。&lt;/p&gt;
+&lt;h3 id=&#34;方案二&#34;&gt;
+    &lt;a href=&#34;#%e6%96%b9%e6%a1%88%e4%ba%8c&#34;&gt;#&lt;/a&gt;
+    方案二
+&lt;/h3&gt;&lt;p&gt;之前简单了解了Chrome浏览器的扩展开发原理，其实现在面临的这个问题用扩展就很好解决了，在页面加载完成后往页面上写一个&lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt;标签，把那些因为语法错误而中断执行的代码粘贴进去。&lt;/p&gt;
+&lt;p&gt;只是我上次写的是个非常简单的扩展，只用到了&lt;code&gt;content_scripts&lt;/code&gt;，这个限制就是&lt;strong&gt;js可以访问页面DOM元素，但DOM元素无法访问js中定义的函数，也无法在js中定义listener&lt;/strong&gt;。而前面那些没有执行的代码恰好就是事件的回调函数。所以，整个扩展的目录结构就是这样的：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/2021-01-02-13-14-02.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;其中&lt;code&gt;content-script.js&lt;/code&gt;负责在页面上写入&lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt;标签，并把&lt;code&gt;extension.js&lt;/code&gt;注入进去，后者里面就是那些需要添加的函数。&lt;/p&gt;
+&lt;p&gt;如果你选择了方案二，可以继续往下读，如果你选择了方案一，那么你的问题已经解决了。&lt;/p&gt;
+&lt;h2 id=&#34;安装扩展&#34;&gt;
+    &lt;a href=&#34;#%e5%ae%89%e8%a3%85%e6%89%a9%e5%b1%95&#34;&gt;#&lt;/a&gt;
+    安装扩展
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;把代码从github上下载下来，找到其中的&lt;code&gt;chrome-extension&lt;/code&gt;目录&lt;/li&gt;
+&lt;li&gt;浏览器找到扩展管理页面
+&lt;img src=&#34;http://localhost:1313/images/2021-01-02-13-39-12.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/li&gt;
+&lt;li&gt;点击 &lt;strong&gt;Load Unpacked&lt;/strong&gt;，选择上面提到的&lt;code&gt;chrome-extension&lt;/code&gt;目录&lt;/li&gt;
+&lt;li&gt;结束&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;总结&#34;&gt;
+    &lt;a href=&#34;#%e6%80%bb%e7%bb%93&#34;&gt;#&lt;/a&gt;
+    总结
+&lt;/h2&gt;&lt;p&gt;我也不知道对于普通用户来说是复制一段js代码更容易还是安装一个浏览器扩展更容易，整个过程也不复杂，参考了网上的一些信息，这里把扩展和源码都贴到github上了。&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/lovelock/gzjzz-website-fixer&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/lovelock/gzjzz-website-fixer&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我没有注册过Chrome WebStore的开发者权限，所以打出来的&lt;code&gt;.crx&lt;/code&gt;包也是不能直接安装的，需要通过目录安装。&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+        </item>
+        <item>
+        <title>瑞虎8车机App升级</title>
+        <link>http://localhost:1313/p/%E7%91%9E%E8%99%8E8%E8%BD%A6%E6%9C%BAapp%E5%8D%87%E7%BA%A7/</link>
+        <pubDate>Wed, 30 Dec 2020 15:18:16 +0800</pubDate>
+        
+        <guid>http://localhost:1313/p/%E7%91%9E%E8%99%8E8%E8%BD%A6%E6%9C%BAapp%E5%8D%87%E7%BA%A7/</guid>
+        <description>&lt;p&gt;瑞虎8自豪版车机里的App可以升级。据说是官方正规的方法。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;声明：我认为中控屏幕车机和行车安全没有关系，是隔离的系统，但行车系统的一些参数可以通过种控屏设置，如果对安全性有担忧，请勿尝试以下操作&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;准备工作&#34;&gt;
+    &lt;a href=&#34;#%e5%87%86%e5%a4%87%e5%b7%a5%e4%bd%9c&#34;&gt;#&lt;/a&gt;
+    准备工作
+&lt;/h2&gt;&lt;h3 id=&#34;硬件需求&#34;&gt;
+    &lt;a href=&#34;#%e7%a1%ac%e4%bb%b6%e9%9c%80%e6%b1%82&#34;&gt;#&lt;/a&gt;
+    硬件需求
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;电脑一台&lt;/li&gt;
+&lt;li&gt;U盘一个（需要FAT32格式），用于存放要安装的包&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;操作流程&#34;&gt;
+    &lt;a href=&#34;#%e6%93%8d%e4%bd%9c%e6%b5%81%e7%a8%8b&#34;&gt;#&lt;/a&gt;
+    操作流程
+&lt;/h2&gt;&lt;h3 id=&#34;1-下载安装包&#34;&gt;
+    &lt;a href=&#34;#1-%e4%b8%8b%e8%bd%bd%e5%ae%89%e8%a3%85%e5%8c%85&#34;&gt;#&lt;/a&gt;
+    1. 下载安装包
+&lt;/h3&gt;&lt;p&gt;下载最&lt;a class=&#34;link&#34; href=&#34;https://auto.amap.com/download&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;新版的高德地图&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/2020-12-30-16-05-13.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;2-在u盘上建立必要的目录&#34;&gt;
+    &lt;a href=&#34;#2-%e5%9c%a8u%e7%9b%98%e4%b8%8a%e5%bb%ba%e7%ab%8b%e5%bf%85%e8%a6%81%e7%9a%84%e7%9b%ae%e5%bd%95&#34;&gt;#&lt;/a&gt;
+    2. 在U盘上建立必要的目录
+&lt;/h3&gt;&lt;p&gt;在U盘上新建&lt;code&gt;T1AUpdateNavi/App/&lt;/code&gt;目录，将上述下载的安装包放在里面。&lt;/p&gt;
+&lt;h3 id=&#34;3-车机进入工程模式&#34;&gt;
+    &lt;a href=&#34;#3-%e8%bd%a6%e6%9c%ba%e8%bf%9b%e5%85%a5%e5%b7%a5%e7%a8%8b%e6%a8%a1%e5%bc%8f&#34;&gt;#&lt;/a&gt;
+    3. 车机进入工程模式
+&lt;/h3&gt;&lt;p&gt;车机上有一个隐藏按键，在&lt;strong&gt;设置/存储容量&lt;/strong&gt;界面的右侧1/4处的下边缘附近，点击听到“滴”声即是点击成功了。在这个位置连续点击10下，进入工程模式。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/2021-01-01-17-02-23.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;随后输入密码 &lt;strong&gt;456258&lt;/strong&gt;，其实就是一个十字形。&lt;/p&gt;
+&lt;p&gt;之后会进入这个界面，点击“升级”
+&lt;img src=&#34;http://localhost:1313/images/2021-01-01-17-03-36.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;再点击“App升级”
+&lt;img src=&#34;http://localhost:1313/images/2021-01-01-17-05-18.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;就可以进入U盘中刚才创建的目录了。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/2021-01-01-17-06-27.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;找到高德地图的安装包，点击勾选，之后点击右上角的“安装所选”即可开始安装。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我这里还自动生成了一个以&lt;code&gt;.&lt;/code&gt;开头的&lt;code&gt;apk&lt;/code&gt;包，不知道是什么原因，忽略它即可，选择不以&lt;code&gt;.&lt;/code&gt;开头的文件。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;安装完成后选中条目变成绿色，即完成安装。按照提示重启系统就完成了升级。&lt;/p&gt;
+&lt;h2 id=&#34;警告&#34;&gt;
+    &lt;a href=&#34;#%e8%ad%a6%e5%91%8a&#34;&gt;#&lt;/a&gt;
+    警告
+&lt;/h2&gt;&lt;p&gt;不建议安装其他“原装车机上不存在的应用”，简单来说就是你安装完也无法找到入口，也就没办法使用。亲测。如果你已经安装了无法使用的其他应用，可以使用Android手机安装一个&lt;code&gt;Remote ADB Shell&lt;/code&gt;软件来卸载，当然理论上不管它也不会有什么问题。&lt;/p&gt;
+&lt;h2 id=&#34;总结&#34;&gt;
+    &lt;a href=&#34;#%e6%80%bb%e7%bb%93&#34;&gt;#&lt;/a&gt;
+    总结
+&lt;/h2&gt;&lt;p&gt;升级后的App色彩更鲜艳，功能上实现了和手机的实时互联，手机上“进入导航”后，车机如果在联网状态会自动同步手机上的导航状态，非常方便。推荐升级。&lt;/p&gt;</description>
+        </item>
+        <item>
+        <title>瑞虎8 2000公里感受</title>
+        <link>http://localhost:1313/p/%E7%91%9E%E8%99%8E8-2000%E5%85%AC%E9%87%8C%E6%84%9F%E5%8F%97/</link>
+        <pubDate>Wed, 02 Dec 2020 22:28:03 +0800</pubDate>
+        
+        <guid>http://localhost:1313/p/%E7%91%9E%E8%99%8E8-2000%E5%85%AC%E9%87%8C%E6%84%9F%E5%8F%97/</guid>
+        <description>&lt;p&gt;其实已经2500公里了。&lt;/p&gt;
+&lt;p&gt;这是11月份去北京双龙峡景区时的照片。我总是不好意思给自己的车拍很多照片，总感觉有点矫情，一辆车而已嘛，但其实在心里有惹不住对它的喜爱之情。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/2020-12-02-22-37-06.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;这段时间开下来对这辆车的脾气更多了一些了解。&lt;/p&gt;
+&lt;h2 id=&#34;关于修车&#34;&gt;
+    &lt;a href=&#34;#%e5%85%b3%e4%ba%8e%e4%bf%ae%e8%bd%a6&#34;&gt;#&lt;/a&gt;
+    关于修车
+&lt;/h2&gt;&lt;p&gt;今天终于去把之前提到的4G和GPS信号丢失的问题去修好了，其实前几天已经去过一次了，检查了一遍复现了问题，售后的总监亲自接待的我，其实是因为车机的问题只能找他修，可能是和与厂家沟通的权限有关。和厂家的工程师确认是Tbox模块的问题之后先是把电瓶线拔掉让Tbox模块重置设置，意思是如果解决就皆大欢喜，如果没有解决，再出现的时候就拍个照片把时间拍出来发给他，这样他就能把详细情况发给厂家具体排查。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/2020-12-02-22-48-48.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;当时是好了，但一开上五环，马上就复现了故障，我拍了几张照片，他说他订模块，结果过了几天我再问的时候他说厂家还没给回复，所以模块也还没订。这时候我已经有点生气了，合着刚说过的话还不作数了。但下午就给我回信说厂家已经确认了是硬件故障，新的Tbox模块也已经到货了，让我抽时间去换上，于是今天就去了。&lt;/p&gt;
+&lt;p&gt;本来说的是可能需要很长时间，但实际上换的过程也不复杂，这个模块的位置在手套箱里面，就是这么个东西&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/2020-12-02-22-44-55.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;它承担了汽车上面所有涉及网络的功能，包括远程控制、4G信号、GPS信号等等，我估计豪华版和以下的其他配置的主要区别也就在这里了。估计也就10分钟就换上了，后面就是和厂家的沟通，做各种匹配了，前后一共也就一个多小时，远远小于预期时间了，重点是换上之后问题真的解决了。后面回家的路上再也没有出现这个问题。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;说来也好笑，我本来想给国产车一个机会，结果我一边通过它的动力、底盘告诉别人奇瑞的车子真的不差，但一方面别人却真真的看到了我买了国产车之后去修车跑了两次，这在我之前开的两辆车过程中是从来没有出现过的。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;你说以后我还会不会支持国产车？我想大概还是会的。我对“爱国主义”这种情感的诉求并不强烈，纯粹是因为这种故障不是什么大问题，换了件能解决就行了，而且也不是大规模出现的，甚至都很难在网上或者车友群问到同样的问题，说明确实不是通病，只是我的运气比较差碰到了而已，况且售后能很轻松的给解决了，所以问题不大。&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;更多关于驾驶感受的描述&#34;&gt;
+    &lt;a href=&#34;#%e6%9b%b4%e5%a4%9a%e5%85%b3%e4%ba%8e%e9%a9%be%e9%a9%b6%e6%84%9f%e5%8f%97%e7%9a%84%e6%8f%8f%e8%bf%b0&#34;&gt;#&lt;/a&gt;
+    更多关于驾驶感受的描述
+&lt;/h2&gt;&lt;p&gt;还是关于底盘硬的问题。&lt;/p&gt;
+&lt;p&gt;很可能纯粹就是车子出厂的时候胎压太高了而已。我自己的车子开到家的时候胎压是2.7，确实很硬，后面我给放到了2.4，开起来就是完全不同的感受了。我看车友群里有人的胎压甚至是3.1，而且也没有调整，很可能就是这完全不懂车的人到处宣传车子的底盘很硬吧。&lt;/p&gt;
+&lt;p&gt;再后来因为天气变冷，我发现冷车状态下胎压只剩下2.1了，所以就重新调到了2.5，然后就明显感觉到重新变硬了。结论就是：&lt;strong&gt;硬不硬很大程度上取决于胎压，胎压高了（2.5-2.6）开起来动力性会稍强一些，更干脆，而胎压低了（2.3-2.4）会更柔韧，动力响应上会有些损失，不过舒适型会提升很多。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;而不管胎压怎样，在转弯时侧倾的抑制上做的非常好，去双龙峡的路上有几十公里的山路，有机会超车时ECO模式多少有点力不从心，切换到SPORT模式那简直是起飞了，毫无压力。&lt;/p&gt;
+&lt;p&gt;至于高速感受，那更是游刃有余了，超车变道非常有信心，ECO模式下就有非常好的动力响应，加上全速域的自适应巡航，简直不要太好开。更气人的是油耗还非常低，高速保持在120以内基本上就是6个多点的水平，要知道这是一台中型SUV（从尺寸上说确实达到了，只是在中型这个级别里算是小的）了，和同级别的合资车比油耗都完全不虚。&lt;/p&gt;
+&lt;h2 id=&#34;关于油耗&#34;&gt;
+    &lt;a href=&#34;#%e5%85%b3%e4%ba%8e%e6%b2%b9%e8%80%97&#34;&gt;#&lt;/a&gt;
+    关于油耗
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/2020-12-02-23-02-17.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;开过了以动力差、油耗低著称的铃木启悦（A级轿车表显8个多，所以是否油耗低要存疑）。&lt;br&gt;
+开过了以动力差、油耗高著称的日产纳瓦拉。&lt;br&gt;
+再来开动力强、油耗低的奇瑞瑞虎8（高速6个多，市区拥堵驾驶风格激进时11个多），我对油耗表现还是非常满意的。&lt;/p&gt;
+&lt;p&gt;也许堵车环境下慢慢悠悠的加速能把油耗保持在10个以内，也许听别人的隔几天去拉拉高速，把表显油耗拉低一点在车友群里晒一下能引起别人的关注，可这有什么意义呢？现在这个油耗是我的真实用车场景，我愿意为了更好的加速性能和更流畅的驾驶体验牺牲一些油耗，况且也就是最多多2个油而已，完全值回票价了。&lt;/p&gt;
+&lt;h2 id=&#34;关于选车&#34;&gt;
+    &lt;a href=&#34;#%e5%85%b3%e4%ba%8e%e9%80%89%e8%bd%a6&#34;&gt;#&lt;/a&gt;
+    关于选车
+&lt;/h2&gt;&lt;p&gt;我对汽车相关的话题比较关注，经常看到很多人让别人告诉自己到底是该选SUV还是选轿车，这个问题是永远没有结果的，因为这是个非常主观的问题，只有自己能给出答案。&lt;/p&gt;
+&lt;p&gt;对应的，我们也经常看到有人说中国人不懂车，喜欢大车所以都喜欢买SUV，就是好面子；我们也经常看到这些人说美国人懂车，他们因为地广人稀，需要拉货所以喜欢皮卡和SUV，就是讲实用性。&lt;/p&gt;
+&lt;p&gt;简直是大型双标现场。&lt;/p&gt;
+&lt;p&gt;你可以说中国人不懂修车，在动手修车方面，由于修车的费用相对还是比美国低（具体加个不知道，但美国是以人工费用高著称的，要么谁愿意自己费劲给车子保养呢？），所以更多人还是选择去店里修车，但中国人还是懂得自己的需求。目前国内的汽车保有量还是不够大，一家子几口人就一辆车，他们想买一辆大的车是为了满足全家人的出行需求，基于这个需求买一辆空间和装载能力更强的SUV有什么问题呢？&lt;/p&gt;
+&lt;p&gt;美国人基于自己地广人稀、搬家拉货的需求买大车是懂车。&lt;br&gt;
+欧洲人基于自己街道狭窄、不好停车的需求买小车是懂车。&lt;br&gt;
+中国人基于自己预算有限、乘坐舒适的需求买大车就是不懂车。&lt;/p&gt;
+&lt;p&gt;我TM直接好家伙，这些人什么时候才能站起来啊。&lt;/p&gt;
+&lt;h2 id=&#34;关于奇瑞&#34;&gt;
+    &lt;a href=&#34;#%e5%85%b3%e4%ba%8e%e5%a5%87%e7%91%9e&#34;&gt;#&lt;/a&gt;
+    关于奇瑞
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/2020-12-02-23-15-53.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;“老实”的奇瑞终于明白怎么回事儿了，哈弗H6你搞一个系列上百款车型一起卖，统计销量的时候归到一个车型系列上，那我们也来个瑞虎8系列，销量从10月份的1.6万辆直接就到了11月的2万辆，要知道瑞虎8PLUS刚刚上市，瑞虎8的车友群里已经混进了不少PLUS的潜在客户了，产品力够硬的东西还是能够打动用户的。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/2020-12-02-23-20-30.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/2020-12-02-23-19-12.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;如果再加上捷途甚至已经超过4万辆了，和哈弗H6也差不了太多了。可惜捷途是奇瑞控股的商用车公司搞出来的，你让它们一起统计那是不可能的。&lt;/p&gt;
+&lt;h2 id=&#34;总结&#34;&gt;
+    &lt;a href=&#34;#%e6%80%bb%e7%bb%93&#34;&gt;#&lt;/a&gt;
+    总结
+&lt;/h2&gt;&lt;p&gt;后面可能不会再写关于这辆车的更多内容，能体验的到现在也体验的差不多了，总之这辆车有很强的家用属性，给人很居家过日子的感觉，但同时又提供了澎湃的动力，让你一个人开车的时候还能稍稍的激情一把，而车里的各种功能也是很多恰到好处。&lt;/p&gt;
+&lt;p&gt;对了，买了车之后听车友群里说9月中旬之后的车都已经装配了自动启停功能，他们几乎都在找能够永久关闭的方法，恰恰我的9月2日生产的这批次是没有这个功能的，美滋滋。厂家花了钱装了，所有人都不用，还不如把自动启停模块的钱拿来加个雾灯了，真是费力不讨好。&lt;/p&gt;
+&lt;h2 id=&#34;彩蛋&#34;&gt;
+    &lt;a href=&#34;#%e5%bd%a9%e8%9b%8b&#34;&gt;#&lt;/a&gt;
+    彩蛋
+&lt;/h2&gt;&lt;p&gt;晒一下在售后拍到的一些照片。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/2020-12-02-23-35-47.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;老车的漆面保护的真不错。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/2020-12-02-23-37-11.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;这个还是能看出来是辆硬派越野，甚至后来有一天我在路上也看到一辆贴着越野大队什么的贴纸。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/2020-12-02-23-41-25.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;
+&lt;img src=&#34;http://localhost:1313/images/2020-12-02-23-39-10.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;被人吐槽丑，然后又被另一波人说如果你说这车丑，就等于说Q5丑的捷途。不过其实还真是差挺多的，线条就是不流畅。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/2020-12-02-23-42-35.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;
+一辆正在维修中的奇瑞电动面包车，生锈挺厉害啊，不知道这卷边是因为之前顶错地方了还是生锈了才顶坏的。这让我对车子防锈处理开始有点怀疑了。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/2020-12-02-23-43-45.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;这是我自己的车子，后面的小窗下沿不知道哪里来的油渍，刚提车的时候擦过一次，后来也洗过车，不知道怎么又出现了。店里的维修人员说这里也没有油液，也说不上来是哪里出来的，让擦干净后再观察。&lt;/p&gt;</description>
+        </item>
+        <item>
+        <title>瑞虎8 1000公里感受</title>
+        <link>http://localhost:1313/p/%E7%91%9E%E8%99%8E8-1000%E5%85%AC%E9%87%8C%E6%84%9F%E5%8F%97/</link>
+        <pubDate>Thu, 15 Oct 2020 22:51:47 +0800</pubDate>
+        
+        <guid>http://localhost:1313/p/%E7%91%9E%E8%99%8E8-1000%E5%85%AC%E9%87%8C%E6%84%9F%E5%8F%97/</guid>
+        <description>&lt;p&gt;新车开了1000公里了，终于上牌了。&lt;/p&gt;
+&lt;p&gt;1000公里算是一个小小的里程碑吧，简单的记录一下这段时间的想法。&lt;/p&gt;
+&lt;h2 id=&#34;关于品牌&#34;&gt;
+    &lt;a href=&#34;#%e5%85%b3%e4%ba%8e%e5%93%81%e7%89%8c&#34;&gt;#&lt;/a&gt;
+    关于品牌
+&lt;/h2&gt;&lt;p&gt;奇瑞这个品牌还挺有意思。&lt;/p&gt;
+&lt;h3 id=&#34;路人视角&#34;&gt;
+    &lt;a href=&#34;#%e8%b7%af%e4%ba%ba%e8%a7%86%e8%a7%92&#34;&gt;#&lt;/a&gt;
+    路人视角
+&lt;/h3&gt;&lt;p&gt;没有买过的人对它的印象总是停留在“奇瑞奇瑞，修车排队”。这句话的到底是来自友商的中伤还是车主的调侃已经无从考证了，但我自己分析，很可能是来自友商。因为那个年代互联网也不发达，一个这种顺口溜能流传到这种程度，是很难想象的。&lt;/p&gt;
+&lt;p&gt;简单描述一下这个事儿的背景，当时奇瑞没有生产汽车的资质（现在的这些民营汽车公司当时都面临一样的问题），所以和上汽合作，才有了当时的上汽奇瑞，售后网点也是在上汽。但这个合作是有点不平等条约的意思，后来奇瑞的销量意外的好，上汽就想拿更多的利益，奇瑞不同意，于是售后就区别对待奇瑞的车了，由于销量好，售后网点少，那么这个口号在当时说是现实其实也没什么问题。&lt;/p&gt;
+&lt;p&gt;不管怎么样，这句话对奇瑞的销量的影响直到今天都还很大，每个去店里的新“潜在客户”都会说这句话，说明他们心里是存在疑虑的，奇瑞面向的受众还是相对低端，他们接受信息的渠道相对少，不太愿意去查找这句话真正的原因，更愿意听周围的人怎么说，销售估计天天都要跟人解释。&lt;/p&gt;
+&lt;p&gt;直至今天，我也没见过奇瑞公司对这个事儿作出过什么补救措施。就这现在的拳头产品瑞虎8还能卖到月销1万多也是奇迹。&lt;/p&gt;
+&lt;h3 id=&#34;车主视角&#34;&gt;
+    &lt;a href=&#34;#%e8%bd%a6%e4%b8%bb%e8%a7%86%e8%a7%92&#34;&gt;#&lt;/a&gt;
+    车主视角
+&lt;/h3&gt;&lt;p&gt;作为车主，买车之前肯定做了一些功课，把品牌的发展史大概了解了一下，知道了是多品牌害死了它。&lt;/p&gt;
+&lt;p&gt;有人说奇瑞的车没有延续性，一个车系卖的不好就砍掉，再起一个新的系列。子品牌表现不行就砍掉，再起4个子品牌。&lt;/p&gt;
+&lt;p&gt;关于车系的延续性这件事儿，我的看法是这个事儿根本用不着车主关心，只要这个车企没有倒闭，他们还能继续给你生产配件，那后续的车型叫什么名字和你又有什么关系呢？&lt;/p&gt;
+&lt;p&gt;拿10代思域为例，虽然都叫思域，那9代和10代除了名字一样，还有什么是一样的？是配件能通用还是长得一样？&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/2020-10-15-23-23-09.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;2016款 1.8L 手动舒适版&#34;
+	
+	
+&gt;
+&lt;img src=&#34;http://localhost:1313/images/2020-10-15-23-24-14.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;2019款 180TURBO CVT尚悦版 国VI&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;平心而论，如果你不知道这两辆车都是思域，你能知道他们是同一个名字吗？&lt;/p&gt;
+&lt;p&gt;是不是改名字只是厂家的策略而已，不改名字可以降低宣传成本，提高老车主的认同感，相反改名字就要重新宣传，被人骂没有传承。&lt;/p&gt;
+&lt;p&gt;那为什么厂家还一直对多品牌乐此不疲呢？多品牌只是表象，背后其实是权力的斗争。这里不说什么海归派、芜湖派这种，就说公司内部的小权力集团，其实是没人在乎公司死活的，他们在乎的是自己小集团的利益，都想当品牌一把手，那一把手的椅子又不够，怎么办呢？多打造几把椅子呗。干了几年把子品牌干黄了，没关系，再整它几个，又可以赚一波KPI。&lt;/p&gt;
+&lt;p&gt;公司被多品牌战略拖累？没人在乎。&lt;/p&gt;
+&lt;p&gt;如果多品牌之间互相配合，满足不同价位不同需求的客户那则还了，这些品牌的老大们可是个个都想当别人的老大。&lt;/p&gt;
+&lt;p&gt;捷途：什么，我捷途是低端子品牌？看我怎么做成高端，干死奇瑞品牌！星途？下一个。
+星途：作为高端，我卖不动可怎么办？降价吧，只要足够便宜，一定能卖出去。
+奇瑞：？？？&lt;/p&gt;
+&lt;p&gt;本来定位高中低端的三个品牌，现在互相重叠互相打架，别人多生孩子跟别人打架，奇瑞是多生孩子窝里打架。&lt;/p&gt;
+&lt;p&gt;我觉得还是尹同跃不够强势，就想当个老好人，谁也不想得罪，最后在谁那也落不到好。&lt;/p&gt;
+&lt;h3 id=&#34;老车主视角&#34;&gt;
+    &lt;a href=&#34;#%e8%80%81%e8%bd%a6%e4%b8%bb%e8%a7%86%e8%a7%92&#34;&gt;#&lt;/a&gt;
+    老车主视角
+&lt;/h3&gt;&lt;p&gt;话说回来，但实际我看到的情况是，很多老奇瑞车主在换车时还是选择奇瑞。说几个我了解到的。&lt;/p&gt;
+&lt;p&gt;去提车那天遇到一个看起来是跑工地的大哥，40多岁的样子，手动挡E5开了8年23万公里，置换了一辆瑞虎8 2019款1.5T自动精英，我跟他聊天，他说：“咱老百姓买车不就图个省心省油吗，我这8年的车了还能开出7个油。我朋友让我买大众，我说咱也不是什么大老板要出去谈生意，要什么面子啊，买个大众花20多万，买个奇瑞才8万多，剩下的钱买啥不行，你说对不对。”&lt;/p&gt;
+&lt;p&gt;还是提车那天，销售指着门口的一辆传祺GS5跟我说，那个车主原来开的5年的奇瑞，后来换了传祺，这开了2年又来换奇瑞了。&lt;/p&gt;
+&lt;p&gt;今天去上牌遇到一位看起来是小店老板娘的大姐，新买了一辆瑞虎7 1.5T手动挡，她说：“之前开的开瑞优优手动挡开了10年，想换车了就还是选了奇瑞。去店里一眼就看上瑞虎7了，喜欢红色，等了23天才提车。这么大的车，看起来这么豪华，才7万多块钱，太值了。”&lt;/p&gt;
+&lt;p&gt;上完牌去贴膜，我说起看到好几个老车主换车还选奇瑞的，老板娘说见过最厉害的是换了4辆的，开三五年就换一辆，一直是奇瑞。&lt;/p&gt;
+&lt;p&gt;在贴膜店里排队在我前面的是一个大爷，在车管所停车场也算见过了，我的蓝色瑞虎8和他的隔了一个车位，我在新车大厅看着外面发呆，看着他们几个人就冲我的车过去了，拉不开就开始按钥匙，还是拉不开，这时终于有一个人看到这大爷身后的车在闪灯。我说起这事儿的时候他还挺不好意思自己找错车了。我问他这车开着感觉咋样，他说这是买的第二辆了，专门从沈阳坐火车来北京买的，后备箱还放着坐火车的时候拉的行李箱。&lt;/p&gt;
+&lt;h2 id=&#34;关于品控&#34;&gt;
+    &lt;a href=&#34;#%e5%85%b3%e4%ba%8e%e5%93%81%e6%8e%a7&#34;&gt;#&lt;/a&gt;
+    关于品控
+&lt;/h2&gt;&lt;p&gt;品控说实在的不怎么样，车子开下来问题还是遇到了一些的。&lt;/p&gt;
+&lt;h3 id=&#34;中控车机&#34;&gt;
+    &lt;a href=&#34;#%e4%b8%ad%e6%8e%a7%e8%bd%a6%e6%9c%ba&#34;&gt;#&lt;/a&gt;
+    中控车机
+&lt;/h3&gt;&lt;p&gt;中控车机在使用高德地图导航时总是会时不时的没有信号，是同时GPS和4G都没有信号，打给售后说是让去店里检测，还要让工作日去，可能需要和厂家一起看这个问题。虽说用CarPlay也可以，但我感觉CarPlay还没有车机的好用呢，没有小地图都看不到在整个路线里自己走到哪儿了，不方便。&lt;/p&gt;
+&lt;h3 id=&#34;智能钥匙&#34;&gt;
+    &lt;a href=&#34;#%e6%99%ba%e8%83%bd%e9%92%a5%e5%8c%99&#34;&gt;#&lt;/a&gt;
+    智能钥匙
+&lt;/h3&gt;&lt;p&gt;手动按门把手的感应区经常是有感应，但在锁车还能识别成锁车。这个真是很恼人。&lt;/p&gt;
+&lt;h3 id=&#34;电动尾门&#34;&gt;
+    &lt;a href=&#34;#%e7%94%b5%e5%8a%a8%e5%b0%be%e9%97%a8&#34;&gt;#&lt;/a&gt;
+    电动尾门
+&lt;/h3&gt;&lt;p&gt;理论上是站在车后等示廓灯闪几下往后退一步就可以自动打开尾门，但实际上经常打不开。。。&lt;/p&gt;
+&lt;h3 id=&#34;奇葩的设定&#34;&gt;
+    &lt;a href=&#34;#%e5%a5%87%e8%91%a9%e7%9a%84%e8%ae%be%e5%ae%9a&#34;&gt;#&lt;/a&gt;
+    奇葩的设定
+&lt;/h3&gt;&lt;p&gt;今天贴完膜走高速收费站，需要开门接卡，没有停稳就把拉了一把门把手，把第一道锁解开了，一瞬间手刹就拉上了！那会儿时速也就5公里吧，不过还是着实把我吓得不轻。我在想这个设定到底是否合理？门都没有打开，直接拉手刹？&lt;/p&gt;
+&lt;h2 id=&#34;关于品质&#34;&gt;
+    &lt;a href=&#34;#%e5%85%b3%e4%ba%8e%e5%93%81%e8%b4%a8&#34;&gt;#&lt;/a&gt;
+    关于品质
+&lt;/h2&gt;&lt;p&gt;内饰这块我没有开过太好的车，感觉还是看得过去的。但我说的品质是行驶品质。&lt;/p&gt;
+&lt;p&gt;38号在2019年评测19款1.5T瑞虎8的时候说的“一台变速箱毁所有”对现在的2020款1.6T同样适用。&lt;/p&gt;
+&lt;p&gt;24-28时速区间2-3挡切换会有明显的顿挫或者说抖动。
+低速踩刹车时候偶尔会有明显的闯动，应该是转速不匹配引起的。&lt;/p&gt;
+&lt;p&gt;这些在试驾的时候都没有觉察到，当时也仔细感受了的。&lt;/p&gt;</description>
+        </item>
+        <item>
+        <title>2020款奇瑞瑞虎8用车体验</title>
+        <link>http://localhost:1313/p/2020%E6%AC%BE%E5%A5%87%E7%91%9E%E7%91%9E%E8%99%8E8%E7%94%A8%E8%BD%A6%E4%BD%93%E9%AA%8C/</link>
+        <pubDate>Wed, 23 Sep 2020 09:56:14 +0800</pubDate>
+        
+        <guid>http://localhost:1313/p/2020%E6%AC%BE%E5%A5%87%E7%91%9E%E7%91%9E%E8%99%8E8%E7%94%A8%E8%BD%A6%E4%BD%93%E9%AA%8C/</guid>
+        <description>&lt;p&gt;终于还是不想再忍受皮卡了，换了一辆国产车。&lt;/p&gt;
+&lt;p&gt;经过了几番试驾和比较，最终还是选定了最初看上的奇瑞瑞虎8 2020款 1.6T 自动豪华版，昨天去把车开回来的，简单说说体验。&lt;/p&gt;
+&lt;h2 id=&#34;外观&#34;&gt;
+    &lt;a href=&#34;#%e5%a4%96%e8%a7%82&#34;&gt;#&lt;/a&gt;
+    外观
+&lt;/h2&gt;&lt;p&gt;外观说不上第一眼很惊艳，但算耐看的类型吧，主要是前脸有些奇怪，其他的地方都很协调。外观见仁见智，这里不说太多了。全家人都喜欢蓝色，最终也就定了莱茵蓝。我也不知道为什么叫这么个名字。&lt;/p&gt;
+&lt;h2 id=&#34;空间&#34;&gt;
+    &lt;a href=&#34;#%e7%a9%ba%e9%97%b4&#34;&gt;#&lt;/a&gt;
+    空间
+&lt;/h2&gt;&lt;p&gt;空间是非常吸引我的地方。我人生第一辆车是铃木启悦，一辆紧凑级轿车，车内空间确实很紧凑，头部空间更堪忧，后备箱空间倒是挺大。后来换了一辆纳瓦拉皮卡，前排空间是大了一些，但没有后备箱了，如果硬要说货箱是后备箱也行，但由于是开放式的，所以平时也是放不了东西的。所以这次选车的一个目标就是：车内空间要大，后备箱空间也要大。&lt;/p&gt;
+&lt;p&gt;而瑞虎8这样一辆&lt;strong&gt;准中型&lt;/strong&gt;SUV就完美的解决了上面两个问题，市面上主流的国产SUV多是紧凑型，虽说瑞虎8的所谓“中型”有点噱头的意思，但相比其他“真紧凑型”的SUV而言，空间上还是有很大优势的，尤其对比哈弗F7，那个后备箱就太小了。孩子甚至很期待躺在后备箱睡觉。&lt;/p&gt;
+&lt;p&gt;当然毕竟也只是“准中型”，前排空间相比纳瓦拉还是要小一些的，不过也可以满足需求了。&lt;/p&gt;
+&lt;p&gt;提到纳瓦拉，日产的座椅可真不是吹的，坐到车上，屁股就会告诉你答案，日产的座椅明显支撑性更好，也是厚，缓冲作用要好得多。&lt;/p&gt;
+&lt;h2 id=&#34;动力&#34;&gt;
+    &lt;a href=&#34;#%e5%8a%a8%e5%8a%9b&#34;&gt;#&lt;/a&gt;
+    动力
+&lt;/h2&gt;&lt;p&gt;启悦的也是1.6L，不过是自然吸气，仅仅122P马力，而瑞虎8的1.6T则功率达到了197P马力，扭矩290NM，单从参数上看简直惊人，已经超过了很多德系车的2.0T低功率版本。&lt;/p&gt;
+&lt;p&gt;提车的时候观察了下车子上的铭牌，功率是140KW，也就是190P马力，和之前抖音上马力机测试出的轮上马力的结果一致，也就说明没有虚标，不像长安的蓝鲸什么鬼动不动少了大几十匹。。。&lt;/p&gt;
+&lt;p&gt;实际上的动力体验也很好，不激烈驾驶使用ECO模式，给我的感觉就是很轻快，能感觉到还有很多动力储备。今天早上下雨，一辆班车和我并排还想超我，ECO模式下一脚油门出去直接把我自己干头晕了，等回过神来已经跑出去几十米了，赶紧松开油门缓缓神接着走了。&lt;/p&gt;
+&lt;p&gt;以前我觉得一辆车百公里加速12秒和8秒能有什么区别啊，只有4秒的差距，但现在看还真的不是这样，动力好的车子动力储备丰富，能让你在需要动力的时候马上爆发出来，在安全性方面也是一个加强。不过刚才这一下子还是有点草率了，下着雨还这么操作还是挺危险的。以后可不敢了。&lt;/p&gt;
+&lt;p&gt;遥想今年五一开纳瓦拉回老家，从服务区匝道出来上高速，一脚油门到底车子也是干吼不走，吓得后面的大货车都紧急变道了，真是尴尬，也是很危险的情况。以后应该就不会出现这种尴尬的情况了。&lt;/p&gt;
+&lt;p&gt;周末去了趟燕山大峡谷，念叨了一年了，终于去了。整个过程中车子的油耗让我很惊讶，这么大的车，最后竟然能开出6.2L/100KM的油耗。基本上高速时瞬时油耗在7个多，国道如果保持100以下的速度油耗就非常低。&lt;/p&gt;
+&lt;p&gt;我的要求也不高，按我的正常实用场景，能保持在10个以内就行接受。&lt;/p&gt;
+&lt;h2 id=&#34;其他配置&#34;&gt;
+    &lt;a href=&#34;#%e5%85%b6%e4%bb%96%e9%85%8d%e7%bd%ae&#34;&gt;#&lt;/a&gt;
+    其他配置
+&lt;/h2&gt;&lt;p&gt;国产车的配置永远不会让人失望。&lt;/p&gt;
+&lt;p&gt;车内氛围灯什么的就不说了，没啥用处的东西，晚上开高速反倒变成了光污染。&lt;/p&gt;
+&lt;p&gt;这里只说一下我觉得非常有用的配置。&lt;/p&gt;
+&lt;h3 id=&#34;autohold-自动驻车&#34;&gt;
+    &lt;a href=&#34;#autohold-%e8%87%aa%e5%8a%a8%e9%a9%bb%e8%bd%a6&#34;&gt;#&lt;/a&gt;
+    Autohold 自动驻车
+&lt;/h3&gt;&lt;p&gt;这个功能是非常吸引我的，以前开的车虽然也都是自动挡，但堵车的时候要么得一直踩着刹车，要么就踩刹车、拉手刹、摘空挡，起步的时候踩刹车、挂D挡、松手刹，这一套操作下来整个人都很疲惫，如果长时间堵车右腿都要废了，大腿根疼的不行（这里心疼手动挡司机一秒，不过右腿疼，左腿也要疼）。&lt;/p&gt;
+&lt;p&gt;而Autohold就是为了解决这个问题出现的，自动帮助驾驶员踩刹车，起步的时候轻点油门就走了。简直完美，这个功能甚至让我觉得自动挡的车本来就应该这样，没有这个功能的车都是不完整的。解放右腿，哦耶！&lt;/p&gt;
+&lt;h3 id=&#34;自适应巡航&#34;&gt;
+    &lt;a href=&#34;#%e8%87%aa%e9%80%82%e5%ba%94%e5%b7%a1%e8%88%aa&#34;&gt;#&lt;/a&gt;
+    自适应巡航
+&lt;/h3&gt;&lt;p&gt;第一辆车没有定速巡航，开长途的时候觉得很累，当时很希望能开一辆有定速巡航的车。&lt;/p&gt;
+&lt;p&gt;第二辆车也没有定速巡航，提车后毫不犹豫的去加装了，但后来一年的使用中，发现可用的场景非常少，而且需要比正常自己控制花费更多的精力，所以感觉有些鸡肋。&lt;/p&gt;
+&lt;p&gt;瑞虎8是我的第三辆车，昨天在路上自己摸索了一下自适应巡航功能。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;按自适应巡航开关打开功能&lt;/li&gt;
+&lt;li&gt;设定与前车保持的间距，有长/中/短三个设置，如果是跑长途，当然倾向于长。&lt;/li&gt;
+&lt;li&gt;按RES-设定速度&lt;/li&gt;
+&lt;li&gt;松开踏板&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;之后车子就可以自己保持速度和与前车的距离了，如果前方插入一辆车或者前车减速，会有明显的自动刹车减速，与前车的距离重新拉开之后又会自动加速。这才是“巡航”的意义所在嘛，这么一比，定速巡航真的是没有什么用。以后再也不用担心长途行车了。&lt;/p&gt;
+&lt;h3 id=&#34;后备箱感应开启&#34;&gt;
+    &lt;a href=&#34;#%e5%90%8e%e5%a4%87%e7%ae%b1%e6%84%9f%e5%ba%94%e5%bc%80%e5%90%af&#34;&gt;#&lt;/a&gt;
+    后备箱感应开启
+&lt;/h3&gt;&lt;p&gt;这个车和其他的什么扫腿打开后备箱不同，而是一种很独特的方式。&lt;/p&gt;
+&lt;p&gt;人带着钥匙站在车尾，等车灯闪几下之后向后退一步，尾门就自动打开。我个人感觉这种设定比扫腿的那种更实用，想象拿了一大堆东西，都站不稳了怎么去扫腿啊，但前后移动一下还是可以的。不过就是等的时间长一点，有利有弊吧。这个东西我没有太大感觉，一般去超市也不会开车去。&lt;/p&gt;
+&lt;h3 id=&#34;碰撞预警&#34;&gt;
+    &lt;a href=&#34;#%e7%a2%b0%e6%92%9e%e9%a2%84%e8%ad%a6&#34;&gt;#&lt;/a&gt;
+    碰撞预警
+&lt;/h3&gt;&lt;p&gt;这个还是给我留下了比较深刻的印象，不过我到现在也还是没有搞清楚逻辑是什么。在国道上和前车比较近（到底是多近？不知道）会提示&lt;strong&gt;有车辆或行人靠近，请注意&lt;/strong&gt;，但没有声音提示。在市区开，比如转弯时前车有变道去直行车道我需要加速跟上转弯的车流时，会有急促的碰撞预警滴滴滴的声音，不过也没有感受到有主动刹车的介入。所以也不知道什么情况下才会触发主动刹车。&lt;/p&gt;
+&lt;p&gt;不管怎么样，这个功能还是给人一个很靠谱的印象，但愿永远不会用到。&lt;/p&gt;
+&lt;h3 id=&#34;自动大灯雨刷&#34;&gt;
+    &lt;a href=&#34;#%e8%87%aa%e5%8a%a8%e5%a4%a7%e7%81%af%e9%9b%a8%e5%88%b7&#34;&gt;#&lt;/a&gt;
+    自动大灯/雨刷
+&lt;/h3&gt;&lt;p&gt;这个我倒觉得其实作用不是特别大，开始开车第一年之后就再也没有忘记过开灯了。这种功能就把人变成傻子了，所有功能都变成自动了，人就只管开车就完了。&lt;/p&gt;
+&lt;p&gt;不过瑞虎8这个车子的大灯控制杆和雨刷控制杆手感不是特别好，尤其是大灯的，没有那种吸入感，可能也没有吸入，根本就是电子的。那天晚上为了晃一个远光狗，向下推了一下大灯控制杆，再往前走时被对向的车晃了一下才发现刚才把远光灯已经打开了。我还以为根本就没有推动呢。这个手感真是差评。&lt;/p&gt;
+&lt;h2 id=&#34;缺点&#34;&gt;
+    &lt;a href=&#34;#%e7%bc%ba%e7%82%b9&#34;&gt;#&lt;/a&gt;
+    缺点
+&lt;/h2&gt;&lt;p&gt;毕竟10万出头的车子，也不可能所有方面都很完美。目前发现有几个不舒服的地方。&lt;/p&gt;
+&lt;h3 id=&#34;减震硬&#34;&gt;
+    &lt;a href=&#34;#%e5%87%8f%e9%9c%87%e7%a1%ac&#34;&gt;#&lt;/a&gt;
+    减震硬
+&lt;/h3&gt;&lt;p&gt;这个硬是真的硬，尤其在一些县道上遇到有坑时，那就感觉是硬碰硬的感觉，还好我出门前把胎压从2.7调整到了2.4，不然估计就更难受了。给人的感觉就是这种情况下弹簧完全没有吸收震动，而且好像轮胎也是完全没有弹性，不知道为什么会有这种感觉。&lt;/p&gt;
+&lt;p&gt;不过在过高速和国道上的减速带时感觉就很舒服，干净利落，完全不会拖泥带水，甚至都有点享受这种感觉。很极端的体验。&lt;/p&gt;
+&lt;h3 id=&#34;2-3挡变速箱顿挫&#34;&gt;
+    &lt;a href=&#34;#2-3%e6%8c%a1%e5%8f%98%e9%80%9f%e7%ae%b1%e9%a1%bf%e6%8c%ab&#34;&gt;#&lt;/a&gt;
+    2-3挡变速箱顿挫
+&lt;/h3&gt;&lt;p&gt;这个在买之前也看到有人说，没想到还是挺明显的，不过倒不是每次都会有，偶尔会顿挫以下，整体倒是问题也不大。今天早上转弯的时候踩刹车减速，车子却突然加速了一下吓了一跳。这个问题相对不那么影响体验，上下班也开了几天了，就遇到一次比较明显的顿挫。其实之前开纳瓦拉的7AT有时感觉更难受，所以这个也可以接受。&lt;/p&gt;
+&lt;h3 id=&#34;不好停车&#34;&gt;
+    &lt;a href=&#34;#%e4%b8%8d%e5%a5%bd%e5%81%9c%e8%bd%a6&#34;&gt;#&lt;/a&gt;
+    不好停车
+&lt;/h3&gt;&lt;p&gt;相信我的停车水平，5.3米的皮卡我都开了一年多，这个车的大小我还是没什么问题的。就是在倒车的时候方向感不好，转动了方向盘，但车尾总是不能很精确的按照我的预期摆动，我也不清楚这是什么问题。而且这个车的辅助功能太多了，一圈的雷达加上全景影像，倒个车雷达一直滴滴滴，烦得慌，都不知道到底是应该按自己的习惯看后视镜还是看倒车影像了。&lt;/p&gt;
+&lt;h3 id=&#34;中央t型区设计吐槽&#34;&gt;
+    &lt;a href=&#34;#%e4%b8%ad%e5%a4%aet%e5%9e%8b%e5%8c%ba%e8%ae%be%e8%ae%a1%e5%90%90%e6%a7%bd&#34;&gt;#&lt;/a&gt;
+    中央T型区设计吐槽
+&lt;/h3&gt;&lt;p&gt;空调风量的调节按钮太小了，而且是触控按键，很不好操作，如果开车的时候调节，会有安全隐患。不过其实语音也可以控制，只是我现在还不习惯。&lt;/p&gt;
+&lt;p&gt;USB插口有两个，都在下方的镂空区域，所以用CarPlay的时候手机就放在下面了。但拿的时候就不太方便了。另外，自动豪华版竟然没有无线充电，不得已我只能拿了一个小米的无线充电器放在手机槽的位置了。。。&lt;/p&gt;
+&lt;p&gt;该说不说这个T型区确实宽了点，导致前排主副驾驶的腿部空间受了影像。可能就是简单的从捷豹路虎上面移植过来的，但没有考虑到毕竟豪华车的宽度比较大，所以没什么影像，但瑞虎8只有1.86的车宽，就会影响了。&lt;/p&gt;
+&lt;h3 id=&#34;后备箱的声音会传入驾驶舱&#34;&gt;
+    &lt;a href=&#34;#%e5%90%8e%e5%a4%87%e7%ae%b1%e7%9a%84%e5%a3%b0%e9%9f%b3%e4%bc%9a%e4%bc%a0%e5%85%a5%e9%a9%be%e9%a9%b6%e8%88%b1&#34;&gt;#&lt;/a&gt;
+    后备箱的声音会传入驾驶舱
+&lt;/h3&gt;&lt;p&gt;这可能是SUV的通病，毕竟轿车、皮卡都开过，而前两个尾厢和驾驶舱都是隔离的，所以不会听到后备箱里的声音，SUV就不一样了，后备箱里一瓶水滚动的声音都听的清清楚楚。&lt;/p&gt;
+&lt;h2 id=&#34;总结&#34;&gt;
+    &lt;a href=&#34;#%e6%80%bb%e7%bb%93&#34;&gt;#&lt;/a&gt;
+    总结
+&lt;/h2&gt;&lt;p&gt;落地12.5的车子，配置高的一比，动力也很强，唯一的不舒服的感受比较强烈的就是减震，其他真的不是为什么严重的问题，所以也可以接受了。这辆车没什么问题的话可能会开很多年了。&lt;/p&gt;</description>
+        </item>
+        
+    </channel>
+</rss>

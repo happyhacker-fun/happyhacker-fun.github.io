@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Golang on happyhacker的技术分享</title>
+        <link>https://blog.happyhacker.fun/tags/golang/</link>
+        <description>Recent content in Golang on happyhacker的技术分享</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Tue, 04 Jan 2022 11:46:03 +0800</lastBuildDate><atom:link href="https://blog.happyhacker.fun/tags/golang/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Filebeat 自动删除已经收集完的文件</title>
+        <link>https://blog.happyhacker.fun/p/filebeat-%E8%87%AA%E5%8A%A8%E5%88%A0%E9%99%A4%E5%B7%B2%E7%BB%8F%E6%94%B6%E9%9B%86%E5%AE%8C%E7%9A%84%E6%96%87%E4%BB%B6/</link>
+        <pubDate>Tue, 04 Jan 2022 11:46:03 +0800</pubDate>
+        
+        <guid>https://blog.happyhacker.fun/p/filebeat-%E8%87%AA%E5%8A%A8%E5%88%A0%E9%99%A4%E5%B7%B2%E7%BB%8F%E6%94%B6%E9%9B%86%E5%AE%8C%E7%9A%84%E6%96%87%E4%BB%B6/</guid>
+        <description>&lt;p&gt;用Filebeat收集日志一直有一个痛点，就是不知道要什么时候才能把要收集的文件删除。&lt;/p&gt;
+&lt;p&gt;之前的解决方案是定时删除文件，但删除的时候其实也不保证已经收集了，所以肯定是有概率会删除正在收集中的文件，这时候其实文件句柄正在被filebeat持有，所以删除也不能释放空间。&lt;/p&gt;
+&lt;p&gt;简单的搜索就发现了这篇文章&lt;a class=&#34;link&#34; href=&#34;https://discuss.elastic.co/t/filebeats-are-there-any-ways-we-can-delete-the-log-files-after-file-beat-harvest-the-data-to-logstash/177997&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;FileBeats -Are there any ways we can delete the log files after file beat harvest the data to logstash &lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;总结下来原理很简单，就是比较registry中的文件对应的offset，如果offset和当前文件的size相同，就表示已经收集完成（只是表示已经收集到文件最后的位置，并不表示文件不再继续写入了），这时候就可以删除文件了。&lt;/p&gt;
+&lt;p&gt;而基于之前升级filebeat的经验，我们把所有filebeat实例配置都放在同一个目录下，我们的代码就只需要便利这个目录下所有的&lt;code&gt;data/registry/filebeat/log.json&lt;/code&gt;文件，分析其中的数据即可。这里放一个简单的例子&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这个文件虽然是叫&lt;code&gt;log.json&lt;/code&gt;，但其实内容是多行json，也就是每行是一个json串，这里要注意一下。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;k&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;filebeat::logs::native::361-2055&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;v&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:{&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;timestamp&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;698286230&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1641268968&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;ttl&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;-1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;type&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;log&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;FileStateOS&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:{&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;inode&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;361&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;device&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2055&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;},&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;source&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;path/to/log.log&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;offset&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;153040051&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;identifier_name&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;native&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;id&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;native::361-2055&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;prev_id&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;op&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;set&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;id&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;8250639157&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;这里面需要处理的就是&lt;code&gt;v.source&lt;/code&gt;和&lt;code&gt;v.offset&lt;/code&gt;。处理过程中需要注意很多异常，但多数都是可以忽略的，主要是因为可能这个文件已经不存在了，但是registry信息还在这个&lt;code&gt;log.json&lt;/code&gt;里面。&lt;/p&gt;
+&lt;p&gt;不得不说用golang处理这种问题简直是“干净又卫生”，比用shell处理降低了非常多的心智负担，而且非常快速就能解决问题。在Mac上写的代码打一个linux的包放在&lt;code&gt;/etc/cron.hourly&lt;/code&gt;目录下就能每小时执行一次了。&lt;/p&gt;</description>
+        </item>
+        <item>
+        <title>0x02 命令行应用</title>
+        <link>https://blog.happyhacker.fun/p/0x02-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BA%94%E7%94%A8/</link>
+        <pubDate>Fri, 24 Dec 2021 22:24:17 +0800</pubDate>
+        
+        <guid>https://blog.happyhacker.fun/p/0x02-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BA%94%E7%94%A8/</guid>
+        <description>&lt;p&gt;自己用的最多的肯定是写一些命令行工具或者daemon应用，所以处理命令行参数还是很有必要的。&lt;/p&gt;
+&lt;p&gt;不得不说&lt;a class=&#34;link&#34; href=&#34;https://github.com/spf13&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;spf13&lt;/a&gt;这老哥是真的厉害，我最开始知道他是因为用了他的vim配置文件，当时就觉得这个配置是真详细，支持的功能非常多。&lt;/p&gt;
+&lt;p&gt;后来想写文章了，发现他搞了个性能最好的博客生成工具hugo，就是我现在在用的这个。&lt;/p&gt;
+&lt;p&gt;再后来想写一个命令行应用，发现他搞了个几乎是最好用的命令行应用开发框架cobra，我已经用它写了好几个应用了。&lt;/p&gt;
+&lt;p&gt;再后来需要处理配置文件，发现他搞了个几乎是最好用的配置管理工具viper，解决了解析shardingsphere的yaml配置中遇到的棘手问题。&lt;/p&gt;
+&lt;p&gt;总之，这老哥设计的东西就是牛逼。&lt;/p&gt;</description>
+        </item>
+        <item>
+        <title>0x01 基础命令以及go mod</title>
+        <link>https://blog.happyhacker.fun/p/0x01-%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E4%BB%A5%E5%8F%8Ago-mod/</link>
+        <pubDate>Wed, 15 Dec 2021 23:50:38 +0800</pubDate>
+        
+        <guid>https://blog.happyhacker.fun/p/0x01-%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E4%BB%A5%E5%8F%8Ago-mod/</guid>
+        <description>&lt;p&gt;本篇主要介绍golang的一些基础命令以及如何在大陆合理访问官方以及第三方的包。&lt;/p&gt;
+&lt;h2 id=&#34;go-run&#34;&gt;
+    &lt;a href=&#34;#go-run&#34;&gt;#&lt;/a&gt;
+    &lt;code&gt;go run&lt;/code&gt;
+&lt;/h2&gt;&lt;p&gt;最简单的执行go代码的方法，不需编译。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// main.go
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kn&#34;&gt;package&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;main&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;s&#34;&gt;&amp;#34;fmt&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;func&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nx&#34;&gt;fmt&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;Println&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Hello World!&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;上面的代码写好之后就可以执行&lt;code&gt;go run main.go&lt;/code&gt;来验证是否正确了。&lt;/p&gt;
+&lt;h2 id=&#34;go-mod&#34;&gt;
+    &lt;a href=&#34;#go-mod&#34;&gt;#&lt;/a&gt;
+    &lt;code&gt;go mod&lt;/code&gt;
+&lt;/h2&gt;&lt;p&gt;我觉得有了mod的go语言才真正算是现代化的语言了，在此之前的第三方的方案不能说不好，但谁让你是第三方呢？&lt;/p&gt;
+&lt;h3 id=&#34;初始化一个开启了go-mod的项目&#34;&gt;
+    &lt;a href=&#34;#%e5%88%9d%e5%a7%8b%e5%8c%96%e4%b8%80%e4%b8%aa%e5%bc%80%e5%90%af%e4%ba%86go-mod%e7%9a%84%e9%a1%b9%e7%9b%ae&#34;&gt;#&lt;/a&gt;
+    初始化一个开启了go mod的项目
+&lt;/h3&gt;&lt;p&gt;&lt;code&gt;go mod init&lt;/code&gt; 会创建一个简单的&lt;code&gt;go.mod&lt;/code&gt;文件，这很像是Java的pom.xml，但要简洁的多的多了。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-mod&#34; data-lang=&#34;mod&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;module&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;github&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;com&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;lovelock&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;go&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;tutorials&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;go&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;1.17&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;整理依赖&#34;&gt;
+    &lt;a href=&#34;#%e6%95%b4%e7%90%86%e4%be%9d%e8%b5%96&#34;&gt;#&lt;/a&gt;
+    整理依赖
+&lt;/h3&gt;&lt;p&gt;开发过程中可能会尝试引入一些依赖，后来发现其实是不需要的， 或者直接在代码中引用了，但没有把它加入&lt;code&gt;go.mod&lt;/code&gt;中，可以通过&lt;code&gt;go mod tidy&lt;/code&gt;来一键整理项目的依赖。&lt;/p&gt;
+&lt;h2 id=&#34;go-build&#34;&gt;
+    &lt;a href=&#34;#go-build&#34;&gt;#&lt;/a&gt;
+    &lt;code&gt;go build&lt;/code&gt;
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;⚠️ 在&lt;code&gt;GO111MODULE=&amp;quot;on&amp;quot;&lt;/code&gt;时也就是开启了go模块后，需要先出实话mod相关的配置才可以执行&lt;code&gt;go build&lt;/code&gt;
+如果想生成一个可执行文件，就要用编译/打包了。这里想多介绍的一点是交叉编译，也就是说在macOS上打包Windows上可以执行的文件。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;在macos或linux上打包&#34;&gt;
+    &lt;a href=&#34;#%e5%9c%a8macos%e6%88%96linux%e4%b8%8a%e6%89%93%e5%8c%85&#34;&gt;#&lt;/a&gt;
+    在macOS或Linux上打包
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;CGO_ENABLED&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;GOOS&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;darwin &lt;span class=&#34;nv&#34;&gt;GOARCH&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;amd64 go build main.go
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;CGO_ENABLED&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;GOOS&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;windows &lt;span class=&#34;nv&#34;&gt;GOARCH&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;amd64 go build main.go
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;CGO_ENABLED&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;GOOS&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;linux &lt;span class=&#34;nv&#34;&gt;GOARCH&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;amd64 go build main.go
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;在windows上打包&#34;&gt;
+    &lt;a href=&#34;#%e5%9c%a8windows%e4%b8%8a%e6%89%93%e5%8c%85&#34;&gt;#&lt;/a&gt;
+    在Windows上打包
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;CGO_ENABLED&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;GOOS&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;darwin
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;GOARCH&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;amd64
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;go build main.go
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;想看是否生效，可以用&lt;code&gt;go env&lt;/code&gt;查看&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;go-clean&#34;&gt;
+    &lt;a href=&#34;#go-clean&#34;&gt;#&lt;/a&gt;
+    &lt;code&gt;go clean&lt;/code&gt;
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;go build&lt;/code&gt;之后会生成二进制可执行文件，执行&lt;code&gt;go clean&lt;/code&gt;会把已经生成的可执行文件删除掉&lt;/p&gt;
+&lt;h2 id=&#34;go-install&#34;&gt;
+    &lt;a href=&#34;#go-install&#34;&gt;#&lt;/a&gt;
+    &lt;code&gt;go install&lt;/code&gt;
+&lt;/h2&gt;&lt;p&gt;如果把&lt;code&gt;go build&lt;/code&gt;比喻成&lt;code&gt;mvn package&lt;/code&gt;，那么&lt;code&gt;go install&lt;/code&gt;就是&lt;code&gt;mvn install&lt;/code&gt;了。会把二进制文件放在GOPATH中，如果妥善设置了GOPATH，就可以直接用了。&lt;/p&gt;
+&lt;h2 id=&#34;go-test&#34;&gt;
+    &lt;a href=&#34;#go-test&#34;&gt;#&lt;/a&gt;
+    &lt;code&gt;go test&lt;/code&gt;
+&lt;/h2&gt;&lt;p&gt;执行单元测试用的，可以用来做功能测试和性能测试，所有测试文件以&lt;code&gt;_test.go&lt;/code&gt;结尾。
+功能测试的方法以&lt;code&gt;Test&lt;/code&gt;开始，参数是&lt;code&gt;(t *testing.T)&lt;/code&gt;；
+性能测试的方法以&lt;code&gt;Benchmark&lt;/code&gt;开始，参数是&lt;code&gt;(b *testing.B)&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;如果要执行指定的test文件，有以下几种情形&lt;/p&gt;
+&lt;h3 id=&#34;执行当前项目内所有的单元测试文件&#34;&gt;
+    &lt;a href=&#34;#%e6%89%a7%e8%a1%8c%e5%bd%93%e5%89%8d%e9%a1%b9%e7%9b%ae%e5%86%85%e6%89%80%e6%9c%89%e7%9a%84%e5%8d%95%e5%85%83%e6%b5%8b%e8%af%95%e6%96%87%e4%bb%b6&#34;&gt;#&lt;/a&gt;
+    执行当前项目内所有的单元测试文件
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;go &lt;span class=&#34;nb&#34;&gt;test&lt;/span&gt; ./...
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;执行gopath指定目录内的所有单元测试文件&#34;&gt;
+    &lt;a href=&#34;#%e6%89%a7%e8%a1%8cgopath%e6%8c%87%e5%ae%9a%e7%9b%ae%e5%bd%95%e5%86%85%e7%9a%84%e6%89%80%e6%9c%89%e5%8d%95%e5%85%83%e6%b5%8b%e8%af%95%e6%96%87%e4%bb%b6&#34;&gt;#&lt;/a&gt;
+    执行&lt;code&gt;$GOPATH&lt;/code&gt;指定目录内的所有单元测试文件
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;go &lt;span class=&#34;nb&#34;&gt;test&lt;/span&gt; foo/...
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;执行当前目录内指定目录内所有单元测试文件&#34;&gt;
+    &lt;a href=&#34;#%e6%89%a7%e8%a1%8c%e5%bd%93%e5%89%8d%e7%9b%ae%e5%bd%95%e5%86%85%e6%8c%87%e5%ae%9a%e7%9b%ae%e5%bd%95%e5%86%85%e6%89%80%e6%9c%89%e5%8d%95%e5%85%83%e6%b5%8b%e8%af%95%e6%96%87%e4%bb%b6&#34;&gt;#&lt;/a&gt;
+    执行当前目录内指定目录内所有单元测试文件
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;go &lt;span class=&#34;nb&#34;&gt;test&lt;/span&gt; ./foo/...
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;执行gopath内指定文件前缀的单元测试文件&#34;&gt;
+    &lt;a href=&#34;#%e6%89%a7%e8%a1%8cgopath%e5%86%85%e6%8c%87%e5%ae%9a%e6%96%87%e4%bb%b6%e5%89%8d%e7%bc%80%e7%9a%84%e5%8d%95%e5%85%83%e6%b5%8b%e8%af%95%e6%96%87%e4%bb%b6&#34;&gt;#&lt;/a&gt;
+    执行&lt;code&gt;$GOPATH&lt;/code&gt;内指定文件前缀的单元测试文件
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;go &lt;span class=&#34;nb&#34;&gt;test&lt;/span&gt; foo...
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;执行当前项目内指定文件前缀的单元测试文件&#34;&gt;
+    &lt;a href=&#34;#%e6%89%a7%e8%a1%8c%e5%bd%93%e5%89%8d%e9%a1%b9%e7%9b%ae%e5%86%85%e6%8c%87%e5%ae%9a%e6%96%87%e4%bb%b6%e5%89%8d%e7%bc%80%e7%9a%84%e5%8d%95%e5%85%83%e6%b5%8b%e8%af%95%e6%96%87%e4%bb%b6&#34;&gt;#&lt;/a&gt;
+    执行当前项目内指定文件前缀的单元测试文件
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;go &lt;span class=&#34;nb&#34;&gt;test&lt;/span&gt; foo...
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;执行gopath内所有的单元测试文件文件&#34;&gt;
+    &lt;a href=&#34;#%e6%89%a7%e8%a1%8cgopath%e5%86%85%e6%89%80%e6%9c%89%e7%9a%84%e5%8d%95%e5%85%83%e6%b5%8b%e8%af%95%e6%96%87%e4%bb%b6%e6%96%87%e4%bb%b6&#34;&gt;#&lt;/a&gt;
+    执行&lt;code&gt;$GOPATH&lt;/code&gt;内所有的单元测试文件文件
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;go &lt;span class=&#34;nb&#34;&gt;test&lt;/span&gt; ...
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;执行指定的方法&#34;&gt;
+    &lt;a href=&#34;#%e6%89%a7%e8%a1%8c%e6%8c%87%e5%ae%9a%e7%9a%84%e6%96%b9%e6%b3%95&#34;&gt;#&lt;/a&gt;
+    执行指定的方法
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;go &lt;span class=&#34;nb&#34;&gt;test&lt;/span&gt; tests/foo/math_test.go -test.run TestHello
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;go &lt;span class=&#34;nb&#34;&gt;test&lt;/span&gt; ./... -test.run TestHello
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;go &lt;span class=&#34;nb&#34;&gt;test&lt;/span&gt; tests/foo/math_test.go -run TestHello
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;go &lt;span class=&#34;nb&#34;&gt;test&lt;/span&gt; ./... -run TestHello
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;go-get&#34;&gt;
+    &lt;a href=&#34;#go-get&#34;&gt;#&lt;/a&gt;
+    &lt;code&gt;go get&lt;/code&gt;
+&lt;/h2&gt;&lt;p&gt;到这才是go modules的关键，它是用来拉取依赖包的，它有一些控制参数，比如&lt;code&gt;go get -t&lt;/code&gt;表示要打包要安装的包的单元测试，&lt;code&gt;go get -u&lt;/code&gt;表示安装依赖包的最新的小版本。所谓小版本又涉及到语义化版本了，具体可以看&lt;a class=&#34;link&#34; href=&#34;https://semver.org/lang/zh-CN/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;这里&lt;/a&gt;&lt;/p&gt;</description>
+        </item>
+        <item>
+        <title>0x00 引言</title>
+        <link>https://blog.happyhacker.fun/p/0x00-%E5%BC%95%E8%A8%80/</link>
+        <pubDate>Wed, 15 Dec 2021 23:42:00 +0800</pubDate>
+        
+        <guid>https://blog.happyhacker.fun/p/0x00-%E5%BC%95%E8%A8%80/</guid>
+        <description>&lt;p&gt;最近要写一个可以跨平台执行又不依赖运行时的程序，所以就把golang又捡起来了。&lt;/p&gt;
+&lt;p&gt;说实话如果不是写公司的项目，Java实在是一个让人喜欢不起来的语言，主要maven这一套搞起来太麻烦，而且还需要在运行的机器上安装一个jre，这又增加了使用门槛，如果要给非开发人员写一个拿来即用的程序，go确实是一个不错的选择。&lt;/p&gt;
+&lt;p&gt;我要写的这个程序主要功能包括以下几部分&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;引用现成的包 go mod&lt;/li&gt;
+&lt;li&gt;有命令行交互 cobra&lt;/li&gt;
+&lt;li&gt;处理配置文件，包括ini和yaml viper&lt;/li&gt;
+&lt;li&gt;处理网络请求，包括Cookie、Get、Post请求以及不同的参数传递方式 resty/colly&lt;/li&gt;
+&lt;li&gt;下载图片并展示 resty/exec&lt;/li&gt;
+&lt;li&gt;识别图片验证码，本来希望能完美识别，但测试了tessocr之后觉得效果不好就没再深究了 tessocr&lt;/li&gt;
+&lt;li&gt;加快执行速度（最开始没有考虑） goroutine&lt;/li&gt;
+&lt;li&gt;连接数据库，仅仅是检查连通性 sql&lt;/li&gt;
+&lt;li&gt;将配置文件打包到可执行文件内 embed&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;所以我就想就着这些需求，把这几天重温golang的过程记录一下。&lt;/p&gt;</description>
+        </item>
+        
+    </channel>
+</rss>

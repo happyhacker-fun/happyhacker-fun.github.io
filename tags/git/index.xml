@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Git on happyhacker的技术分享</title>
+        <link>https://blog.happyhacker.fun/tags/git/</link>
+        <description>Recent content in Git on happyhacker的技术分享</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Wed, 03 Feb 2021 12:35:16 +0800</lastBuildDate><atom:link href="https://blog.happyhacker.fun/tags/git/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Fork的repo保持和原repo同步</title>
+        <link>https://blog.happyhacker.fun/p/fork%E7%9A%84repo%E4%BF%9D%E6%8C%81%E5%92%8C%E5%8E%9Frepo%E5%90%8C%E6%AD%A5/</link>
+        <pubDate>Wed, 03 Feb 2021 12:35:16 +0800</pubDate>
+        
+        <guid>https://blog.happyhacker.fun/p/fork%E7%9A%84repo%E4%BF%9D%E6%8C%81%E5%92%8C%E5%8E%9Frepo%E5%90%8C%E6%AD%A5/</guid>
+        <description>&lt;p&gt;有时候fork了一个项目，过几天发现原项目已经更新了，这时候要保持和原始项目的同步。&lt;/p&gt;
+&lt;p&gt;比如原始项目是&lt;code&gt;https://github.com/apache/flink.git&lt;/code&gt;，而我fork的项目是&lt;code&gt;git@github.com:lovelock/flink.git&lt;/code&gt;，这时在我自己的本地仓库可以执行这些命令&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git remote add remote https://github.com/apache/flink.git
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git fetch remote master
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git merge remote/master
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 上面两步也可以简化成 git pull remote master&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git push origin master
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;其实我觉得这个功能应该是让Github提供才更合适，干嘛要在本地操作呢？直接加个按钮，同步上游代码不就行了。&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+        </item>
+        
+    </channel>
+</rss>
