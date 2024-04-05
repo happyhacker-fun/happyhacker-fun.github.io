@@ -307,7 +307,25 @@
 <p>Intel芯片的macOS还是有很多选择的，Parallels Desktop就不说了，唯一的缺点就是贵，只说免费的方案。</p>
 <p>VirtualBox肯定是首选，但在Apple Silicon芯片发布后5年后的今天（2024年4月），支持苹果M系列芯片的版本仍然没有发布，甚至早前公布的虽然不可用的预览版也早已下架了，搞不好Oracle内部早已经放弃了。</p>
 <p>废话不多说，直接介绍今天的主角吧，Lima——Linux Machine，名字简单直接，其实我第一次看到类似的名字是Colima，是在apppleboy64大佬的博客上看到的，是一个本地管理K3s的工具，后来顺着了解到了Lima，可以理解为为了在macOS上运行Containerd而需要先启动一个Linux虚拟机，那么这个Lima就是为了运行这个虚拟机的。但我们现在要的就是这个虚拟机，至于后面是否要用K3s/K8s，不是现在考虑的事情。</p>
-<p>其实所有这些东西背后都是QEMU，无非是使用哪个前端了。我知道的还有一个libvirt，但配置相对很复杂，而我只需要一个能简单run起来的虚拟机而已，所以使用如此简单的Lima几乎是一个完美的选择。</p>
+<p>其实所有这些东西背后都是<img src="https://www.qemu.org/docs/master/system/introduction.html"
+	
+	
+	
+	loading="lazy"
+	
+		alt="QEMU"
+	
+	
+>，无非是使用哪个前端了。我知道的还有一个<img src="https://libvirt.org/"
+	
+	
+	
+	loading="lazy"
+	
+		alt="libvirt"
+	
+	
+>，但配置相对很复杂，而我只需要一个能简单run起来的虚拟机而已，所以使用如此简单的Lima几乎是一个完美的选择。</p>
 <h2 id="快速入门">
     <a href="#%e5%bf%ab%e9%80%9f%e5%85%a5%e9%97%a8">#</a>
     快速入门
