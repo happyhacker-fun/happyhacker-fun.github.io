@@ -12,7 +12,7 @@
         <pubDate>Thu, 04 Apr 2024 22:00:30 +0800</pubDate>
         
         <guid>https://blog.happyhacker.fun/p/%E4%BD%BF%E7%94%A8ninja%E4%BD%9C%E4%B8%BAcmake%E7%9A%84%E5%90%8E%E7%AB%AF/</guid>
-        <description>&lt;img src="https://blog.happyhacker.fun/images/CMake-with-Ninja-cover.png" alt="Featured image of post 使用Ninja作为CMake的后端" /&gt;&lt;p&gt;使用CMake的小伙伴可能大部分都是在（类）Unix环境下，所以一般都是用Unix Makefile作为默认后端，我这两天在修改一个多年前的C项目，把它从一坨Automake、Autoconf中拯救出来，改成了CMake的形式，清爽多了。&lt;/p&gt;
+        <description>&lt;img src="https://blog.happyhacker.fun/images/covers/CMake-with-Ninja-cover.png" alt="Featured image of post 使用Ninja作为CMake的后端" /&gt;&lt;p&gt;使用CMake的小伙伴可能大部分都是在（类）Unix环境下，所以一般都是用Unix Makefile作为默认后端，我这两天在修改一个多年前的C项目，把它从一坨Automake、Autoconf中拯救出来，改成了CMake的形式，清爽多了。&lt;/p&gt;
 &lt;p&gt;为什么这么说呢？是因为原先的方式就是把项目本身的代码放在根目录，然后几个依赖放在和自己的代码同一级的文件夹里，对于这几个依赖也是动态链接的方式，所以就需要先手动按顺序编译、安装这些依赖，然后再编译自己的代码。而改成CMake之后就变成静态依赖了，编译过程简化不少。&lt;/p&gt;
 &lt;p&gt;但问题也来了，我发现每次编译都要花挺长时间，那么有没有办法加速呢？这时候我想到了在很多开源项目都会用到的Ninja，于是了解了下，发现像Chromium、Android（部分）都是用它编译的，主打一个&lt;strong&gt;增量编译&lt;/strong&gt;，说白了就是只编译修改了的部分，它能够更智能地决定哪些部分需要重新构建，从而减少不必要的编译。&lt;/p&gt;
 &lt;h2 id=&#34;使用方法&#34;&gt;

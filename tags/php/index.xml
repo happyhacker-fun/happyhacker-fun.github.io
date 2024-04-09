@@ -12,7 +12,7 @@
         <pubDate>Tue, 09 Apr 2024 17:46:03 +0800</pubDate>
         
         <guid>https://blog.happyhacker.fun/p/php%E8%A7%A3%E5%86%B3curl%E5%93%8D%E5%BA%94%E8%BF%87%E5%A4%A7%E6%97%B6%E7%88%86%E5%86%85%E5%AD%98%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
-        <description>&lt;img src="https://blog.happyhacker.fun/images/curl-with-large-response-oom-fix.png" alt="Featured image of post PHP解决curl响应过大时爆内存的问题" /&gt;&lt;p&gt;PHP 调用 http 服务此前一直都是封装的 curl，这事儿我也干过不少次了，不过今天碰到了一个新问题。&lt;/p&gt;
+        <description>&lt;img src="https://blog.happyhacker.fun/images/covers/curl-with-large-response-oom-fix.png" alt="Featured image of post PHP解决curl响应过大时爆内存的问题" /&gt;&lt;p&gt;PHP 调用 http 服务此前一直都是封装的 curl，这事儿我也干过不少次了，不过今天碰到了一个新问题。&lt;/p&gt;
 &lt;p&gt;接口是 clickhouse 服务，查询的响应体比较大，放在内存里要超过 1 G，再继续修改 &lt;code&gt;max_memory_limit&lt;/code&gt; 意义不大，所以就希望把结果直接放入文件，然后逐行读取处理，以减少整个过程的内存消耗，那么怎么把结果写入文件呢？&lt;/p&gt;
 &lt;p&gt;相关的选项是这个&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
