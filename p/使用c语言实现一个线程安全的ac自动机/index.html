@@ -341,33 +341,33 @@
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">typedef</span> <span class="k">struct</span> <span class="n">ac_trie</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="k">struct</span> <span class="n">act_node</span> <span class="o">*</span><span class="n">root</span><span class="p">;</span> <span class="cm">/**&lt; The root node of the trie */</span>
+</span></span><span class="line"><span class="cl">	<span class="k">struct</span> <span class="n">act_node</span> <span class="o">*</span><span class="n">root</span><span class="p">;</span> <span class="cm">/**&lt; The root node of the trie */</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">		<span class="kt">size_t</span> <span class="n">patterns_count</span><span class="p">;</span> <span class="cm">/**&lt; Total patterns in the trie */</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">size_t</span> <span class="n">patterns_count</span><span class="p">;</span> <span class="cm">/**&lt; Total patterns in the trie */</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">		<span class="kt">short</span> <span class="n">trie_open</span><span class="p">;</span> <span class="cm">/**&lt; This flag indicates that if trie is finalized
-</span></span></span><span class="line"><span class="cl"><span class="cm">						  * or not. After finalizing the trie you can not
-</span></span></span><span class="line"><span class="cl"><span class="cm">						  * add pattern to trie anymore. */</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">short</span> <span class="n">trie_open</span><span class="p">;</span> <span class="cm">/**&lt; This flag indicates that if trie is finalized
+</span></span></span><span class="line"><span class="cl"><span class="cm">					  * or not. After finalizing the trie you can not
+</span></span></span><span class="line"><span class="cl"><span class="cm">					  * add pattern to trie anymore. */</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">		<span class="k">struct</span> <span class="n">mpool</span> <span class="o">*</span><span class="n">mp</span><span class="p">;</span> <span class="cm">/**&lt; Memory pool */</span>
+</span></span><span class="line"><span class="cl">	<span class="k">struct</span> <span class="n">mpool</span> <span class="o">*</span><span class="n">mp</span><span class="p">;</span> <span class="cm">/**&lt; Memory pool */</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">		<span class="cm">/* ******************* Thread specific part ******************** */</span>
+</span></span><span class="line"><span class="cl">	<span class="cm">/* ******************* Thread specific part ******************** */</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">		<span class="cm">/* It is possible to search a long input chunk by chunk. In order to
-</span></span></span><span class="line"><span class="cl"><span class="cm">		 * connect these chunks and make a continuous view of the input, we need
-</span></span></span><span class="line"><span class="cl"><span class="cm">		 * the following variables.
-</span></span></span><span class="line"><span class="cl"><span class="cm">		 */</span>
-</span></span><span class="line"><span class="cl">		<span class="k">struct</span> <span class="n">act_node</span> <span class="o">*</span><span class="n">last_node</span><span class="p">;</span> <span class="cm">/**&lt; Last node we stopped at */</span>
-</span></span><span class="line"><span class="cl">		<span class="kt">size_t</span> <span class="n">base_position</span><span class="p">;</span>       <span class="cm">/**&lt; Represents the position of the current chunk,
-</span></span></span><span class="line"><span class="cl"><span class="cm">									 * related to whole input text */</span>
+</span></span><span class="line"><span class="cl">	<span class="cm">/* It is possible to search a long input chunk by chunk. In order to
+</span></span></span><span class="line"><span class="cl"><span class="cm">	 * connect these chunks and make a continuous view of the input, we need
+</span></span></span><span class="line"><span class="cl"><span class="cm">	 * the following variables.
+</span></span></span><span class="line"><span class="cl"><span class="cm">	 */</span>
+</span></span><span class="line"><span class="cl">	<span class="k">struct</span> <span class="n">act_node</span> <span class="o">*</span><span class="n">last_node</span><span class="p">;</span> <span class="cm">/**&lt; Last node we stopped at */</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">size_t</span> <span class="n">base_position</span><span class="p">;</span>       <span class="cm">/**&lt; Represents the position of the current chunk,
+</span></span></span><span class="line"><span class="cl"><span class="cm">								 * related to whole input text */</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">		<span class="n">AC_TEXT_t</span> <span class="o">*</span><span class="n">text</span><span class="p">;</span> <span class="cm">/**&lt; A helper variable to hold the input chunk */</span>
-</span></span><span class="line"><span class="cl">		<span class="kt">size_t</span> <span class="n">position</span><span class="p">;</span> <span class="cm">/**&lt; A helper variable to hold the relative current
-</span></span></span><span class="line"><span class="cl"><span class="cm">						  * position in the given text */</span>
+</span></span><span class="line"><span class="cl">	<span class="n">AC_TEXT_t</span> <span class="o">*</span><span class="n">text</span><span class="p">;</span> <span class="cm">/**&lt; A helper variable to hold the input chunk */</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">size_t</span> <span class="n">position</span><span class="p">;</span> <span class="cm">/**&lt; A helper variable to hold the relative current
+</span></span></span><span class="line"><span class="cl"><span class="cm">					  * position in the given text */</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">		<span class="n">MF_REPLACEMENT_DATA_t</span> <span class="n">repdata</span><span class="p">;</span> <span class="cm">/**&lt; Replacement data structure */</span>
+</span></span><span class="line"><span class="cl">	<span class="n">MF_REPLACEMENT_DATA_t</span> <span class="n">repdata</span><span class="p">;</span> <span class="cm">/**&lt; Replacement data structure */</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">		<span class="n">ACT_WORKING_MODE_t</span> <span class="n">wm</span><span class="p">;</span> <span class="cm">/**&lt; Working mode */</span>
+</span></span><span class="line"><span class="cl">	<span class="n">ACT_WORKING_MODE_t</span> <span class="n">wm</span><span class="p">;</span> <span class="cm">/**&lt; Working mode */</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="n">AC_TRIE_t</span><span class="p">;</span>
 </span></span></code></pre></td></tr></table>
@@ -589,19 +589,19 @@
 </span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
 </span></span><span class="line"><span class="cl"><span class="k">typedef</span> <span class="k">struct</span> <span class="n">ac_trie</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="k">struct</span> <span class="n">act_node</span> <span class="o">*</span><span class="n">root</span><span class="p">;</span> <span class="cm">/**&lt; The root node of the trie */</span>
+</span></span><span class="line"><span class="cl">	<span class="k">struct</span> <span class="n">act_node</span> <span class="o">*</span><span class="n">root</span><span class="p">;</span> <span class="cm">/**&lt; The root node of the trie */</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">		<span class="kt">size_t</span> <span class="n">patterns_count</span><span class="p">;</span> <span class="cm">/**&lt; Total patterns in the trie */</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">size_t</span> <span class="n">patterns_count</span><span class="p">;</span> <span class="cm">/**&lt; Total patterns in the trie */</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">		<span class="kt">short</span> <span class="n">trie_open</span><span class="p">;</span> <span class="cm">/**&lt; This flag indicates that if trie is finalized
-</span></span></span><span class="line"><span class="cl"><span class="cm">						  * or not. After finalizing the trie you can not
-</span></span></span><span class="line"><span class="cl"><span class="cm">						  * add pattern to trie anymore. */</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">short</span> <span class="n">trie_open</span><span class="p">;</span> <span class="cm">/**&lt; This flag indicates that if trie is finalized
+</span></span></span><span class="line"><span class="cl"><span class="cm">					  * or not. After finalizing the trie you can not
+</span></span></span><span class="line"><span class="cl"><span class="cm">					  * add pattern to trie anymore. */</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">		<span class="k">struct</span> <span class="n">mpool</span> <span class="o">*</span><span class="n">mp</span><span class="p">;</span> <span class="cm">/**&lt; Memory pool */</span>
+</span></span><span class="line"><span class="cl">	<span class="k">struct</span> <span class="n">mpool</span> <span class="o">*</span><span class="n">mp</span><span class="p">;</span> <span class="cm">/**&lt; Memory pool */</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">		<span class="n">MF_REPLACEMENT_DATA_t</span> <span class="n">repdata</span><span class="p">;</span> <span class="cm">/**&lt; Replacement data structure */</span>
+</span></span><span class="line"><span class="cl">	<span class="n">MF_REPLACEMENT_DATA_t</span> <span class="n">repdata</span><span class="p">;</span> <span class="cm">/**&lt; Replacement data structure */</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">		<span class="n">ACT_WORKING_MODE_t</span> <span class="n">wm</span><span class="p">;</span> <span class="cm">/**&lt; Working mode */</span>
+</span></span><span class="line"><span class="cl">	<span class="n">ACT_WORKING_MODE_t</span> <span class="n">wm</span><span class="p">;</span> <span class="cm">/**&lt; Working mode */</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="n">AC_TRIE_t</span><span class="p">;</span>
 </span></span></code></pre></td></tr></table>
@@ -631,19 +631,19 @@
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">typedef</span> <span class="k">struct</span> <span class="n">ac_search</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="cm">/* ******************* Thread specific part ******************** */</span>
+</span></span><span class="line"><span class="cl">	<span class="cm">/* ******************* Thread specific part ******************** */</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">		<span class="cm">/* It is possible to search a long input chunk by chunk. In order to
-</span></span></span><span class="line"><span class="cl"><span class="cm">		 * connect these chunks and make a continuous view of the input, we need
-</span></span></span><span class="line"><span class="cl"><span class="cm">		 * the following variables.
-</span></span></span><span class="line"><span class="cl"><span class="cm">		 */</span>
-</span></span><span class="line"><span class="cl">		<span class="k">struct</span> <span class="n">act_node</span> <span class="o">*</span><span class="n">last_node</span><span class="p">;</span> <span class="cm">/**&lt; Last node we stopped at */</span>
-</span></span><span class="line"><span class="cl">		<span class="kt">size_t</span> <span class="n">base_position</span><span class="p">;</span>       <span class="cm">/**&lt; Represents the position of the current chunk,
-</span></span></span><span class="line"><span class="cl"><span class="cm">									 * related to whole input text */</span>
+</span></span><span class="line"><span class="cl">	<span class="cm">/* It is possible to search a long input chunk by chunk. In order to
+</span></span></span><span class="line"><span class="cl"><span class="cm">	 * connect these chunks and make a continuous view of the input, we need
+</span></span></span><span class="line"><span class="cl"><span class="cm">	 * the following variables.
+</span></span></span><span class="line"><span class="cl"><span class="cm">	 */</span>
+</span></span><span class="line"><span class="cl">	<span class="k">struct</span> <span class="n">act_node</span> <span class="o">*</span><span class="n">last_node</span><span class="p">;</span> <span class="cm">/**&lt; Last node we stopped at */</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">size_t</span> <span class="n">base_position</span><span class="p">;</span>       <span class="cm">/**&lt; Represents the position of the current chunk,
+</span></span></span><span class="line"><span class="cl"><span class="cm">								 * related to whole input text */</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">		<span class="n">AC_TEXT_t</span> <span class="o">*</span><span class="n">text</span><span class="p">;</span> <span class="cm">/**&lt; A helper variable to hold the input chunk */</span>
-</span></span><span class="line"><span class="cl">		<span class="kt">size_t</span> <span class="n">position</span><span class="p">;</span> <span class="cm">/**&lt; A helper variable to hold the relative current
-</span></span></span><span class="line"><span class="cl"><span class="cm">						  * position in the given text */</span>
+</span></span><span class="line"><span class="cl">	<span class="n">AC_TEXT_t</span> <span class="o">*</span><span class="n">text</span><span class="p">;</span> <span class="cm">/**&lt; A helper variable to hold the input chunk */</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">size_t</span> <span class="n">position</span><span class="p">;</span> <span class="cm">/**&lt; A helper variable to hold the relative current
+</span></span></span><span class="line"><span class="cl"><span class="cm">					  * position in the given text */</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="n">AC_SEARCH_t</span><span class="p">;</span>
 </span></span></code></pre></td></tr></table>
