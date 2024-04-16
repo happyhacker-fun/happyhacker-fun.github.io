@@ -333,7 +333,7 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&#34;position: relative; padding: 30% 45%;&#34;</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">style</span><span class="o">=</span><span class="s">&#34;position: absolute; width: 100%; height: 100%; left: 0; top: 0;&#34;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://player.bilibili.com/player.html?aid=815462670&amp;bvid=BV1hG4y1z7Cu&amp;cid=829156678&amp;page=3&amp;high_quality=1&amp;autoplay=false&#34;</span> <span class="na">frameborder</span><span class="o">=</span><span class="s">&#34;no&#34;</span> <span class="na">scrolling</span><span class="o">=</span><span class="s">&#34;no&#34;</span> <span class="na">allowfullscreen</span><span class="o">=</span><span class="s">&#34;true&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">style</span><span class="o">=</span><span class="s">&#34;position: absolute; width: 100%; height: 100%; left: 0; top: 0;&#34;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;//player.bilibili.com/player.html?aid=1302993488&amp;bvid=BV1DM4m1Q71a&amp;cid=1499653065&amp;p=1&#34;</span> <span class="na">frameborder</span><span class="o">=</span><span class="s">&#34;no&#34;</span> <span class="na">scrolling</span><span class="o">=</span><span class="s">&#34;no&#34;</span> <span class="na">allowfullscreen</span><span class="o">=</span><span class="s">&#34;true&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </span></span></code></pre></td></tr></table>
 </div>
@@ -343,15 +343,7 @@
     Hugo的shortcode
 </h2><p>没有仔细研读，看了一个例子基本就理解了，几个基本的规则</p>
 <ol>
-<li>基于新版本的目录结构，应该放在<code>layouts/shortcodes/name-of-short-code.html</code>中，其中<code>name-of-short-code</code>就是在文章中插入的名字，比如这里新建的文件名叫<code>bilibili</code>，那么就应该放在<code>layouts/shortcodes/bilibili.html</code>，而且具体的shortcode应该这么写<code><div class="container">
-  <div style="position: relative; padding: 30% 45%;">
-    <iframe style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"
-      src="" frameborder="no"
-      scrolling="no" allowfullscreen="true"></iframe>
-  </div>
-</div>
-
-</code></li>
+<li>基于新版本的目录结构，应该放在<code>layouts/shortcodes/name-of-short-code.html</code>中，其中<code>name-of-short-code</code>就是在文章中插入的名字，比如这里新建的文件名叫<code>bilibili</code>，那么就应该放在<code>layouts/shortcodes/bilibili.html</code>，而且具体的shortcode应该这么写<code>{{&lt; bilibili &gt;}}</code></li>
 <li>shortcode中除了写名字之外还有一些其他东西，这里就涉及到模板引擎了，写在shortcode名字后面的东西，可以通过<code>{{ .Get 0 }}</code>这种语法来获取，比如这个例子就是获取第一个参数</li>
 </ol>
 <p>根据上面的例子，具体的shortcode内容是这样的</p>
@@ -373,15 +365,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl"><div class="container">
-  <div style="position: relative; padding: 30% 45%;">
-    <iframe style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"
-      src="//player.bilibili.com/player.html?aid=1302993488&amp;bvid=BV1DM4m1Q71a&amp;cid=1499653065&amp;p=1" frameborder="no"
-      scrolling="no" allowfullscreen="true"></iframe>
-  </div>
-</div>
-
-
+<pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl">{{<span class="p">&lt;</span> <span class="nt">bilibili</span> <span class="err">&#34;//</span><span class="na">player</span><span class="err">.</span><span class="na">bilibili</span><span class="err">.</span><span class="na">com</span><span class="err">/</span><span class="na">player</span><span class="err">.</span><span class="na">html</span><span class="err">?</span><span class="na">aid</span><span class="o">=</span><span class="s">1302993488&amp;bvid=BV1DM4m1Q71a&amp;cid=1499653065&amp;p=1&#34;</span> <span class="p">&gt;</span>}}
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>搞定收工！如果要引用别的视频网站，可以根据需求写相应的shortcode。</p>

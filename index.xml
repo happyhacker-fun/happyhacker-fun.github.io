@@ -51,7 +51,7 @@
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;style&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;position: relative; padding: 30% 45%;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;iframe&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;style&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;position: absolute; width: 100%; height: 100%; left: 0; top: 0;&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;src&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;https://player.bilibili.com/player.html?aid=815462670&amp;amp;bvid=BV1hG4y1z7Cu&amp;amp;cid=829156678&amp;amp;page=3&amp;amp;high_quality=1&amp;amp;autoplay=false&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;frameborder&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;no&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;scrolling&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;no&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;allowfullscreen&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;true&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;iframe&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;iframe&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;style&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;position: absolute; width: 100%; height: 100%; left: 0; top: 0;&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;src&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;//player.bilibili.com/player.html?aid=1302993488&amp;amp;bvid=BV1DM4m1Q71a&amp;amp;cid=1499653065&amp;amp;p=1&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;frameborder&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;no&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;scrolling&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;no&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;allowfullscreen&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;true&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;iframe&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
@@ -61,15 +61,7 @@
     Hugo的shortcode
 &lt;/h2&gt;&lt;p&gt;没有仔细研读，看了一个例子基本就理解了，几个基本的规则&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;基于新版本的目录结构，应该放在&lt;code&gt;layouts/shortcodes/name-of-short-code.html&lt;/code&gt;中，其中&lt;code&gt;name-of-short-code&lt;/code&gt;就是在文章中插入的名字，比如这里新建的文件名叫&lt;code&gt;bilibili&lt;/code&gt;，那么就应该放在&lt;code&gt;layouts/shortcodes/bilibili.html&lt;/code&gt;，而且具体的shortcode应该这么写&lt;code&gt;&lt;div class=&#34;container&#34;&gt;
-  &lt;div style=&#34;position: relative; padding: 30% 45%;&#34;&gt;
-    &lt;iframe style=&#34;position: absolute; width: 100%; height: 100%; left: 0; top: 0;&#34;
-      src=&#34;&#34; frameborder=&#34;no&#34;
-      scrolling=&#34;no&#34; allowfullscreen=&#34;true&#34;&gt;&lt;/iframe&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;基于新版本的目录结构，应该放在&lt;code&gt;layouts/shortcodes/name-of-short-code.html&lt;/code&gt;中，其中&lt;code&gt;name-of-short-code&lt;/code&gt;就是在文章中插入的名字，比如这里新建的文件名叫&lt;code&gt;bilibili&lt;/code&gt;，那么就应该放在&lt;code&gt;layouts/shortcodes/bilibili.html&lt;/code&gt;，而且具体的shortcode应该这么写&lt;code&gt;{{&amp;lt; bilibili &amp;gt;}}&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;shortcode中除了写名字之外还有一些其他东西，这里就涉及到模板引擎了，写在shortcode名字后面的东西，可以通过&lt;code&gt;{{ .Get 0 }}&lt;/code&gt;这种语法来获取，比如这个例子就是获取第一个参数&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;根据上面的例子，具体的shortcode内容是这样的&lt;/p&gt;
@@ -91,15 +83,7 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;div class=&#34;container&#34;&gt;
-  &lt;div style=&#34;position: relative; padding: 30% 45%;&#34;&gt;
-    &lt;iframe style=&#34;position: absolute; width: 100%; height: 100%; left: 0; top: 0;&#34;
-      src=&#34;//player.bilibili.com/player.html?aid=1302993488&amp;amp;bvid=BV1DM4m1Q71a&amp;amp;cid=1499653065&amp;amp;p=1&#34; frameborder=&#34;no&#34;
-      scrolling=&#34;no&#34; allowfullscreen=&#34;true&#34;&gt;&lt;/iframe&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{{&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;bilibili&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;&amp;#34;//&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;player&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;bilibili&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;com&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;player&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;html&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;?&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;aid&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;1302993488&amp;amp;bvid=BV1DM4m1Q71a&amp;amp;cid=1499653065&amp;amp;p=1&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;}}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;搞定收工！如果要引用别的视频网站，可以根据需求写相应的shortcode。&lt;/p&gt;
