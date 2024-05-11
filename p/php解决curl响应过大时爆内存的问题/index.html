@@ -16,6 +16,9 @@
     <meta name="twitter:image" content='https://blog.happyhacker.fun/images/covers/curl-with-large-response-oom-fix.png' />
     <link rel="shortcut icon" href="/favicon.png" />
 
+  
+
+
     </head>
     <body class="
     article-page
@@ -322,6 +325,15 @@
 </div><p>这个选项设置为 <code>1/true</code> 时，就会把结果放在 <code>$response = curl_exec($ch)</code> 里的这个 <code>$response</code> 里，这也是现在这个问题的来源，<code>$response</code> 太大了。但如果把它设置为 <code>0/false</code>，它会写到标准输出，又没办法用代码处理。</p>
 <p>参考了<a class="link" href="https://stackoverflow.com/questions/7967531/php-curl-read-remote-file-and-write-contents-to-local-file"  target="_blank" rel="noopener"
     >这个问题</a>，给出了两个思路。</p>
+<div class="container">
+  <div style="position: relative; padding: 30% 45%;">
+    <iframe style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"
+      src="//player.bilibili.com/player.html?aid=1302993488&amp;bvid=BV1DM4m1Q71a&amp;cid=1499653065&amp;p=1" frameborder="no"
+      scrolling="no" allowfullscreen="true"></iframe>
+  </div>
+</div>
+
+
 <h2 id="直接写入文件">
     <a href="#%e7%9b%b4%e6%8e%a5%e5%86%99%e5%85%a5%e6%96%87%e4%bb%b6">#</a>
     直接写入文件

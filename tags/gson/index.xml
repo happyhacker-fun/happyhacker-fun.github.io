@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Gson on happyhacker的技术分享</title>
-        <link>https://blog.happyhacker.fun/tags/gson/</link>
+        <link>http://localhost:1313/tags/gson/</link>
         <description>Recent content in Gson on happyhacker的技术分享</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Fri, 05 Mar 2021 15:29:09 +0800</lastBuildDate><atom:link href="https://blog.happyhacker.fun/tags/gson/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 05 Mar 2021 15:29:09 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/gson/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Gson 和 Jackson 对比</title>
-        <link>https://blog.happyhacker.fun/p/gson-%E5%92%8C-jackson-%E5%AF%B9%E6%AF%94/</link>
+        <link>http://localhost:1313/p/gson-%E5%92%8C-jackson-%E5%AF%B9%E6%AF%94/</link>
         <pubDate>Fri, 05 Mar 2021 15:29:09 +0800</pubDate>
         
-        <guid>https://blog.happyhacker.fun/p/gson-%E5%92%8C-jackson-%E5%AF%B9%E6%AF%94/</guid>
+        <guid>http://localhost:1313/p/gson-%E5%92%8C-jackson-%E5%AF%B9%E6%AF%94/</guid>
         <description>&lt;p&gt;工作中难免经常会用到这两个库，简单来说Gson的用法比较无脑，而Jackson的则比较绕。这里对比几个比较典型的用法。&lt;/p&gt;
 &lt;h2 id=&#34;0-准备工作&#34;&gt;
     &lt;a href=&#34;#0-%e5%87%86%e5%a4%87%e5%b7%a5%e4%bd%9c&#34;&gt;#&lt;/a&gt;

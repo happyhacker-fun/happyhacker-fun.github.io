@@ -143,46 +143,6 @@
         <description></description>
         </item>
         <item>
-        <title>Cobra</title>
-        <link>https://blog.happyhacker.fun/tags/cobra/</link>
-        <pubDate>Fri, 24 Dec 2021 22:24:17 +0800</pubDate>
-        
-        <guid>https://blog.happyhacker.fun/tags/cobra/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Viper</title>
-        <link>https://blog.happyhacker.fun/tags/viper/</link>
-        <pubDate>Fri, 24 Dec 2021 22:24:17 +0800</pubDate>
-        
-        <guid>https://blog.happyhacker.fun/tags/viper/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Gson</title>
-        <link>https://blog.happyhacker.fun/tags/gson/</link>
-        <pubDate>Fri, 05 Mar 2021 15:29:09 +0800</pubDate>
-        
-        <guid>https://blog.happyhacker.fun/tags/gson/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Jackson</title>
-        <link>https://blog.happyhacker.fun/tags/jackson/</link>
-        <pubDate>Fri, 05 Mar 2021 15:29:09 +0800</pubDate>
-        
-        <guid>https://blog.happyhacker.fun/tags/jackson/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Json</title>
-        <link>https://blog.happyhacker.fun/tags/json/</link>
-        <pubDate>Fri, 05 Mar 2021 15:29:09 +0800</pubDate>
-        
-        <guid>https://blog.happyhacker.fun/tags/json/</guid>
-        <description></description>
-        </item>
-        <item>
         <title>Flink</title>
         <link>https://blog.happyhacker.fun/tags/flink/</link>
         <pubDate>Thu, 04 Feb 2021 22:55:48 +0800</pubDate>
@@ -220,6 +180,14 @@
         <pubDate>Thu, 21 Jan 2021 17:53:05 +0800</pubDate>
         
         <guid>https://blog.happyhacker.fun/tags/java/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Json</title>
+        <link>https://blog.happyhacker.fun/tags/json/</link>
+        <pubDate>Thu, 21 Jan 2021 17:53:05 +0800</pubDate>
+        
+        <guid>https://blog.happyhacker.fun/tags/json/</guid>
         <description></description>
         </item>
         <item>
@@ -404,22 +372,6 @@
         <pubDate>Sat, 22 Aug 2020 10:56:59 +0800</pubDate>
         
         <guid>https://blog.happyhacker.fun/tags/jenkins/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Hadoop</title>
-        <link>https://blog.happyhacker.fun/tags/hadoop/</link>
-        <pubDate>Thu, 06 Aug 2020 15:07:48 +0800</pubDate>
-        
-        <guid>https://blog.happyhacker.fun/tags/hadoop/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Yarn</title>
-        <link>https://blog.happyhacker.fun/tags/yarn/</link>
-        <pubDate>Thu, 06 Aug 2020 15:07:48 +0800</pubDate>
-        
-        <guid>https://blog.happyhacker.fun/tags/yarn/</guid>
         <description></description>
         </item>
         <item>

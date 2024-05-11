@@ -119,7 +119,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;这时就可以在其中找到刚刚创建的archetype了，在这里就是第4个，所以在交互界面填4，就可以继续选择域名和项目名称，生成一个新的maven项目，在生成的项目中你就会发现你刚刚在第2步中添加的两个依赖已经包含在里面了。&lt;/p&gt;
-&lt;p&gt;同样的道理，也可以在&lt;code&gt;pom.xml&lt;/code&gt;中添加相关的maven插件，以使从模板创建的项目更复合平时的需求。&lt;/p&gt;</description>
+&lt;p&gt;同样的道理，也可以在&lt;code&gt;pom.xml&lt;/code&gt;中添加相关的maven插件，以使从模板创建的项目更符合平时的需求。&lt;/p&gt;</description>
         </item>
         
     </channel>
