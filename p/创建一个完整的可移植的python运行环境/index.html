@@ -355,7 +355,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">pyinstaller --onefile --add-binary=&#39;/opt/homebrew/Cellar/ffmpeg/7.0.1/bin/ffmpeg:.&#39; --add-binary=&#39;/opt/homebrew/Cellar/ffmpeg/7.0.1/bin/ffprobe:.&#39; hello.py
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pyinstaller --onefile --add-binary<span class="o">=</span><span class="s1">&#39;/opt/homebrew/Cellar/ffmpeg/7.0.1/bin/ffmpeg:.&#39;</span> --add-binary<span class="o">=</span><span class="s1">&#39;/opt/homebrew/Cellar/ffmpeg/7.0.1/bin/ffprobe:.&#39;</span> hello.py
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>执行完之后会在当前路径下生成一个 <code>hello.spec</code>，就是把上面指定的这些东西保存到配置文件了，后面如果你再需要添加就直接往配置文件里添加即可。然后直接执行 <code>pyinstaller hello.spec</code>，就可以使用里面的所有配置了。</p>
