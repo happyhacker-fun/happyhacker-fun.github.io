@@ -78,7 +78,7 @@
         <pubDate>Tue, 09 Jul 2024 11:31:01 +0800</pubDate>
         
         <guid>https://blog.happyhacker.fun/p/%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%AE%8C%E6%95%B4%E7%9A%84%E5%8F%AF%E7%A7%BB%E6%A4%8D%E7%9A%84python%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83/</guid>
-        <description>&lt;p&gt;有几种方法可以将 Python 解释器和您的应用程序一起打包，以创建一个完全独立的可执行文件。以下是几种常见的方法：&lt;/p&gt;
+        <description>&lt;img src="https://blog.happyhacker.fun/images/covers/python-growing.webp" alt="Featured image of post 创建一个完整的可移植的Python运行环境" /&gt;&lt;p&gt;有几种方法可以将 Python 解释器和您的应用程序一起打包，以创建一个完全独立的可执行文件。以下是几种常见的方法：&lt;/p&gt;
 &lt;h3 id=&#34;1-pyinstaller&#34;&gt;
     &lt;a href=&#34;#1-pyinstaller&#34;&gt;#&lt;/a&gt;
     1. &lt;strong&gt;PyInstaller&lt;/strong&gt;
@@ -489,7 +489,7 @@
         <pubDate>Mon, 08 Jul 2024 15:04:13 +0800</pubDate>
         
         <guid>https://blog.happyhacker.fun/p/%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84python%E5%8C%85/</guid>
-        <description>&lt;p&gt;要创建一个最简单的 Python 包来演示包的作用，你只需创建一个包含必要文件和目录结构的项目。这个示例包不会有实际的功能，但它会展示如何构建和打包一个 Python 项目。&lt;/p&gt;
+        <description>&lt;img src="https://blog.happyhacker.fun/images/covers/python-growing.webp" alt="Featured image of post 构建一个最简单的Python包" /&gt;&lt;p&gt;要创建一个最简单的 Python 包来演示包的作用，你只需创建一个包含必要文件和目录结构的项目。这个示例包不会有实际的功能，但它会展示如何构建和打包一个 Python 项目。&lt;/p&gt;
 &lt;h3 id=&#34;目录结构&#34;&gt;
     &lt;a href=&#34;#%e7%9b%ae%e5%bd%95%e7%bb%93%e6%9e%84&#34;&gt;#&lt;/a&gt;
     目录结构
