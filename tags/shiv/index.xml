@@ -12,7 +12,7 @@
         <pubDate>Tue, 09 Jul 2024 11:18:50 +0800</pubDate>
         
         <guid>https://blog.happyhacker.fun/p/shiv%E8%A7%A3%E5%86%B3%E4%BA%86%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98/</guid>
-        <description>&lt;p&gt;如果shiv不能把解释器打包进去，不就丧失了可移植性吗？如果只能在当前机器上移动，这还有什么实际的应用场景呢？&lt;/p&gt;
+        <description>&lt;img src="https://blog.happyhacker.fun/images/covers/python-growing.webp" alt="Featured image of post shiv解决了什么问题" /&gt;&lt;p&gt;如果shiv不能把解释器打包进去，不就丧失了可移植性吗？如果只能在当前机器上移动，这还有什么实际的应用场景呢？&lt;/p&gt;
 &lt;p&gt;确实，&lt;code&gt;shiv&lt;/code&gt; 本身并不包含 Python 解释器，这可能会影响其可移植性。然而，&lt;code&gt;shiv&lt;/code&gt; 的设计目标和应用场景有其特定的考虑和优势：&lt;/p&gt;
 &lt;h3 id=&#34;shiv-的设计目标和优势&#34;&gt;
     &lt;a href=&#34;#shiv-%e7%9a%84%e8%ae%be%e8%ae%a1%e7%9b%ae%e6%a0%87%e5%92%8c%e4%bc%98%e5%8a%bf&#34;&gt;#&lt;/a&gt;

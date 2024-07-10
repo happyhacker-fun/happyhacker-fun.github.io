@@ -12,7 +12,7 @@
         <pubDate>Mon, 08 Jul 2024 15:07:16 +0800</pubDate>
         
         <guid>https://blog.happyhacker.fun/p/pip%E5%AE%89%E8%A3%85%E7%9A%84%E5%8C%85%E5%9C%A8%E5%93%AA%E9%87%8C/</guid>
-        <description>&lt;p&gt;使用 &lt;code&gt;pip install dist/my_simple_package-0.1.0-py3-none-any.whl&lt;/code&gt; 命令安装包后，该包会被安装到你的Python环境中。具体的安装位置取决于你使用的Python环境类型和配置。&lt;/p&gt;
+        <description>&lt;img src="https://blog.happyhacker.fun/images/covers/python-growing.webp" alt="Featured image of post pip安装的包在哪里？" /&gt;&lt;p&gt;使用 &lt;code&gt;pip install dist/my_simple_package-0.1.0-py3-none-any.whl&lt;/code&gt; 命令安装包后，该包会被安装到你的Python环境中。具体的安装位置取决于你使用的Python环境类型和配置。&lt;/p&gt;
 &lt;h3 id=&#34;安装位置&#34;&gt;
     &lt;a href=&#34;#%e5%ae%89%e8%a3%85%e4%bd%8d%e7%bd%ae&#34;&gt;#&lt;/a&gt;
     安装位置
