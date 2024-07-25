@@ -267,7 +267,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 2 分钟
+                    阅读时长: 3 分钟
                 </time>
             </div>
         
@@ -372,6 +372,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>这个写法简直完美了，简洁又优雅，虽然感觉有点奇怪。具体的解释可以看<a class="link" href="../Go%e8%af%ad%e8%a8%80%e7%9a%84%e7%b1%bb%e5%9e%8b%e9%80%89%e6%8b%a9" >Go语言的类型选择</a>。</p>
+<p>补充：刚才验证了下，如果想直接获取一个变量的类型，正常的做法是<code>reflect.TypeOf(structure)</code>，而不是<code>structure.(type)</code>，后者就是只能在<code>switch/case</code>语句中使用的，所以它就是这么一个结构，无论如何，这确实是一个非常好的设计。</p>
 <h2 id="使用vscode粘贴json内容时自动生成structs">
     <a href="#%e4%bd%bf%e7%94%a8vscode%e7%b2%98%e8%b4%b4json%e5%86%85%e5%ae%b9%e6%97%b6%e8%87%aa%e5%8a%a8%e7%94%9f%e6%88%90structs">#</a>
     使用VSCode粘贴json内容时自动生成<code>struct</code>s

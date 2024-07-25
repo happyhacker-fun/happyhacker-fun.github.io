@@ -1048,6 +1048,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;这个写法简直完美了，简洁又优雅，虽然感觉有点奇怪。具体的解释可以看&lt;a class=&#34;link&#34; href=&#34;../Go%e8%af%ad%e8%a8%80%e7%9a%84%e7%b1%bb%e5%9e%8b%e9%80%89%e6%8b%a9&#34; &gt;Go语言的类型选择&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;补充：刚才验证了下，如果想直接获取一个变量的类型，正常的做法是&lt;code&gt;reflect.TypeOf(structure)&lt;/code&gt;，而不是&lt;code&gt;structure.(type)&lt;/code&gt;，后者就是只能在&lt;code&gt;switch/case&lt;/code&gt;语句中使用的，所以它就是这么一个结构，无论如何，这确实是一个非常好的设计。&lt;/p&gt;
 &lt;h2 id=&#34;使用vscode粘贴json内容时自动生成structs&#34;&gt;
     &lt;a href=&#34;#%e4%bd%bf%e7%94%a8vscode%e7%b2%98%e8%b4%b4json%e5%86%85%e5%ae%b9%e6%97%b6%e8%87%aa%e5%8a%a8%e7%94%9f%e6%88%90structs&#34;&gt;#&lt;/a&gt;
     使用VSCode粘贴json内容时自动生成&lt;code&gt;struct&lt;/code&gt;s
