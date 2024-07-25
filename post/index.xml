@@ -953,11 +953,11 @@
 </description>
         </item>
         <item>
-        <title>Vscode Go Part 1</title>
-        <link>https://blog.happyhacker.fun/p/vscode-go-part-1/</link>
+        <title>使用VScode开发Go的奇妙体验-part1</title>
+        <link>https://blog.happyhacker.fun/p/%E4%BD%BF%E7%94%A8vscode%E5%BC%80%E5%8F%91go%E7%9A%84%E5%A5%87%E5%A6%99%E4%BD%93%E9%AA%8C-part1/</link>
         <pubDate>Thu, 25 Jul 2024 14:12:15 +0800</pubDate>
         
-        <guid>https://blog.happyhacker.fun/p/vscode-go-part-1/</guid>
+        <guid>https://blog.happyhacker.fun/p/%E4%BD%BF%E7%94%A8vscode%E5%BC%80%E5%8F%91go%E7%9A%84%E5%A5%87%E5%A6%99%E4%BD%93%E9%AA%8C-part1/</guid>
         <description>&lt;p&gt;前面我写了一篇关于实现一个像PHP风格一样的Go语言map/array/slice解析的文章，在写这篇文章的过程中我还发现了一些有意思的事情，这里记录两件。&lt;/p&gt;
 &lt;h2 id=&#34;判断一个变量的类型&#34;&gt;
     &lt;a href=&#34;#%e5%88%a4%e6%96%ad%e4%b8%80%e4%b8%aa%e5%8f%98%e9%87%8f%e7%9a%84%e7%b1%bb%e5%9e%8b&#34;&gt;#&lt;/a&gt;
