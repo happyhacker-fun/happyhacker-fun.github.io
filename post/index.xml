@@ -24,14 +24,16 @@
     &lt;a href=&#34;#2-%e6%ad%a3%e6%80%81%e5%88%86%e5%b8%83%e7%9a%84%e6%a6%82%e7%8e%87%e5%af%86%e5%ba%a6%e5%87%bd%e6%95%b0&#34;&gt;#&lt;/a&gt;
     2. 正态分布的概率密度函数：
 &lt;/h3&gt;&lt;p&gt;正态分布的概率密度函数（PDF）可以表示为：
-[
-f(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{(x - \mu)^2}{2\sigma^2}}
-]
+&lt;/p&gt;
+\[ 
+f(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{(x - \mu)^2}{2\sigma^2}} 
+\]
+&lt;p&gt;
 其中：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;( f(x) ) 是在某个特定值 ( x ) 处的概率密度。&lt;/li&gt;
-&lt;li&gt;( e ) 是自然对数的底数。&lt;/li&gt;
-&lt;li&gt;( \pi ) 是圆周率。&lt;/li&gt;
+&lt;li&gt;\( f(x) \) 是在某个特定值 \( x \) 处的概率密度。&lt;/li&gt;
+&lt;li&gt;\( e \) 是自然对数的底数。&lt;/li&gt;
+&lt;li&gt;\( \pi \) 是圆周率。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;3-标准差与曲线形状的关系&#34;&gt;
     &lt;a href=&#34;#3-%e6%a0%87%e5%87%86%e5%b7%ae%e4%b8%8e%e6%9b%b2%e7%ba%bf%e5%bd%a2%e7%8a%b6%e7%9a%84%e5%85%b3%e7%b3%bb&#34;&gt;#&lt;/a&gt;
