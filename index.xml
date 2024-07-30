@@ -6,7 +6,382 @@
         <description>Recent content on happyhacker的技术分享</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Tue, 30 Jul 2024 17:03:40 +0800</lastBuildDate><atom:link href="https://blog.happyhacker.fun/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 30 Jul 2024 21:29:14 +0800</lastBuildDate><atom:link href="https://blog.happyhacker.fun/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Git Submodule 的一个问题及解决方案</title>
+        <link>https://blog.happyhacker.fun/p/git-submodule-%E7%9A%84%E4%B8%80%E4%B8%AA%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</link>
+        <pubDate>Tue, 30 Jul 2024 21:29:14 +0800</pubDate>
+        
+        <guid>https://blog.happyhacker.fun/p/git-submodule-%E7%9A%84%E4%B8%80%E4%B8%AA%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</guid>
+        <description>&lt;p&gt;最近买了一台Windows笔记本，把原来写的博客从github上clone下来，再用原来的deploy脚本部署时发现会报这个错&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;fatal: in unpopulated submodule &amp;#39;public&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;其中&lt;code&gt;public&lt;/code&gt;是hugo生成的内容的目录，检查才发现原来是因clone主项目的时候是直接用的&lt;code&gt;git clone&lt;/code&gt;，而没有加submodule相关的命令，在这里解决问题只需要把public删除，再重新初始化一下submodule即可。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;del .\public
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git submodule update --init
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;这样git就会自动从远程下载public目录并正确地放在submodule中了。其他submodule相关的操作可以继续往下看。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;这个错误通常出现在 Git 仓库中使用子模块（submodule）的情况下。出现这个错误的原因可能有以下几种:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;子模块 &amp;lsquo;public&amp;rsquo; 还没有被初始化或克隆:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;确保在主仓库中运行 &lt;code&gt;git submodule init&lt;/code&gt; 和 &lt;code&gt;git submodule update&lt;/code&gt; 来初始化和更新子模块。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;子模块 &amp;lsquo;public&amp;rsquo; 的 URL 配置不正确:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;检查主仓库中 &lt;code&gt;.gitmodules&lt;/code&gt; 文件中 &amp;lsquo;public&amp;rsquo; 子模块的 URL 是否正确。&lt;/li&gt;
+&lt;li&gt;如果 URL 不正确，更新 URL 并运行 &lt;code&gt;git submodule sync&lt;/code&gt; 来同步配置。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;子模块 &amp;lsquo;public&amp;rsquo; 的工作目录为空:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;进入子模块目录 &lt;code&gt;public&lt;/code&gt;，检查是否有任何文件或提交记录。&lt;/li&gt;
+&lt;li&gt;如果目录为空，可能需要重新克隆或初始化该子模块。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;子模块 &amp;lsquo;public&amp;rsquo; 已经被删除:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;检查主仓库的 &lt;code&gt;.git/modules/&lt;/code&gt; 目录下是否还有 &amp;lsquo;public&amp;rsquo; 子模块的目录。&lt;/li&gt;
+&lt;li&gt;如果目录不存在，可能需要从主仓库中移除该子模块的引用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;要解决这个问题,你可以尝试以下步骤:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;确保 &amp;lsquo;public&amp;rsquo; 子模块已经被正确初始化和更新:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;git submodule init&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git submodule update&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;检查 &lt;code&gt;.gitmodules&lt;/code&gt; 文件中 &amp;lsquo;public&amp;rsquo; 子模块的 URL 是否正确,如果不正确请更新 URL。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;如果上述步骤无法解决问题,尝试从主仓库中删除 &amp;lsquo;public&amp;rsquo; 子模块的引用,然后重新添加子模块:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;git submodule deinit -f public&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git rm -f public&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;重新添加子模块 &lt;code&gt;git submodule add &amp;lt;url&amp;gt; public&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        <item>
+        <title>Excel神器VLOOKUP：简单功能背后的强大应用</title>
+        <link>https://blog.happyhacker.fun/p/excel%E7%A5%9E%E5%99%A8vlookup%E7%AE%80%E5%8D%95%E5%8A%9F%E8%83%BD%E8%83%8C%E5%90%8E%E7%9A%84%E5%BC%BA%E5%A4%A7%E5%BA%94%E7%94%A8/</link>
+        <pubDate>Tue, 30 Jul 2024 21:19:54 +0800</pubDate>
+        
+        <guid>https://blog.happyhacker.fun/p/excel%E7%A5%9E%E5%99%A8vlookup%E7%AE%80%E5%8D%95%E5%8A%9F%E8%83%BD%E8%83%8C%E5%90%8E%E7%9A%84%E5%BC%BA%E5%A4%A7%E5%BA%94%E7%94%A8/</guid>
+        <description>&lt;p&gt;在Excel的众多函数中，VLOOKUP无疑是最受欢迎和最有用的函数之一。虽然它的基本功能看似简单——在表格中查找并返回特定的值，但其实际应用范围却远远超出了这个简单的描述。今天，让我们深入探讨VLOOKUP的强大之处，并通过三个具体的例子来展示它如何在实际业务中发挥关键作用。&lt;/p&gt;
+&lt;h2 id=&#34;vlookup的强大之处&#34;&gt;
+    &lt;a href=&#34;#vlookup%e7%9a%84%e5%bc%ba%e5%a4%a7%e4%b9%8b%e5%a4%84&#34;&gt;#&lt;/a&gt;
+    VLOOKUP的强大之处
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;数据整合：轻松合并来自多个工作表或文件的数据。&lt;/li&gt;
+&lt;li&gt;自动化：大幅减少手动数据输入，提高效率。&lt;/li&gt;
+&lt;li&gt;灵活性：适用于各种数据类型和查找需求。&lt;/li&gt;
+&lt;li&gt;大数据处理：能够快速在包含数十万行的数据集中查找信息。&lt;/li&gt;
+&lt;li&gt;动态更新：创建可根据用户输入自动更新的报表。&lt;/li&gt;
+&lt;li&gt;错误减少：通过自动化查找过程，显著降低人为错误。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;现在，让我们通过三个具体的例子来看看VLOOKUP如何在实际业务中应用。&lt;/p&gt;
+&lt;h2 id=&#34;例子1电商平台订单处理&#34;&gt;
+    &lt;a href=&#34;#%e4%be%8b%e5%ad%901%e7%94%b5%e5%95%86%e5%b9%b3%e5%8f%b0%e8%ae%a2%e5%8d%95%e5%a4%84%e7%90%86&#34;&gt;#&lt;/a&gt;
+    例子1：电商平台订单处理
+&lt;/h2&gt;&lt;p&gt;想象你经营一个在线商店，每天需要处理数百个订单。使用VLOOKUP，你可以轻松地从产品数据库中提取所需信息，自动填充订单详情。&lt;/p&gt;
+&lt;p&gt;订单表：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;订单号&lt;/th&gt;
+&lt;th&gt;产品编码&lt;/th&gt;
+&lt;th&gt;数量&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;001&lt;/td&gt;
+&lt;td&gt;P1001&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;002&lt;/td&gt;
+&lt;td&gt;P1002&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;003&lt;/td&gt;
+&lt;td&gt;P1003&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;产品数据库：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;产品编码&lt;/th&gt;
+&lt;th&gt;产品名称&lt;/th&gt;
+&lt;th&gt;单价&lt;/th&gt;
+&lt;th&gt;库存数量&lt;/th&gt;
+&lt;th&gt;预计发货时间&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;P1001&lt;/td&gt;
+&lt;td&gt;笔记本电脑&lt;/td&gt;
+&lt;td&gt;4999&lt;/td&gt;
+&lt;td&gt;50&lt;/td&gt;
+&lt;td&gt;1天&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;P1002&lt;/td&gt;
+&lt;td&gt;智能手机&lt;/td&gt;
+&lt;td&gt;2999&lt;/td&gt;
+&lt;td&gt;100&lt;/td&gt;
+&lt;td&gt;2天&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;P1003&lt;/td&gt;
+&lt;td&gt;蓝牙耳机&lt;/td&gt;
+&lt;td&gt;499&lt;/td&gt;
+&lt;td&gt;200&lt;/td&gt;
+&lt;td&gt;即日&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;使用VLOOKUP，我们可以自动填充订单表中的产品信息：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;=VLOOKUP(B2, 产品数据库!A:E, 2, FALSE) // 查找产品名称
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;=VLOOKUP(B2, 产品数据库!A:E, 3, FALSE) // 查找单价
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;=IF(VLOOKUP(B2, 产品数据库!A:E, 4, FALSE)&amp;gt;=C2, &amp;#34;有货&amp;#34;, &amp;#34;缺货&amp;#34;) // 检查库存状态
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;=VLOOKUP(B2, 产品数据库!A:E, 5, FALSE) // 查找预计发货时间
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;例子2销售佣金计算&#34;&gt;
+    &lt;a href=&#34;#%e4%be%8b%e5%ad%902%e9%94%80%e5%94%ae%e4%bd%a3%e9%87%91%e8%ae%a1%e7%ae%97&#34;&gt;#&lt;/a&gt;
+    例子2：销售佣金计算
+&lt;/h2&gt;&lt;p&gt;假设你的公司有不同级别的销售人员，佣金比例根据销售额和级别而变化。VLOOKUP可以帮助你快速计算每个销售员的佣金。&lt;/p&gt;
+&lt;p&gt;销售数据表：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;销售员ID&lt;/th&gt;
+&lt;th&gt;销售额&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;S001&lt;/td&gt;
+&lt;td&gt;8000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;S002&lt;/td&gt;
+&lt;td&gt;15000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;S003&lt;/td&gt;
+&lt;td&gt;3000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;佣金比例表：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;销售额范围&lt;/th&gt;
+&lt;th&gt;初级销售&lt;/th&gt;
+&lt;th&gt;中级销售&lt;/th&gt;
+&lt;th&gt;高级销售&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;0-5000&lt;/td&gt;
+&lt;td&gt;3%&lt;/td&gt;
+&lt;td&gt;5%&lt;/td&gt;
+&lt;td&gt;7%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;5001-10000&lt;/td&gt;
+&lt;td&gt;5%&lt;/td&gt;
+&lt;td&gt;7%&lt;/td&gt;
+&lt;td&gt;9%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;10001+&lt;/td&gt;
+&lt;td&gt;7%&lt;/td&gt;
+&lt;td&gt;9%&lt;/td&gt;
+&lt;td&gt;11%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;员工信息表：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;员工ID&lt;/th&gt;
+&lt;th&gt;姓名&lt;/th&gt;
+&lt;th&gt;级别&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;S001&lt;/td&gt;
+&lt;td&gt;张三&lt;/td&gt;
+&lt;td&gt;初级&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;S002&lt;/td&gt;
+&lt;td&gt;李四&lt;/td&gt;
+&lt;td&gt;高级&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;S003&lt;/td&gt;
+&lt;td&gt;王五&lt;/td&gt;
+&lt;td&gt;中级&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;使用VLOOKUP和嵌套IF，我们可以自动计算佣金：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;=IF(VLOOKUP(A2, 员工信息表!A:C, 3, FALSE)=&amp;#34;初级&amp;#34;, 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    B2 * VLOOKUP(B2, 佣金比例表!A:D, 2, TRUE),
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    IF(VLOOKUP(A2, 员工信息表!A:C, 3, FALSE)=&amp;#34;中级&amp;#34;,
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        B2 * VLOOKUP(B2, 佣金比例表!A:D, 3, TRUE),
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        B2 * VLOOKUP(B2, 佣金比例表!A:D, 4, TRUE)))
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;例子3动态酒店定价系统&#34;&gt;
+    &lt;a href=&#34;#%e4%be%8b%e5%ad%903%e5%8a%a8%e6%80%81%e9%85%92%e5%ba%97%e5%ae%9a%e4%bb%b7%e7%b3%bb%e7%bb%9f&#34;&gt;#&lt;/a&gt;
+    例子3：动态酒店定价系统
+&lt;/h2&gt;&lt;p&gt;假设你经营一家酒店，房价会根据季节、是否周末和客户类型而变化。VLOOKUP可以帮助你实现动态定价。&lt;/p&gt;
+&lt;p&gt;价格表：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;季节&lt;/th&gt;
+&lt;th&gt;工作日普通&lt;/th&gt;
+&lt;th&gt;工作日VIP&lt;/th&gt;
+&lt;th&gt;周末普通&lt;/th&gt;
+&lt;th&gt;周末VIP&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;春&lt;/td&gt;
+&lt;td&gt;300&lt;/td&gt;
+&lt;td&gt;270&lt;/td&gt;
+&lt;td&gt;400&lt;/td&gt;
+&lt;td&gt;360&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;夏&lt;/td&gt;
+&lt;td&gt;400&lt;/td&gt;
+&lt;td&gt;360&lt;/td&gt;
+&lt;td&gt;500&lt;/td&gt;
+&lt;td&gt;450&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;秋&lt;/td&gt;
+&lt;td&gt;350&lt;/td&gt;
+&lt;td&gt;315&lt;/td&gt;
+&lt;td&gt;450&lt;/td&gt;
+&lt;td&gt;405&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;冬&lt;/td&gt;
+&lt;td&gt;250&lt;/td&gt;
+&lt;td&gt;225&lt;/td&gt;
+&lt;td&gt;350&lt;/td&gt;
+&lt;td&gt;315&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;预订表：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;预订日期&lt;/th&gt;
+&lt;th&gt;客户类型&lt;/th&gt;
+&lt;th&gt;是否周末&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;2023/7/15&lt;/td&gt;
+&lt;td&gt;VIP&lt;/td&gt;
+&lt;td&gt;是&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2023/10/5&lt;/td&gt;
+&lt;td&gt;普通&lt;/td&gt;
+&lt;td&gt;否&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2023/1/1&lt;/td&gt;
+&lt;td&gt;VIP&lt;/td&gt;
+&lt;td&gt;是&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;使用VLOOKUP结合其他函数来自动计算房价：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;=VLOOKUP(LOOKUP(MONTH(A2), {1,3,6,9,12}, {&amp;#34;冬&amp;#34;,&amp;#34;春&amp;#34;,&amp;#34;夏&amp;#34;,&amp;#34;秋&amp;#34;,&amp;#34;冬&amp;#34;}), 价格表!A:E, 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; IF(C2=&amp;#34;是&amp;#34;, IF(B2=&amp;#34;VIP&amp;#34;, 5, 4), IF(B2=&amp;#34;VIP&amp;#34;, 3, 2)), FALSE)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;这个公式首先根据月份确定季节，然后根据客户类型和是否周末选择正确的价格。&lt;/p&gt;
+&lt;h2 id=&#34;结论&#34;&gt;
+    &lt;a href=&#34;#%e7%bb%93%e8%ae%ba&#34;&gt;#&lt;/a&gt;
+    结论
+&lt;/h2&gt;&lt;p&gt;通过这些例子，我们可以看到VLOOKUP不仅仅是一个简单的查找工具，它还是一个强大的数据处理和自动化工具。无论是处理大量订单、计算复杂的佣金还是实现动态定价系统，VLOOKUP都能大显身手，帮助我们提高工作效率，减少错误，并处理复杂的业务逻辑。&lt;/p&gt;
+&lt;p&gt;掌握VLOOKUP，你将拥有一个处理各种Excel任务的强大武器。所以，下次当你面对复杂的数据处理任务时，别忘了考虑使用这个Excel的&amp;quot;大利器&amp;quot;！&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>最小费用最大流：优化项目资源配置的利器</title>
         <link>https://blog.happyhacker.fun/p/%E6%9C%80%E5%B0%8F%E8%B4%B9%E7%94%A8%E6%9C%80%E5%A4%A7%E6%B5%81%E4%BC%98%E5%8C%96%E9%A1%B9%E7%9B%AE%E8%B5%84%E6%BA%90%E9%85%8D%E7%BD%AE%E7%9A%84%E5%88%A9%E5%99%A8/</link>
         <pubDate>Tue, 30 Jul 2024 17:03:40 +0800</pubDate>
@@ -4589,11 +4964,11 @@ f(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{(x - \mu)^2}{2\sigma^2}}
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;|&lt;code&gt; os&lt;/code&gt; | 也不用动，你既然找它肯定是要用Linux |
-|&lt;code&gt; arch&lt;/code&gt; |关键就是这里了，Apple Silicon的机器默认肯定都选的是&lt;code&gt;aarch64&lt;/code&gt;，但如果确实需要X86的虚拟机，可以改成
+&lt;p&gt;|&lt;code&gt; os&lt;/code&gt; | 也不用动，你既然找它肯定是要用Linux |
+|&lt;code&gt; arch&lt;/code&gt; |关键就是这里了，Apple Silicon的机器默认肯定都选的是&lt;code&gt;aarch64&lt;/code&gt;，但如果确实需要X86的虚拟机，可以改成
 &lt;code&gt;x86_64&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;第二种情况，需要手动给QEMU&lt;a class=&#34;link&#34; href=&#34;https://www.reddit.com/r/Ryzentosh/comments/g8pl8p/any_virtualization_support/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;指定运行参数&lt;/a&gt;，把加上&lt;code&gt; QEMU_SYSTEM_X86_64=&amp;quot;QEMU-system-x86_64 -cpu max -machine q35&amp;quot;&lt;/code&gt;环境变量再执行&lt;code&gt;limactl start&lt;/code&gt;就可以了，但运行速度会比较慢就是了。&lt;/p&gt;
+    &gt;指定运行参数&lt;/a&gt;，把加上&lt;code&gt; QEMU_SYSTEM_X86_64=&amp;quot;QEMU-system-x86_64 -cpu max -machine q35&amp;quot;&lt;/code&gt;环境变量再执行&lt;code&gt;limactl start&lt;/code&gt;就可以了，但运行速度会比较慢就是了。&lt;/p&gt;
 &lt;p&gt;那么好奇的小朋友就会问了，这是为什么呢？&lt;/p&gt;
 &lt;p&gt;先看下GPT对于QEMU和KVM的区别的说明&lt;/p&gt;
 &lt;blockquote&gt;

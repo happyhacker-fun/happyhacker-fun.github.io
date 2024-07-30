@@ -6,7 +6,88 @@
         <description>Recent content in Git on happyhacker的技术分享</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Wed, 03 Feb 2021 12:35:16 +0800</lastBuildDate><atom:link href="https://blog.happyhacker.fun/tags/git/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 30 Jul 2024 21:29:14 +0800</lastBuildDate><atom:link href="https://blog.happyhacker.fun/tags/git/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Git Submodule 的一个问题及解决方案</title>
+        <link>https://blog.happyhacker.fun/p/git-submodule-%E7%9A%84%E4%B8%80%E4%B8%AA%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</link>
+        <pubDate>Tue, 30 Jul 2024 21:29:14 +0800</pubDate>
+        
+        <guid>https://blog.happyhacker.fun/p/git-submodule-%E7%9A%84%E4%B8%80%E4%B8%AA%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</guid>
+        <description>&lt;p&gt;最近买了一台Windows笔记本，把原来写的博客从github上clone下来，再用原来的deploy脚本部署时发现会报这个错&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;fatal: in unpopulated submodule &amp;#39;public&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;其中&lt;code&gt;public&lt;/code&gt;是hugo生成的内容的目录，检查才发现原来是因clone主项目的时候是直接用的&lt;code&gt;git clone&lt;/code&gt;，而没有加submodule相关的命令，在这里解决问题只需要把public删除，再重新初始化一下submodule即可。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;del .\public
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git submodule update --init
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;这样git就会自动从远程下载public目录并正确地放在submodule中了。其他submodule相关的操作可以继续往下看。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;这个错误通常出现在 Git 仓库中使用子模块（submodule）的情况下。出现这个错误的原因可能有以下几种:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;子模块 &amp;lsquo;public&amp;rsquo; 还没有被初始化或克隆:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;确保在主仓库中运行 &lt;code&gt;git submodule init&lt;/code&gt; 和 &lt;code&gt;git submodule update&lt;/code&gt; 来初始化和更新子模块。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;子模块 &amp;lsquo;public&amp;rsquo; 的 URL 配置不正确:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;检查主仓库中 &lt;code&gt;.gitmodules&lt;/code&gt; 文件中 &amp;lsquo;public&amp;rsquo; 子模块的 URL 是否正确。&lt;/li&gt;
+&lt;li&gt;如果 URL 不正确，更新 URL 并运行 &lt;code&gt;git submodule sync&lt;/code&gt; 来同步配置。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;子模块 &amp;lsquo;public&amp;rsquo; 的工作目录为空:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;进入子模块目录 &lt;code&gt;public&lt;/code&gt;，检查是否有任何文件或提交记录。&lt;/li&gt;
+&lt;li&gt;如果目录为空，可能需要重新克隆或初始化该子模块。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;子模块 &amp;lsquo;public&amp;rsquo; 已经被删除:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;检查主仓库的 &lt;code&gt;.git/modules/&lt;/code&gt; 目录下是否还有 &amp;lsquo;public&amp;rsquo; 子模块的目录。&lt;/li&gt;
+&lt;li&gt;如果目录不存在，可能需要从主仓库中移除该子模块的引用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;要解决这个问题,你可以尝试以下步骤:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;确保 &amp;lsquo;public&amp;rsquo; 子模块已经被正确初始化和更新:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;git submodule init&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git submodule update&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;检查 &lt;code&gt;.gitmodules&lt;/code&gt; 文件中 &amp;lsquo;public&amp;rsquo; 子模块的 URL 是否正确,如果不正确请更新 URL。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;如果上述步骤无法解决问题,尝试从主仓库中删除 &amp;lsquo;public&amp;rsquo; 子模块的引用,然后重新添加子模块:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;git submodule deinit -f public&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git rm -f public&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;重新添加子模块 &lt;code&gt;git submodule add &amp;lt;url&amp;gt; public&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        <item>
         <title>Fork的repo保持和原repo同步</title>
         <link>https://blog.happyhacker.fun/p/fork%E7%9A%84repo%E4%BF%9D%E6%8C%81%E5%92%8C%E5%8E%9Frepo%E5%90%8C%E6%AD%A5/</link>
         <pubDate>Wed, 03 Feb 2021 12:35:16 +0800</pubDate>

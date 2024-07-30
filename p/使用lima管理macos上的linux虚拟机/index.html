@@ -469,11 +469,11 @@
 </tr>
 </tbody>
 </table></div>
-<p>|<code> os</code> | 也不用动，你既然找它肯定是要用Linux |
-|<code> arch</code> |关键就是这里了，Apple Silicon的机器默认肯定都选的是<code>aarch64</code>，但如果确实需要X86的虚拟机，可以改成
+<p>|<code> os</code> | 也不用动，你既然找它肯定是要用Linux |
+|<code> arch</code> |关键就是这里了，Apple Silicon的机器默认肯定都选的是<code>aarch64</code>，但如果确实需要X86的虚拟机，可以改成
 <code>x86_64</code></p>
 <p>第二种情况，需要手动给QEMU<a class="link" href="https://www.reddit.com/r/Ryzentosh/comments/g8pl8p/any_virtualization_support/"  target="_blank" rel="noopener"
-    >指定运行参数</a>，把加上<code> QEMU_SYSTEM_X86_64=&quot;QEMU-system-x86_64 -cpu max -machine q35&quot;</code>环境变量再执行<code>limactl start</code>就可以了，但运行速度会比较慢就是了。</p>
+    >指定运行参数</a>，把加上<code> QEMU_SYSTEM_X86_64=&quot;QEMU-system-x86_64 -cpu max -machine q35&quot;</code>环境变量再执行<code>limactl start</code>就可以了，但运行速度会比较慢就是了。</p>
 <p>那么好奇的小朋友就会问了，这是为什么呢？</p>
 <p>先看下GPT对于QEMU和KVM的区别的说明</p>
 <blockquote>

@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="在Excel的众多函数中，VLOOKUP无疑是最受欢迎和最有用的函数之一。虽然它的基本功能看似简单——在表格中查找并返回特定的值，但其实际应">
+<title>Excel神器VLOOKUP：简单功能背后的强大应用</title>
+
+<link rel='canonical' href='https://blog.happyhacker.fun/p/excel%E7%A5%9E%E5%99%A8vlookup%E7%AE%80%E5%8D%95%E5%8A%9F%E8%83%BD%E8%83%8C%E5%90%8E%E7%9A%84%E5%BC%BA%E5%A4%A7%E5%BA%94%E7%94%A8/'>
+
+<link rel="stylesheet" href="/scss/style.min.8e60baf4cd3fc55968717a6e39762f4d28ed7ef6007566b6c7970ad0fe907198.css"><meta property='og:title' content="Excel神器VLOOKUP：简单功能背后的强大应用">
+<meta property='og:description' content="在Excel的众多函数中，VLOOKUP无疑是最受欢迎和最有用的函数之一。虽然它的基本功能看似简单——在表格中查找并返回特定的值，但其实际应">
+<meta property='og:url' content='https://blog.happyhacker.fun/p/excel%E7%A5%9E%E5%99%A8vlookup%E7%AE%80%E5%8D%95%E5%8A%9F%E8%83%BD%E8%83%8C%E5%90%8E%E7%9A%84%E5%BC%BA%E5%A4%A7%E5%BA%94%E7%94%A8/'>
+<meta property='og:site_name' content='happyhacker的技术分享'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='excel' /><meta property='article:tag' content='vlookup' /><meta property='article:published_time' content='2024-07-30T21:19:54&#43;08:00'/><meta property='article:modified_time' content='2024-07-30T21:19:54&#43;08:00'/>
+<meta name="twitter:title" content="Excel神器VLOOKUP：简单功能背后的强大应用">
+<meta name="twitter:description" content="在Excel的众多函数中，VLOOKUP无疑是最受欢迎和最有用的函数之一。虽然它的基本功能看似简单——在表格中查找并返回特定的值，但其实际应">
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hue510744d4faf2862e48f9851a0828b75_3362388_300x0_resize_box_3.png" width="300"
+                            height="280" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">happyhacker的技术分享</a></h1>
+            <h2 class="site-description"></h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/lovelock'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#vlookup的强大之处">VLOOKUP的强大之处</a></li>
+    <li><a href="#例子1电商平台订单处理">例子1：电商平台订单处理</a></li>
+    <li><a href="#例子2销售佣金计算">例子2：销售佣金计算</a></li>
+    <li><a href="#例子3动态酒店定价系统">例子3：动态酒店定价系统</a></li>
+    <li><a href="#结论">结论</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E8%BF%90%E7%AD%B9%E5%AD%A6/" >
+                运筹学
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/excel%E7%A5%9E%E5%99%A8vlookup%E7%AE%80%E5%8D%95%E5%8A%9F%E8%83%BD%E8%83%8C%E5%90%8E%E7%9A%84%E5%BC%BA%E5%A4%A7%E5%BA%94%E7%94%A8/">Excel神器VLOOKUP：简单功能背后的强大应用</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Jul 30, 2024</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 3 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>在Excel的众多函数中，VLOOKUP无疑是最受欢迎和最有用的函数之一。虽然它的基本功能看似简单——在表格中查找并返回特定的值，但其实际应用范围却远远超出了这个简单的描述。今天，让我们深入探讨VLOOKUP的强大之处，并通过三个具体的例子来展示它如何在实际业务中发挥关键作用。</p>
+<h2 id="vlookup的强大之处">
+    <a href="#vlookup%e7%9a%84%e5%bc%ba%e5%a4%a7%e4%b9%8b%e5%a4%84">#</a>
+    VLOOKUP的强大之处
+</h2><ol>
+<li>数据整合：轻松合并来自多个工作表或文件的数据。</li>
+<li>自动化：大幅减少手动数据输入，提高效率。</li>
+<li>灵活性：适用于各种数据类型和查找需求。</li>
+<li>大数据处理：能够快速在包含数十万行的数据集中查找信息。</li>
+<li>动态更新：创建可根据用户输入自动更新的报表。</li>
+<li>错误减少：通过自动化查找过程，显著降低人为错误。</li>
+</ol>
+<p>现在，让我们通过三个具体的例子来看看VLOOKUP如何在实际业务中应用。</p>
+<h2 id="例子1电商平台订单处理">
+    <a href="#%e4%be%8b%e5%ad%901%e7%94%b5%e5%95%86%e5%b9%b3%e5%8f%b0%e8%ae%a2%e5%8d%95%e5%a4%84%e7%90%86">#</a>
+    例子1：电商平台订单处理
+</h2><p>想象你经营一个在线商店，每天需要处理数百个订单。使用VLOOKUP，你可以轻松地从产品数据库中提取所需信息，自动填充订单详情。</p>
+<p>订单表：</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>订单号</th>
+<th>产品编码</th>
+<th>数量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>001</td>
+<td>P1001</td>
+<td>2</td>
+</tr>
+<tr>
+<td>002</td>
+<td>P1002</td>
+<td>1</td>
+</tr>
+<tr>
+<td>003</td>
+<td>P1003</td>
+<td>3</td>
+</tr>
+</tbody>
+</table></div>
+<p>产品数据库：</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>产品编码</th>
+<th>产品名称</th>
+<th>单价</th>
+<th>库存数量</th>
+<th>预计发货时间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P1001</td>
+<td>笔记本电脑</td>
+<td>4999</td>
+<td>50</td>
+<td>1天</td>
+</tr>
+<tr>
+<td>P1002</td>
+<td>智能手机</td>
+<td>2999</td>
+<td>100</td>
+<td>2天</td>
+</tr>
+<tr>
+<td>P1003</td>
+<td>蓝牙耳机</td>
+<td>499</td>
+<td>200</td>
+<td>即日</td>
+</tr>
+</tbody>
+</table></div>
+<p>使用VLOOKUP，我们可以自动填充订单表中的产品信息：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">=VLOOKUP(B2, 产品数据库!A:E, 2, FALSE) // 查找产品名称
+</span></span><span class="line"><span class="cl">=VLOOKUP(B2, 产品数据库!A:E, 3, FALSE) // 查找单价
+</span></span><span class="line"><span class="cl">=IF(VLOOKUP(B2, 产品数据库!A:E, 4, FALSE)&gt;=C2, &#34;有货&#34;, &#34;缺货&#34;) // 检查库存状态
+</span></span><span class="line"><span class="cl">=VLOOKUP(B2, 产品数据库!A:E, 5, FALSE) // 查找预计发货时间
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="例子2销售佣金计算">
+    <a href="#%e4%be%8b%e5%ad%902%e9%94%80%e5%94%ae%e4%bd%a3%e9%87%91%e8%ae%a1%e7%ae%97">#</a>
+    例子2：销售佣金计算
+</h2><p>假设你的公司有不同级别的销售人员，佣金比例根据销售额和级别而变化。VLOOKUP可以帮助你快速计算每个销售员的佣金。</p>
+<p>销售数据表：</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>销售员ID</th>
+<th>销售额</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S001</td>
+<td>8000</td>
+</tr>
+<tr>
+<td>S002</td>
+<td>15000</td>
+</tr>
+<tr>
+<td>S003</td>
+<td>3000</td>
+</tr>
+</tbody>
+</table></div>
+<p>佣金比例表：</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>销售额范围</th>
+<th>初级销售</th>
+<th>中级销售</th>
+<th>高级销售</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0-5000</td>
+<td>3%</td>
+<td>5%</td>
+<td>7%</td>
+</tr>
+<tr>
+<td>5001-10000</td>
+<td>5%</td>
+<td>7%</td>
+<td>9%</td>
+</tr>
+<tr>
+<td>10001+</td>
+<td>7%</td>
+<td>9%</td>
+<td>11%</td>
+</tr>
+</tbody>
+</table></div>
+<p>员工信息表：</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>员工ID</th>
+<th>姓名</th>
+<th>级别</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S001</td>
+<td>张三</td>
+<td>初级</td>
+</tr>
+<tr>
+<td>S002</td>
+<td>李四</td>
+<td>高级</td>
+</tr>
+<tr>
+<td>S003</td>
+<td>王五</td>
+<td>中级</td>
+</tr>
+</tbody>
+</table></div>
+<p>使用VLOOKUP和嵌套IF，我们可以自动计算佣金：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">=IF(VLOOKUP(A2, 员工信息表!A:C, 3, FALSE)=&#34;初级&#34;, 
+</span></span><span class="line"><span class="cl">    B2 * VLOOKUP(B2, 佣金比例表!A:D, 2, TRUE),
+</span></span><span class="line"><span class="cl">    IF(VLOOKUP(A2, 员工信息表!A:C, 3, FALSE)=&#34;中级&#34;,
+</span></span><span class="line"><span class="cl">        B2 * VLOOKUP(B2, 佣金比例表!A:D, 3, TRUE),
+</span></span><span class="line"><span class="cl">        B2 * VLOOKUP(B2, 佣金比例表!A:D, 4, TRUE)))
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="例子3动态酒店定价系统">
+    <a href="#%e4%be%8b%e5%ad%903%e5%8a%a8%e6%80%81%e9%85%92%e5%ba%97%e5%ae%9a%e4%bb%b7%e7%b3%bb%e7%bb%9f">#</a>
+    例子3：动态酒店定价系统
+</h2><p>假设你经营一家酒店，房价会根据季节、是否周末和客户类型而变化。VLOOKUP可以帮助你实现动态定价。</p>
+<p>价格表：</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>季节</th>
+<th>工作日普通</th>
+<th>工作日VIP</th>
+<th>周末普通</th>
+<th>周末VIP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>春</td>
+<td>300</td>
+<td>270</td>
+<td>400</td>
+<td>360</td>
+</tr>
+<tr>
+<td>夏</td>
+<td>400</td>
+<td>360</td>
+<td>500</td>
+<td>450</td>
+</tr>
+<tr>
+<td>秋</td>
+<td>350</td>
+<td>315</td>
+<td>450</td>
+<td>405</td>
+</tr>
+<tr>
+<td>冬</td>
+<td>250</td>
+<td>225</td>
+<td>350</td>
+<td>315</td>
+</tr>
+</tbody>
+</table></div>
+<p>预订表：</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>预订日期</th>
+<th>客户类型</th>
+<th>是否周末</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2023/7/15</td>
+<td>VIP</td>
+<td>是</td>
+</tr>
+<tr>
+<td>2023/10/5</td>
+<td>普通</td>
+<td>否</td>
+</tr>
+<tr>
+<td>2023/1/1</td>
+<td>VIP</td>
+<td>是</td>
+</tr>
+</tbody>
+</table></div>
+<p>使用VLOOKUP结合其他函数来自动计算房价：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">=VLOOKUP(LOOKUP(MONTH(A2), {1,3,6,9,12}, {&#34;冬&#34;,&#34;春&#34;,&#34;夏&#34;,&#34;秋&#34;,&#34;冬&#34;}), 价格表!A:E, 
+</span></span><span class="line"><span class="cl"> IF(C2=&#34;是&#34;, IF(B2=&#34;VIP&#34;, 5, 4), IF(B2=&#34;VIP&#34;, 3, 2)), FALSE)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这个公式首先根据月份确定季节，然后根据客户类型和是否周末选择正确的价格。</p>
+<h2 id="结论">
+    <a href="#%e7%bb%93%e8%ae%ba">#</a>
+    结论
+</h2><p>通过这些例子，我们可以看到VLOOKUP不仅仅是一个简单的查找工具，它还是一个强大的数据处理和自动化工具。无论是处理大量订单、计算复杂的佣金还是实现动态定价系统，VLOOKUP都能大显身手，帮助我们提高工作效率，减少错误，并处理复杂的业务逻辑。</p>
+<p>掌握VLOOKUP，你将拥有一个处理各种Excel任务的强大武器。所以，下次当你面对复杂的数据处理任务时，别忘了考虑使用这个Excel的&quot;大利器&quot;！</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/excel/">Excel</a>
+        
+            <a href="/tags/vlookup/">Vlookup</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/%E6%9C%80%E5%B0%8F%E8%B4%B9%E7%94%A8%E6%9C%80%E5%A4%A7%E6%B5%81%E4%BC%98%E5%8C%96%E9%A1%B9%E7%9B%AE%E8%B5%84%E6%BA%90%E9%85%8D%E7%BD%AE%E7%9A%84%E5%88%A9%E5%99%A8/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">最小费用最大流：优化项目资源配置的利器</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E6%8F%A1%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E7%9A%84%E5%85%B3%E9%94%AE%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E5%85%B3%E9%94%AE%E8%B7%AF%E5%BE%84%E6%B3%95%E5%92%8C%E6%B5%AE%E5%8A%A8%E6%97%B6%E9%97%B4%E8%AE%A1%E7%AE%97/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">握项目管理的关键：深入理解关键路径法和浮动时间计算</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E5%92%8C%E6%A0%87%E5%87%86%E5%B7%AE/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">正态分布和标准差</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <script
+    src="https://giscus.app/client.js"
+    data-repo="happyhacker-fun/gitcus"
+    data-repo-id="R_kgDOLp2apg"
+    data-category="Announcements"
+    data-category-id="DIC_kwDOLp2aps4Cec_w"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="light"
+    data-lang="en"
+    crossorigin="anonymous"
+    async
+></script>
+<script>
+    function setGiscusTheme(theme) {
+        let giscus = document.querySelector("iframe.giscus-frame");
+        if (giscus) {
+            giscus.contentWindow.postMessage(
+                {
+                    giscus: {
+                        setConfig: {
+                            theme: theme,
+                        },
+                    },
+                },
+                "https://giscus.app"
+            );
+        }
+    }
+
+    (function () {
+        addEventListener("message", (e) => {
+            if (event.origin !== "https://giscus.app") return;
+            handler();
+        });
+        window.addEventListener("onColorSchemeChange", handler);
+
+        function handler() {
+            if (document.documentElement.dataset.scheme === "light") {
+                setGiscusTheme('light');
+            } else {
+                setGiscusTheme('dark_dimmed');
+            }
+        }
+    })();
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2024 happyhacker的技术分享
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.25.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
